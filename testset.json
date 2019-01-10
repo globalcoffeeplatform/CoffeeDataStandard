@@ -5,11 +5,32 @@
   "Sender": "UTZ-Rainforest Alliance",
   "Farmer": {
     "general": {
-      "farmerid": "todo",
+      "farmerId": "todo",
       "name": {
         "firstName": "Carlos",
         "lastName": "de la Huerta"
-      }
+      },
+      "geoId": "todo",
+      "address": {
+        "streetAddress": "1600 Amphitheatre Pkwy",
+        "countryName": "Mali"
+      },
+      "frontDoor": {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            125.6,
+            10.1
+          ],
+          "crs": "todo"
+        },
+        "properties": {
+          "name": "1600 Amphitheatre Pkwy"
+        }
+      },
+      "yearOfBirth": 1974,
+      "gender": "Male"
     }
   }
 }

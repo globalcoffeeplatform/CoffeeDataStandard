@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://example.com/global-coffee-data-standard.schema.json",
+  "$id": "http://example.com/global-coffee-data-standard.schema.json#v28",
   "title": "GlobalCoffeeDataset",
   "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
   "version": "0.0.1",
@@ -32,8 +32,9 @@
           "description": "The general farmer characteristics",
           "type": "object",
           "properties": {
-            "farmerid": {
-              "description": "TODO",
+            "farmerId": {
+              "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organisation.",
+              "title": "TODO",
               "type": "string"
             },
             "name": {
@@ -49,10 +50,81 @@
                   "type": "string"
                 }
               },
-              "required": ["lastName"]
+              "required": [
+                "lastName"
+              ]
+            },
+            "frontDoor": {
+              "description": "Geolocation of the front door of the head office",
+              "title": "TODO: Is deze geo wel nodig/handig?",
+              "$ref": "http://json.schemastore.org/geojson"
+            },
+            "address": {
+              "description": "An address. This is the legally registered address of the organization.",
+              "type": "object",
+              "properties": {
+                "streetAddress": {
+                  "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
+                  "title": "Street address",
+                  "type": "string"
+                },
+                "postalCode": {
+                  "description": "The postal code. For example, 94043.",
+                  "title": "Postalcode",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "locality": {
+                  "description": "The locality. For example, Mountain View.",
+                  "title": "Locality",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "region": {
+                  "description": "The region. For example, CA.",
+                  "title": "Region",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "countryName": {
+                  "description": "The country name. For example, United States.",
+                  "title": "Country name",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "countryName"
+              ]
+            },
+            "yearOfBirth": {
+              "description": "Data point used to understand relative presence of youth and calculate youth engagement: % of producers in the sustainability program or supply chain 35 years old and under",
+              "type": "integer",
+              "title": "TODO: Controle op correcte jaartallen"
+            },
+            "gender": {
+              "description": "Data point used to understand relative presence of women and to calculate women's engagement and the outcomes they experience as diverse from men: % of women in the sustainability program or supply chain",
+              "enum": [
+                "Female",
+                "Male",
+                "Other",
+                "Prefer not to say"
+              ]
             }
           },
-          "required": ["farmerid", "name"]
+          "required": [
+            "farmerId",
+            "name",
+            "address",
+            "frontDoor",
+            "yearOfBirth",
+            "gender"
+          ]
         },
         "social": {
           "description": "The social farmer characteristics",
@@ -65,7 +137,9 @@
           }
         }
       },
-      "required": ["general"]
+      "required": [
+        "general"
+      ]
     }
   },
   "required": [
