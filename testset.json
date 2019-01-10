@@ -1,5 +1,15 @@
 {
   "GlobalCoffeeDatasetId": 1,
   "SchemaVersion": "0.3.1",
-  "DateTimeSend": "2019-01-10T17:00:00Z"
+  "DateTimeSend": "2019-01-10T17:00:00Z",
+  "Sender": "UTZ-Rainforest Alliance",
+  "Farmer": {
+    "general": {
+      "farmerid": "todo",
+      "name": {
+        "firstName": "Carlos",
+        "lastName": "de la Huerta"
+      }
+    }
+  }
 }
