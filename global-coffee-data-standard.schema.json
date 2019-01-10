@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/global-coffee-data-standard.schema.json",
+  "title": "GlobalCoffeeDataset",
+  "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
+  "version": "0.0.1",
+  "type": "object",
+  "properties": {
+    "GlobalCoffeeDatasetId": {
+      "description": "The unique identifier for a dataset",
+      "type": "integer"
+    },
+    "SchemaVersion": {
+      "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset",
+      "type": "string",
+      "pattern": "^[0-9]{1,2}\\.[0-9]{1,2}\\.[0-9]{1,2}$"
+    },
+    "DateTimeSend": {
+      "description": "The date and time this dataset was send. This SHOULD be a date in ISO 8601 format of YYYY-MM-DDThh:mm:ssZ in UTC time.",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "GlobalCoffeeDatasetId",
+    "DateTimeSend"
+  ]
+}
