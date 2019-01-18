@@ -1,38 +1,42 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://example.com/global-coffee-data-standard.schema.json#v28",
+  "$id": "http://example.com/global-coffee-data-standard.schema.json",
   "title": "GlobalCoffeeDataset",
   "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "object",
+  "propertyNames": {
+    "description": "Property names must be in lower CamelCase",
+    "pattern": "^[a-z][A-Za-z0-9_]*$"
+  },
   "additionalProperties": false,
   "required": [
-    "GlobalCoffeeDatasetId",
-    "DateTimeSend",
-    "Sender",
-    "Farmer",
-    "Farm"
+    "globalCoffeeDatasetId",
+    "dateTimeSend",
+    "sender",
+    "farmer",
+    "farm"
   ],
   "properties": {
-    "GlobalCoffeeDatasetId": {
+    "globalCoffeeDatasetId": {
       "description": "The unique identifier for a dataset",
       "type": "integer"
     },
-    "SchemaVersion": {
+    "schemaVersion": {
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset",
       "type": "string",
       "pattern": "^[0-9]{1,2}\\.[0-9]{1,2}\\.[0-9]{1,2}$"
     },
-    "DateTimeSend": {
+    "dateTimeSend": {
       "description": "The date and time this dataset was send. This SHOULD be a date in ISO 8601 format of YYYY-MM-DDThh:mm:ssZ in UTC time.",
       "type": "string",
       "format": "date-time"
     },
-    "Sender": {
+    "sender": {
       "description": "The name of the organisation that send this dataset",
       "type": "string"
     },
-    "Farmer": {
+    "farmer": {
       "description": "The farmer characteristics",
       "type": "object",
       "additionalProperties": false,
@@ -44,12 +48,29 @@
           "description": "The general farmer characteristics",
           "type": "object",
           "additionalProperties": false,
-          "required": [
-            "farmerId",
-            "name",
-            "address",
-            "yearOfBirth",
-            "gender"
+          "oneOf": [
+            {
+              "required": [
+                "farmerId",
+                "name",
+                "address",
+                "dateOfBirth",
+                "gender",
+                "thirdPartyIds",
+                "farmIds"
+              ]
+            },
+            {
+              "required": [
+                "farmerId",
+                "name",
+                "address",
+                "age",
+                "gender",
+                "thirdPartyIds",
+                "farmIds"
+              ]
+            }
           ],
           "properties": {
             "farmerId": {
@@ -73,55 +94,26 @@
                   "description": "Last name of the farmer surveyed. Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
                   "type": "string"
                 }
-              }            },
-            "address": {
-              "description": "An address. This is the legally registered address of the farmer.",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "countryName"
-              ],
-              "properties": {
-                "streetAddress": {
-                  "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
-                  "title": "Street address",
-                  "type": "string"
-                },
-                "postalCode": {
-                  "description": "The postal code. For example, 94043.",
-                  "title": "Postal code",
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "locality": {
-                  "description": "The locality. For example, Mountain View.",
-                  "title": "Locality",
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "region": {
-                  "description": "The region. For example, CA.",
-                  "title": "Region",
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "countryName": {
-                  "description": "The country name. For example, United States.",
-                  "title": "Country name",
-                  "type": "string"
-                }
               }
             },
-            "yearOfBirth": {
+            "address": {
+              "description": "An address. This is the legally registered address of the farmer.",
+              "additionalProperties": false,
+              "$ref": "address-definition.json#/address"
+            },
+            "dateOfBirth": {
+              "description": "For example 2016-08-17 Data point used to understand relative presence of youth and calculate youth engagement: % of producers in the sustainability program or supply chain 35 years old and under",
+              "type": "string",
+              "title": "TODO: either dateOfBirth or age is required",
+              "pattern": "^[12][0-9]{3}-[01][0-9]-[01][0-9]$",
+              "format": "full-date"
+            },
+            "age": {
               "description": "Data point used to understand relative presence of youth and calculate youth engagement: % of producers in the sustainability program or supply chain 35 years old and under",
-              "type": "integer",
-              "title": "TODO: Controle op correcte jaartallen"
+              "type": "number",
+              "title": "TODO: either dateOfBirth or age is required",
+              "minimum": 10,
+              "maximum": 100
             },
             "gender": {
               "description": "Data point used to understand relative presence of women and to calculate women's engagement and the outcomes they experience as diverse from men: % of women in the sustainability program or supply chain",
@@ -131,6 +123,26 @@
                 "Other",
                 "Prefer not to say"
               ]
+            },
+            "farmIds" : {
+              "type": "array",
+              "uniqueItems": true,
+              "minItems": 1,
+              "TODO": "Use GlobalID",
+              "items": {
+                "type": "string"
+              }
+            },
+            "thirdPartyIds": {
+              "title": "Third party identifier",
+              "description": "TODO",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              },
+              "additionalItems": false,
+              "additionalProperties": false
             }
           }
         },
@@ -147,12 +159,15 @@
         }
       }
     },
-    "Farm": {
+    "farm": {
       "description": "The farm characteristics",
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "general"
+        "general",
+        "social",
+        "economic",
+        "environmental"
       ],
       "properties": {
         "general": {
@@ -161,8 +176,11 @@
           "additionalProperties": false,
           "required": [
             "farmId",
+            "farmerId",
             "frontDoor",
-            "address"
+            "address",
+            "totalFarmSize",
+            "totalAreaCoffee"
           ],
           "properties": {
             "farmId": {
@@ -170,17 +188,223 @@
               "title": "TODO",
               "type": "string"
             },
+            "farmerId": {
+              "description": "Globally Unique ID of the farmer of this farm",
+              "title": "TODO",
+              "type": "string"
+            },
             "frontDoor": {
               "description": "Geolocation of the front door of the head office",
               "title": "Front door geolocation",
               "additionalProperties": false,
-              "TODO": "Restrict to points only",
+              "required": [
+                "type",
+                "coordinates",
+                "crs"
+              ],
+              "TODO": "Restrict to points only and move to external file",
               "$ref": "http://json.schemastore.org/geojson"
             },
             "address": {
               "description": "An address. This is the legally registered address of the farm.",
               "additionalProperties": false,
               "$ref": "address-definition.json#/address"
+            },
+            "totalFarmSize": {
+              "title": "Total farm size (ha)",
+              "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property. Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha). Data validation should ensure that the total area planted in coffee should be less than the total farm size. It is ok to rely on farmer recall although more rigorous estimates will include GPS or polygonal mapping data. Consider that farms may contain multiple plots (plots are farm land areas that are not connected, or farm areas that are managed differently, or both). Make sure to add all relevant plots managed by members of a household together (that is, the farm area should coincide with the land used to account for the farm cost and revenue data being reported).",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1500
+            },
+            "totalAreaCoffee": {
+              "title": "Total Area planted in Coffee (ha)",
+              "description": "Area under coffee production can also be triangulated with other pieces of data collected (e.g., trees planted per unit land (density rate) and/or total number of trees planted).",
+              "TODO": "Restrict size",
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "social": {
+          "description": "The social farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "wages"
+          ],
+          "properties": {
+            "laborPractices": {
+              "title": "Labor Practices",
+              "description": "% of good labor practices adopted (of those listed)",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "wages": {
+              "title": "Wages",
+              "description": "Daily average earnings for farm labor compared to (rural) minimum wage. Wage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            }
+          }
+        },
+        "economic": {
+          "description": "The economic farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+          ],
+          "properties": {
+            "coffeeProfit": {
+              "title": "Coffee Profit",
+              "description": "TODO",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "productivity": {
+              "title": "Yield / Productivity",
+              "description": "Todo",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "productionCosts": {
+              "title": "Cost of Production",
+              "description": "TODO",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "price": {
+              "title": "Price",
+              "description": "TODO",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "sustainablePurchases": {
+              "title": "Sustainable purchases",
+              "description": "TODO",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            }
+          }
+        },
+        "environmental": {
+          "description": "The environmental farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+          ],
+          "properties": {
+            "ecosystemProtection": {
+              "title": "Forest and Ecosystem Protection",
+              "description": "TODO",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "fertilizerUse": {
+              "title": "Fertilizer use",
+              "description": "Todo",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "waterConservation": {
+              "title": "Water Conservation & Contamination Prevention",
+              "description": "TODO",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "pestControl": {
+              "title": "Pest control/ hazards",
+              "description": "TODO",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "soilConservation": {
+              "title": "Soil Conservation",
+              "description": "TODO",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            }
+          }
+        }
+      }
+    },
+    "plot": {
+      "description": "The plot characteristics",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "general",
+        "economic"
+      ],
+      "properties": {
+        "general": {
+          "description": "The general plot characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "plotId",
+            "farmId",
+            "boundary"
+          ],
+          "properties": {
+            "plotId": {
+              "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organisation.",
+              "title": "TODO",
+              "type": "string"
+            },
+            "farmId": {
+              "description": "Globally Unique ID farmId",
+              "title": "TODO",
+              "type": "string"
+            },
+            "boundary": {
+              "description": "The boundary of the plot",
+              "title": "Plot boundary",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "coordinates",
+                "crs"
+              ],
+              "TODO": "Restrict to polygons only.",
+              "$ref": "http://json.schemastore.org/geojson"
+            }
+          }
+        },
+        "economic": {
+          "description": "The economic plot characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "yield",
+            "productivity"
+          ],
+          "properties": {
+            "yield": {
+              "title": "Yield",
+              "description": "TODO",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "productivity": {
+              "title": "Productivity",
+              "description": "TODO",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
             }
           }
         }

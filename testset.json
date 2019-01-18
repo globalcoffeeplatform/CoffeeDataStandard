@@ -1,27 +1,31 @@
 {
-  "GlobalCoffeeDatasetId": 1,
-  "SchemaVersion": "0.3.1",
-  "DateTimeSend": "2019-01-10T17:00:00Z",
-  "Sender": "UTZ-Rainforest Alliance",
-  "Farmer": {
+  "globalCoffeeDatasetId": 1,
+  "schemaVersion": "0.3.1",
+  "dateTimeSend": "2019-01-10T17:00:00Z",
+  "sender": "UTZ-Rainforest Alliance",
+  "farmer": {
     "general": {
       "farmerId": "todo",
       "name": {
         "firstName": "Carlos",
-        "lastName": "de la Huerta",
-        "todo": "Super"
+        "lastName": "de la Huerta"
       },
       "address": {
         "streetAddress": "1600 Amphitheatre Pkwy",
         "countryName": "Mali"
       },
-      "yearOfBirth": 1974,
-      "gender": "Male"
+      "dateOfBirth": "1974-12-10",
+      "gender": "Male",
+      "thirdPartyIds": ["test", "test2"],
+      "farmIds": [
+        "farm3"
+      ]
     }
   },
-  "Farm": {
+  "farm": {
     "general": {
       "farmId": "todo",
+      "farmerId": "todo",
       "frontDoor": {
         "type": "Point",
         "coordinates": [
@@ -38,7 +42,38 @@
       "address": {
         "countryName": "Mali",
         "postalCode": "5987 BL"
-      }
+      },
+      "totalFarmSize": 150.25,
+      "totalAreaCoffee": 160.48
+    },
+    "social": {
+      "wages": 45.58
+    },
+    "economic": {
+      "coffeeProfit": 4
+    },
+    "environmental": {
+      "ecosystemProtection": 8
+    }
+  },
+  "plot": {
+    "general": {
+      "boundary": {
+        "crs": {
+          "type": "name",
+          "properties": {
+            "name": "EPSG:3857"
+          }
+        },
+        "coordinates": [],
+        "type": "MultiPolygon"
+      },
+      "plotId": "1",
+      "farmId": "1"
+    },
+    "economic": {
+      "productivity": 8,
+      "yield": 45
     }
   }
 }
