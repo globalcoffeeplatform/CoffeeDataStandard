@@ -5,6 +5,14 @@
   "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
   "version": "0.0.1",
   "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "GlobalCoffeeDatasetId",
+    "DateTimeSend",
+    "Sender",
+    "Farmer",
+    "Farm"
+  ],
   "properties": {
     "GlobalCoffeeDatasetId": {
       "description": "The unique identifier for a dataset",
@@ -27,10 +35,22 @@
     "Farmer": {
       "description": "The farmer characteristics",
       "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "general"
+      ],
       "properties": {
         "general": {
           "description": "The general farmer characteristics",
           "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "farmerId",
+            "name",
+            "address",
+            "yearOfBirth",
+            "gender"
+          ],
           "properties": {
             "farmerId": {
               "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organisation.",
@@ -40,6 +60,10 @@
             "name": {
               "description": "First and last name(s) of the farmer surveyed. Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
               "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "lastName"
+              ],
               "properties": {
                 "firstName": {
                   "description": "First name(s) of the farmer surveyed. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
@@ -49,19 +73,14 @@
                   "description": "Last name of the farmer surveyed. Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
                   "type": "string"
                 }
-              },
-              "required": [
-                "lastName"
-              ]
-            },
-            "frontDoor": {
-              "description": "Geolocation of the front door of the head office",
-              "title": "TODO: Is deze geo wel nodig/handig?",
-              "$ref": "http://json.schemastore.org/geojson"
-            },
+              }            },
             "address": {
-              "description": "An address. This is the legally registered address of the organization.",
+              "description": "An address. This is the legally registered address of the farmer.",
               "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "countryName"
+              ],
               "properties": {
                 "streetAddress": {
                   "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
@@ -70,7 +89,7 @@
                 },
                 "postalCode": {
                   "description": "The postal code. For example, 94043.",
-                  "title": "Postalcode",
+                  "title": "Postal code",
                   "type": [
                     "string",
                     "null"
@@ -97,10 +116,7 @@
                   "title": "Country name",
                   "type": "string"
                 }
-              },
-              "required": [
-                "countryName"
-              ]
+              }
             },
             "yearOfBirth": {
               "description": "Data point used to understand relative presence of youth and calculate youth engagement: % of producers in the sustainability program or supply chain 35 years old and under",
@@ -116,19 +132,12 @@
                 "Prefer not to say"
               ]
             }
-          },
-          "required": [
-            "farmerId",
-            "name",
-            "address",
-            "frontDoor",
-            "yearOfBirth",
-            "gender"
-          ]
+          }
         },
         "social": {
           "description": "The social farmer characteristics",
           "type": "object",
+          "additionalProperties": false,
           "properties": {
             "PovertyLevel": {
               "description": "TODO",
@@ -136,16 +145,46 @@
             }
           }
         }
-      },
+      }
+    },
+    "Farm": {
+      "description": "The farm characteristics",
+      "type": "object",
+      "additionalProperties": false,
       "required": [
         "general"
-      ]
+      ],
+      "properties": {
+        "general": {
+          "description": "The general farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "farmId",
+            "frontDoor",
+            "address"
+          ],
+          "properties": {
+            "farmId": {
+              "description": "Globally Unique ID of the recording of the farm at a specific time and by a specific organisation.",
+              "title": "TODO",
+              "type": "string"
+            },
+            "frontDoor": {
+              "description": "Geolocation of the front door of the head office",
+              "title": "Front door geolocation",
+              "additionalProperties": false,
+              "TODO": "Restrict to points only",
+              "$ref": "http://json.schemastore.org/geojson"
+            },
+            "address": {
+              "description": "An address. This is the legally registered address of the farm.",
+              "additionalProperties": false,
+              "$ref": "address-definition.json#/address"
+            }
+          }
+        }
+      }
     }
-  },
-  "required": [
-    "GlobalCoffeeDatasetId",
-    "DateTimeSend",
-    "Sender",
-    "Farmer"
-  ]
+  }
 }

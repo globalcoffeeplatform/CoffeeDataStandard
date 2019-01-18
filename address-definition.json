@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "The definition of the address object",
+  "address": {
+    "description": "An address. This is the legally registered address of the farm.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "countryName"
+    ],
+    "properties": {
+      "streetAddress": {
+        "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
+        "title": "Street address",
+        "type": "string"
+      },
+      "postalCode": {
+        "description": "The postal code. For example, 94043.",
+        "title": "Postal code",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "locality": {
+        "description": "The locality. For example, Mountain View.",
+        "title": "Locality",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "region": {
+        "description": "The region. For example, CA.",
+        "title": "Region",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "countryName": {
+        "description": "The country name. For example, United States.",
+        "title": "Country name",
+        "type": "string"
+      }
+    }
+  }
+
+}
