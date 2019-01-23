@@ -5,7 +5,11 @@
   "sender": "UTZ-Rainforest Alliance",
   "farmer": {
     "general": {
-      "farmerId": "todo",
+      "farmerId": {
+        "organization": "Chamber of Commerce, Burundi",
+        "identifier": "1035413151",
+        "timestamp": "2010-05-21"
+      },
       "name": {
         "firstName": "Carlos",
         "lastName": "de la Huerta"
@@ -16,16 +20,47 @@
       },
       "dateOfBirth": "1974-12-10",
       "gender": "Male",
-      "thirdPartyIds": ["test", "test2"],
+      "thirdPartyIds": [
+        {
+          "identifier": "N2786-Q5572-H8123-S9007",
+          "organization": "UN Blue number",
+          "timestamp": "2018-12-08"
+        },
+        {
+          "identifier": "514356411",
+          "organization": "COSA",
+          "timestamp": "2017-12-30"
+        }
+      ],
       "farmIds": [
-        "farm3"
+        {
+          "identifier": "2345",
+          "organization": "Land register of Burundi",
+          "timestamp": "1998-12-28"
+        }
       ]
+    },
+    "social": {
+      "povertyLevel": 72.5,
+      "childLabour": {
+        "schoolAgeHouseholdMembers": 33.3,
+        "hazardousProhibition": "Prefer not to say"
+      },
+      "hunger": 25
     }
   },
   "farm": {
     "general": {
-      "farmId": "todo",
-      "farmerId": "todo",
+      "farmId": {
+        "identifier": "2345",
+        "organization": "Land register of Burundi",
+        "timestamp": "1998-12-28"
+      },
+      "farmerId": {
+        "organization": "Chamber of Commerce, Burundi",
+        "identifier": "1035413151",
+        "timestamp": "2010-05-21"
+      },
       "frontDoor": {
         "type": "Point",
         "coordinates": [
@@ -47,17 +82,45 @@
       "totalAreaCoffee": 160.48
     },
     "social": {
-      "wages": 45.58
+      "laborPractices": 80,
+      "wages": 145.58
     },
     "economic": {
-      "coffeeProfit": 4
+      "coffeeProfit": 4.5,
+      "productivity": 1500,
+      "productionCosts": 57,
+      "price": 22.58,
+      "sustainablePurchases": 15.87
     },
     "environmental": {
-      "ecosystemProtection": 8
+      "forestEcosystemProtection": {
+        "areaConvertedLand": 25.25,
+        "ecosystemProtection": 18.58
+      },
+      "fertilizerUse": "Yes",
+      "water": {
+        "waterConservation": 78,
+        "waterContamination": 24.58
+      },
+      "pestControl": {
+        "ipmPractices": 5,
+        "useOfBannedPesticides": ["Glyfosate"]
+      },
+      "soilConservation": 36.87
     }
   },
   "plot": {
     "general": {
+      "plotId": {
+        "identifier": "pl956304",
+        "organization": "Land registry Burundi",
+        "timestamp": "1999-02-28"
+      },
+      "farmId": {
+        "identifier": "2345",
+        "organization": "Land register of Burundi",
+        "timestamp": "1998-12-28"
+      },
       "boundary": {
         "crs": {
           "type": "name",
@@ -68,8 +131,7 @@
         "coordinates": [],
         "type": "MultiPolygon"
       },
-      "plotId": "1",
-      "farmId": "1"
+      "area": 145.57
     },
     "economic": {
       "productivity": 8,
