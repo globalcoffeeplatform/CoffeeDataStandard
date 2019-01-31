@@ -11,6 +11,10 @@
   },
   "additionalProperties": false,
   "required": [
+    "globalCoffeeDatasetId",
+    "dateTimeSend",
+    "sender",
+    "farmer"
   ],
   "properties": {
     "globalCoffeeDatasetId": {
@@ -30,6 +34,154 @@
     "sender": {
       "description": "The name of the organisation that send this dataset",
       "type": "string"
+    },
+    "farmer": {
+      "description": "The farmer characteristics",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "general",
+        "social"
+      ],
+      "properties": {
+        "general": {
+          "description": "The general farmer characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "farmerId",
+            "name",
+            "address",
+            "dateOfBirth",
+            "gender",
+            "farmIds"
+          ],
+          "properties": {
+            "farmerId": {
+              "title": "Globally Unique ID of the farmer",
+              "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organisation.",
+              "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+            },
+            "name": {
+              "title": "First and last name(s) of the farmer surveyed",
+              "description": "First and last name(s) of the farmer surveyed. Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "lastName"
+              ],
+              "properties": {
+                "firstName": {
+                  "title": "First name(s) of the farmer surveyed",
+                  "description": "First name(s) of the farmer surveyed. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
+                  "type": "string"
+                },
+                "lastName": {
+                  "title": "Last name of the farmer surveyed",
+                  "description": "Last name of the farmer surveyed. Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
+                  "type": "string"
+                }
+              }
+            },
+            "address": {
+              "title": "The location of the farm",
+              "description": "Generally, data should include Country and then State/Department and Municipality/District, unless the address is collected for the sake of auditing. This should be the location of the farm itself (main plot), not the home of the farmer, if different.",
+              "$ref": "address-definition.json#/definitions/address"
+            },
+            "dateOfBirth": {
+              "title": "Date of birth.",
+              "description": "Data point used to understand the relative presence of youth and calculate youth engagement: % of producers in the sustainability program or supply chain 35 years old and under",
+              "examples": [
+                "2016-08-17",
+                "1973-05-03"
+              ],
+              "type": "string",
+              "pattern": "^[12][0-9]{3}-[01][0-9]-[01][0-9]$",
+              "format": "full-date"
+            },
+            "gender": {
+              "title": "Gender",
+              "description": "Data point used to understand the relative presence of women and to calculate women's engagement and the outcomes they experience as diverse from men: % of women in the sustainability program or supply chain",
+              "type": "string",
+              "enum": [
+                "Female",
+                "Male",
+                "Other",
+                "Prefer not to say"
+              ]
+            },
+            "farmIds": {
+              "title": "Farm Ids",
+              "description": "Which farms belong to this farmer. At least one is required.",
+              "type": "array",
+              "uniqueItems": true,
+              "minItems": 1,
+              "items": {
+                "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+              }
+            },
+            "thirdPartyIds": {
+              "title": "Third-party identifier",
+              "description": "When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+              },
+              "additionalItems": false,
+              "additionalProperties": false
+            }
+          }
+        },
+        "social": {
+          "description": "The social farmer characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "povertyLevel": {
+              "title": "Poverty level",
+              "description": "Comparison of total household revenue to International (World Bank) Poverty Line (total divided by # adult individuals in hh)",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "exclusiveMaximum": 100
+            },
+            "childLabour": {
+              "title": "Child labour",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "schoolAgeHouseholdMembers",
+                "hazardousProhibition"
+              ],
+              "properties": {
+                "schoolAgeHouseholdMembers": {
+                  "description": "% of school-age household members, under age 18, who have completed appropriate grade level for their age",
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 100
+                },
+                "hazardousProhibition": {
+                  "description": "Are young workers (those under age 18) working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)",
+                  "type": "string",
+                  "enum": [
+                    "Yes",
+                    "No",
+                    "Sometimes",
+                    "Prefer not to say"
+                  ]
+                }
+              }
+            },
+            "hunger": {
+              "title": "Hunger days",
+              "description": "Number of days in past year that any member of household cut food consumption due to lack of food.",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 365
+            }
+          }
+        }
+      }
     }
   }
 }
