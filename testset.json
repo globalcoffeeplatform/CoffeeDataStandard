@@ -87,9 +87,41 @@
     },
     "economic": {
       "coffeeProfit": 4.5,
-      "productivity": 1500,
-      "productionCosts": 57,
-      "price": 22.58,
+      "productivity": {
+        "coffeeProductiveArea": 1500,
+        "amountHarvested": 2500,
+        "formOfCoffee": "Dry cherry"
+      },
+      "productionCosts": {
+        "fertilizers": {
+          "amount": 25800,
+          "percentage": 100
+        },
+        "pesticides": {
+          "amount": 2500,
+          "percentage": 90
+        },
+        "hiredLabor": {
+          "amount": 2544,
+          "percentage": 98
+        },
+        "plantingMaterial": {
+          "amount": 1258,
+          "percentage": 100
+        },
+        "renovation": {
+          "amount": 0,
+          "percentage": 0
+        },
+        "other": {
+          "amount": 1851,
+          "percentage": 50
+        }
+      },
+      "price": {
+        "totalCoffeeRevenue": 25800,
+        "kgSold": 2510
+      },
       "sustainablePurchases": 15.87
     },
     "environmental": {
@@ -104,7 +136,9 @@
       },
       "pestControl": {
         "ipmPractices": 5,
-        "useOfBannedPesticides": ["Glyfosate"]
+        "useOfBannedPesticides": [
+          "Glyfosate"
+        ]
       },
       "soilConservation": 36.87
     }
@@ -131,7 +165,14 @@
         "coordinates": [],
         "type": "MultiPolygon"
       },
-      "area": 145.57
+      "area": 145.57,
+      "thirdPartyIds": [
+        {
+          "identifier": "pl956306",
+          "organization": "Land registry Burundi",
+          "timestamp": "2005-01-12"
+        }
+      ]
     },
     "economic": {
       "productivity": 8,
