@@ -572,87 +572,87 @@
           }
         }
       }
-    }
-  },
-  "plot": {
-    "description": "The plot characteristics",
-    "type": "object",
-    "additionalProperties": false,
-    "required": [
-      "general",
-      "economic"
-    ],
-    "properties": {
-      "general": {
-        "description": "The general plot characteristics",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "plotId",
-          "farmId",
-          "boundary",
-          "area"
-        ],
-        "properties": {
-          "plotId": {
-            "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organisation.",
-            "title": "TODO",
-            "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
-          },
-          "farmId": {
-            "description": "Globally Unique ID farmId",
-            "title": "To which farm belongs this plot",
-            "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
-          },
-          "boundary": {
-            "description": "The boundary of the plot",
-            "title": "Plot boundary",
-            "additionalProperties": false,
-            "required": [
-              "type",
-              "coordinates",
-              "crs"
-            ],
-            "TODO": "Restrict to (multi)polygons only.",
-            "$ref": "http://json.schemastore.org/geojson"
-          },
-          "area": {
-            "type": "number",
-            "minimum": 0
-          },
-          "thirdPartyIds": {
-            "title": "Third party identifier",
-            "description": "When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
-            "type": "array",
-            "uniqueItems": true,
-            "items": {
+    },
+    "plot": {
+      "description": "The plot characteristics",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "general",
+        "economic"
+      ],
+      "properties": {
+        "general": {
+          "description": "The general plot characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "plotId",
+            "farmId",
+            "boundary",
+            "area"
+          ],
+          "properties": {
+            "plotId": {
+              "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organisation.",
+              "title": "TODO",
               "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
             },
-            "additionalItems": false,
-            "additionalProperties": false
+            "farmId": {
+              "description": "Globally Unique ID farmId",
+              "title": "To which farm belongs this plot",
+              "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+            },
+            "boundary": {
+              "description": "The boundary of the plot",
+              "title": "Plot boundary",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "coordinates",
+                "crs"
+              ],
+              "TODO": "Restrict to (multi)polygons only.",
+              "$ref": "http://json.schemastore.org/geojson"
+            },
+            "area": {
+              "type": "number",
+              "minimum": 0
+            },
+            "thirdPartyIds": {
+              "title": "Third party identifier",
+              "description": "When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+              },
+              "additionalItems": false,
+              "additionalProperties": false
+            }
           }
-        }
-      },
-      "economic": {
-        "description": "The economic plot characteristics",
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "yield",
-          "productivity"
-        ],
-        "properties": {
-          "yield": {
-            "title": "Yield",
-            "description": "kgs of GBE (harvested)",
-            "type": "number",
-            "minimum": 0
-          },
-          "productivity": {
-            "title": "Productivity",
-            "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
-            "type": "number",
-            "minimum": 0
+        },
+        "economic": {
+          "description": "The economic plot characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "yield",
+            "productivity"
+          ],
+          "properties": {
+            "yield": {
+              "title": "Yield",
+              "description": "kgs of GBE (harvested)",
+              "type": "number",
+              "minimum": 0
+            },
+            "productivity": {
+              "title": "Productivity",
+              "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
+              "type": "number",
+              "minimum": 0
+            }
           }
         }
       }
