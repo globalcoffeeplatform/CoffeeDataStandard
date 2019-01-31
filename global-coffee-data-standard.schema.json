@@ -15,7 +15,8 @@
     "dateTimeSend",
     "sender",
     "farmer",
-    "plot"
+    "plot",
+    "farm"
   ],
   "properties": {
     "globalCoffeeDatasetId": {
@@ -267,7 +268,396 @@
           }
         }
       }
+    },
+    "farm": {
+      "description": "The farm characteristics",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "general",
+        "social",
+        "economic",
+        "environmental"
+      ],
+      "properties": {
+        "general": {
+          "description": "The general farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "farmId",
+            "farmerId",
+            "frontDoor",
+            "address",
+            "totalFarmSize",
+            "totalAreaCoffee"
+          ],
+          "properties": {
+            "farmId": {
+              "title": "Farm Id",
+              "description": "Globally Unique ID of the recording of the farm at a specific time and by a specific organisation.",
+              "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+            },
+            "farmerId": {
+              "title": "Farmer Id",
+              "description": "Globally Unique ID of the farmer of this farm",
+              "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+            },
+            "frontDoor": {
+              "title": "Front door geolocation",
+              "description": "GPS should be captured for each farm plot if possible. GPS readings should be taken outside of buildings and away from significant tree coverage to avoid interference in the signal. GPS should be captured in the middle of the plot, and/or near the entrance to any main building (if there is one). Where the main residence or other buildings are not located on the farm plot, GPS should be taken in the middle of the plot.",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "coordinates",
+                "crs"
+              ],
+              "$comment": "Restrict to points only",
+              "$ref": "http://json.schemastore.org/geojson"
+            },
+            "address": {
+              "title": "Farm address",
+              "description": "This should be the location of the farm itself (main plot), not the home of the farmer, if different.",
+              "additionalProperties": false,
+              "$ref": "address-definition.json#/definitions/address"
+            },
+            "totalFarmSize": {
+              "title": "Total farm size (ha)",
+              "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property. Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha). Data validation should ensure that the total area planted in coffee should be less than the total farm size. It is ok to rely on farmer recall although more rigorous estimates will include GPS or polygonal mapping data. Consider that farms may contain multiple plots (plots are farmland areas that are not connected, or farm areas that are managed differently, or both). Make sure to add all relevant plots managed by members of a household together (that is, the farm area should coincide with the land used to account for the farm cost and revenue data being reported).",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1500
+            },
+            "totalAreaCoffee": {
+              "title": "Total Area planted in Coffee (ha)",
+              "description": "Area under coffee production can also be triangulated with other pieces of data collected (e.g., trees planted per unit land (density rate) and/or total number of trees planted).",
+              "TODO": "Restrict size",
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "thirdPartyIds": {
+              "title": "Third-party identifier",
+              "description": "When this dataset is reused by another organization that needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+              },
+              "additionalItems": false,
+              "additionalProperties": false
+            }
+          }
+        },
+        "social": {
+          "description": "The social farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "laborPractices",
+            "wages"
+          ],
+          "properties": {
+            "laborPractices": {
+              "title": "Labor Practices",
+              "description": "% of good labor practices adopted (of those listed)",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            },
+            "wages": {
+              "title": "Wages",
+              "description": "Daily average earnings for farm labor compared to (rural) minimum wage. Wage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.",
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "economic": {
+          "description": "The economic farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "coffeeProfit",
+            "productivity",
+            "productionCosts",
+            "price",
+            "sustainablePurchases"
+          ],
+          "properties": {
+            "coffeeProfit": {
+              "title": "Coffee Profit",
+              "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "productivity": {
+              "title": "Yield / Productivity",
+              "description": "kgs of GBE (harvested)/ha of coffee productive area",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "coffeeProductiveArea",
+                "amountHarvested",
+                "formOfCoffee"
+              ],
+              "properties": {
+                "coffeeProductiveArea": {
+                  "title": "Coffee productive area",
+                  "description": "Coffee productive area (requires local land area unit conversion to hectares)",
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "amountHarvested": {
+                  "title": "Amount harvested",
+                  "description": "Amount harvested (requires local unit conversion to kgs)--Amount sold can be a suitable proxy where harvested amounts are unknown (i.e., many smallholders will only know production volumes when their product is weighed at the mill)",
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "formOfCoffee": {
+                  "title": "Form of coffee",
+                  "description": "Form of coffee (will require conversion to GBE, Green Bean Equivalent)",
+                  "type": "string",
+                  "enum": [
+                    "Fresh cherry",
+                    "Dry cherry",
+                    "Dry parchment",
+                    "Wet parchment",
+                    "Green",
+                    "Other"
+                  ]
+                }
+              }
+            },
+            "productionCosts": {
+              "title": "Cost of Production",
+              "description": "Costs incurred to produce the coffee during the last production year (calculated per kg of GBE)",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "fertilizers",
+                "pesticides",
+                "hiredLabor",
+                "plantingMaterial",
+                "renovation"
+              ],
+              "properties": {
+                "fertilizers": {
+                  "title": "Fertilizers costs",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "pesticides": {
+                  "title": "Pesticides costs",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "hiredLabor": {
+                  "title": "Costs of hired labor",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "plantingMaterial": {
+                  "title": "Costs of planting material",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "renovation": {
+                  "title": "Costs of renovation",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "deductionsByBuyers": {
+                  "title": "Deductions by buyers",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "rentOfLand": {
+                  "title": "Rent of land",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "energy": {
+                  "title": "Energy costs",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "irrigation": {
+                  "title": "Irrigation costs",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "capitalAssets": {
+                  "title": "Capital assets",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "cultivationPractices": {
+                  "title": "Cultivation practices",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "traceabilityAndRecordKeeping": {
+                  "title": "Traceability and record keeping",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "standardsCertification": {
+                  "title": "Costs of standards or certifications",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "plantingReforestation": {
+                  "title": "Planting and reforestation costs",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "training": {
+                  "title": "Training costs",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "interest": {
+                  "title": "Interest on credit",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "cropInsurance": {
+                  "title": "Crop insurance",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "cooperativeFees": {
+                  "title": "Cooperative fees",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "unpaidFamilyLabor": {
+                  "title": "Unpaid family labor",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                },
+                "other": {
+                  "title": "Other costs",
+                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                }
+              }
+            },
+            "price": {
+              "title": "Average Price received per kg of coffee (GBE)",
+              "description": "The simple approach involves asking for the total revenue received from coffee during the last production year as well as the amount sold (and the form). The average price per unit can then be calculated. For multiple sales, calculate the price average of sales",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [],
+              "properties": {
+                "totalCoffeeRevenue": {
+                  "type": "number",
+                  "title": "Total coffee revenue",
+                  "minimum": 0
+                },
+                "kgSold": {
+                  "title": "kg of GBE sold",
+                  "type": "number",
+                  "minimum": 0
+                }
+              }
+            },
+            "sustainablePurchases": {
+              "title": "Sustainable purchases",
+              "description": "Volume of sustainable purchases by buyer and as a proportion of total, and change year to year. ",
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        },
+        "environmental": {
+          "description": "The environmental farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "forestEcosystemProtection",
+            "fertilizerUse",
+            "water",
+            "pestControl",
+            "soilConservation"
+          ],
+          "properties": {
+            "forestEcosystemProtection": {
+              "title": "Forest and Ecosystem Protection",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "areaConvertedLand",
+                "ecosystemProtection"
+              ],
+              "properties": {
+                "areaConvertedLand": {
+                  "description": "Land area (in ha) and proportion of the farm that was converted from natural land (e.g.,, forest, savanna) to land used for coffee production in the last 5 years.",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "ecosystemProtection": {
+                  "description": "% of forest and ecosystem protection practices used on the farm",
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 100
+                }
+              }
+            },
+            "fertilizerUse": {
+              "title": "Fertilizer use",
+              "description": "Whether a professional assessment or advice was used to determine fertilizer needs on the farm. It does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc. ",
+              "type": "string",
+              "enum": [
+                "Yes",
+                "No",
+                "Don't know",
+                "Prefer not to say"
+              ]
+            },
+            "water": {
+              "title": "Water Conservation & Contamination Prevention",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "waterConservation",
+                "waterContamination"
+              ],
+              "properties": {
+                "waterConservation": {
+                  "description": "% of applicable water conservation practices used on the farm (of those listed)",
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 100
+                },
+                "waterContamination": {
+                  "description": "% of water contamination prevention practices used on the farm (of those listed).",
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 100
+                }
+              }
+            },
+            "pestControl": {
+              "title": "Pest control/ hazards",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "ipmPractices",
+                "useOfBannedPesticides"
+              ],
+              "properties": {
+                "ipmPractices": {
+                  "title": "% of IPM practices employed on the farm",
+                  "description": "• Conduct regular visual examinations of the coffee to detect pests and/or diseases • Use traps, repellents, and natural pesticides • Create or preserve places (including plant species) for beneficial predators of pests to live • Maintain written record of pest infestation, treatments, and results • Plant or preserve species that repel pests of the coffee • Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population",
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 100
+                },
+                "useOfBannedPesticides": {
+                  "title": "Use of banned or hazardous pesticides on the farm",
+                  "description": "Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address proper disposal of pesticide containers. \n*Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string"
+                  },
+                  "additionalItems": false,
+                  "additionalProperties": false
+                }
+              }
+            },
+            "soilConservation": {
+              "title": "Soil Conservation",
+              "description": "% of applicable soil conservation practices used on the farm (of those listed)",
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 100
+            }
+          }
+        }
+      }
     }
-
   }
 }
