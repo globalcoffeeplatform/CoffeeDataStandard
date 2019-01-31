@@ -139,14 +139,35 @@
           "description": "The social farmer characteristics",
           "type": "object",
           "additionalProperties": false,
-          "required": ["povertyLevel", "childLabour", "hunger"],
+          "required": [
+            "povertyLevel",
+            "childLabour",
+            "hunger"
+          ],
           "properties": {
             "povertyLevel": {
               "title": "Poverty level",
               "description": "Comparison of total household revenue to International (World Bank) Poverty Line (total divided by # adult individuals in hh)",
-              "type": "number",
-              "exclusiveMinimum": 0,
-              "exclusiveMaximum": 100
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "totalHouseholdIncome",
+                "householdMembers"
+              ],
+              "properties": {
+                "totalHouseholdIncome": {
+                  "title": "Total household income",
+                  "description": "Total household income in USD",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "householdMembers": {
+                  "title": "Household members",
+                  "description": "Number of adults in the household",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
             },
             "childLabour": {
               "title": "Child labour",
@@ -158,12 +179,14 @@
               ],
               "properties": {
                 "schoolAgeHouseholdMembers": {
+                  "title": "School-age household members",
                   "description": "% of school-age household members, under age 18, who have completed appropriate grade level for their age",
                   "type": "number",
-                  "exclusiveMinimum": 0,
+                  "minimum": 0,
                   "maximum": 100
                 },
                 "hazardousProhibition": {
+                  "title": "Prohibition of children in hazardous working conditions",
                   "description": "Are young workers (those under age 18) working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)",
                   "type": "string",
                   "enum": [
@@ -178,9 +201,14 @@
             "hunger": {
               "title": "Hunger days",
               "description": "Number of days in past year that any member of household cut food consumption due to lack of food.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 365
+              "type": "string",
+              "enum": [
+                "0 days",
+                "1-9 days",
+                "10-19 days",
+                "20-29 days",
+                "30 or more days"
+              ]
             }
           }
         }
@@ -213,7 +241,7 @@
             "farmId": {
               "title": "Farm Id",
               "description": "Globally Unique ID of the recording of the farm at a specific time and by a specific organisation.",
-              "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/global-unique-id-definitions.json#/definitions/globalUniqueId"
+              "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
             },
             "farmerId": {
               "title": "Farmer Id",
@@ -240,14 +268,14 @@
             },
             "totalFarmSize": {
               "title": "Total farm size (ha)",
-              "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property. Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha). Data validation should ensure that the total area planted in coffee should be less than the total farm size. It is ok to rely on farmer recall although more rigorous estimates will include GPS or polygonal mapping data. Consider that farms may contain multiple plots (plots are farmland areas that are not connected, or farm areas that are managed differently, or both). Make sure to add all relevant plots managed by members of a household together (that is, the farm area should coincide with the land used to account for the farm cost and revenue data being reported).",
+              "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property. Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha).",
               "type": "number",
               "exclusiveMinimum": 0,
               "maximum": 1500
             },
             "totalAreaCoffee": {
               "title": "Total Area planted in Coffee (ha)",
-              "description": "Area under coffee production can also be triangulated with other pieces of data collected (e.g., trees planted per unit land (density rate) and/or total number of trees planted).",
+              "description": "Sum of coffee farm areas from producers in the sustainability program or supply chain (ha)",
               "TODO": "Restrict size",
               "type": "number",
               "exclusiveMinimum": 0
@@ -276,16 +304,83 @@
           "properties": {
             "laborPractices": {
               "title": "Labor Practices",
-              "description": "% of good labor practices adopted (of those listed)",
-              "type": "number",
-              "exclusiveMinimum": 0,
-              "maximum": 100
+              "description": "% of good labor practices adopted (of those listed). This indicator is applicable where farms rely on hired labor (not labor of household members).\n# of good labor practices adopted / total number of practices",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "clearContracting",
+                "rightToOrganize",
+                "prohibitingDiscrimination",
+                "hazardousWorkingCondition"
+              ],
+              "properties": {
+                "clearContracting": {
+                  "title": "Clear contracting",
+                  "description": "Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc. ",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "rightToOrganize": {
+                  "title": "Right to organize",
+                  "description": "Percentage right to organize -- the ability for workers to join unions or committees and freely assemble",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "prohibitingDiscrimination": {
+                  "title": "Prohibiting discrimination",
+                  "description": "Percentage prohibiting discrimination -- in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "hazardousWorkingCondition": {
+                  "title": "Hazardous working condition",
+                  "description": "Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc. ",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              }
             },
             "wages": {
               "title": "Wages",
               "description": "Daily average earnings for farm labor compared to (rural) minimum wage. Wage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.",
-              "type": "number",
-              "exclusiveMinimum": 0
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "wagesCoffee",
+                "wagesHarvesting",
+                "wagesProcessing"
+              ],
+              "properties": {
+                "wagesCoffee": {
+                  "title": "The average daily wage rate paid for coffee production",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "wagesHarvesting": {
+                  "title": "The average daily wage rate paid for harvesting",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "wagesProcessing": {
+                  "title": "The average daily wage rate paid for processing",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "ruralMinimumWage": {
+                  "title": "Rural minimum wage",
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "nationalMinimumWage": {
+                  "title": "National minimum wage",
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              }
             }
           }
         },
@@ -445,7 +540,10 @@
               "description": "The simple approach involves asking for the total revenue received from coffee during the last production year as well as the amount sold (and the form). The average price per unit can then be calculated. For multiple sales, calculate the price average of sales",
               "type": "object",
               "additionalProperties": false,
-              "required": ["totalCoffeeRevenue", "kgSold"],
+              "required": [
+                "totalCoffeeRevenue",
+                "kgSold"
+              ],
               "properties": {
                 "totalCoffeeRevenue": {
                   "type": "number",
@@ -490,28 +588,37 @@
               ],
               "properties": {
                 "areaConvertedLand": {
+                  "title": "Area converted land",
                   "description": "Land area (in ha) and proportion of the farm that was converted from natural land (e.g.,, forest, savanna) to land used for coffee production in the last 5 years.",
-                  "type": "number",
-                  "minimum": 0
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "absoluteArea",
+                    "proportiesOfFarm"
+                  ],
+                  "properties": {
+                    "absoluteArea": {
+                      "title": "Absolute area in ha",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "proportiesOfFarm": {
+                      "title": "Proportion of the farm",
+                      "$ref": "generic-definitions.json#/definitions/percentage"
+                    }
+                  }
                 },
                 "ecosystemProtection": {
+                  "title": "Forest and ecosystem protection",
                   "description": "% of forest and ecosystem protection practices used on the farm",
-                  "type": "number",
-                  "exclusiveMinimum": 0,
-                  "maximum": 100
+                  "$ref": "generic-definitions.json#/definitions/percentage"
                 }
               }
             },
             "fertilizerUse": {
               "title": "Fertilizer use",
               "description": "Whether a professional assessment or advice was used to determine fertilizer needs on the farm. It does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc. ",
-              "type": "string",
-              "enum": [
-                "Yes",
-                "No",
-                "Don't know",
-                "Prefer not to say"
-              ]
+              "$ref": "generic-definitions.json#/definitions/yesNo"
             },
             "water": {
               "title": "Water Conservation & Contamination Prevention",
@@ -523,16 +630,63 @@
               ],
               "properties": {
                 "waterConservation": {
+                  "title": "Water conservation practices",
                   "description": "% of applicable water conservation practices used on the farm (of those listed)",
-                  "type": "number",
-                  "exclusiveMinimum": 0,
-                  "maximum": 100
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "dripIrrigation",
+                    "waterCatchments",
+                    "waterEfficientProcessing"
+                  ],
+                  "properties": {
+                    "dripIrrigation": {
+                      "title": "Drip irrigation",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    },
+                    "waterCatchments": {
+                      "title": "Water catchments",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    },
+                    "waterEfficientProcessing": {
+                      "title": "Water-efficient processing",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    }
+                  }
                 },
                 "waterContamination": {
+                  "title": "Water contamination prevention practices",
                   "description": "% of water contamination prevention practices used on the farm (of those listed).",
-                  "type": "number",
-                  "exclusiveMinimum": 0,
-                  "maximum": 100
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "noPesticideCleaningNearWater",
+                    "preventUntreatedWater",
+                    "noLivestockNearWater",
+                    "noDomesticDischarge"
+                  ],
+                  "properties": {
+                    "noPesticideCleaningNearWater": {
+                      "title": "No pesticide cleaning near water",
+                      "description": "Pesticide equipment is cleaned away from natural water bodies",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    },
+                    "preventUntreatedWater": {
+                      "title": "Prevent untreated water",
+                      "description": "Ensuring untreated water from processing does not enter natural water bodies",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    },
+                    "noLivestockNearWater": {
+                      "title": "No livestock near water",
+                      "description": "Grazing livestock away from natural water bodies",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    },
+                    "noDomesticDischarge": {
+                      "title": "No domestic discharge",
+                      "description": "Domestic discharge prevented from entering natural water bodies",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    }
+                  }
                 }
               }
             },
@@ -547,10 +701,49 @@
               "properties": {
                 "ipmPractices": {
                   "title": "% of IPM practices employed on the farm",
-                  "description": "• Conduct regular visual examinations of the coffee to detect pests and/or diseases • Use traps, repellents, and natural pesticides • Create or preserve places (including plant species) for beneficial predators of pests to live • Maintain written record of pest infestation, treatments, and results • Plant or preserve species that repel pests of the coffee • Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population",
-                  "type": "number",
-                  "exclusiveMinimum": 0,
-                  "maximum": 100
+                  "description": "Focusing on IPM techniques is a globally standardized way to understand pest management best practices without the more costly and time-consuming process of detailing individual pesticides, active ingredients, amount used in local units, etc.",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "conductRegularVisualExaminations",
+                    "useNaturalPesticides",
+                    "predatorPlaces",
+                    "recordPestInfestation",
+                    "pestRepelSpecies",
+                    "applyAfterIdentifying"
+                  ],
+                  "properties": {
+                    "conductRegularVisualExaminations": {
+                      "title": "Conduct regular visual examinations",
+                      "description": "Conduct regular visual examinations of the coffee to detect pests and/or diseases",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    },
+                    "useNaturalPesticides": {
+                      "title": "Use natural pesticides",
+                      "description": "Use traps, repellants, and natural pesticides",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    },
+                    "predatorPlaces": {
+                      "title": "Predator places",
+                      "description": "Create or preserve places (including plant species) for beneficial predators of pests to live",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    },
+                    "recordPestInfestation": {
+                      "title": "Record pest infestation",
+                      "description": "Maintain written record of pest infestation, treatments, and results",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    },
+                    "pestRepelSpecies": {
+                      "title": "Pest repel species",
+                      "description": "Plant or preserve species that repel pests of the coffee",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    },
+                    "applyAfterIdentifying": {
+                      "title": "Apply after identifying",
+                      "description": "Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population ",
+                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                    }
+                  }
                 },
                 "useOfBannedPesticides": {
                   "title": "Use of banned or hazardous pesticides on the farm",
@@ -568,9 +761,42 @@
             "soilConservation": {
               "title": "Soil Conservation",
               "description": "% of applicable soil conservation practices used on the farm (of those listed)",
-              "type": "number",
-              "exclusiveMinimum": 0,
-              "maximum": 100
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "contourPlanting",
+                "liveFences",
+                "recyclingOrganicMatter",
+                "interplanting",
+                "checkDams"
+              ],
+              "properties": {
+                "contourPlanting": {
+                  "title": "Contour planting",
+                  "description": "Contour planting, terracing, or soil ridges around trees",
+                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                },
+                "liveFences": {
+                  "title": "Live fences",
+                  "description": "Live fences, hedgerows or buffer zones",
+                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                },
+                "recyclingOrganicMatter": {
+                  "title": "Recycling organic matter",
+                  "description": "Recycling organic matter and crop waste",
+                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                },
+                "interplanting": {
+                  "title": "Interplanting",
+                  "description": "Interplanting, nitrogen fixing plants, cover crops, or mulching",
+                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                },
+                "checkDams": {
+                  "title": "Check dams",
+                  "description": "Check dams, drainage channels or diversion ditches",
+                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                }
+              }
             }
           }
         }
@@ -597,18 +823,18 @@
           ],
           "properties": {
             "plotId": {
+              "title": "The unique ID of the plot",
               "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organisation.",
-              "title": "TODO",
               "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
             },
             "farmId": {
-              "description": "Globally Unique ID farmId",
               "title": "To which farm belongs this plot",
+              "description": "Globally Unique ID farmId",
               "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
             },
             "boundary": {
-              "description": "The boundary of the plot",
               "title": "Plot boundary",
+              "description": "The boundary of the plot",
               "additionalProperties": false,
               "required": [
                 "type",

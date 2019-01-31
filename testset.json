@@ -41,12 +41,15 @@
       ]
     },
     "social": {
-      "povertyLevel": 72.5,
+      "povertyLevel": {
+        "householdMembers": 3,
+        "totalHouseholdIncome": 20.58
+      },
       "childLabour": {
         "schoolAgeHouseholdMembers": 33.3,
         "hazardousProhibition": "Prefer not to say"
       },
-      "hunger": 25
+      "hunger": "20-29 days"
     }
   },
   "farm": {
@@ -82,8 +85,18 @@
       "totalAreaCoffee": 160.48
     },
     "social": {
-      "laborPractices": 80,
-      "wages": 145.58
+      "laborPractices": {
+        "prohibitingDiscrimination": 90,
+        "clearContracting": 50,
+        "hazardousWorkingCondition": 74,
+        "rightToOrganize": 100
+      },
+      "wages": {
+        "wagesProcessing": 4,
+        "wagesHarvesting": 14,
+        "wagesCoffee": 16,
+        "nationalMinimumWage": 12.50
+      }
     },
     "economic": {
       "coffeeProfit": 4.5,
@@ -126,21 +139,46 @@
     },
     "environmental": {
       "forestEcosystemProtection": {
-        "areaConvertedLand": 25.25,
+        "areaConvertedLand": {
+          "absoluteArea": 15,
+          "proportiesOfFarm": 100
+        },
         "ecosystemProtection": 18.58
       },
       "fertilizerUse": "Yes",
       "water": {
-        "waterConservation": 78,
-        "waterContamination": 24.58
+        "waterConservation": {
+          "dripIrrigation": "No",
+          "waterCatchments": "Yes",
+          "waterEfficientProcessing": "No"
+        },
+        "waterContamination": {
+          "preventUntreatedWater": "Yes",
+          "noPesticideCleaningNearWater": "No",
+          "noLivestockNearWater": "Yes",
+          "noDomesticDischarge": "Yes"
+        }
       },
       "pestControl": {
-        "ipmPractices": 5,
+        "ipmPractices": {
+          "conductRegularVisualExaminations": "Yes",
+          "pestRepelSpecies": "No",
+          "useNaturalPesticides": "Yes",
+          "applyAfterIdentifying": "No",
+          "predatorPlaces": "Yes",
+          "recordPestInfestation": "No"
+        },
         "useOfBannedPesticides": [
           "Glyfosate"
         ]
       },
-      "soilConservation": 36.87
+      "soilConservation": {
+        "checkDams": "Yes",
+        "interplanting": "No",
+        "contourPlanting": "No",
+        "recyclingOrganicMatter": "Yes",
+        "liveFences": "Yes"
+      }
     }
   },
   "plot": {

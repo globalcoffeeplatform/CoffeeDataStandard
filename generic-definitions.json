@@ -21,11 +21,23 @@
         "percentage": {
           "title": "The portion used for coffee production",
           "description": "Costs should be associated with the coffee production only (i.e., if labor is hired for multiple crops, only the portion used for coffee production should be included). One way to make sure that costs are correctly associated with the production of the coffee is to ask for the percent of inputs that were used for the coffee.",
-          "type": "number",
-          "minimum": 0,
-          "maximum": 100
-        }
+          "$ref": "#/definitions/percentage"        }
       }
+    },
+    "percentage": {
+      "title": "The percentage",
+      "description": "The percentage, from 0 to 100 with decimals allowed",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "yesNo": {
+      "title": "Yes-No enumeration",
+      "type": "string",
+      "enum": [
+        "Yes",
+        "No"
+      ]
     }
   }
 }
