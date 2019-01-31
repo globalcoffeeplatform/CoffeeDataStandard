@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://example.com/global-coffee-data-standard.schema.json",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/global-coffee-data-standard.schema.json",
   "title": "GlobalCoffeeDataset",
   "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
   "version": "0.0.4",
@@ -139,6 +139,7 @@
           "description": "The social farmer characteristics",
           "type": "object",
           "additionalProperties": false,
+          "required": ["povertyLevel", "childLabour", "hunger"],
           "properties": {
             "povertyLevel": {
               "title": "Poverty level",
@@ -185,90 +186,6 @@
         }
       }
     },
-    "plot": {
-      "description": "The plot characteristics",
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "general",
-        "economic"
-      ],
-      "properties": {
-        "general": {
-          "description": "The general plot characteristics",
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "plotId",
-            "farmId",
-            "boundary",
-            "area"
-          ],
-          "properties": {
-            "plotId": {
-              "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organisation.",
-              "title": "TODO",
-              "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
-            },
-            "farmId": {
-              "description": "Globally Unique ID farmId",
-              "title": "To which farm belongs this plot",
-              "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
-            },
-            "boundary": {
-              "description": "The boundary of the plot",
-              "title": "Plot boundary",
-              "additionalProperties": false,
-              "required": [
-                "type",
-                "coordinates",
-                "crs"
-              ],
-              "TODO": "Restrict to (multi)polygons only.",
-              "$ref": "http://json.schemastore.org/geojson"
-            },
-            "area": {
-              "type": "number",
-              "minimum": 0
-            },
-            "thirdPartyIds": {
-              "title": "Third-party identifier",
-              "description": "When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
-              },
-              "additionalItems": false,
-              "additionalProperties": false
-            }
-          }
-        },
-        "economic": {
-          "description": "The economic plot characteristics",
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "yield",
-            "productivity"
-          ],
-          "properties": {
-            "yield": {
-              "title": "Yield",
-              "description": "kgs of GBE (harvested)",
-              "type": "number",
-              "minimum": 0
-            },
-            "productivity": {
-              "title": "Productivity",
-              "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
-              "type": "number",
-              "minimum": 0
-            }
-          }
-        }
-      }
-    },
     "farm": {
       "description": "The farm characteristics",
       "type": "object",
@@ -296,7 +213,7 @@
             "farmId": {
               "title": "Farm Id",
               "description": "Globally Unique ID of the recording of the farm at a specific time and by a specific organisation.",
-              "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+              "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/global-unique-id-definitions.json#/definitions/globalUniqueId"
             },
             "farmerId": {
               "title": "Farmer Id",
@@ -528,7 +445,7 @@
               "description": "The simple approach involves asking for the total revenue received from coffee during the last production year as well as the amount sold (and the form). The average price per unit can then be calculated. For multiple sales, calculate the price average of sales",
               "type": "object",
               "additionalProperties": false,
-              "required": [],
+              "required": ["totalCoffeeRevenue", "kgSold"],
               "properties": {
                 "totalCoffeeRevenue": {
                   "type": "number",
@@ -654,6 +571,90 @@
               "type": "number",
               "exclusiveMinimum": 0,
               "maximum": 100
+            }
+          }
+        }
+      }
+    },
+    "plot": {
+      "description": "The plot characteristics",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "general",
+        "economic"
+      ],
+      "properties": {
+        "general": {
+          "description": "The general plot characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "plotId",
+            "farmId",
+            "boundary",
+            "area"
+          ],
+          "properties": {
+            "plotId": {
+              "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organisation.",
+              "title": "TODO",
+              "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+            },
+            "farmId": {
+              "description": "Globally Unique ID farmId",
+              "title": "To which farm belongs this plot",
+              "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+            },
+            "boundary": {
+              "description": "The boundary of the plot",
+              "title": "Plot boundary",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "coordinates",
+                "crs"
+              ],
+              "TODO": "Restrict to (multi)polygons only.",
+              "$ref": "http://json.schemastore.org/geojson"
+            },
+            "area": {
+              "type": "number",
+              "minimum": 0
+            },
+            "thirdPartyIds": {
+              "title": "Third-party identifier",
+              "description": "When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
+              },
+              "additionalItems": false,
+              "additionalProperties": false
+            }
+          }
+        },
+        "economic": {
+          "description": "The economic plot characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "yield",
+            "productivity"
+          ],
+          "properties": {
+            "yield": {
+              "title": "Yield",
+              "description": "kgs of GBE (harvested)",
+              "type": "number",
+              "minimum": 0
+            },
+            "productivity": {
+              "title": "Productivity",
+              "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
+              "type": "number",
+              "minimum": 0
             }
           }
         }
