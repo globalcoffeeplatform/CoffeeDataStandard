@@ -169,12 +169,12 @@
                 "schoolAgeHouseholdMembers": {
                   "title": "School-age household members",
                   "description": "% of school-age household members, under age 18, who have completed appropriate grade level for their age",
-                  "$ref": "generic-definitions.json#/definitions/percentage"
+                  "$ref": "#/definitions/percentage"
                 },
                 "hazardousProhibition": {
                   "title": "Prohibition of children in hazardous working conditions",
                   "description": "Are young workers (those under age 18) working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)",
-                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                  "$ref": "#/definitions/yesNo"
                 }
               }
             },
@@ -266,7 +266,7 @@
             "totalAreaCoffee": {
               "title": "Total Area planted in Coffee (ha)",
               "description": "Sum of coffee farm areas from producers in the sustainability program or supply chain (ha)",
-              "$ref": "generic-definitions.json#/definitions/greaterThanZero"
+              "$ref": "#/definitions/greaterThanZero"
             },
             "thirdPartyIds": {
               "title": "Third-party identifier",
@@ -305,22 +305,22 @@
                 "clearContracting": {
                   "title": "Clear contracting",
                   "description": "Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc. ",
-                  "$ref": "generic-definitions.json#/definitions/percentage"
+                  "$ref": "#/definitions/percentage"
                 },
                 "rightToOrganize": {
                   "title": "Right to organize",
                   "description": "Percentage right to organize -- the ability for workers to join unions or committees and freely assemble",
-                  "$ref": "generic-definitions.json#/definitions/percentage"
+                  "$ref": "#/definitions/percentage"
                 },
                 "prohibitingDiscrimination": {
                   "title": "Prohibiting discrimination",
                   "description": "Percentage prohibiting discrimination -- in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)",
-                  "$ref": "generic-definitions.json#/definitions/percentage"
+                  "$ref": "#/definitions/percentage"
                 },
                 "hazardousWorkingCondition": {
                   "title": "Hazardous working condition",
                   "description": "Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc. ",
-                  "$ref": "generic-definitions.json#/definitions/percentage"
+                  "$ref": "#/definitions/percentage"
                 }
               }
             },
@@ -379,7 +379,7 @@
             "coffeeProfit": {
               "title": "Coffee Profit",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
-              "$ref": "generic-definitions.json#/definitions/greaterThanZero"
+              "$ref": "#/definitions/greaterThanZero"
             },
             "productivity": {
               "title": "Yield / Productivity",
@@ -395,12 +395,12 @@
                 "coffeeProductiveArea": {
                   "title": "Coffee productive area",
                   "description": "Coffee productive area (requires local land area unit conversion to hectares)",
-                  "$ref": "generic-definitions.json#/definitions/greaterThanZero"
+                  "$ref": "#/definitions/greaterThanZero"
                 },
                 "amountHarvested": {
                   "title": "Amount harvested",
                   "description": "Amount harvested (requires local unit conversion to kgs)--Amount sold can be a suitable proxy where harvested amounts are unknown (i.e., many smallholders will only know production volumes when their product is weighed at the mill)",
-                  "$ref": "generic-definitions.json#/definitions/greaterThanZero"
+                  "$ref": "#/definitions/greaterThanZero"
                 },
                 "formOfCoffee": {
                   "title": "Form of coffee",
@@ -432,7 +432,7 @@
               "properties": {
                 "fertilizers": {
                   "title": "Fertilizers costs",
-                  "$ref": "productionCosts.json"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "pesticides": {
                   "title": "Pesticides costs",
@@ -551,7 +551,7 @@
                 },
                 "proportionOfTotal": {
                   "title": "Proportion of total",
-                  "$ref": "generic-definitions.json#/definitions/percentage"
+                  "$ref": "#/definitions/percentage"
                 }
               }
             }
@@ -595,21 +595,21 @@
                     },
                     "proportiesOfFarm": {
                       "title": "Proportion of the farm",
-                      "$ref": "generic-definitions.json#/definitions/percentage"
+                      "$ref": "#/definitions/percentage"
                     }
                   }
                 },
                 "ecosystemProtection": {
                   "title": "Forest and ecosystem protection",
                   "description": "% of forest and ecosystem protection practices used on the farm",
-                  "$ref": "generic-definitions.json#/definitions/percentage"
+                  "$ref": "#/definitions/percentage"
                 }
               }
             },
             "fertilizerUse": {
               "title": "Fertilizer use",
               "description": "Whether a professional assessment or advice was used to determine fertilizer needs on the farm. It does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc. ",
-              "$ref": "generic-definitions.json#/definitions/yesNo"
+              "$ref": "#/definitions/yesNo"
             },
             "water": {
               "title": "Water Conservation & Contamination Prevention",
@@ -633,15 +633,15 @@
                   "properties": {
                     "dripIrrigation": {
                       "title": "Drip irrigation",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     },
                     "waterCatchments": {
                       "title": "Water catchments",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     },
                     "waterEfficientProcessing": {
                       "title": "Water-efficient processing",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     }
                   }
                 },
@@ -660,22 +660,22 @@
                     "noPesticideCleaningNearWater": {
                       "title": "No pesticide cleaning near water",
                       "description": "Pesticide equipment is cleaned away from natural water bodies",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     },
                     "preventUntreatedWater": {
                       "title": "Prevent untreated water",
                       "description": "Ensuring untreated water from processing does not enter natural water bodies",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     },
                     "noLivestockNearWater": {
                       "title": "No livestock near water",
                       "description": "Grazing livestock away from natural water bodies",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     },
                     "noDomesticDischarge": {
                       "title": "No domestic discharge",
                       "description": "Domestic discharge prevented from entering natural water bodies",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     }
                   }
                 }
@@ -707,32 +707,32 @@
                     "conductRegularVisualExaminations": {
                       "title": "Conduct regular visual examinations",
                       "description": "Conduct regular visual examinations of the coffee to detect pests and/or diseases",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     },
                     "useNaturalPesticides": {
                       "title": "Use natural pesticides",
                       "description": "Use traps, repellants, and natural pesticides",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     },
                     "predatorPlaces": {
                       "title": "Predator places",
                       "description": "Create or preserve places (including plant species) for beneficial predators of pests to live",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     },
                     "recordPestInfestation": {
                       "title": "Record pest infestation",
                       "description": "Maintain written record of pest infestation, treatments, and results",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     },
                     "pestRepelSpecies": {
                       "title": "Pest repel species",
                       "description": "Plant or preserve species that repel pests of the coffee",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     },
                     "applyAfterIdentifying": {
                       "title": "Apply after identifying",
                       "description": "Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population ",
-                      "$ref": "generic-definitions.json#/definitions/yesNo"
+                      "$ref": "#/definitions/yesNo"
                     }
                   }
                 },
@@ -765,27 +765,27 @@
                 "contourPlanting": {
                   "title": "Contour planting",
                   "description": "Contour planting, terracing, or soil ridges around trees",
-                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                  "$ref": "#/definitions/yesNo"
                 },
                 "liveFences": {
                   "title": "Live fences",
                   "description": "Live fences, hedgerows or buffer zones",
-                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                  "$ref": "#/definitions/yesNo"
                 },
                 "recyclingOrganicMatter": {
                   "title": "Recycling organic matter",
                   "description": "Recycling organic matter and crop waste",
-                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                  "$ref": "#/definitions/yesNo"
                 },
                 "interplanting": {
                   "title": "Interplanting",
                   "description": "Interplanting, nitrogen fixing plants, cover crops, or mulching",
-                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                  "$ref": "#/definitions/yesNo"
                 },
                 "checkDams": {
                   "title": "Check dams",
                   "description": "Check dams, drainage channels or diversion ditches",
-                  "$ref": "generic-definitions.json#/definitions/yesNo"
+                  "$ref": "#/definitions/yesNo"
                 }
               }
             }
@@ -881,17 +881,31 @@
   },
   "definitions": {
     "percentage": {
-      "title": "The percentage",
+      "title": "The percentage, 0-100",
       "description": "The percentage, from 0 to 100 with decimals allowed",
       "type": "number",
       "minimum": 0,
       "maximum": 100
     },
     "positiveNumber": {
-      "title": "A positive number starting at 0 with decimals allowed",
+      "title": "A positive number > 0",
       "description": "A positive number starting at 0 with decimals allowed",
       "type": "number",
-      "minimum": 10
-    }
+      "minimum": 0
+    },
+    "greaterThanZero": {
+      "title": "The positive number, greater than 0",
+      "description": "A positive number starting at greater than 0 with decimals allowed",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "yesNo": {
+      "title": "Yes-No enumeration",
+      "type": "string",
+      "enum": [
+        "Yes",
+        "No"
+      ]
+    }    
   }
 }
