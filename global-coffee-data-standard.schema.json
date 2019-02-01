@@ -146,7 +146,8 @@
                 "totalHouseholdIncome": {
                   "title": "Total household income",
                   "description": "Total household income in USD",
-                  "type": "number", "minimum": 0
+                  "type": "number",
+                  "minimum": 0
                 },
                 "householdMembers": {
                   "title": "Household members",
@@ -259,7 +260,8 @@
             "totalFarmSize": {
               "title": "Total farm size (ha)",
               "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property. Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha).",
-              "type": "number", "minimum": 0
+              "type": "number",
+              "minimum": 0
             },
             "totalAreaCoffee": {
               "title": "Total Area planted in Coffee (ha)",
@@ -335,23 +337,28 @@
               "properties": {
                 "wagesCoffee": {
                   "title": "The average daily wage rate paid for coffee production",
-                  "type": "number", "minimum": 0
+                  "type": "number",
+                  "minimum": 0
                 },
                 "wagesHarvesting": {
                   "title": "The average daily wage rate paid for harvesting",
-                  "type": "number", "minimum": 0
+                  "type": "number",
+                  "minimum": 0
                 },
                 "wagesProcessing": {
                   "title": "The average daily wage rate paid for processing",
-                  "type": "number", "minimum": 0
+                  "type": "number",
+                  "minimum": 0
                 },
                 "ruralMinimumWage": {
                   "title": "Rural minimum wage",
-                  "type": "number", "minimum": 0
+                  "type": "number",
+                  "minimum": 0
                 },
                 "nationalMinimumWage": {
                   "title": "National minimum wage",
-                  "type": "number", "minimum": 0
+                  "type": "number",
+                  "minimum": 0
                 }
               }
             }
@@ -425,7 +432,7 @@
               "properties": {
                 "fertilizers": {
                   "title": "Fertilizers costs",
-                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
+                  "$ref": "productionCosts.json"
                 },
                 "pesticides": {
                   "title": "Pesticides costs",
@@ -517,11 +524,13 @@
               "properties": {
                 "totalCoffeeRevenue": {
                   "title": "Total coffee revenue",
-                  "type": "number", "minimum": 0
+                  "type": "number",
+                  "minimum": 0
                 },
                 "kgSold": {
                   "title": "kg of GBE sold",
-                  "type": "number", "minimum": 0
+                  "type": "number",
+                  "minimum": 0
                 }
               }
             },
@@ -537,7 +546,8 @@
               "properties": {
                 "volumeOfSustainablePurchases": {
                   "title": "Volume of sustainable purchases",
-                  "type": "number", "minimum": 0
+                  "type": "number",
+                  "minimum": 0
                 },
                 "proportionOfTotal": {
                   "title": "Proportion of total",
@@ -580,7 +590,8 @@
                   "properties": {
                     "absoluteArea": {
                       "title": "Absolute area in ha",
-                      "type": "number", "minimum": 0
+                      "type": "number",
+                      "minimum": 0
                     },
                     "proportiesOfFarm": {
                       "title": "Proportion of the farm",
@@ -826,7 +837,8 @@
             },
             "area": {
               "title": "Area of the plot",
-              "type": "number", "minimum": 0
+              "type": "number",
+              "minimum": 0
             },
             "thirdPartyIds": {
               "title": "Third-party identifier",
@@ -853,16 +865,33 @@
             "yield": {
               "title": "Yield",
               "description": "kgs of GBE (harvested)",
-              "type": "number", "minimum": 0
+              "type": "number",
+              "minimum": 0
             },
             "productivity": {
               "title": "Productivity",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
-              "type": "number", "minimum": 0
+              "$ref": "#/definitions/positiveNumber"
+
             }
           }
         }
       }
+    }
+  },
+  "definitions": {
+    "percentage": {
+      "title": "The percentage",
+      "description": "The percentage, from 0 to 100 with decimals allowed",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "positiveNumber": {
+      "title": "A positive number starting at 0 with decimals allowed",
+      "description": "A positive number starting at 0 with decimals allowed",
+      "type": "number",
+      "minimum": 10
     }
   }
 }
