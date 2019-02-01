@@ -146,7 +146,7 @@
                 "totalHouseholdIncome": {
                   "title": "Total household income",
                   "description": "Total household income in USD",
-                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
+                  "type": "number", "minimum": 0
                 },
                 "householdMembers": {
                   "title": "Household members",
@@ -259,7 +259,7 @@
             "totalFarmSize": {
               "title": "Total farm size (ha)",
               "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property. Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha).",
-              "$ref": "positiveNumber.json#/definitions/positiveNumber"
+              "type": "number", "minimum": 0
             },
             "totalAreaCoffee": {
               "title": "Total Area planted in Coffee (ha)",
@@ -335,23 +335,23 @@
               "properties": {
                 "wagesCoffee": {
                   "title": "The average daily wage rate paid for coffee production",
-                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
+                  "type": "number", "minimum": 0
                 },
                 "wagesHarvesting": {
                   "title": "The average daily wage rate paid for harvesting",
-                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
+                  "type": "number", "minimum": 0
                 },
                 "wagesProcessing": {
                   "title": "The average daily wage rate paid for processing",
-                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
+                  "type": "number", "minimum": 0
                 },
                 "ruralMinimumWage": {
                   "title": "Rural minimum wage",
-                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
+                  "type": "number", "minimum": 0
                 },
                 "nationalMinimumWage": {
                   "title": "National minimum wage",
-                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
+                  "type": "number", "minimum": 0
                 }
               }
             }
@@ -425,83 +425,83 @@
               "properties": {
                 "fertilizers": {
                   "title": "Fertilizers costs",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "pesticides": {
                   "title": "Pesticides costs",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "hiredLabor": {
                   "title": "Costs of hired labor",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "plantingMaterial": {
                   "title": "Costs of planting material",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "renovation": {
                   "title": "Costs of renovation",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "deductionsByBuyers": {
                   "title": "Deductions by buyers",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "rentOfLand": {
                   "title": "Rent of land",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "energy": {
                   "title": "Energy costs",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "irrigation": {
                   "title": "Irrigation costs",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "capitalAssets": {
                   "title": "Capital assets",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "cultivationPractices": {
                   "title": "Cultivation practices",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "traceabilityAndRecordKeeping": {
                   "title": "Traceability and record keeping",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "standardsCertification": {
                   "title": "Costs of standards or certifications",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "plantingReforestation": {
                   "title": "Planting and reforestation costs",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "training": {
                   "title": "Training costs",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "interest": {
                   "title": "Interest on credit",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "cropInsurance": {
                   "title": "Crop insurance",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "cooperativeFees": {
                   "title": "Cooperative fees",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "unpaidFamilyLabor": {
                   "title": "Unpaid family labor",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 },
                 "other": {
                   "title": "Other costs",
-                  "$ref": "generic-definitions.json#/definitions/productionCosts"
+                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/productionCosts.json"
                 }
               }
             },
@@ -517,11 +517,11 @@
               "properties": {
                 "totalCoffeeRevenue": {
                   "title": "Total coffee revenue",
-                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
+                  "type": "number", "minimum": 0
                 },
                 "kgSold": {
                   "title": "kg of GBE sold",
-                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
+                  "type": "number", "minimum": 0
                 }
               }
             },
@@ -537,7 +537,7 @@
               "properties": {
                 "volumeOfSustainablePurchases": {
                   "title": "Volume of sustainable purchases",
-                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
+                  "type": "number", "minimum": 0
                 },
                 "proportionOfTotal": {
                   "title": "Proportion of total",
@@ -580,7 +580,7 @@
                   "properties": {
                     "absoluteArea": {
                       "title": "Absolute area in ha",
-                      "$ref": "positiveNumber.json#/definitions/positiveNumber"
+                      "type": "number", "minimum": 0
                     },
                     "proportiesOfFarm": {
                       "title": "Proportion of the farm",
@@ -826,7 +826,7 @@
             },
             "area": {
               "title": "Area of the plot",
-              "$ref": "positiveNumber.json#/definitions/positiveNumber"
+              "type": "number", "minimum": 0
             },
             "thirdPartyIds": {
               "title": "Third-party identifier",
@@ -853,12 +853,12 @@
             "yield": {
               "title": "Yield",
               "description": "kgs of GBE (harvested)",
-              "$ref": "positiveNumber.json#/definitions/positiveNumber"
+              "type": "number", "minimum": 0
             },
             "productivity": {
               "title": "Productivity",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
-              "$ref": "positiveNumber.json#/definitions/positiveNumber"
+              "type": "number", "minimum": 0
             }
           }
         }
