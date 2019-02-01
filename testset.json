@@ -158,7 +158,7 @@
           "noDomesticDischarge": "Yes"
         }
       },
-      "pestControl": {
+"pestControl": {
         "ipmPractices": {
           "conductRegularVisualExaminations": "Yes",
           "pestRepelSpecies": "No",

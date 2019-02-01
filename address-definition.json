@@ -1,52 +1,47 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/address-definition.json#",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/address-definition.json",
   "title": "The definition of the address object",
+  "description": "An address. This is the legally registered address of the farm.",
   "type": "object",
-  "definitions": {
-    "address": {
-      "description": "An address. This is the legally registered address of the farm.",
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "countryName"
-      ],
-      "properties": {
-        "streetAddress": {
-          "title": "Street address",
-          "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
-          "type": "string"
-        },
-        "postalCode": {
-          "title": "Postal code",
-          "description": "The postal code. For example, 94043.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "locality": {
-          "title": "Locality",
-          "description": "The locality. For example, Mountain View.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "region": {
-          "title": "Region",
-          "description": "The region. For example, CA.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "countryName": {
-          "title": "Country name",
-          "description": "The country name. For example, United States.",
-          "type": "string"
-        }
-      }
+  "additionalProperties": false,
+  "required": [
+    "countryName"
+  ],
+  "properties": {
+    "streetAddress": {
+      "title": "Street address",
+      "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
+      "type": "string"
+    },
+    "postalCode": {
+      "title": "Postal code",
+      "description": "The postal code. For example, 94043.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "locality": {
+      "title": "Locality",
+      "description": "The locality. For example, Mountain View.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "region": {
+      "title": "Region",
+      "description": "The region. For example, CA.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "countryName": {
+      "title": "Country name",
+      "description": "The country name. For example, United States.",
+      "type": "string"
     }
   }
 }

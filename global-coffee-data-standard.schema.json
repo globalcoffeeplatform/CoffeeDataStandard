@@ -76,7 +76,7 @@
             "address": {
               "title": "The location of the farm",
               "description": "Generally, data should include Country and then State/Department and Municipality/District, unless the address is collected for the sake of auditing. This should be the location of the farm itself (main plot), not the home of the farmer, if different.",
-              "$ref": "address-definition.json#/definitions/address"
+              "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/address-definition.json"
             },
             "dateOfBirth": {
               "title": "Date of birth.",
@@ -254,7 +254,7 @@
               "title": "Farm address",
               "description": "This should be the location of the farm itself (main plot), not the home of the farmer, if different.",
               "additionalProperties": false,
-              "$ref": "address-definition.json#/definitions/address"
+              "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/address-definition.json"
             },
             "totalFarmSize": {
               "title": "Total farm size (ha)",
