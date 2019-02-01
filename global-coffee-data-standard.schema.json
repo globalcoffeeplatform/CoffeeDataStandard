@@ -12,29 +12,18 @@
   "additionalProperties": false,
   "required": [
     "globalCoffeeDatasetId",
-    "dateTimeSend",
-    "sender",
     "farmer",
     "farm"
   ],
   "properties": {
     "globalCoffeeDatasetId": {
       "description": "The unique identifier for a dataset",
-      "type": "integer"
+      "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
     },
     "schemaVersion": {
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset",
       "type": "string",
       "pattern": "^[0-9]{1,2}\\.[0-9]{1,2}\\.[0-9]{1,2}$"
-    },
-    "dateTimeSend": {
-      "description": "The date and time this dataset was send. This SHOULD be a date in ISO 8601 format of YYYY-MM-DDThh:mm:ssZ in UTC time.",
-      "type": "string",
-      "format": "date-time"
-    },
-    "sender": {
-      "description": "The name of the organisation that send this dataset",
-      "type": "string"
     },
     "farmer": {
       "description": "The farmer characteristics",
