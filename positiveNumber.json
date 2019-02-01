@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json",
-  "title": "A positive number",
-  "description": "A positive number starting at 0 with decimals allowed",
+  "title": "My title",
+  "description": "My description",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -10,7 +10,7 @@
   ],
   "properties": {
     "positiveNumber": {
-      "title": "The positive number 2",
+      "title": "A positive number",
       "description": "A positive number starting at 0 with decimals allowed",
       "type": "number",
       "minimum": 10

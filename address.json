@@ -17,26 +17,17 @@
     "postalCode": {
       "title": "Postal code",
       "description": "The postal code. For example, 94043.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "locality": {
       "title": "Locality",
       "description": "The locality. For example, Mountain View.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "region": {
       "title": "Region",
       "description": "The region. For example, CA.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "countryName": {
       "title": "Country name",

@@ -858,7 +858,7 @@
             "productivity": {
               "title": "Productivity",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
-              "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+              "$ref": "positiveNumber.json#/properties/positiveNumber"
             }
           }
         }
