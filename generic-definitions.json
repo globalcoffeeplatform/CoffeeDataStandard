@@ -41,6 +41,12 @@
         "No"
       ]
     },
+    "positiveNumber": {
+      "title": "A positive number starting at 0 with decimals allowed",
+      "description": "A positive number starting at 0 with decimals allowed",
+      "type": "number",
+      "minimum": 10
+    },
     "greaterThanZero": {
       "title": "The positive number, greater than 0",
       "description": "A positive number starting at greater than 0 with decimals allowed",

@@ -6,7 +6,7 @@
       "title": "A positive number",
       "description": "A positive number starting at 0 with decimals allowed",
       "type": "number",
-      "minimum": 15
+      "minimum": 0
     }
   }
 }

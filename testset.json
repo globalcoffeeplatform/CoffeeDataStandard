@@ -212,8 +212,8 @@
       ]
     },
     "economic": {
-      "productivity": 8,
-      "yield": 45
+      "productivity": 7 ,
+      "yield": 20
     }
   }
 }

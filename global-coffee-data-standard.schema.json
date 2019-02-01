@@ -146,7 +146,7 @@
                 "totalHouseholdIncome": {
                   "title": "Total household income",
                   "description": "Total household income in USD",
-                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
                 },
                 "householdMembers": {
                   "title": "Household members",
@@ -259,7 +259,7 @@
             "totalFarmSize": {
               "title": "Total farm size (ha)",
               "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property. Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha).",
-              "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+              "$ref": "positiveNumber.json#/definitions/positiveNumber"
             },
             "totalAreaCoffee": {
               "title": "Total Area planted in Coffee (ha)",
@@ -335,23 +335,23 @@
               "properties": {
                 "wagesCoffee": {
                   "title": "The average daily wage rate paid for coffee production",
-                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
                 },
                 "wagesHarvesting": {
                   "title": "The average daily wage rate paid for harvesting",
-                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
                 },
                 "wagesProcessing": {
                   "title": "The average daily wage rate paid for processing",
-                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
                 },
                 "ruralMinimumWage": {
                   "title": "Rural minimum wage",
-                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
                 },
                 "nationalMinimumWage": {
                   "title": "National minimum wage",
-                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
                 }
               }
             }
@@ -517,11 +517,11 @@
               "properties": {
                 "totalCoffeeRevenue": {
                   "title": "Total coffee revenue",
-                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
                 },
                 "kgSold": {
                   "title": "kg of GBE sold",
-                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
                 }
               }
             },
@@ -537,7 +537,7 @@
               "properties": {
                 "volumeOfSustainablePurchases": {
                   "title": "Volume of sustainable purchases",
-                  "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+                  "$ref": "positiveNumber.json#/definitions/positiveNumber"
                 },
                 "proportionOfTotal": {
                   "title": "Proportion of total",
@@ -580,7 +580,7 @@
                   "properties": {
                     "absoluteArea": {
                       "title": "Absolute area in ha",
-                      "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+                      "$ref": "positiveNumber.json#/definitions/positiveNumber"
                     },
                     "proportiesOfFarm": {
                       "title": "Proportion of the farm",
@@ -826,7 +826,7 @@
             },
             "area": {
               "title": "Area of the plot",
-              "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+              "$ref": "positiveNumber.json#/definitions/positiveNumber"
             },
             "thirdPartyIds": {
               "title": "Third-party identifier",
@@ -853,7 +853,7 @@
             "yield": {
               "title": "Yield",
               "description": "kgs of GBE (harvested)",
-              "$ref": "generic-definitions.json#/definitions/positiveNumber"
+              "$ref": "positiveNumber.json#/definitions/positiveNumber"
             },
             "productivity": {
               "title": "Productivity",
