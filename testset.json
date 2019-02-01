@@ -47,7 +47,7 @@
       },
       "childLabour": {
         "schoolAgeHouseholdMembers": 33.3,
-        "hazardousProhibition": "Prefer not to say"
+        "hazardousProhibition": "No"
       },
       "hunger": "20-29 days"
     }
@@ -87,7 +87,7 @@
     "social": {
       "laborPractices": {
         "prohibitingDiscrimination": 90,
-        "clearContracting": 50,
+        "clearContracting": 0,
         "hazardousWorkingCondition": 74,
         "rightToOrganize": 100
       },
@@ -135,7 +135,10 @@
         "totalCoffeeRevenue": 25800,
         "kgSold": 2510
       },
-      "sustainablePurchases": 15.87
+      "sustainablePurchases": {
+        "volumeOfSustainablePurchases": 1500,
+        "proportionOfTotal": 25
+      }
     },
     "environmental": {
       "forestEcosystemProtection": {

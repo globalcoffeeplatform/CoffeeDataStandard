@@ -157,8 +157,7 @@
                 "totalHouseholdIncome": {
                   "title": "Total household income",
                   "description": "Total household income in USD",
-                  "type": "number",
-                  "minimum": 0
+                  "$ref": "generic-definitions.json#/definitions/positiveNumber"
                 },
                 "householdMembers": {
                   "title": "Household members",
@@ -180,20 +179,12 @@
                 "schoolAgeHouseholdMembers": {
                   "title": "School-age household members",
                   "description": "% of school-age household members, under age 18, who have completed appropriate grade level for their age",
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 100
+                  "$ref": "generic-definitions.json#/definitions/percentage"
                 },
                 "hazardousProhibition": {
                   "title": "Prohibition of children in hazardous working conditions",
                   "description": "Are young workers (those under age 18) working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)",
-                  "type": "string",
-                  "enum": [
-                    "Yes",
-                    "No",
-                    "Sometimes",
-                    "Prefer not to say"
-                  ]
+                  "$ref": "generic-definitions.json#/definitions/yesNo"
                 }
               }
             },
@@ -268,16 +259,12 @@
             "totalFarmSize": {
               "title": "Total farm size (ha)",
               "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property. Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha).",
-              "type": "number",
-              "exclusiveMinimum": 0,
-              "maximum": 1500
+              "$ref": "generic-definitions.json#/definitions/positiveNumber"
             },
             "totalAreaCoffee": {
               "title": "Total Area planted in Coffee (ha)",
               "description": "Sum of coffee farm areas from producers in the sustainability program or supply chain (ha)",
-              "TODO": "Restrict size",
-              "type": "number",
-              "exclusiveMinimum": 0
+              "$ref": "generic-definitions.json#/definitions/greaterThanZero"
             },
             "thirdPartyIds": {
               "title": "Third-party identifier",
@@ -316,30 +303,22 @@
                 "clearContracting": {
                   "title": "Clear contracting",
                   "description": "Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc. ",
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 100
+                  "$ref": "generic-definitions.json#/definitions/percentage"
                 },
                 "rightToOrganize": {
                   "title": "Right to organize",
                   "description": "Percentage right to organize -- the ability for workers to join unions or committees and freely assemble",
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 100
+                  "$ref": "generic-definitions.json#/definitions/percentage"
                 },
                 "prohibitingDiscrimination": {
                   "title": "Prohibiting discrimination",
                   "description": "Percentage prohibiting discrimination -- in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)",
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 100
+                  "$ref": "generic-definitions.json#/definitions/percentage"
                 },
                 "hazardousWorkingCondition": {
                   "title": "Hazardous working condition",
                   "description": "Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc. ",
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 100
+                  "$ref": "generic-definitions.json#/definitions/percentage"
                 }
               }
             },
@@ -356,28 +335,23 @@
               "properties": {
                 "wagesCoffee": {
                   "title": "The average daily wage rate paid for coffee production",
-                  "type": "number",
-                  "minimum": 0
+                  "$ref": "generic-definitions.json#/definitions/positiveNumber"
                 },
                 "wagesHarvesting": {
                   "title": "The average daily wage rate paid for harvesting",
-                  "type": "number",
-                  "minimum": 0
+                  "$ref": "generic-definitions.json#/definitions/positiveNumber"
                 },
                 "wagesProcessing": {
                   "title": "The average daily wage rate paid for processing",
-                  "type": "number",
-                  "minimum": 0
+                  "$ref": "generic-definitions.json#/definitions/positiveNumber"
                 },
                 "ruralMinimumWage": {
                   "title": "Rural minimum wage",
-                  "type": "number",
-                  "exclusiveMinimum": 0
+                  "$ref": "generic-definitions.json#/definitions/positiveNumber"
                 },
                 "nationalMinimumWage": {
                   "title": "National minimum wage",
-                  "type": "number",
-                  "exclusiveMinimum": 0
+                  "$ref": "generic-definitions.json#/definitions/positiveNumber"
                 }
               }
             }
@@ -398,8 +372,7 @@
             "coffeeProfit": {
               "title": "Coffee Profit",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
-              "type": "number",
-              "exclusiveMinimum": 0
+              "$ref": "generic-definitions.json#/definitions/greaterThanZero"
             },
             "productivity": {
               "title": "Yield / Productivity",
@@ -415,14 +388,12 @@
                 "coffeeProductiveArea": {
                   "title": "Coffee productive area",
                   "description": "Coffee productive area (requires local land area unit conversion to hectares)",
-                  "type": "number",
-                  "exclusiveMinimum": 0
+                  "$ref": "generic-definitions.json#/definitions/greaterThanZero"
                 },
                 "amountHarvested": {
                   "title": "Amount harvested",
                   "description": "Amount harvested (requires local unit conversion to kgs)--Amount sold can be a suitable proxy where harvested amounts are unknown (i.e., many smallholders will only know production volumes when their product is weighed at the mill)",
-                  "type": "number",
-                  "exclusiveMinimum": 0
+                  "$ref": "generic-definitions.json#/definitions/greaterThanZero"
                 },
                 "formOfCoffee": {
                   "title": "Form of coffee",
@@ -545,23 +516,34 @@
               ],
               "properties": {
                 "totalCoffeeRevenue": {
-                  "type": "number",
                   "title": "Total coffee revenue",
-                  "minimum": 0
+                  "$ref": "generic-definitions.json#/definitions/positiveNumber"
                 },
                 "kgSold": {
                   "title": "kg of GBE sold",
-                  "type": "number",
-                  "minimum": 0
+                  "$ref": "generic-definitions.json#/definitions/positiveNumber"
                 }
               }
             },
             "sustainablePurchases": {
               "title": "Sustainable purchases",
               "description": "Volume of sustainable purchases by buyer and as a proportion of total, and change year to year. ",
-              "type": "number",
-              "minimum": 0,
-              "maximum": 100
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "volumeOfSustainablePurchases",
+                "proportionOfTotal"
+              ],
+              "properties": {
+                "volumeOfSustainablePurchases": {
+                  "title": "Volume of sustainable purchases",
+                  "$ref": "generic-definitions.json#/definitions/positiveNumber"
+                },
+                "proportionOfTotal": {
+                  "title": "Proportion of total",
+                  "$ref": "generic-definitions.json#/definitions/percentage"
+                }
+              }
             }
           }
         },
@@ -598,8 +580,7 @@
                   "properties": {
                     "absoluteArea": {
                       "title": "Absolute area in ha",
-                      "type": "number",
-                      "minimum": 0
+                      "$ref": "generic-definitions.json#/definitions/positiveNumber"
                     },
                     "proportiesOfFarm": {
                       "title": "Proportion of the farm",
@@ -844,8 +825,8 @@
               "$ref": "http://json.schemastore.org/geojson"
             },
             "area": {
-              "type": "number",
-              "minimum": 0
+              "title": "Area of the plot",
+              "$ref": "generic-definitions.json#/definitions/positiveNumber"
             },
             "thirdPartyIds": {
               "title": "Third-party identifier",
@@ -872,14 +853,12 @@
             "yield": {
               "title": "Yield",
               "description": "kgs of GBE (harvested)",
-              "type": "number",
-              "minimum": 0
+              "$ref": "generic-definitions.json#/definitions/positiveNumber"
             },
             "productivity": {
               "title": "Productivity",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
-              "type": "number",
-              "minimum": 0
+              "$ref": "generic-definitions.json#/definitions/positiveNumber"
             }
           }
         }

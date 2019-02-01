@@ -38,6 +38,18 @@
         "Yes",
         "No"
       ]
+    },
+    "positiveNumber": {
+      "title": "The positive number",
+      "description": "A positive number starting at 0 with decimals allowed",
+      "type": "number",
+      "minimum": 0
+    },
+    "greaterThanZero": {
+      "title": "The positive number, greater than 0",
+      "description": "A positive number starting at greater than 0 with decimals allowed",
+      "type": "number",
+      "exclusiveMinimum": 0
     }
   }
 }
