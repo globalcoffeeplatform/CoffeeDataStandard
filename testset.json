@@ -66,25 +66,25 @@
         "identifier": "1035413151",
         "timestamp": "2010-05-21"
       },
-      "frontDoor": {
-        "type": "Point",
-        "coordinates": [
-          125.6,
-          10.1
-        ],
-        "crs": {
-          "type": "name",
-          "properties": {
-            "name": "EPSG:3857"
-          }
-        }
-      },
       "address": {
         "countryName": "Mali",
         "postalCode": "5987 BL"
       },
       "totalFarmSize": 150.25,
-      "totalAreaCoffee": 160.48
+      "totalAreaCoffee": 160.48,
+      "location": {
+        "geoLocation": {
+          "crs":{
+            "type": "name",
+            "properties": {
+              "name": "EPSG:3857"
+            }
+          },
+          "coordinates": [125.25, 135.255],
+          "type": "Point"
+        },
+        "positionTakenAt": "Location of the front door of the head office"
+      }
     },
     "social": {
       "laborPractices": {
@@ -198,16 +198,18 @@
         "organization": "Land register of Burundi",
         "timestamp": "1998-12-28"
       },
-      "boundary": {
+      "boundary":
+      {
+        "type": "Polygon",
+        "coordinates": [
+          125.6, 10.1
+        ],
         "crs": {
           "type": "name",
           "properties": {
             "name": "EPSG:3857"
           }
-        },
-        "coordinates": [],
-        "type": "MultiPolygon"
-      },
+        }      },
       "area": 145.57,
       "thirdPartyIds": [
         {

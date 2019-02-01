@@ -211,7 +211,7 @@
           "required": [
             "farmId",
             "farmerId",
-            "frontDoor",
+            "location",
             "address",
             "totalFarmSize",
             "totalAreaCoffee"
@@ -227,17 +227,27 @@
               "description": "Globally Unique ID of the farmer of this farm",
               "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
             },
-            "frontDoor": {
-              "title": "Front door geolocation",
+            "location": {
               "description": "GPS should be captured for each farm plot if possible. GPS readings should be taken outside of buildings and away from significant tree coverage to avoid interference in the signal. GPS should be captured in the middle of the plot, and/or near the entrance to any main building (if there is one). Where the main residence or other buildings are not located on the farm plot, GPS should be taken in the middle of the plot.",
+              "type": "object",
               "additionalProperties": false,
               "required": [
-                "type",
-                "coordinates",
-                "crs"
+                "geoLocation",
+                "positionTakenAt"
               ],
-              "$comment": "Restrict to points only",
-              "$ref": "http://json.schemastore.org/geojson"
+              "properties": {
+                "geoLocation": {
+                  "title": "Front door geolocation",
+                  "$ref": "generic-definitions.json#/definitions/position"
+                },
+                "positionTakenAt": {
+                  "title": "The position was taken at ..",
+                  "type": "string",
+                  "enum": [
+                    "Location of the front door of the head office"
+                  ]
+                }
+              }
             },
             "address": {
               "title": "Farm address",
@@ -802,16 +812,8 @@
               "$ref": "global-unique-id-definitions.json#/definitions/globalUniqueId"
             },
             "boundary": {
-              "title": "Plot boundary",
-              "description": "The boundary of the plot",
-              "additionalProperties": false,
-              "required": [
-                "type",
-                "coordinates",
-                "crs"
-              ],
-              "TODO": "Restrict to (multi)polygons only.",
-              "$ref": "http://json.schemastore.org/geojson"
+              "title": "The boundary of the plot",
+              "$ref": "generic-definitions.json#/definitions/boundary"
             },
             "area": {
               "title": "Area of the plot",

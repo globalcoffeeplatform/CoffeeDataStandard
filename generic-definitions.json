@@ -22,7 +22,8 @@
         "percentage": {
           "title": "The portion used for coffee production",
           "description": "Costs should be associated with the coffee production only (i.e., if labor is hired for multiple crops, only the portion used for coffee production should be included). One way to make sure that costs are correctly associated with the production of the coffee is to ask for the percent of inputs that were used for the coffee.",
-          "$ref": "#/definitions/percentage"        }
+          "$ref": "#/definitions/percentage"
+        }
       }
     },
     "percentage": {
@@ -51,6 +52,52 @@
       "description": "A positive number starting at greater than 0 with decimals allowed",
       "type": "number",
       "exclusiveMinimum": 0
+    },
+    "boundary": {
+      "title": "The boundary in GeoJson format",
+      "allOf": [
+        {
+          "$ref": "http://json.schemastore.org/geojson"
+        }
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "Polygon",
+            "MultiPolygon"
+          ]
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 6
+        }
+      }
+    },
+    "position": {
+      "title": "The position in GeoJson format",
+      "allOf": [
+        {
+          "$ref": "http://json.schemastore.org/geojson"
+        }
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "Point"
+          ]
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
     }
   }
 }
