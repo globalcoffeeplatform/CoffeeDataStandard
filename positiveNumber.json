@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json",
+  "title": "The global unique ID",
+  "description": "With this structure every object is unique and when it is shared with other organizations it can be identified as coming from a specific organization.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "organization",
+    "identifier",
+    "timestamp"
+  ],
+  "properties": {
+    "positiveNumber": {
+      "title": "The positive number",
+      "description": "A positive number starting at 0 with decimals allowed",
+      "type": "number",
+      "minimum": 10
+    }
+  }
+}
