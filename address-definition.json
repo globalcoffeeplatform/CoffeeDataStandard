@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "address-definition.json#",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/address-definition.json#",
   "title": "The definition of the address object",
   "type": "object",
   "definitions": {
