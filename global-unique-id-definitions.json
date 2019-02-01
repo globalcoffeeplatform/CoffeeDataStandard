@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "The definition of the Globally Unique ID object",
+  "$id": "global-unique-id-definitions.json#",
   "type": "object",
   "definitions": {
     "globalUniqueId": {
