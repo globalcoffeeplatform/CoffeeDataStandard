@@ -853,12 +853,12 @@
             "yield": {
               "title": "Yield",
               "description": "kgs of GBE (harvested)",
-              "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/positiveNumber.json"
+              "$ref": "generic-definitions.json#/definitions/positiveNumber"
             },
             "productivity": {
               "title": "Productivity",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
-              "$ref": "positiveNumber.json#/properties/positiveNumber"
+              "$ref": "positiveNumber.json#/definitions/positiveNumber"
             }
           }
         }
