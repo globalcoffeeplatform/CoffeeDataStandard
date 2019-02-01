@@ -74,12 +74,6 @@
       "totalAreaCoffee": 160.48,
       "location": {
         "geoLocation": {
-          "crs":{
-            "type": "name",
-            "properties": {
-              "name": "EPSG:3857"
-            }
-          },
           "coordinates": [125.25, 135.255],
           "type": "Point"
         },
@@ -202,14 +196,12 @@
       {
         "type": "Polygon",
         "coordinates": [
-          125.6, 10.1
-        ],
-        "crs": {
-          "type": "name",
-          "properties": {
-            "name": "EPSG:3857"
-          }
-        }      },
+          [
+            [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0],
+            [100.0, 0.0]
+          ]
+        ]
+      },
       "area": 145.57,
       "thirdPartyIds": [
         {
