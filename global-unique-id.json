@@ -13,7 +13,7 @@
   "properties": {
     "organization": {
       "title": "The name of the organization",
-      "description": "This can be a name or number uniquely identifying the organization that issues this number. For example ‘RAINFOREST-ALLIANCE’ when they issued the identifier or ‘BURUNDI’ when it is a national ID.",
+      "description": "This can be a name or number uniquely identifying the organization that issues this number. For example 'RAINFOREST-ALLIANCE' when they issued the identifier or 'BURUNDI' when it is a national ID.",
       "type": "string"
     },
     "identifier": {
