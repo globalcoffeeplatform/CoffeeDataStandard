@@ -358,6 +358,240 @@
               }
             }
           }
+        },
+        "environmental": {
+          "description": "The environmental farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "forestEcosystemProtection",
+            "fertilizerUse",
+            "water",
+            "pestControl",
+            "soilConservation"
+          ],
+          "properties": {
+            "forestEcosystemProtection": {
+              "title": "Forest and Ecosystem Protection",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "areaConvertedLand",
+                "ecosystemProtection"
+              ],
+              "properties": {
+                "areaConvertedLand": {
+                  "title": "Area converted land",
+                  "description": "Land area (in ha) and proportion of the farm that was converted from natural land (e.g.,, forest, savanna) to land used for coffee production in the last 5 years.",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "absoluteArea",
+                    "proportiesOfFarm"
+                  ],
+                  "properties": {
+                    "absoluteArea": {
+                      "title": "Absolute area in ha",
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "proportiesOfFarm": {
+                      "title": "Proportion of the farm",
+                      "$ref": "#/definitions/percentage"
+                    }
+                  }
+                },
+                "ecosystemProtection": {
+                  "title": "Forest and ecosystem protection",
+                  "description": "% of forest and ecosystem protection practices used on the farm",
+                  "$ref": "#/definitions/percentage"
+                }
+              }
+            },
+            "fertilizerUse": {
+              "title": "Fertilizer use",
+              "description": "Whether a professional assessment or advice was used to determine fertilizer needs on the farm. It does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc. ",
+              "$ref": "#/definitions/yesNo"
+            },
+            "water": {
+              "title": "Water Conservation & Contamination Prevention",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "waterConservation",
+                "waterContamination"
+              ],
+              "properties": {
+                "waterConservation": {
+                  "title": "Water conservation practices",
+                  "description": "% of applicable water conservation practices used on the farm (of those listed)",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "dripIrrigation",
+                    "waterCatchments",
+                    "waterEfficientProcessing"
+                  ],
+                  "properties": {
+                    "dripIrrigation": {
+                      "title": "Drip irrigation",
+                      "$ref": "#/definitions/yesNo"
+                    },
+                    "waterCatchments": {
+                      "title": "Water catchments",
+                      "$ref": "#/definitions/yesNo"
+                    },
+                    "waterEfficientProcessing": {
+                      "title": "Water-efficient processing",
+                      "$ref": "#/definitions/yesNo"
+                    }
+                  }
+                },
+                "waterContamination": {
+                  "title": "Water contamination prevention practices",
+                  "description": "% of water contamination prevention practices used on the farm (of those listed).",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "noPesticideCleaningNearWater",
+                    "preventUntreatedWater",
+                    "noLivestockNearWater",
+                    "noDomesticDischarge"
+                  ],
+                  "properties": {
+                    "noPesticideCleaningNearWater": {
+                      "title": "No pesticide cleaning near water",
+                      "description": "Pesticide equipment is cleaned away from natural water bodies",
+                      "$ref": "#/definitions/yesNo"
+                    },
+                    "preventUntreatedWater": {
+                      "title": "Prevent untreated water",
+                      "description": "Ensuring untreated water from processing does not enter natural water bodies",
+                      "$ref": "#/definitions/yesNo"
+                    },
+                    "noLivestockNearWater": {
+                      "title": "No livestock near water",
+                      "description": "Grazing livestock away from natural water bodies",
+                      "$ref": "#/definitions/yesNo"
+                    },
+                    "noDomesticDischarge": {
+                      "title": "No domestic discharge",
+                      "description": "Domestic discharge prevented from entering natural water bodies",
+                      "$ref": "#/definitions/yesNo"
+                    }
+                  }
+                }
+              }
+            },
+            "pestControl": {
+              "title": "Pest control/ hazards",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "ipmPractices",
+                "useOfBannedPesticides"
+              ],
+              "properties": {
+                "ipmPractices": {
+                  "title": "% of IPM practices employed on the farm",
+                  "description": "Focusing on IPM techniques is a globally standardized way to understand pest management best practices without the more costly and time-consuming process of detailing individual pesticides, active ingredients, amount used in local units, etc.",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "conductRegularVisualExaminations",
+                    "useNaturalPesticides",
+                    "predatorPlaces",
+                    "recordPestInfestation",
+                    "pestRepelSpecies",
+                    "applyAfterIdentifying"
+                  ],
+                  "properties": {
+                    "conductRegularVisualExaminations": {
+                      "title": "Conduct regular visual examinations",
+                      "description": "Conduct regular visual examinations of the coffee to detect pests and/or diseases",
+                      "$ref": "#/definitions/yesNo"
+                    },
+                    "useNaturalPesticides": {
+                      "title": "Use natural pesticides",
+                      "description": "Use traps, repellants, and natural pesticides",
+                      "$ref": "#/definitions/yesNo"
+                    },
+                    "predatorPlaces": {
+                      "title": "Predator places",
+                      "description": "Create or preserve places (including plant species) for beneficial predators of pests to live",
+                      "$ref": "#/definitions/yesNo"
+                    },
+                    "recordPestInfestation": {
+                      "title": "Record pest infestation",
+                      "description": "Maintain written record of pest infestation, treatments, and results",
+                      "$ref": "#/definitions/yesNo"
+                    },
+                    "pestRepelSpecies": {
+                      "title": "Pest repel species",
+                      "description": "Plant or preserve species that repel pests of the coffee",
+                      "$ref": "#/definitions/yesNo"
+                    },
+                    "applyAfterIdentifying": {
+                      "title": "Apply after identifying",
+                      "description": "Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population ",
+                      "$ref": "#/definitions/yesNo"
+                    }
+                  }
+                },
+                "useOfBannedPesticides": {
+                  "title": "Use of banned or hazardous pesticides on the farm",
+                  "description": "Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address proper disposal of pesticide containers. \n*Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string"
+                  },
+                  "additionalItems": false,
+                  "additionalProperties": false
+                }
+              }
+            },
+            "soilConservation": {
+              "title": "Soil Conservation",
+              "description": "% of applicable soil conservation practices used on the farm (of those listed)",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "contourPlanting",
+                "liveFences",
+                "recyclingOrganicMatter",
+                "interplanting",
+                "checkDams"
+              ],
+              "properties": {
+                "contourPlanting": {
+                  "title": "Contour planting",
+                  "description": "Contour planting, terracing, or soil ridges around trees",
+                  "$ref": "#/definitions/yesNo"
+                },
+                "liveFences": {
+                  "title": "Live fences",
+                  "description": "Live fences, hedgerows or buffer zones",
+                  "$ref": "#/definitions/yesNo"
+                },
+                "recyclingOrganicMatter": {
+                  "title": "Recycling organic matter",
+                  "description": "Recycling organic matter and crop waste",
+                  "$ref": "#/definitions/yesNo"
+                },
+                "interplanting": {
+                  "title": "Interplanting",
+                  "description": "Interplanting, nitrogen fixing plants, cover crops, or mulching",
+                  "$ref": "#/definitions/yesNo"
+                },
+                "checkDams": {
+                  "title": "Check dams",
+                  "description": "Check dams, drainage channels or diversion ditches",
+                  "$ref": "#/definitions/yesNo"
+                }
+              }
+            }
+          }
         }
       }
     },
