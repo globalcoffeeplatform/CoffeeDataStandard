@@ -358,6 +358,199 @@
               }
             }
           }
+        },
+        "economic": {
+          "description": "The economic farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "coffeeProfit",
+            "productivity",
+            "productionCosts",
+            "price",
+            "sustainablePurchases"
+          ],
+          "properties": {
+            "coffeeProfit": {
+              "title": "Coffee Profit",
+              "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
+              "$ref": "#/definitions/greaterThanZero"
+            },
+            "productivity": {
+              "title": "Yield / Productivity",
+              "description": "kgs of GBE (harvested)/ha of coffee productive area",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "coffeeProductiveArea",
+                "amountHarvested",
+                "formOfCoffee"
+              ],
+              "properties": {
+                "coffeeProductiveArea": {
+                  "title": "Coffee productive area",
+                  "description": "Coffee productive area (requires local land area unit conversion to hectares)",
+                  "$ref": "#/definitions/greaterThanZero"
+                },
+                "amountHarvested": {
+                  "title": "Amount harvested",
+                  "description": "Amount harvested (requires local unit conversion to kgs)--Amount sold can be a suitable proxy where harvested amounts are unknown (i.e., many smallholders will only know production volumes when their product is weighed at the mill)",
+                  "$ref": "#/definitions/greaterThanZero"
+                },
+                "formOfCoffee": {
+                  "title": "Form of coffee",
+                  "description": "Form of coffee (will require conversion to GBE, Green Bean Equivalent)",
+                  "type": "string",
+                  "enum": [
+                    "Fresh cherry",
+                    "Dry cherry",
+                    "Dry parchment",
+                    "Wet parchment",
+                    "Green",
+                    "Other"
+                  ]
+                }
+              }
+            },
+            "productionCosts": {
+              "title": "Cost of Production",
+              "description": "Costs incurred to produce the coffee during the last production year (calculated per kg of GBE)",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "fertilizers",
+                "pesticides",
+                "hiredLabor",
+                "plantingMaterial",
+                "renovation"
+              ],
+              "properties": {
+                "fertilizers": {
+                  "title": "Fertilizers costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "pesticides": {
+                  "title": "Pesticides costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "hiredLabor": {
+                  "title": "Costs of hired labor",
+                  "$ref": "/productionCosts.json"
+                },
+                "plantingMaterial": {
+                  "title": "Costs of planting material",
+                  "$ref": "/productionCosts.json"
+                },
+                "renovation": {
+                  "title": "Costs of renovation",
+                  "$ref": "/productionCosts.json"
+                },
+                "deductionsByBuyers": {
+                  "title": "Deductions by buyers",
+                  "$ref": "/productionCosts.json"
+                },
+                "rentOfLand": {
+                  "title": "Rent of land",
+                  "$ref": "/productionCosts.json"
+                },
+                "energy": {
+                  "title": "Energy costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "irrigation": {
+                  "title": "Irrigation costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "capitalAssets": {
+                  "title": "Capital assets",
+                  "$ref": "/productionCosts.json"
+                },
+                "cultivationPractices": {
+                  "title": "Cultivation practices",
+                  "$ref": "/productionCosts.json"
+                },
+                "traceabilityAndRecordKeeping": {
+                  "title": "Traceability and record keeping",
+                  "$ref": "/productionCosts.json"
+                },
+                "standardsCertification": {
+                  "title": "Costs of standards or certifications",
+                  "$ref": "/productionCosts.json"
+                },
+                "plantingReforestation": {
+                  "title": "Planting and reforestation costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "training": {
+                  "title": "Training costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "interest": {
+                  "title": "Interest on credit",
+                  "$ref": "/productionCosts.json"
+                },
+                "cropInsurance": {
+                  "title": "Crop insurance",
+                  "$ref": "/productionCosts.json"
+                },
+                "cooperativeFees": {
+                  "title": "Cooperative fees",
+                  "$ref": "/productionCosts.json"
+                },
+                "unpaidFamilyLabor": {
+                  "title": "Unpaid family labor",
+                  "$ref": "/productionCosts.json"
+                },
+                "other": {
+                  "title": "Other costs",
+                  "$ref": "/productionCosts.json"
+                }
+              }
+            },
+            "price": {
+              "title": "Average Price received per kg of coffee (GBE)",
+              "description": "The simple approach involves asking for the total revenue received from coffee during the last production year as well as the amount sold (and the form). The average price per unit can then be calculated. For multiple sales, calculate the price average of sales",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "totalCoffeeRevenue",
+                "kgSold"
+              ],
+              "properties": {
+                "totalCoffeeRevenue": {
+                  "title": "Total coffee revenue",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "kgSold": {
+                  "title": "kg of GBE sold",
+                  "type": "number",
+                  "minimum": 0
+                }
+              }
+            },
+            "sustainablePurchases": {
+              "title": "Sustainable purchases",
+              "description": "Volume of sustainable purchases by buyer and as a proportion of total, and change year to year. ",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "volumeOfSustainablePurchases",
+                "proportionOfTotal"
+              ],
+              "properties": {
+                "volumeOfSustainablePurchases": {
+                  "title": "Volume of sustainable purchases",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "proportionOfTotal": {
+                  "title": "Proportion of total",
+                  "$ref": "#/definitions/percentage"
+                }
+              }
+            }
+          }
         }
       }
     },
