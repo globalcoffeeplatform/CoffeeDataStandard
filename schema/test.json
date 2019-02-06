@@ -22,6 +22,90 @@
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset",
       "type": "string",
       "pattern": "^[0-9]{1,2}\\.[0-9]{1,2}\\.[0-9]{1,2}$"
+    },
+    "plot": {
+      "description": "The plot characteristics",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "general",
+        "economic"
+      ],
+      "properties": {
+        "general": {
+          "description": "The general plot characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "plotId",
+            "farmId",
+            "boundary",
+            "area"
+          ],
+          "properties": {
+            "plotId": {
+              "title": "The unique ID of the plot",
+              "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organisation.",
+              "$ref": "/global-unique-id.json"
+            },
+            "farmId": {
+              "title": "To which farm belongs this plot",
+              "description": "Globally Unique ID farmId",
+              "$ref": "/global-unique-id.json"
+            },
+            "boundary": {
+              "title": "The boundary of the plot",
+              "anyOf": [
+                {
+                  "$ref": "/MultiPolygon.json"
+                },
+                {
+                  "$ref": "/Polygon.json"
+                }
+              ]
+            },
+            "area": {
+              "title": "Area of the plot",
+              "type": "number",
+              "minimum": 0
+            },
+            "thirdPartyIds": {
+              "title": "Third-party identifier",
+              "description": "When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "$ref": "/global-unique-id.json"
+              },
+              "additionalItems": false,
+              "additionalProperties": false
+            }
+          }
+        },
+        "economic": {
+          "description": "The economic plot characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "yield",
+            "productivity"
+          ],
+          "properties": {
+            "yield": {
+              "title": "Yield",
+              "description": "kgs of GBE (harvested)",
+              "type": "number",
+              "minimum": 0
+            },
+            "productivity": {
+              "title": "Productivity",
+              "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
+              "$ref": "#/definitions/positiveNumber"
+
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
