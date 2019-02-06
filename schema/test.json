@@ -275,6 +275,89 @@
               "additionalProperties": false
             }
           }
+        },
+        "social": {
+          "description": "The social farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "laborPractices",
+            "wages"
+          ],
+          "properties": {
+            "laborPractices": {
+              "title": "Labor Practices",
+              "description": "% of good labor practices adopted (of those listed). This indicator is applicable where farms rely on hired labor (not labor of household members).\n# of good labor practices adopted / total number of practices",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "clearContracting",
+                "rightToOrganize",
+                "prohibitingDiscrimination",
+                "hazardousWorkingCondition"
+              ],
+              "properties": {
+                "clearContracting": {
+                  "title": "Clear contracting",
+                  "description": "Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc. ",
+                  "$ref": "#/definitions/percentage"
+                },
+                "rightToOrganize": {
+                  "title": "Right to organize",
+                  "description": "Percentage right to organize -- the ability for workers to join unions or committees and freely assemble",
+                  "$ref": "#/definitions/percentage"
+                },
+                "prohibitingDiscrimination": {
+                  "title": "Prohibiting discrimination",
+                  "description": "Percentage prohibiting discrimination -- in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)",
+                  "$ref": "#/definitions/percentage"
+                },
+                "hazardousWorkingCondition": {
+                  "title": "Hazardous working condition",
+                  "description": "Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc. ",
+                  "$ref": "#/definitions/percentage"
+                }
+              }
+            },
+            "wages": {
+              "title": "Wages",
+              "description": "Daily average earnings for farm labor compared to (rural) minimum wage. Wage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "wagesCoffee",
+                "wagesHarvesting",
+                "wagesProcessing"
+              ],
+              "properties": {
+                "wagesCoffee": {
+                  "title": "The average daily wage rate paid for coffee production",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "wagesHarvesting": {
+                  "title": "The average daily wage rate paid for harvesting",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "wagesProcessing": {
+                  "title": "The average daily wage rate paid for processing",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "ruralMinimumWage": {
+                  "title": "Rural minimum wage",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "nationalMinimumWage": {
+                  "title": "National minimum wage",
+                  "type": "number",
+                  "minimum": 0
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -356,7 +439,6 @@
               "title": "Productivity",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
               "$ref": "#/definitions/positiveNumber"
-
             }
           }
         }
