@@ -370,6 +370,28 @@
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
               "$ref": "#/definitions/greaterThanZero"
             },
+            "price": {
+              "title": "Average Price received per kg of coffee (GBE)",
+              "description": "The simple approach involves asking for the total revenue received from coffee during the last production year as well as the amount sold (and the form). The average price per unit can then be calculated. For multiple sales, calculate the price average of sales",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "totalCoffeeRevenue",
+                "kgSold"
+              ],
+              "properties": {
+                "totalCoffeeRevenue": {
+                  "title": "Total coffee revenue",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "kgSold": {
+                  "title": "kg of GBE sold",
+                  "type": "number",
+                  "minimum": 0
+                }
+              }
+            },
             "sustainablePurchases": {
               "title": "Sustainable purchases",
               "description": "Volume of sustainable purchases by buyer and as a proportion of total, and change year to year. ",
