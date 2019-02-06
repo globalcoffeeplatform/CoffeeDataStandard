@@ -359,6 +359,19 @@
             }
           }
         },
+        "economic": {
+          "description": "The economic farm characteristics",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [],
+          "properties": {
+            "coffeeProfit": {
+              "title": "Coffee Profit",
+              "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
+              "$ref": "#/definitions/greaterThanZero"
+            }
+          }
+        },
         "environmental": {
           "description": "The environmental farm characteristics",
           "type": "object",
