@@ -10,7 +10,14 @@
     "pattern": "^[a-z][A-Za-z0-9_]*$"
   },
   "additionalProperties": false,
+  "required": [
+    "globalCoffeeDatasetId"
+  ],
   "properties": {
+    "globalCoffeeDatasetId": {
+      "description": "The unique identifier for a dataset",
+      "$ref": "/global-unique-id.json"
+    },
     "schemaVersion": {
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset",
       "type": "string",
