@@ -369,7 +369,29 @@
               "title": "Coffee Profit",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
               "$ref": "#/definitions/greaterThanZero"
+            },
+            "sustainablePurchases": {
+              "title": "Sustainable purchases",
+              "description": "Volume of sustainable purchases by buyer and as a proportion of total, and change year to year. ",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "volumeOfSustainablePurchases",
+                "proportionOfTotal"
+              ],
+              "properties": {
+                "volumeOfSustainablePurchases": {
+                  "title": "Volume of sustainable purchases",
+                  "type": "number",
+                  "minimum": 0
+                },
+                "proportionOfTotal": {
+                  "title": "Proportion of total",
+                  "$ref": "#/definitions/percentage"
+                }
+              }
             }
+
           }
         },
         "environmental": {
