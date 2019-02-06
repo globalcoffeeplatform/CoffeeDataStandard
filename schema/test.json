@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/global-coffee-data-standard.schema.json",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/global-coffee-data-standard.schema.json",
   "title": "GlobalCoffeeDataset",
   "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
   "version": "0.0.4",
@@ -22,6 +22,35 @@
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset",
       "type": "string",
       "pattern": "^[0-9]{1,2}\\.[0-9]{1,2}\\.[0-9]{1,2}$"
+    }
+  },
+  "definitions": {
+    "percentage": {
+      "title": "The percentage, 0-100",
+      "description": "The percentage, from 0 to 100 with decimals allowed",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "positiveNumber": {
+      "title": "A positive number > 0",
+      "description": "A positive number starting at 0 with decimals allowed",
+      "type": "number",
+      "minimum": 0
+    },
+    "greaterThanZero": {
+      "title": "The positive number, greater than 0",
+      "description": "A positive number starting at greater than 0 with decimals allowed",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "yesNo": {
+      "title": "Yes-No enumeration",
+      "type": "string",
+      "enum": [
+        "Yes",
+        "No"
+      ]
     }
   }
 }
