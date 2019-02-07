@@ -18,7 +18,7 @@
     "percentage": {
       "title": "The portion used for coffee production",
       "description": "Costs should be associated with the coffee production only (i.e., if labor is hired for multiple crops, only the portion used for coffee production should be included). One way to make sure that costs are correctly associated with the production of the coffee is to ask for the percent of inputs that were used for the coffee.",
-      "$ref": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/global-coffee-data-standard.schema.json#/definitions/percentage"
+      "$ref": "/global-coffee-data-standard.schema.json#/definitions/percentage"
     }
   }
 }
