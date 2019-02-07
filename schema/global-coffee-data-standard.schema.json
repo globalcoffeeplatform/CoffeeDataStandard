@@ -415,7 +415,7 @@
               "properties": {
                 "fertilizers": {
                   "title": "Fertilizers costs",
-                  "$ref": "/productionCosts.json"
+                  "$ref": "/global-unique-id.json"
                 }
               }
             },
