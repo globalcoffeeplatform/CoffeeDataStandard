@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/global-coffee-data-standard.schema.json",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/global-coffee-data-standard.schema.json",
   "title": "GlobalCoffeeDataset",
   "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
   "version": "0.0.4",
@@ -11,7 +11,9 @@
   },
   "additionalProperties": false,
   "required": [
-    "globalCoffeeDatasetId"
+    "globalCoffeeDatasetId",
+    "farmer",
+    "farm"
   ],
   "properties": {
     "globalCoffeeDatasetId": {
@@ -197,7 +199,10 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "general"
+        "general",
+        "social",
+        "economic",
+        "environmental"
       ],
       "properties": {
         "general": {
@@ -363,7 +368,13 @@
           "description": "The economic farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "required": [],
+          "required": [
+            "coffeeProfit",
+            "productivity",
+            "productionCosts",
+            "price",
+            "sustainablePurchases"
+          ],
           "properties": {
             "coffeeProfit": {
               "title": "Coffee Profit",
@@ -411,10 +422,92 @@
               "description": "Costs incurred to produce the coffee during the last production year (calculated per kg of GBE)",
               "type": "object",
               "additionalProperties": false,
-              "required": [],
+              "required": [
+                "fertilizers",
+                "pesticides",
+                "hiredLabor",
+                "plantingMaterial",
+                "renovation"
+              ],
               "properties": {
                 "fertilizers": {
                   "title": "Fertilizers costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "pesticides": {
+                  "title": "Pesticides costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "hiredLabor": {
+                  "title": "Costs of hired labor",
+                  "$ref": "/productionCosts.json"
+                },
+                "plantingMaterial": {
+                  "title": "Costs of planting material",
+                  "$ref": "/productionCosts.json"
+                },
+                "renovation": {
+                  "title": "Costs of renovation",
+                  "$ref": "/productionCosts.json"
+                },
+                "deductionsByBuyers": {
+                  "title": "Deductions by buyers",
+                  "$ref": "/productionCosts.json"
+                },
+                "rentOfLand": {
+                  "title": "Rent of land",
+                  "$ref": "/productionCosts.json"
+                },
+                "energy": {
+                  "title": "Energy costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "irrigation": {
+                  "title": "Irrigation costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "capitalAssets": {
+                  "title": "Capital assets",
+                  "$ref": "/productionCosts.json"
+                },
+                "cultivationPractices": {
+                  "title": "Cultivation practices",
+                  "$ref": "/productionCosts.json"
+                },
+                "traceabilityAndRecordKeeping": {
+                  "title": "Traceability and record keeping",
+                  "$ref": "/productionCosts.json"
+                },
+                "standardsCertification": {
+                  "title": "Costs of standards or certifications",
+                  "$ref": "/productionCosts.json"
+                },
+                "plantingReforestation": {
+                  "title": "Planting and reforestation costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "training": {
+                  "title": "Training costs",
+                  "$ref": "/productionCosts.json"
+                },
+                "interest": {
+                  "title": "Interest on credit",
+                  "$ref": "/productionCosts.json"
+                },
+                "cropInsurance": {
+                  "title": "Crop insurance",
+                  "$ref": "/productionCosts.json"
+                },
+                "cooperativeFees": {
+                  "title": "Cooperative fees",
+                  "$ref": "/productionCosts.json"
+                },
+                "unpaidFamilyLabor": {
+                  "title": "Unpaid family labor",
+                  "$ref": "/productionCosts.json"
+                },
+                "other": {
+                  "title": "Other costs",
                   "$ref": "/productionCosts.json"
                 }
               }
@@ -778,6 +871,7 @@
               "title": "Productivity",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
               "$ref": "#/definitions/positiveNumber"
+
             }
           }
         }
@@ -812,6 +906,6 @@
         "Yes",
         "No"
       ]
-    }
+    }    
   }
 }
