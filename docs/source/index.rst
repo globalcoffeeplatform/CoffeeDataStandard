@@ -6,6 +6,35 @@
 Welcome to Global Coffee Data Standard's documentation!
 =======================================================
 
+This project displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA–with feedback from the members of the Global Expert Committee–developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time.
+
+Partners of this project
+########################
+
+.. image:: _static/images/GCP.png
+   :height: 110
+   :alt: The Global Coffee Platform believes that sustainability is a shared responsibility.
+
+.. image:: _static/images/COSA.jpg
+   :height: 110
+   :alt: COSA: To advance systematic and science-based measurement tools for understanding, managing, and accelerating sustainability.
+
+.. image:: _static/images/UTZ.png
+   :height: 110
+   :alt: UTZ is the benchmark for the sustainable production of coffee, tea and cocoa.
+
+.. image:: _static/images/Rainforest-Alliance.png
+   :height: 110
+   :alt: Our green frog certification seal indicates that a farm, forest, or tourism enterprise has been audited to meet standards that require environmental, social, and economic sustainability.
+
+.. image:: _static/images/iseal.png
+   :height: 110
+   :alt: ISEAL is the global membership association for credible sustainability standards.
+
+.. image:: _static/images/waterwatch-foundation.png
+   :height: 110
+   :alt: The mission of Waterwatch Cooperative is to make essential information services for AgriFood accessible and affordable to all actors in the value chain: farmers, producer cooperatives, processors, traders, financial institutions and insurance companies.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
