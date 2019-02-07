@@ -23,7 +23,10 @@
     "schemaVersion": {
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset",
       "type": "string",
-      "pattern": "^[0-9]{1,2}\\.[0-9]{1,2}\\.[0-9]{1,2}$"
+      "$comment": "Add new version number to enum when released.",
+      "enum" : [
+        "0.0.4"
+      ]
     },
     "farmer": {
       "description": "The farmer characteristics",
