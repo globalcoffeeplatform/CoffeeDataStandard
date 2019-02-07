@@ -882,6 +882,7 @@
     "percentage": {
       "title": "The percentage, 0-100",
       "description": "The percentage, from 0 to 100 with decimals allowed",
+      "$comment": "Duplicate in /productionCosts.json",
       "type": "number",
       "minimum": 0,
       "maximum": 100
