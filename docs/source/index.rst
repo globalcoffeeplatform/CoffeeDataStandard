@@ -10,6 +10,10 @@ Welcome to Global Coffee Data Standard's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   about
+   use-cases
+   explanation
+
 
 
 Indices and tables
