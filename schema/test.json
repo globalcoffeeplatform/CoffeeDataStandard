@@ -406,6 +406,19 @@
                 }
               }
             },
+            "productionCosts": {
+              "title": "Cost of Production",
+              "description": "Costs incurred to produce the coffee during the last production year (calculated per kg of GBE)",
+              "type": "object",
+              "additionalProperties": false,
+              "required": [],
+              "properties": {
+                "fertilizers": {
+                  "title": "Fertilizers costs",
+                  "$ref": "/productionCosts.json"
+                }
+              }
+            },
             "price": {
               "title": "Average Price received per kg of coffee (GBE)",
               "description": "The simple approach involves asking for the total revenue received from coffee during the last production year as well as the amount sold (and the form). The average price per unit can then be calculated. For multiple sales, calculate the price average of sales",
@@ -449,7 +462,6 @@
                 }
               }
             }
-
           }
         },
         "environmental": {
