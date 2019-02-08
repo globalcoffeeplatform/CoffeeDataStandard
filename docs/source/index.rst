@@ -28,10 +28,10 @@ Partners of this project
    :alt: Our green frog certification seal indicates that a farm, forest, or tourism enterprise has been audited to meet standards that require environmental, social, and economic sustainability.
 
 .. image:: _static/images/iseal.png
-   :height: 110
+   :height: 100
    :alt: ISEAL is the global membership association for credible sustainability standards.
 
-.. image:: _static/images/waterwatch-foundation.png
+.. image:: _static/images/waterwatch-cooperative.png
    :height: 110
    :alt: The mission of Waterwatch Cooperative is to make essential information services for AgriFood accessible and affordable to all actors in the value chain: farmers, producer cooperatives, processors, traders, financial institutions and insurance companies.
 
