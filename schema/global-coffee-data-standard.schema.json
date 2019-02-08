@@ -5,7 +5,6 @@
   "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
   "version": "0.0.4",
   "type": "object",
-  "example-data": "Blaat",
   "propertyNames": {
     "description": "Property names must be in lower CamelCase",
     "pattern": "^[a-z][A-Za-z0-9_]*$"
@@ -20,7 +19,7 @@
     "globalCoffeeDatasetId": {
       "description": "The unique identifier for this dataset.",
       "$ref": "./global-unique-id.json",
-      "example-data": "\"globalCoffeeDatasetId\": {\n    \"identifier\": \"634748-hfgf-ydhgd\",\n    \"organization\": \"COSA\",\n    \"timestamp\": \"2019-01-02\"\n  }"
+      "$example-data": "\"globalCoffeeDatasetId\": {\n      \"identifier\": \"634748-hfgf-ydhgd\",\n      \"organization\": \"COSA\",\n      \"timestamp\": \"2019-01-02\"\n    }"
     },
     "schemaVersion": {
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.",
@@ -55,7 +54,8 @@
             "farmerId": {
               "title": "Globally Unique ID of the farmer",
               "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organization.",
-              "$ref": "./global-unique-id.json"
+              "$ref": "./global-unique-id.json",
+              "$example-data": "\"farmerId\": {\n      \"organization\": \"Chamber of Commerce, Burundi\",\n      \"identifier\": \"1035413151\",\n      \"timestamp\": \"2010-05-21\"\n    }\n"
             },
             "name": {
               "title": "First and last name(s) of the farmer surveyed",
@@ -743,7 +743,7 @@
                 },
                 "useOfBannedPesticides": {
                   "title": "Use of banned or hazardous pesticides on the farm",
-                  "description": "Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers. \n*Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
+                  "description": "Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers. \nPesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
                   "type": "array",
                   "uniqueItems": true,
                   "items": {

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 
@@ -10,7 +11,11 @@ namespace Json2Rst
     [TestClass]
     public class GenerateTests
     {
+        private const string JsonInputFile = @"D:\dev\GlobalCoffeeDataStandard\git\schema\global-coffee-data-standard.schema.json";
+        private const string OutputFile = @"D:\dev\GlobalCoffeeDataStandard\git\docs\source\explanation.rst";
+
         private TitleNumber _titleNumber;
+        private StringBuilder _sb = new StringBuilder();
 
         public GenerateTests()
         {
@@ -20,15 +25,13 @@ namespace Json2Rst
         [TestMethod]
         public void ParseGlobalCoffeeDataStandardSchema()
         {
-            var jsonObject =
-                JObject.Parse(File.ReadAllText(
-                    @"D:\dev\GlobalCoffeeDataStandard\git\schema\global-coffee-data-standard.schema.json"));
+            var jsonObject = JObject.Parse(File.ReadAllText(JsonInputFile));
             Assert.IsNotNull(jsonObject, "No JSON parsed");
 
             WriteDynamicProperties(jsonObject);
 
             // Write content:
-            Debug.WriteLine("\n.. contents::\n    :depth: 4");
+            _sb.AppendLine("\n.. contents::\n    :depth: 4");
 
             _titleNumber.Level1 = 1;
             WriteHeading("Metadata", 2);
@@ -60,10 +63,25 @@ namespace Json2Rst
             foreach (var property in definitionsProperties.Properties())
             {
                 var objectProperties = JObject.Parse(property.Value.ToString());
-                Debug.WriteLine($"\n.. _definitions_{property.Name.ToLower()}:");
+                _sb.AppendLine($"\n.. _definitions_{property.Name.ToLower()}:");
                 WriteProperties(property.Name, objectProperties);
                 _titleNumber.Level2++;
             }
+
+            SaveFile();
+        }
+
+        private void SaveFile()
+        {
+            using (var file = new StreamWriter(OutputFile, false))
+            {
+                file.WriteLine(_sb.ToString());
+                Debug.WriteLine("File saved");
+            }
+
+            // Rebuild
+            var cmd = Process.Start(@"D:\dev\GlobalCoffeeDataStandard\git\docs\make.bat", "html");
+            cmd.WaitForExit();
         }
 
         private void WriteNextLevel(IEnumerable<JProperty> propertyList, int headerLevel)
@@ -85,7 +103,7 @@ namespace Json2Rst
                         if (subObjectProperties.ContainsKey("type") && subObjectProperties.GetValue("type").ToString() == "object")
                         {
                             SetTitleNumbers(headerLevel + 1);
-                            WriteHeading(subProperty.Key, headerLevel + 1);
+                            WriteProperties(subProperty.Key, subObjectProperties, headerLevel + 1);
                             WriteNextLevel(JObject.Parse(subObjectProperties.Property("properties").Value.ToString()).Properties().ToList(), headerLevel + 2);
                             SetTitleNumbers(headerLevel + 2);
                             continue;
@@ -153,8 +171,8 @@ namespace Json2Rst
         {
             WriteHeading(propertyName, headingLevel);
 
-            if (objectProperties.ContainsKey("title")) Debug.WriteLine(objectProperties.GetValue("title") + "\n");
-            if (objectProperties.ContainsKey("description")) Debug.WriteLine(objectProperties.GetValue("description").ToString());
+            if (objectProperties.ContainsKey("title")) _sb.AppendLine(objectProperties.GetValue("title") + "\n");
+            if (objectProperties.ContainsKey("description")) _sb.AppendLine(objectProperties.GetValue("description").ToString());
 
             if (objectProperties.ContainsKey("$ref"))
             {
@@ -162,18 +180,25 @@ namespace Json2Rst
                 if (reference.StartsWith("./"))
                 {
                     var file = reference.Replace("./", "/");
-                    //Debug.WriteLine($".. literalinclude:: ../../schema{file}");
-                    //Debug.WriteLine( "   :linenos:");
-                    // Debug.WriteLine("\n.. todo:: Show sample JSON of " + reference);
-                    Debug.WriteLine($"\n.. literalinclude:: ../../schema/{file}");
-                    Debug.WriteLine("   :language: json");
-                    Debug.WriteLine("   :linenos:");
+                    _sb.AppendLine($"\n.. literalinclude:: ../../schema{file}");
+                    _sb.AppendLine("   :language: json");
+                    _sb.AppendLine("   :linenos:");
                 }
                 else if (reference.StartsWith("#/definitions/"))
                 {
                     var definition = reference.Replace("#/definitions/", "");
-                    Debug.WriteLine($"\nSee :ref:`definitions_{definition.ToLower()}`");
+                    _sb.AppendLine($"\nSee :ref:`definitions_{definition.ToLower()}`");
                 }
+            }
+
+            if (objectProperties.ContainsKey("$example-data"))
+            {
+                _sb.AppendLine("\n.. code-block:: python");
+                _sb.AppendLine("   :linenos:");
+                _sb.AppendLine("   :caption: Sample data");
+                _sb.AppendLine("");
+
+                _sb.AppendLine($"    {objectProperties.GetValue("$example-data")}\n");
             }
         }
 
@@ -181,55 +206,54 @@ namespace Json2Rst
         {
             WriteHeading((string)jsonObject.title, 1);
             string description = jsonObject.description;
-            Debug.WriteLine(description);
+            _sb.AppendLine(description);
         }
 
-        private static void WriteHeading1(string text)
+        private void WriteHeading1(string text)
         {
-            Debug.WriteLine("");
-            Debug.WriteLine(new string('=', text.Length));
-            Debug.WriteLine(text);
-            Debug.WriteLine(new string('=', text.Length));
+            _sb.AppendLine("");
+            _sb.AppendLine(new string('=', text.Length));
+            _sb.AppendLine(text);
+            _sb.AppendLine(new string('=', text.Length));
         }
 
-        private static void WriteHeading2(string text)
+        private void WriteHeading2(string text)
         {
-            Debug.WriteLine("");
-            Debug.WriteLine(new string('*', text.Length));
-            Debug.WriteLine(text);
-            Debug.WriteLine(new string('*', text.Length));
+            _sb.AppendLine("");
+            _sb.AppendLine(new string('*', text.Length));
+            _sb.AppendLine(text);
+            _sb.AppendLine(new string('*', text.Length));
         }
 
-        private static void WriteHeading3(string text)
+        private void WriteHeading3(string text)
         {
-            Debug.WriteLine("");
-            Debug.WriteLine(text);
-            Debug.WriteLine(new string('^', text.Length));
+            _sb.AppendLine("");
+            _sb.AppendLine(text);
+            _sb.AppendLine(new string('^', text.Length));
         }
 
-        private static void WriteHeading4(string text)
+        private void WriteHeading4(string text)
         {
-            Debug.WriteLine("");
-            Debug.WriteLine(text);
-            Debug.WriteLine(new string('-', text.Length));
+            _sb.AppendLine("");
+            _sb.AppendLine(text);
+            _sb.AppendLine(new string('-', text.Length));
         }
 
-        private static void WriteHeading5(string text)
+        private void WriteHeading5(string text)
         {
-            Debug.WriteLine("");
-            Debug.WriteLine(text);
-            Debug.WriteLine(new string('*', text.Length));
+            _sb.AppendLine("");
+            _sb.AppendLine(text);
+            _sb.AppendLine(new string('*', text.Length));
         }
 
-        private static void WriteBold(string text)
+        private void WriteBold(string text)
         {
-            Debug.WriteLine($"\n**{text}**");
+            _sb.AppendLine($"\n**{text}**");
         }
 
-
-        private static void WriteItalic(string text)
+        private void WriteItalic(string text)
         {
-            Debug.WriteLine($"\n*{text}*");
+            _sb.AppendLine($"\n*{text}*");
         }
 
         private struct TitleNumber

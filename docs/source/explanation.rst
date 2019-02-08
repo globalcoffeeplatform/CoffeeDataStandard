@@ -1,3 +1,4 @@
+
 ============================
  Global Coffee Data Standard
 ============================
@@ -14,9 +15,20 @@ This schema displays the initial basic Indicators for farm-level coffee sustaina
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 The unique identifier for this dataset.
 
-.. literalinclude:: ../../schema//global-unique-id.json
+.. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
+
+.. code-block:: python
+   :linenos:
+   :caption: Sample data
+
+    "globalCoffeeDatasetId": {
+      "identifier": "634748-hfgf-ydhgd",
+      "organization": "COSA",
+      "timestamp": "2019-01-02"
+    }
+
 
 1.2 schemaVersion
 ^^^^^^^^^^^^^^^^^
@@ -29,6 +41,7 @@ The farmer characteristics
 
 2.1 general
 ^^^^^^^^^^^
+The general farmer characteristics
 
 2.1.1 farmerId
 --------------
@@ -36,9 +49,21 @@ Globally Unique ID of the farmer
 
 Globally Unique ID of the recording of the farmer at a specific time and by a specific organization.
 
-.. literalinclude:: ../../schema//global-unique-id.json
+.. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
+
+.. code-block:: python
+   :linenos:
+   :caption: Sample data
+
+    "farmerId": {
+      "organization": "Chamber of Commerce, Burundi",
+      "identifier": "1035413151",
+      "timestamp": "2010-05-21"
+    }
+
+
 
 2.1.2 name
 ----------
@@ -64,7 +89,7 @@ The location of the farm
 
 Generally, data should include Country and then State/Department and Municipality/District, unless the address is collected for the sake of auditing. This should be the location of the farm itself (main plot), not the home of the farmer, if different.
 
-.. literalinclude:: ../../schema//address.json
+.. literalinclude:: ../../schema/address.json
    :language: json
    :linenos:
 
@@ -94,6 +119,7 @@ When this dataset is reused by another organization who needs to use their own G
 
 2.2 social
 ^^^^^^^^^^
+The social farmer characteristics
 
 2.2.1 povertyLevel
 ------------------
@@ -147,6 +173,7 @@ The farm characteristics
 
 3.1 general
 ^^^^^^^^^^^
+The general farm characteristics
 
 3.1.1 farmId
 ------------
@@ -154,7 +181,7 @@ Farm Id
 
 Globally Unique ID of the recording of the farm at a specific time and by a specific organization.
 
-.. literalinclude:: ../../schema//global-unique-id.json
+.. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
 
@@ -164,7 +191,7 @@ Farmer Id
 
 Globally Unique ID of the farmer of this farm
 
-.. literalinclude:: ../../schema//global-unique-id.json
+.. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
 
@@ -177,7 +204,7 @@ GPS should be captured for each farm plot if possible. GPS readings should be ta
 Front door geolocation
 
 
-.. literalinclude:: ../../schema//Point.json
+.. literalinclude:: ../../schema/Point.json
    :language: json
    :linenos:
 
@@ -192,7 +219,7 @@ Farm address
 
 This should be the location of the farm itself (main plot), not the home of the farmer, if different.
 
-.. literalinclude:: ../../schema//address.json
+.. literalinclude:: ../../schema/address.json
    :language: json
    :linenos:
 
@@ -218,6 +245,7 @@ When this dataset is reused by another organization that needs to use their own 
 
 3.2 social
 ^^^^^^^^^^
+The social farm characteristics
 
 3.2.1 laborPractices
 --------------------
@@ -230,7 +258,7 @@ Labor Practices
 ************************
 Clear contracting
 
-Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc.
+Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc. 
 
 See :ref:`definitions_percentage`
 
@@ -254,7 +282,7 @@ See :ref:`definitions_percentage`
 *********************************
 Hazardous working condition
 
-Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc.
+Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc. 
 
 See :ref:`definitions_percentage`
 
@@ -291,6 +319,7 @@ National minimum wage
 
 3.3 economic
 ^^^^^^^^^^^^
+The economic farm characteristics
 
 3.3.1 coffeeProfit
 ------------------
@@ -339,7 +368,7 @@ Costs incurred to produce the coffee during the last production year (calculated
 Fertilizers costs
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -348,7 +377,7 @@ Fertilizers costs
 Pesticides costs
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -357,7 +386,7 @@ Pesticides costs
 Costs of hired labor
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -366,7 +395,7 @@ Costs of hired labor
 Costs of planting material
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -375,7 +404,7 @@ Costs of planting material
 Costs of renovation
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -384,7 +413,7 @@ Costs of renovation
 Deductions by buyers
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -393,7 +422,7 @@ Deductions by buyers
 Rent of land
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -402,7 +431,7 @@ Rent of land
 Energy costs
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -411,7 +440,7 @@ Energy costs
 Irrigation costs
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -420,7 +449,7 @@ Irrigation costs
 Capital assets
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -429,7 +458,7 @@ Capital assets
 Cultivation practices
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -438,7 +467,7 @@ Cultivation practices
 Traceability and record keeping
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -447,7 +476,7 @@ Traceability and record keeping
 Costs of standards or certifications
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -456,7 +485,7 @@ Costs of standards or certifications
 Planting and reforestation costs
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -465,7 +494,7 @@ Planting and reforestation costs
 Training costs
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -474,7 +503,7 @@ Training costs
 Interest on credit
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -483,7 +512,7 @@ Interest on credit
 Crop insurance
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -492,7 +521,7 @@ Crop insurance
 Cooperative fees
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -501,7 +530,7 @@ Cooperative fees
 Unpaid family labor
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -510,7 +539,7 @@ Unpaid family labor
 Other costs
 
 
-.. literalinclude:: ../../schema//productionCosts.json
+.. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
 
@@ -550,6 +579,7 @@ See :ref:`definitions_percentage`
 
 3.4 environmental
 ^^^^^^^^^^^^^^^^^
+The environmental farm characteristics
 
 3.4.1 forestEcosystemProtection
 -------------------------------
@@ -558,6 +588,9 @@ Forest and Ecosystem Protection
 
 3.4.1.1 areaConvertedLand
 *************************
+Area converted land
+
+Land area (in ha) and proportion of the farm that was converted from natural land (e.g.,, forest, savanna) to land used for coffee production in the last 5 years.
 
 3.4.1.1 absoluteArea
 ********************
@@ -583,7 +616,7 @@ See :ref:`definitions_percentage`
 -------------------
 Fertilizer use
 
-Whether a professional assessment or advice was used to determine fertilizer needs on the farm. It does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc.
+Whether a professional assessment or advice was used to determine fertilizer needs on the farm. It does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc. 
 
 See :ref:`definitions_yesno`
 
@@ -594,6 +627,9 @@ Water Conservation & Contamination Prevention
 
 3.4.3.1 waterConservation
 *************************
+Water conservation practices
+
+% of applicable water conservation practices used on the farm (of those listed)
 
 3.4.3.1 dripIrrigation
 **********************
@@ -618,6 +654,9 @@ See :ref:`definitions_yesno`
 
 3.4.3.2 waterContamination
 **************************
+Water contamination prevention practices
+
+% of water contamination prevention practices used on the farm (of those listed).
 
 3.4.3.2 noPesticideCleaningNearWater
 ************************************
@@ -658,6 +697,9 @@ Pest control/ hazards
 
 3.4.4.1 ipmPractices
 ********************
+% of IPM practices employed on the farm
+
+Focusing on IPM techniques is a globally standardized way to understand pest management best practices without the more costly and time-consuming process of detailing individual pesticides, active ingredients, amount used in local units, etc.
 
 3.4.4.1 conductRegularVisualExaminations
 ****************************************
@@ -703,7 +745,7 @@ See :ref:`definitions_yesno`
 *****************************
 Apply after identifying
 
-Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population
+Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population 
 
 See :ref:`definitions_yesno`
 
@@ -711,7 +753,7 @@ See :ref:`definitions_yesno`
 *****************************
 Use of banned or hazardous pesticides on the farm
 
-Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers.
+Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers. 
 Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.
 
 3.4.5 soilConservation
@@ -767,6 +809,7 @@ The plot characteristics
 
 4.1 general
 ^^^^^^^^^^^
+The general plot characteristics
 
 4.1.1 plotId
 ------------
@@ -774,7 +817,7 @@ The unique ID of the plot
 
 Globally Unique ID of the recording of the plot at a specific time and by a specific organization.
 
-.. literalinclude:: ../../schema//global-unique-id.json
+.. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
 
@@ -784,7 +827,7 @@ To which farm belongs this plot
 
 Globally Unique ID farmId
 
-.. literalinclude:: ../../schema//global-unique-id.json
+.. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
 
@@ -806,6 +849,7 @@ When this dataset is reused by another organization who needs to use their own G
 
 4.2 economic
 ^^^^^^^^^^^^
+The economic plot characteristics
 
 4.2.1 yield
 -----------
@@ -854,4 +898,5 @@ A positive number starting at greater than 0 with decimals allowed
 5.4 yesNo
 ^^^^^^^^^
 Yes-No enumeration
+
 
