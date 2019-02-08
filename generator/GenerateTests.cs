@@ -159,8 +159,16 @@ namespace Json2Rst
             if (objectProperties.ContainsKey("$ref"))
             {
                 var reference = objectProperties.GetValue("$ref").ToString();
-                if (reference.StartsWith("./")) 
-                    Debug.WriteLine("\n.. todo:: Show sample JSON of " + reference);
+                if (reference.StartsWith("./"))
+                {
+                    var file = reference.Replace("./", "/");
+                    //Debug.WriteLine($".. literalinclude:: ../../schema{file}");
+                    //Debug.WriteLine( "   :linenos:");
+                    // Debug.WriteLine("\n.. todo:: Show sample JSON of " + reference);
+                    Debug.WriteLine($"\n.. literalinclude:: ../../schema/{file}");
+                    Debug.WriteLine("   :language: json");
+                    Debug.WriteLine("   :linenos:");
+                }
                 else if (reference.StartsWith("#/definitions/"))
                 {
                     var definition = reference.Replace("#/definitions/", "");

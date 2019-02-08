@@ -14,7 +14,9 @@ This schema displays the initial basic Indicators for farm-level coffee sustaina
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 The unique identifier for this dataset.
 
-.. todo:: Show sample JSON of ./global-unique-id.json
+.. literalinclude:: ../../schema//global-unique-id.json
+   :language: json
+   :linenos:
 
 1.2 schemaVersion
 ^^^^^^^^^^^^^^^^^
@@ -34,7 +36,9 @@ Globally Unique ID of the farmer
 
 Globally Unique ID of the recording of the farmer at a specific time and by a specific organization.
 
-.. todo:: Show sample JSON of ./global-unique-id.json
+.. literalinclude:: ../../schema//global-unique-id.json
+   :language: json
+   :linenos:
 
 2.1.2 name
 ----------
@@ -60,7 +64,9 @@ The location of the farm
 
 Generally, data should include Country and then State/Department and Municipality/District, unless the address is collected for the sake of auditing. This should be the location of the farm itself (main plot), not the home of the farmer, if different.
 
-.. todo:: Show sample JSON of ./address.json
+.. literalinclude:: ../../schema//address.json
+   :language: json
+   :linenos:
 
 2.1.4 dateOfBirth
 -----------------
@@ -148,7 +154,9 @@ Farm Id
 
 Globally Unique ID of the recording of the farm at a specific time and by a specific organization.
 
-.. todo:: Show sample JSON of ./global-unique-id.json
+.. literalinclude:: ../../schema//global-unique-id.json
+   :language: json
+   :linenos:
 
 3.1.2 farmerId
 --------------
@@ -156,7 +164,9 @@ Farmer Id
 
 Globally Unique ID of the farmer of this farm
 
-.. todo:: Show sample JSON of ./global-unique-id.json
+.. literalinclude:: ../../schema//global-unique-id.json
+   :language: json
+   :linenos:
 
 3.1.3 location
 --------------
@@ -167,7 +177,9 @@ GPS should be captured for each farm plot if possible. GPS readings should be ta
 Front door geolocation
 
 
-.. todo:: Show sample JSON of ./Point.json
+.. literalinclude:: ../../schema//Point.json
+   :language: json
+   :linenos:
 
 3.1.3.2 positionTakenAt
 ***********************
@@ -180,7 +192,9 @@ Farm address
 
 This should be the location of the farm itself (main plot), not the home of the farmer, if different.
 
-.. todo:: Show sample JSON of ./address.json
+.. literalinclude:: ../../schema//address.json
+   :language: json
+   :linenos:
 
 3.1.5 totalFarmSize
 -------------------
@@ -325,140 +339,180 @@ Costs incurred to produce the coffee during the last production year (calculated
 Fertilizers costs
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.2 pesticides
 ******************
 Pesticides costs
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.3 hiredLabor
 ******************
 Costs of hired labor
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.4 plantingMaterial
 ************************
 Costs of planting material
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.5 renovation
 ******************
 Costs of renovation
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.6 deductionsByBuyers
 **************************
 Deductions by buyers
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.7 rentOfLand
 ******************
 Rent of land
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.8 energy
 **************
 Energy costs
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.9 irrigation
 ******************
 Irrigation costs
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.10 capitalAssets
 **********************
 Capital assets
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.11 cultivationPractices
 *****************************
 Cultivation practices
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.12 traceabilityAndRecordKeeping
 *************************************
 Traceability and record keeping
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.13 standardsCertification
 *******************************
 Costs of standards or certifications
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.14 plantingReforestation
 ******************************
 Planting and reforestation costs
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.15 training
 *****************
 Training costs
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.16 interest
 *****************
 Interest on credit
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.17 cropInsurance
 **********************
 Crop insurance
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.18 cooperativeFees
 ************************
 Cooperative fees
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.19 unpaidFamilyLabor
 **************************
 Unpaid family labor
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.3.20 other
 **************
 Other costs
 
 
-.. todo:: Show sample JSON of ./productionCosts.json
+.. literalinclude:: ../../schema//productionCosts.json
+   :language: json
+   :linenos:
 
 3.3.4 price
 -----------
@@ -720,7 +774,9 @@ The unique ID of the plot
 
 Globally Unique ID of the recording of the plot at a specific time and by a specific organization.
 
-.. todo:: Show sample JSON of ./global-unique-id.json
+.. literalinclude:: ../../schema//global-unique-id.json
+   :language: json
+   :linenos:
 
 4.1.2 farmId
 ------------
@@ -728,7 +784,9 @@ To which farm belongs this plot
 
 Globally Unique ID farmId
 
-.. todo:: Show sample JSON of ./global-unique-id.json
+.. literalinclude:: ../../schema//global-unique-id.json
+   :language: json
+   :linenos:
 
 4.1.3 boundary
 --------------
