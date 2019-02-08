@@ -27,6 +27,9 @@ namespace Json2Rst
 
             WriteDynamicProperties(jsonObject);
 
+            // Write content:
+            Debug.WriteLine("\n.. contents::\n    :depth: 4");
+
             _titleNumber.Level1 = 1;
             WriteHeading("Metadata", 2);
 
@@ -48,6 +51,19 @@ namespace Json2Rst
 
             // Now parse next level:
             WriteNextLevel(propertyList, 2);
+
+            // Write definitions:
+            SetTitleNumbers(2);
+            WriteHeading("Definitions", 2);
+            SetTitleNumbers(3);
+            var definitionsProperties = JObject.Parse(jsonObject.Property("definitions").Value.ToString());
+            foreach (var property in definitionsProperties.Properties())
+            {
+                var objectProperties = JObject.Parse(property.Value.ToString());
+                Debug.WriteLine($"\n.. _definitions_{property.Name.ToLower()}:");
+                WriteProperties(property.Name, objectProperties);
+                _titleNumber.Level2++;
+            }
         }
 
         private void WriteNextLevel(IEnumerable<JProperty> propertyList, int headerLevel)
@@ -140,7 +156,17 @@ namespace Json2Rst
             if (objectProperties.ContainsKey("title")) Debug.WriteLine(objectProperties.GetValue("title") + "\n");
             if (objectProperties.ContainsKey("description")) Debug.WriteLine(objectProperties.GetValue("description").ToString());
 
-            if (objectProperties.ContainsKey("$ref")) Debug.WriteLine("\n.. todo:: Show sample JSON of " + objectProperties.GetValue("$ref"));
+            if (objectProperties.ContainsKey("$ref"))
+            {
+                var reference = objectProperties.GetValue("$ref").ToString();
+                if (reference.StartsWith("./")) 
+                    Debug.WriteLine("\n.. todo:: Show sample JSON of " + reference);
+                else if (reference.StartsWith("#/definitions/"))
+                {
+                    var definition = reference.Replace("#/definitions/", "");
+                    Debug.WriteLine($"\nSee :ref:`definitions_{definition.ToLower()}`");
+                }
+            }
         }
 
         private void WriteDynamicProperties(dynamic jsonObject)

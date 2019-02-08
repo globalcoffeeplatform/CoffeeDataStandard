@@ -3,19 +3,22 @@
 ============================
 This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.
 
+.. contents::
+    :depth: 4
+
 **********
 1 Metadata
 **********
 
 1.1 globalCoffeeDatasetId
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-The unique identifier for a dataset
+The unique identifier for this dataset.
 
 .. todo:: Show sample JSON of ./global-unique-id.json
 
 1.2 schemaVersion
 ^^^^^^^^^^^^^^^^^
-The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset
+The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.
 
 ********
 2 farmer
@@ -115,7 +118,7 @@ School-age household members
 
 % of school-age household members, under age 18, who have completed appropriate grade level for their age
 
-.. todo:: Show sample JSON of #/definitions/percentage
+See :ref:`definitions_percentage`
 
 2.2.2.2 hazardousProhibition
 ****************************
@@ -123,7 +126,7 @@ Prohibition of children in hazardous working conditions
 
 Are young workers (those under age 18) working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 2.2.3 hunger
 ------------
@@ -191,7 +194,7 @@ Total Area planted in Coffee (ha)
 
 Sum of coffee farm areas from producers in the sustainability program or supply chain (ha)
 
-.. todo:: Show sample JSON of #/definitions/greaterThanZero
+See :ref:`definitions_greaterthanzero`
 
 3.1.7 thirdPartyIds
 -------------------
@@ -215,7 +218,7 @@ Clear contracting
 
 Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc.
 
-.. todo:: Show sample JSON of #/definitions/percentage
+See :ref:`definitions_percentage`
 
 3.2.1.2 rightToOrganize
 ***********************
@@ -223,7 +226,7 @@ Right to organize
 
 Percentage right to organize -- the ability for workers to join unions or committees and freely assemble
 
-.. todo:: Show sample JSON of #/definitions/percentage
+See :ref:`definitions_percentage`
 
 3.2.1.3 prohibitingDiscrimination
 *********************************
@@ -231,7 +234,7 @@ Prohibiting discrimination
 
 Percentage prohibiting discrimination -- in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)
 
-.. todo:: Show sample JSON of #/definitions/percentage
+See :ref:`definitions_percentage`
 
 3.2.1.4 hazardousWorkingCondition
 *********************************
@@ -239,7 +242,7 @@ Hazardous working condition
 
 Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc.
 
-.. todo:: Show sample JSON of #/definitions/percentage
+See :ref:`definitions_percentage`
 
 3.2.2 wages
 -----------
@@ -281,7 +284,7 @@ Coffee Profit
 
 Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)
 
-.. todo:: Show sample JSON of #/definitions/greaterThanZero
+See :ref:`definitions_greaterthanzero`
 
 3.3.2 productivity
 ------------------
@@ -295,7 +298,7 @@ Coffee productive area
 
 Coffee productive area (requires local land area unit conversion to hectares)
 
-.. todo:: Show sample JSON of #/definitions/greaterThanZero
+See :ref:`definitions_greaterthanzero`
 
 3.3.2.2 amountHarvested
 ***********************
@@ -303,7 +306,7 @@ Amount harvested
 
 Amount harvested (requires local unit conversion to kgs)--Amount sold can be a suitable proxy where harvested amounts are unknown (i.e., many smallholders will only know production volumes when their product is weighed at the mill)
 
-.. todo:: Show sample JSON of #/definitions/greaterThanZero
+See :ref:`definitions_greaterthanzero`
 
 3.3.2.3 formOfCoffee
 ********************
@@ -489,7 +492,7 @@ Volume of sustainable purchases
 Proportion of total
 
 
-.. todo:: Show sample JSON of #/definitions/percentage
+See :ref:`definitions_percentage`
 
 3.4 environmental
 ^^^^^^^^^^^^^^^^^
@@ -512,7 +515,7 @@ Absolute area in ha
 Proportion of the farm
 
 
-.. todo:: Show sample JSON of #/definitions/percentage
+See :ref:`definitions_percentage`
 
 3.4.1.2 ecosystemProtection
 ***************************
@@ -520,7 +523,7 @@ Forest and ecosystem protection
 
 % of forest and ecosystem protection practices used on the farm
 
-.. todo:: Show sample JSON of #/definitions/percentage
+See :ref:`definitions_percentage`
 
 3.4.2 fertilizerUse
 -------------------
@@ -528,7 +531,7 @@ Fertilizer use
 
 Whether a professional assessment or advice was used to determine fertilizer needs on the farm. It does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc.
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.3 water
 -----------
@@ -543,21 +546,21 @@ Water Conservation & Contamination Prevention
 Drip irrigation
 
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.3.1 waterCatchments
 ***********************
 Water catchments
 
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.3.1 waterEfficientProcessing
 ********************************
 Water-efficient processing
 
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.3.2 waterContamination
 **************************
@@ -568,7 +571,7 @@ No pesticide cleaning near water
 
 Pesticide equipment is cleaned away from natural water bodies
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.3.2 preventUntreatedWater
 *****************************
@@ -576,7 +579,7 @@ Prevent untreated water
 
 Ensuring untreated water from processing does not enter natural water bodies
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.3.2 noLivestockNearWater
 ****************************
@@ -584,7 +587,7 @@ No livestock near water
 
 Grazing livestock away from natural water bodies
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.3.2 noDomesticDischarge
 ***************************
@@ -592,7 +595,7 @@ No domestic discharge
 
 Domestic discharge prevented from entering natural water bodies
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.4 pestControl
 -----------------
@@ -608,7 +611,7 @@ Conduct regular visual examinations
 
 Conduct regular visual examinations of the coffee to detect pests and/or diseases
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.4.1 useNaturalPesticides
 ****************************
@@ -616,7 +619,7 @@ Use natural pesticides
 
 Use traps, repellants, and natural pesticides
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.4.1 predatorPlaces
 **********************
@@ -624,7 +627,7 @@ Predator places
 
 Create or preserve places (including plant species) for beneficial predators of pests to live
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.4.1 recordPestInfestation
 *****************************
@@ -632,7 +635,7 @@ Record pest infestation
 
 Maintain written record of pest infestation, treatments, and results
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.4.1 pestRepelSpecies
 ************************
@@ -640,7 +643,7 @@ Pest repel species
 
 Plant or preserve species that repel pests of the coffee
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.4.1 applyAfterIdentifying
 *****************************
@@ -648,14 +651,14 @@ Apply after identifying
 
 Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.4.2 useOfBannedPesticides
 *****************************
 Use of banned or hazardous pesticides on the farm
 
 Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers.
-*Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.
+Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.
 
 3.4.5 soilConservation
 ----------------------
@@ -669,7 +672,7 @@ Contour planting
 
 Contour planting, terracing, or soil ridges around trees
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.5.2 liveFences
 ******************
@@ -677,7 +680,7 @@ Live fences
 
 Live fences, hedgerows or buffer zones
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.5.3 recyclingOrganicMatter
 ******************************
@@ -685,7 +688,7 @@ Recycling organic matter
 
 Recycling organic matter and crop waste
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.5.4 interplanting
 *********************
@@ -693,7 +696,7 @@ Interplanting
 
 Interplanting, nitrogen-fixing plants, cover crops, or mulching
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 3.4.5.5 checkDams
 *****************
@@ -701,7 +704,7 @@ Check dams
 
 Check dams, drainage channels or diversion ditches
 
-.. todo:: Show sample JSON of #/definitions/yesNo
+See :ref:`definitions_yesno`
 
 ******
 4 plot
@@ -758,4 +761,39 @@ Productivity
 
 Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)
 
-.. todo:: Show sample JSON of #/definitions/positiveNumber
+See :ref:`definitions_positivenumber`
+
+*************
+5 Definitions
+*************
+
+.. _definitions_percentage:
+
+5.1 percentage
+^^^^^^^^^^^^^^
+The percentage, 0-100
+
+The percentage, from 0 to 100 with decimals allowed
+
+.. _definitions_positivenumber:
+
+5.2 positiveNumber
+^^^^^^^^^^^^^^^^^^
+A positive number > 0
+
+A positive number starting at 0 with decimals allowed
+
+.. _definitions_greaterthanzero:
+
+5.3 greaterThanZero
+^^^^^^^^^^^^^^^^^^^
+The positive number, greater than 0
+
+A positive number starting at greater than 0 with decimals allowed
+
+.. _definitions_yesno:
+
+5.4 yesNo
+^^^^^^^^^
+Yes-No enumeration
+

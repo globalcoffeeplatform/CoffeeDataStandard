@@ -17,11 +17,11 @@
   ],
   "properties": {
     "globalCoffeeDatasetId": {
-      "description": "The unique identifier for a dataset",
+      "description": "The unique identifier for this dataset.",
       "$ref": "./global-unique-id.json"
     },
     "schemaVersion": {
-      "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset",
+      "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.",
       "type": "string",
       "$comment": "Add new version number to enum when released.",
       "enum" : [
