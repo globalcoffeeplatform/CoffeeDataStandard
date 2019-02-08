@@ -10,6 +10,13 @@ namespace Json2Rst
     [TestClass]
     public class GenerateTests
     {
+        private TitleNumber _titleNumber;
+
+        public GenerateTests()
+        {
+            _titleNumber = new TitleNumber();
+        }
+
         [TestMethod]
         public void ParseGlobalCoffeeDataStandardSchema()
         {
@@ -20,10 +27,11 @@ namespace Json2Rst
 
             WriteDynamicProperties(jsonObject);
 
+            _titleNumber.Level1 = 1;
             WriteHeading("Metadata", 2);
 
+            _titleNumber.Level2 = 1;
             var rootProperties = JObject.Parse(jsonObject.Property("properties").Value.ToString());
-            // Debug.WriteLine(rootProperties);
             var propertyList = new List<JProperty>();
             foreach (var property in rootProperties.Properties())
             {
@@ -35,19 +43,21 @@ namespace Json2Rst
                 }
 
                 WriteProperties(property.Name, objectProperties);
+                _titleNumber.Level2++;
             }
 
             // Now parse next level:
-            WriteNextLevel(propertyList, 1);
+            WriteNextLevel(propertyList, 2);
         }
 
-        private static void WriteNextLevel(List<JProperty> propertyList, int numLoop)
+        private void WriteNextLevel(IEnumerable<JProperty> propertyList, int headerLevel)
         {
             foreach (var property in propertyList)
             {
+                SetTitleNumbers(headerLevel);
+
                 var objectProperties = JObject.Parse(property.Value.ToString());
-                WriteHeading(property.Name, numLoop + 1);
-                if (objectProperties.ContainsKey("description")) Debug.WriteLine(objectProperties.GetValue("description").ToString());
+                WriteProperties(property.Name, objectProperties, headerLevel);
 
                 if (objectProperties.ContainsKey("type") &&
                     objectProperties.GetValue("type").ToString() == "object")
@@ -58,11 +68,14 @@ namespace Json2Rst
                         var subObjectProperties = JObject.Parse(subProperty.Value.ToString());
                         if (subObjectProperties.ContainsKey("type") && subObjectProperties.GetValue("type").ToString() == "object")
                         {
-                            WriteHeading(subProperty.Key, numLoop + 1);
-                            WriteNextLevel(JObject.Parse(subObjectProperties.Property("properties").Value.ToString()).Properties().ToList(), ++numLoop);
-                            continue; // Next property
+                            SetTitleNumbers(headerLevel + 1);
+                            WriteHeading(subProperty.Key, headerLevel + 1);
+                            WriteNextLevel(JObject.Parse(subObjectProperties.Property("properties").Value.ToString()).Properties().ToList(), headerLevel + 2);
+                            SetTitleNumbers(headerLevel + 2);
+                            continue;
                         }
-                        WriteProperties(subProperty.Key, subObjectProperties);
+                        SetTitleNumbers(headerLevel + 1);
+                        WriteProperties(subProperty.Key, subObjectProperties, headerLevel + 1);
                     }
                 }
 
@@ -70,9 +83,33 @@ namespace Json2Rst
             }
         }
 
-        private static void WriteHeading(string text, int level)
+        private void SetTitleNumbers(int headerLevel)
         {
-            text = $"{text} ({level})";
+            switch (headerLevel)
+            {
+                case 2:
+                    _titleNumber.Level1++;
+                    _titleNumber.Level2 = 0;
+                    break;
+                case 3:
+                    _titleNumber.Level2++;
+                    _titleNumber.Level3 = 0;
+                    break;
+                case 4:
+                    _titleNumber.Level3++;
+                    _titleNumber.Level4 = 0;
+                    break;
+                case 5:
+                    _titleNumber.Level4++;
+                    _titleNumber.Level5 = 0;
+                    break;
+            }
+        }
+
+        private void WriteHeading(string text, int level)
+        {
+            // text = $"{_titleNumber} {text} ({level})";
+            text = $"{_titleNumber} {text}";
             switch (level)
             {
                 case 1:
@@ -96,7 +133,7 @@ namespace Json2Rst
             }
         }
 
-        private static void WriteProperties(string propertyName, JObject objectProperties, int headingLevel = 3)
+        private void WriteProperties(string propertyName, JObject objectProperties, int headingLevel = 3)
         {
             WriteHeading(propertyName, headingLevel);
 
@@ -106,7 +143,7 @@ namespace Json2Rst
             if (objectProperties.ContainsKey("$ref")) Debug.WriteLine("\n.. todo:: Show sample JSON of " + objectProperties.GetValue("$ref"));
         }
 
-        private static void WriteDynamicProperties(dynamic jsonObject)
+        private void WriteDynamicProperties(dynamic jsonObject)
         {
             WriteHeading((string)jsonObject.title, 1);
             string description = jsonObject.description;
@@ -145,7 +182,9 @@ namespace Json2Rst
 
         private static void WriteHeading5(string text)
         {
-            WriteItalic(text);
+            Debug.WriteLine("");
+            Debug.WriteLine(text);
+            Debug.WriteLine(new string('*', text.Length));
         }
 
         private static void WriteBold(string text)
@@ -157,6 +196,35 @@ namespace Json2Rst
         private static void WriteItalic(string text)
         {
             Debug.WriteLine($"\n*{text}*");
+        }
+
+        private struct TitleNumber
+        {
+            public int Level1 { get; set; }
+            public int Level2 { get; set; }
+            public int Level3 { get; set; }
+            public int Level4 { get; set; }
+            public int Level5 { get; set; }
+
+            public override string ToString()
+            {
+                var text = string.Empty;
+                
+                if (Level1 <= 0) return text;
+                
+                text = Level1.ToString();
+                if (Level2 <= 0) return text;
+                
+                text = $"{Level1}.{Level2}";
+                if (Level3 <= 0) return text;
+                
+                text = $"{Level1}.{Level2}.{Level3}";
+                if (Level4 <= 0) return text;
+                
+                text = $"{Level1}.{Level2}.{Level3}.{Level4}";
+                if (Level5 > 0) text = $"{Level1}.{Level2}.{Level3}.{Level4}.{Level5}";
+                return text;
+            }
         }
 
     }

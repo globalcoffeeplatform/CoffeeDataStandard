@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/global-coffee-data-standard.schema.json",
-  "title": "GlobalCoffeeDataset",
+  "title": "Global Coffee Data Standard",
   "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
   "version": "0.0.4",
   "type": "object",
@@ -52,7 +52,7 @@
           "properties": {
             "farmerId": {
               "title": "Globally Unique ID of the farmer",
-              "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organisation.",
+              "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organization.",
               "$ref": "./global-unique-id.json"
             },
             "name": {
@@ -183,7 +183,7 @@
             },
             "hunger": {
               "title": "Hunger days",
-              "description": "Number of days in past year that any member of household cut food consumption due to lack of food.",
+              "description": "The number of days in the past year that any member of household cut food consumption due to lack of food.",
               "type": "string",
               "enum": [
                 "0 days",
@@ -223,7 +223,7 @@
           "properties": {
             "farmId": {
               "title": "Farm Id",
-              "description": "Globally Unique ID of the recording of the farm at a specific time and by a specific organisation.",
+              "description": "Globally Unique ID of the recording of the farm at a specific time and by a specific organization.",
               "$ref": "./global-unique-id.json"
             },
             "farmerId": {
@@ -407,7 +407,7 @@
                 },
                 "formOfCoffee": {
                   "title": "Form of coffee",
-                  "description": "Form of coffee (will require conversion to GBE, Green Bean Equivalent)",
+                  "description": "The form of coffee (will require conversion to GBE, Green Bean Equivalent)",
                   "type": "string",
                   "enum": [
                     "Fresh cherry",
@@ -539,7 +539,7 @@
             },
             "sustainablePurchases": {
               "title": "Sustainable purchases",
-              "description": "Volume of sustainable purchases by buyer and as a proportion of total, and change year to year. ",
+              "description": "The volume of sustainable purchases by the buyer and as a proportion of the total, and change year to year.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -741,7 +741,7 @@
                 },
                 "useOfBannedPesticides": {
                   "title": "Use of banned or hazardous pesticides on the farm",
-                  "description": "Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address proper disposal of pesticide containers. \n*Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
+                  "description": "Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers. \n*Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
                   "type": "array",
                   "uniqueItems": true,
                   "items": {
@@ -782,7 +782,7 @@
                 },
                 "interplanting": {
                   "title": "Interplanting",
-                  "description": "Interplanting, nitrogen fixing plants, cover crops, or mulching",
+                  "description": "Interplanting, nitrogen-fixing plants, cover crops, or mulching",
                   "$ref": "#/definitions/yesNo"
                 },
                 "checkDams": {
@@ -818,7 +818,7 @@
           "properties": {
             "plotId": {
               "title": "The unique ID of the plot",
-              "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organisation.",
+              "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organization.",
               "$ref": "./global-unique-id.json"
             },
             "farmId": {
