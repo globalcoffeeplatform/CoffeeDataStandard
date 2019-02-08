@@ -5,6 +5,7 @@
   "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
   "version": "0.0.4",
   "type": "object",
+  "example-data": "Blaat",
   "propertyNames": {
     "description": "Property names must be in lower CamelCase",
     "pattern": "^[a-z][A-Za-z0-9_]*$"
@@ -18,7 +19,8 @@
   "properties": {
     "globalCoffeeDatasetId": {
       "description": "The unique identifier for this dataset.",
-      "$ref": "./global-unique-id.json"
+      "$ref": "./global-unique-id.json",
+      "example-data": "\"globalCoffeeDatasetId\": {\n    \"identifier\": \"634748-hfgf-ydhgd\",\n    \"organization\": \"COSA\",\n    \"timestamp\": \"2019-01-02\"\n  }"
     },
     "schemaVersion": {
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.",
