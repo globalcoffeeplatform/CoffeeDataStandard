@@ -25,7 +25,7 @@
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.",
       "type": "string",
       "$comment": "Add new version number to enum when released.",
-      "enum" : [
+      "enum": [
         "0.0.4"
       ]
     },
@@ -54,12 +54,14 @@
             "farmerId": {
               "title": "Globally Unique ID of the farmer",
               "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organization.",
+              "$extended-description": "Each producer should have a unique ID. Optimally this can be a national ID, but in its absence a buyer ID, project ID or other unique number can serve. It is important to keep in mind that various entities may have access to reported data, so confidential information should not be included in the shared record (e.g. Social Security number).",
               "$ref": "./global-unique-id.json",
               "$example-data": "\"farmerId\": {\n      \"organization\": \"Chamber of Commerce, Burundi\",\n      \"identifier\": \"1035413151\",\n      \"timestamp\": \"2010-05-21\"\n    }\n"
             },
             "name": {
               "title": "First and last name(s) of the farmer surveyed",
               "description": "First and last name(s) of the farmer surveyed. Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
+              "$extended-description": "First and last name(s) of the farmer surveyed should be collected in separate fields/columns to ensure consistency (avoiding confusion between Carlos de la Huerta and De la Huerta, Carlos). Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or \"Farmer\" could be entered as the First Name.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -85,7 +87,8 @@
             },
             "dateOfBirth": {
               "title": "Date of birth.",
-              "description": "Data point used to understand the relative presence of youth and calculate youth engagement: % of producers in the sustainability program or supply chain 35 years old and under",
+              "description": "Best practice is to use 'Year of Birth' as opposed to age. Age has to be updated annually, but year of birth is the same indefinitely, and can be used to calculate age at any point.",
+              "$extended-description": "Data point used to understand the relative presence of youth and calculate youth engagement: % of producers in the sustainability program or supply chain 35 years old and under.",
               "examples": [
                 "2016-08-17",
                 "1973-05-03"
@@ -140,7 +143,8 @@
           "properties": {
             "povertyLevel": {
               "title": "Poverty level",
-              "description": "Comparison of total household revenue to International (World Bank) Poverty Line (total divided by # adult individuals in hh)",
+              "description": "Comparison of total household revenue to International (World Bank) Poverty Line (total divided by # adult individuals in household).",
+              "$extended-description": "The Monitoring approach is to ask producers the proportion of total household income coming from the sale of coffee (since the coffee revenue amount from the Net Income indicator (Profit) is already known, an estimate of the full household income amount can be derived with that proportion). This allows a good sense of the economic picture on the farm without adding substantial detail to the approach in terms of all household income streams (e.g., sales of other crops or services, income from other businesses, gifts and remittances, etc.) and any associated costs.\\nThe World Bank International Poverty Line is $1.90 USD per day as of 2015. Comparison to national poverty lines may be useful for discussion related to one country or domestic policy but that can be calculated separately as needed.\\nAn organization may choose to use the PPI score evaluation of the propensity of a farmer or community to be poor as another option that can be more relevant in some rural areas and can be calculated separately as needed. Organizations may also choose to participate on this topic in the Living Income Community of Practice.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -164,6 +168,7 @@
             },
             "childLabour": {
               "title": "Child labour",
+              "description": "The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, \"children in school at the appropriate grade level\" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organizations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.\\nAs an additional option, it may be desirable to ask whether young workers (those under age 18) are working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)\\nThese concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -186,6 +191,7 @@
             "hunger": {
               "title": "Hunger days",
               "description": "The number of days in the past year that any member of household cut food consumption due to lack of food.",
+              "$extended-description": "Number of days (during prior 12 months) without sufficient food within the household:\\n* 0 days\\n* 1-9 days\\n* 10-19 days\\n* 20-29 days\\n* 30 or more days in the past year\\n\\nMore comprehensive nutritional indicators can be expensive and require significant technical ability, time and resources to carry out effectively, so instead the focus is on days of food insecurity as a proxy. Note that while this survey question is often asked to the head of household, this indicator is best expressed when it includes multiple perspectives in the household. This indicator is an important human development issue and a core indicator for social justice.",
               "type": "string",
               "enum": [
                 "0 days",
@@ -264,13 +270,14 @@
             },
             "totalFarmSize": {
               "title": "Total farm size (ha)",
-              "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property. Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha).",
-              "type": "number",
-              "minimum": 0
+              "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property.",
+              "$extended-description": "Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha). Data validation should ensure that the total area planted in coffee should be less than the total farm size. It is ok to rely on farmer recall although more rigorous estimates will include GPS or polygonal mapping data. Consider that farms may contain multiple plots (plots are farm land areas that are not connected, or farm areas that are managed differently, or both). Make sure to add all relevant plots managed by members of a household together (that is, the farm area should coincide with the land used to account for the farm cost and revenue data being reported).",
+              "$ref": "#/definitions/greaterThanZero"
             },
             "totalAreaCoffee": {
               "title": "Total Area planted in Coffee (ha)",
               "description": "Sum of coffee farm areas from producers in the sustainability program or supply chain (ha)",
+              "$extended-description": "Area under coffee production can also be triangulated with other pieces of data collected (e.g., trees planted per unit land (density rate) and/or total number of trees planted).",
               "$ref": "#/definitions/greaterThanZero"
             },
             "thirdPartyIds": {
@@ -298,6 +305,7 @@
             "laborPractices": {
               "title": "Labor Practices",
               "description": "% of good labor practices adopted (of those listed). This indicator is applicable where farms rely on hired labor (not labor of household members).\n# of good labor practices adopted / total number of practices",
+              "$extended-description": "These concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs. While there may be moral hazard in asking these questions outright, asking the questions themselves serves to educate the respondent about the norms and aspirations that are part of general good labor practices.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -309,7 +317,7 @@
               "properties": {
                 "clearContracting": {
                   "title": "Clear contracting",
-                  "description": "Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc. ",
+                  "description": "Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc.",
                   "$ref": "#/definitions/percentage"
                 },
                 "rightToOrganize": {
@@ -324,7 +332,7 @@
                 },
                 "hazardousWorkingCondition": {
                   "title": "Hazardous working condition",
-                  "description": "Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc. ",
+                  "description": "Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc.",
                   "$ref": "#/definitions/percentage"
                 }
               }
@@ -332,6 +340,7 @@
             "wages": {
               "title": "Wages",
               "description": "Daily average earnings for farm labor compared to (rural) minimum wage. Wage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.",
+              "$extended-description": "The approach involves asking for the average daily wage rate paid. If applicable, include wages for coffee production, harvesting, and processing and take an average across all three categories.\\nWage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.\\nThis approach gives a good sense of worker earnings coming from the most prominent types of labor without needing to detail individual jobs, rates, benefits, etc.\\nOrganizations may wish to participate in working groups to define and measure living wage. There is still no widely used methodology, but the ability to understand whether a worker could survive on the wage earned would be useful for any industry. ",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -384,6 +393,7 @@
             "coffeeProfit": {
               "title": "Coffee Profit",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
+              "$extended-description": "The simple approach (which avoids the additional time and resources necessary for detailed accounting while still providing good results) is to ask for the **total** revenue from sales of coffee as a whole, and subtract main costs. This indicator is reported on a per hectare basis to allow comparability across projects and regions.\\nThis simplified approach does not cover asking the producer about revenue and prices for each transaction or amount sold, nor any premiums or deductions. It also factors in only the main costs in the coffee production system (see Cost of Production indicator below).",
               "$ref": "#/definitions/greaterThanZero"
             },
             "productivity": {
@@ -425,6 +435,7 @@
             "productionCosts": {
               "title": "Cost of Production",
               "description": "Costs incurred to produce the coffee during the last production year (calculated per kg of GBE)",
+              "$extended-description": "The simple approach asks only about the main costs in the production system that typically account for the vast majority of total costs (and the total amount spent on each during the last production year). By focusing on the main costs in a system, this provides a good sense of the economic picture on the farm without adding substantial detail to the approach.\\nMain costs typically include (at a minimum):\\n* Fertilizers\\n* Pesticides\\n* Hired Labor\\n* Planting material/ Renovation costs\\nFor those using the Full cost accounting approach the categories are comparable though fewer. The full approach would include: deductions by buyers, rent of land, energy, irrigation, capital assets, cultivation practices, traceability and record keeping, costs of standards or certifications, planting and reforestation costs, training costs, interest on credit, crop insurance, cooperative fees, or the value of unpaid family labor (although any important costs in a system should be captured).\\nCosts should be associated with the coffee production only (i.e., if labor is hired for multiple crops, only the portion used for coffee production should be included). One way to make sure that costs are correctly associated with the production of the coffee is to ask for the percent of inputs that were used for the coffee.\\nWhen calculating costs, include only expenditures coming from the household’s own revenue. If inputs are provided as technical assistance for free or at a subsidized cost on a **persistent**, **substantial**, and **systemic** basis it is recommended to account for the value of the input as a cost in the calculation (at an appropriately determined rate).\\n\\n\nThis indicator is a Sub-metric for Net Income (or Profit).",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -520,6 +531,7 @@
             "price": {
               "title": "Average Price received per kg of coffee (GBE)",
               "description": "The simple approach involves asking for the total revenue received from coffee during the last production year as well as the amount sold (and the form). The average price per unit can then be calculated. For multiple sales, calculate the price average of sales",
+              "$extended-description": "The average price can then be compared to the global reference price (e.g., ICO).\\nThis approach avoids the additional time and resources necessary for detailed accounting and asking about each sale (and the associated premiums, deductions or bonuses) while still providing good results.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -542,6 +554,7 @@
             "sustainablePurchases": {
               "title": "Sustainable purchases",
               "description": "The volume of sustainable purchases by the buyer and as a proportion of the total, and change year to year.",
+              "$extended-description": "Detailed methodology developed by the SPF Working Group (not a farmer level metric).",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -576,6 +589,7 @@
           "properties": {
             "forestEcosystemProtection": {
               "title": "Forest and Ecosystem Protection",
+              "description": "The approach involves asking producers if they converted any natural land (e.g., forest, savanna) to land used for coffee production and how much [both in absolute terms (ha) and relative terms (proportion of the farm)] during the last 5 years.\\nIn addition, overlaying gps coordinates of farms (See GPS Coordinate instructions above) with regional deforestation maps provides more interesting data at a landscape level to understand areas of risk. Note though that usually only a single gps point will exist for many smallholder farms, meaning that there often isn't sufficient information to track the contribution of individual farms to deforestation in most cases. However, even with single gps points, general farming areas prone to deforestation will still be visible.\\n**Forest and ecosystem protection practices** include: \\n1. Reforestation with non-productive trees (i.e., those trees that will not be regularly pruned or removed)\\n2. Laying land aside (fallow) and/or blocking active use (including hunting).",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -614,10 +628,12 @@
             "fertilizerUse": {
               "title": "Fertilizer use",
               "description": "Whether a professional assessment or advice was used to determine fertilizer needs on the farm. It does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc. ",
+              "$extended-description": "The simple approach depends on asking the producer about fertilizer use best practices instead of all the individual fertilizer types and amounts they use. Asking if the producer based their fertilizer use on professional advice or assessments is easy to ask in a standardized way globally and can be a proxy for proper fertilization on the farm (there is ample evidence that the correlation between fertilizer use and yields is not as good as prescribed fertilization and yields).\\nProfessional assessments include advice from an extension agent or other sustainability program implementer and NOT input sellers.\\nThis approach does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc.",
               "$ref": "#/definitions/yesNo"
             },
             "water": {
               "title": "Water Conservation & Contamination Prevention",
+              "description": "Water conservation practices include (relevance of individual practices will need to be determined by region):\\n1. Drip irrigation\\n2. Water catchments\\n3. Water-efficient processing\\nFor practices that conserve soil moisture balance and control runoff, please reference the \"Soil Conservation\" indicator below.\\nWater contamination prevention measures include the following:\\n1. Pesticide equipment is cleaned away from natural water bodies\\n2. Ensuring untreated water from processing does not enter natural water bodies\\n3. Grazing livestock away from natural water bodies\\n4. Domestic discharge prevented from entering natural water bodies\\nThese concepts are common to many sustainability standards and the approach is built on FAO Good Agricultural Practices.\\nAsking about best practice adoption is a standardized way to address this indicator globally without the expensive and technical expertise required to measure water use amounts (and evaluating that in the local context) or taking water samples to evaluate contamination levels and the required protocols for that (taking samples at the appropriate locations and time, factoring in elements that may be beyond an individual producers control, etc.).",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -688,6 +704,7 @@
             },
             "pestControl": {
               "title": "Pest control/ hazards",
+              "description": "**Standard IPM techniques include**:\\n* Conduct regular visual examinations of the coffee to detect pests and/or diseases\\n* Use traps, repellants, and natural pesticides\\n* Create or preserve places (including plant species) for beneficial predators of pests to live\\n* Maintain written record of pest infestation, treatments, and results\\n* Plant or preserve species that repel pests of the coffee\\n* Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population\\nBanned or hazardous pesticides will be based of the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address proper disposal of pesticide containers.\\nPesticides include insecticides, fungicides, rodenticides, nematicides and herbicides.\\nFocusing on IPM techniques is a globally standardized way to understand pest management best practices without the more costly and time-consuming process of detailing individual pesticides, active ingredients, amount used in local units, etc.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -757,6 +774,7 @@
             "soilConservation": {
               "title": "Soil Conservation",
               "description": "% of applicable soil conservation practices used on the farm (of those listed)",
+              "$extended-description": "**Soil conservation measures include**:\\n1. contour planting, terracing, or soil ridges around trees\\n2. live fences, hedgerows or buffer zones\\n3. recycling organic matter and crop waste\\n4. interplanting, nitrogen fixing plants, cover crops, or mulching\\n5. check dams, drainage channels or diversion ditches\\nThese concepts are common to many sustainability standards and the approach is built on FAO Good Agricultural Practices.\\nAsking about best practice adoption is a standardized way to address this indicator globally without the expensive and technical expertise required to measure the actual amount of soil conserved or to do individual soil testing on farms.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -876,7 +894,6 @@
               "title": "Productivity",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
               "$ref": "#/definitions/positiveNumber"
-
             }
           }
         }

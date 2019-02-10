@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Json2Rst
         private const string OutputFile = @"D:\dev\GlobalCoffeeDataStandard\git\docs\source\explanation.rst";
 
         private TitleNumber _titleNumber;
-        private StringBuilder _sb = new StringBuilder();
+        private readonly StringBuilder _sb = new StringBuilder();
 
         public GenerateTests()
         {
@@ -80,8 +81,14 @@ namespace Json2Rst
             }
 
             // Rebuild
-            var cmd = Process.Start(@"D:\dev\GlobalCoffeeDataStandard\git\docs\make.bat", "html");
-            cmd.WaitForExit();
+            var p = new Process();
+            var psi = new ProcessStartInfo
+            {
+                FileName = "CMD.EXE", Arguments = @"/K D:\dev\GlobalCoffeeDataStandard\git\docs\make.bat html"
+            };
+            p.StartInfo = psi;
+            p.Start();
+            p.WaitForExit();
         }
 
         private void WriteNextLevel(IEnumerable<JProperty> propertyList, int headerLevel)
@@ -172,8 +179,9 @@ namespace Json2Rst
             WriteHeading(propertyName, headingLevel);
 
             if (objectProperties.ContainsKey("title")) _sb.AppendLine(objectProperties.GetValue("title") + "\n");
-            if (objectProperties.ContainsKey("description")) _sb.AppendLine(objectProperties.GetValue("description").ToString());
-
+            if (objectProperties.ContainsKey("description")) AppendMultiLines(objectProperties.GetValue("description").ToString());
+            if (objectProperties.ContainsKey("$extended-description")) AppendMultiLines(objectProperties.GetValue("$extended-description").ToString()); 
+            
             if (objectProperties.ContainsKey("$ref"))
             {
                 var reference = objectProperties.GetValue("$ref").ToString();
@@ -199,6 +207,16 @@ namespace Json2Rst
                 _sb.AppendLine("");
 
                 _sb.AppendLine($"    {objectProperties.GetValue("$example-data")}\n");
+            }
+        }
+
+        private void AppendMultiLines(string text)
+        {
+            var lines = text.Split(new[] {"\\n"}, StringSplitOptions.RemoveEmptyEntries);
+            _sb.AppendLine();
+            foreach (var line in lines)
+            {
+                _sb.AppendLine($"{line}\n");
             }
         }
 
