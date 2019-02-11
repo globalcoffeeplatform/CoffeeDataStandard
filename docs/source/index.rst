@@ -12,26 +12,21 @@ Partners of this project
 ########################
 
 .. image:: _static/images/GCP.png
-   :height: 110
    :alt: The Global Coffee Platform believes that sustainability is a shared responsibility.
 
 .. image:: _static/images/COSA.jpg
-   :width: 170
    :alt: COSA: To advance systematic and science-based measurement tools for understanding, managing, and accelerating sustainability.
 
 .. image:: _static/images/Rainforest-Alliance.png
-   :width: 190
    :alt: Our green frog certification seal indicates that a farm, forest, or tourism enterprise has been audited to meet standards that require environmental, social, and economic sustainability.
 
 .. image:: _static/images/waterwatch-cooperative.png
-   :width: 250
    :alt: The mission of Waterwatch Cooperative is to make essential information services for AgriFood accessible and affordable to all actors in the value chain: farmers, producer cooperatives, processors, traders, financial institutions and insurance companies.
 
 Funders of this project
 ########################
 
 .. image:: _static/images/iseal.png
-   :height: 100
    :alt: ISEAL is the global membership association for credible sustainability standards.
 
 

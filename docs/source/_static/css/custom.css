@@ -1,0 +1,28 @@
+.wy-side-nav-search {
+    /* Rainforest alliance green */
+    background-color: #4e917a;
+}
+
+.wy-nav-side {
+    /* GCP brown */
+    background: #834f3d;
+    /* GCP green on brown */
+    color: #799d44;
+}
+
+.rst-versions .rst-current-version {
+    /* GCP red */
+    background: #cc3d3b;
+}
+
+.wy-nav-content {
+    max-width: inherit;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-bottom: 12px;
+}
