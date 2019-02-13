@@ -107,6 +107,8 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_favicon
+html_favicon = 'GCP-Favicon.png'
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
