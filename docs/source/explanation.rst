@@ -20,20 +20,18 @@ The unique identifier for this dataset.
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
+   :caption: Object description
 
-.. code-block:: python
+.. literalinclude:: ../../example-data/globalCoffeeDatasetId.json
    :linenos:
    :caption: Sample data
 
-    "globalCoffeeDatasetId": {
-      "identifier": "634748-hfgf-ydhgd",
-      "organization": "COSA",
-      "timestamp": "2019-01-02"
-    }
-
-
 1.2 schemaVersion
 ^^^^^^^^^^^^^^^^^
+**Type**: *string*
+
+**Allowed values**: 0.0.4
+
 
 The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.
 
@@ -41,15 +39,23 @@ The version number of the schema. When not provided the latest version of the sc
 ********
 2 farmer
 ********
+**Type**: *object*
+
 
 The farmer characteristics
 
 
 2.1 general
 ^^^^^^^^^^^
+**Type**: *object*
+
 
 The general farmer characteristics
 
+
+.. literalinclude:: ../../example-data/farmer-general.json
+   :linenos:
+   :caption: Sample data
 
 2.1.1 farmerId
 --------------
@@ -65,22 +71,13 @@ Each producer should have a unique ID. Optimally this can be a national ID, but 
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
-
-.. code-block:: python
-   :linenos:
-   :caption: Sample data
-
-    "farmerId": {
-      "organization": "Chamber of Commerce, Burundi",
-      "identifier": "1035413151",
-      "timestamp": "2010-05-21"
-    }
-
-
+   :caption: Object description
 
 2.1.2 name
 ----------
 First and last name(s) of the farmer surveyed
+
+**Type**: *object*
 
 
 First and last name(s) of the farmer surveyed. Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.
@@ -93,6 +90,8 @@ First and last name(s) of the farmer surveyed should be collected in separate fi
 *****************
 First name(s) of the farmer surveyed
 
+**Type**: *string*
+
 
 First name(s) of the farmer surveyed. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.
 
@@ -100,6 +99,8 @@ First name(s) of the farmer surveyed. In places where farmers use only one name 
 2.1.2.2 lastName
 ****************
 Last name of the farmer surveyed
+
+**Type**: *string*
 
 
 Last name of the farmer surveyed. Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.
@@ -116,10 +117,13 @@ Generally, data should include Country and then State/Department and Municipalit
 .. literalinclude:: ../../schema/address.json
    :language: json
    :linenos:
+   :caption: Object description
 
 2.1.4 dateOfBirth
 -----------------
 Date of birth.
+
+**Type**: *string*
 
 
 Best practice is to use 'Year of Birth' as opposed to age. Age has to be updated annually, but year of birth is the same indefinitely, and can be used to calculate age at any point.
@@ -132,6 +136,10 @@ Data point used to understand the relative presence of youth and calculate youth
 ------------
 Gender
 
+**Type**: *string*
+
+**Allowed values**: M, F, O, NA
+
 
 Data point used to understand the relative presence of women and to calculate women's engagement and the outcomes they experience as diverse from men: % of women in the sustainability program or supply chain
 
@@ -139,6 +147,8 @@ Data point used to understand the relative presence of women and to calculate wo
 2.1.6 farmIds
 -------------
 Farm Ids
+
+**Type**: *array*
 
 
 Which farms belong to this farmer. At least one is required.
@@ -148,12 +158,16 @@ Which farms belong to this farmer. At least one is required.
 -------------------
 Third-party identifier
 
+**Type**: *array*
+
 
 When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
 
 
 2.2 social
 ^^^^^^^^^^
+**Type**: *object*
+
 
 The social farmer characteristics
 
@@ -161,6 +175,8 @@ The social farmer characteristics
 2.2.1 povertyLevel
 ------------------
 Poverty level
+
+**Type**: *object*
 
 
 Comparison of total household revenue to International (World Bank) Poverty Line (total divided by # adult individuals in household).
@@ -177,6 +193,8 @@ An organization may choose to use the PPI score evaluation of the propensity of 
 ****************************
 Total household income
 
+**Type**: *number*
+
 
 Total household income in USD
 
@@ -185,6 +203,8 @@ Total household income in USD
 ************************
 Household members
 
+**Type**: *integer*
+
 
 Number of adults in the household
 
@@ -192,6 +212,8 @@ Number of adults in the household
 2.2.2 childLabour
 -----------------
 Child labour
+
+**Type**: *object*
 
 
 The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, "children in school at the appropriate grade level" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organizations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.
@@ -225,21 +247,15 @@ See :ref:`definitions_yesno`
 ------------
 Hunger days
 
+**Type**: *string*
 
-The number of days in the past year that any member of household cut food consumption due to lack of food.
+**Allowed values**: 0 days, 1-9 days, 10-19 days, 20-29 days, 30 or more days
 
 
-Number of days (during prior 12 months) without sufficient food within the household:
+Whether the household was food secure during the last production year (report 0 days of food insecurity--i.e., not skipping meals or significantly reducing food intake because food was not available).
 
-* 0 days
 
-* 1-9 days
-
-* 10-19 days
-
-* 20-29 days
-
-* 30 or more days in the past year
+The simple approach depends on asking the producer the number of days during the last production year that any member of household cut food consumption due to lack of food. It is good practice to ask this question in ranges of days to help with farmer recall: 0 days; 1-9 days, 10-19 days; 20-29 days; 30 or more days in the past year. Producers that answer '0 days' are considered to be food secure. Optimally, the approach would also include the months when food insecurity occurred in order to understand the times of year when producers experience more or less food security.
 
 More comprehensive nutritional indicators can be expensive and require significant technical ability, time and resources to carry out effectively, so instead the focus is on days of food insecurity as a proxy. Note that while this survey question is often asked to the head of household, this indicator is best expressed when it includes multiple perspectives in the household. This indicator is an important human development issue and a core indicator for social justice.
 
@@ -247,12 +263,16 @@ More comprehensive nutritional indicators can be expensive and require significa
 ******
 3 farm
 ******
+**Type**: *object*
+
 
 The farm characteristics
 
 
 3.1 general
 ^^^^^^^^^^^
+**Type**: *object*
+
 
 The general farm characteristics
 
@@ -268,6 +288,7 @@ Globally Unique ID of the recording of the farm at a specific time and by a spec
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.1.2 farmerId
 --------------
@@ -280,9 +301,12 @@ Globally Unique ID of the farmer of this farm
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.1.3 location
 --------------
+**Type**: *object*
+
 
 GPS should be captured for each farm plot if possible. GPS readings should be taken outside of buildings and away from significant tree coverage to avoid interference in the signal. GPS should be captured in the middle of the plot, and/or near the entrance to any main building (if there is one). Where the main residence or other buildings are not located on the farm plot, GPS should be taken in the middle of the plot.
 
@@ -295,10 +319,15 @@ Front door geolocation
 .. literalinclude:: ../../schema/Point.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.1.3.2 positionTakenAt
 ***********************
 The position was taken at ..
+
+**Type**: *string*
+
+**Allowed values**: Location of the front door of the head office
 
 
 3.1.4 address
@@ -312,6 +341,7 @@ This should be the location of the farm itself (main plot), not the home of the 
 .. literalinclude:: ../../schema/address.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.1.5 totalFarmSize
 -------------------
@@ -343,12 +373,16 @@ See :ref:`definitions_greaterthanzero`
 -------------------
 Third-party identifier
 
+**Type**: *array*
+
 
 When this dataset is reused by another organization that needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
 
 
 3.2 social
 ^^^^^^^^^^
+**Type**: *object*
+
 
 The social farm characteristics
 
@@ -356,6 +390,8 @@ The social farm characteristics
 3.2.1 laborPractices
 --------------------
 Labor Practices
+
+**Type**: *object*
 
 
 % of good labor practices adopted (of those listed). This indicator is applicable where farms rely on hired labor (not labor of household members).
@@ -409,6 +445,8 @@ See :ref:`definitions_percentage`
 -----------
 Wages
 
+**Type**: *object*
+
 
 Daily average earnings for farm labor compared to (rural) minimum wage. Wage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.
 
@@ -426,29 +464,41 @@ Organizations may wish to participate in working groups to define and measure li
 *******************
 The average daily wage rate paid for coffee production
 
+**Type**: *number*
+
 
 3.2.2.2 wagesHarvesting
 ***********************
 The average daily wage rate paid for harvesting
+
+**Type**: *number*
 
 
 3.2.2.3 wagesProcessing
 ***********************
 The average daily wage rate paid for processing
 
+**Type**: *number*
+
 
 3.2.2.4 ruralMinimumWage
 ************************
 Rural minimum wage
+
+**Type**: *number*
 
 
 3.2.2.5 nationalMinimumWage
 ***************************
 National minimum wage
 
+**Type**: *number*
+
 
 3.3 economic
 ^^^^^^^^^^^^
+**Type**: *object*
+
 
 The economic farm characteristics
 
@@ -471,6 +521,8 @@ See :ref:`definitions_greaterthanzero`
 3.3.2 productivity
 ------------------
 Yield / Productivity
+
+**Type**: *object*
 
 
 kgs of GBE (harvested)/ha of coffee productive area
@@ -500,6 +552,10 @@ See :ref:`definitions_greaterthanzero`
 ********************
 Form of coffee
 
+**Type**: *string*
+
+**Allowed values**: Fresh cherry, Dry cherry, Dry parchment, Wet parchment, Green, Other
+
 
 The form of coffee (will require conversion to GBE, Green Bean Equivalent)
 
@@ -507,6 +563,8 @@ The form of coffee (will require conversion to GBE, Green Bean Equivalent)
 3.3.3 productionCosts
 ---------------------
 Cost of Production
+
+**Type**: *object*
 
 
 Costs incurred to produce the coffee during the last production year (calculated per kg of GBE)
@@ -542,6 +600,7 @@ Fertilizers costs
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.2 pesticides
 ******************
@@ -551,6 +610,7 @@ Pesticides costs
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.3 hiredLabor
 ******************
@@ -560,6 +620,7 @@ Costs of hired labor
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.4 plantingMaterial
 ************************
@@ -569,6 +630,7 @@ Costs of planting material
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.5 renovation
 ******************
@@ -578,6 +640,7 @@ Costs of renovation
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.6 deductionsByBuyers
 **************************
@@ -587,6 +650,7 @@ Deductions by buyers
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.7 rentOfLand
 ******************
@@ -596,6 +660,7 @@ Rent of land
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.8 energy
 **************
@@ -605,6 +670,7 @@ Energy costs
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.9 irrigation
 ******************
@@ -614,6 +680,7 @@ Irrigation costs
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.10 capitalAssets
 **********************
@@ -623,6 +690,7 @@ Capital assets
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.11 cultivationPractices
 *****************************
@@ -632,6 +700,7 @@ Cultivation practices
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.12 traceabilityAndRecordKeeping
 *************************************
@@ -641,6 +710,7 @@ Traceability and record keeping
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.13 standardsCertification
 *******************************
@@ -650,6 +720,7 @@ Costs of standards or certifications
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.14 plantingReforestation
 ******************************
@@ -659,6 +730,7 @@ Planting and reforestation costs
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.15 training
 *****************
@@ -668,6 +740,7 @@ Training costs
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.16 interest
 *****************
@@ -677,6 +750,7 @@ Interest on credit
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.17 cropInsurance
 **********************
@@ -686,6 +760,7 @@ Crop insurance
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.18 cooperativeFees
 ************************
@@ -695,6 +770,7 @@ Cooperative fees
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.19 unpaidFamilyLabor
 **************************
@@ -704,6 +780,7 @@ Unpaid family labor
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.3.20 other
 **************
@@ -713,10 +790,13 @@ Other costs
 .. literalinclude:: ../../schema/productionCosts.json
    :language: json
    :linenos:
+   :caption: Object description
 
 3.3.4 price
 -----------
 Average Price received per kg of coffee (GBE)
+
+**Type**: *object*
 
 
 The simple approach involves asking for the total revenue received from coffee during the last production year as well as the amount sold (and the form). The average price per unit can then be calculated. For multiple sales, calculate the price average of sales
@@ -731,15 +811,21 @@ This approach avoids the additional time and resources necessary for detailed ac
 **************************
 Total coffee revenue
 
+**Type**: *number*
+
 
 3.3.4.2 kgSold
 **************
 kg of GBE sold
 
+**Type**: *number*
+
 
 3.3.5 sustainablePurchases
 --------------------------
 Sustainable purchases
+
+**Type**: *object*
 
 
 The volume of sustainable purchases by the buyer and as a proportion of the total, and change year to year.
@@ -752,6 +838,8 @@ Detailed methodology developed by the SPF Working Group (not a farmer level metr
 ************************************
 Volume of sustainable purchases
 
+**Type**: *number*
+
 
 3.3.5.2 proportionOfTotal
 *************************
@@ -762,6 +850,8 @@ See :ref:`definitions_percentage`
 
 3.4 environmental
 ^^^^^^^^^^^^^^^^^
+**Type**: *object*
+
 
 The environmental farm characteristics
 
@@ -769,6 +859,8 @@ The environmental farm characteristics
 3.4.1 forestEcosystemProtection
 -------------------------------
 Forest and Ecosystem Protection
+
+**Type**: *object*
 
 
 The approach involves asking producers if they converted any natural land (e.g., forest, savanna) to land used for coffee production and how much [both in absolute terms (ha) and relative terms (proportion of the farm)] during the last 5 years.
@@ -786,6 +878,8 @@ In addition, overlaying gps coordinates of farms (See GPS Coordinate instruction
 *************************
 Area converted land
 
+**Type**: *object*
+
 
 Land area (in ha) and proportion of the farm that was converted from natural land (e.g.,, forest, savanna) to land used for coffee production in the last 5 years.
 
@@ -793,6 +887,8 @@ Land area (in ha) and proportion of the farm that was converted from natural lan
 3.4.1.1 absoluteArea
 ********************
 Absolute area in ha
+
+**Type**: *number*
 
 
 3.4.1.1 proportiesOfFarm
@@ -833,6 +929,8 @@ See :ref:`definitions_yesno`
 -----------
 Water Conservation & Contamination Prevention
 
+**Type**: *object*
+
 
 Water conservation practices include (relevance of individual practices will need to be determined by region):
 
@@ -863,6 +961,8 @@ Asking about best practice adoption is a standardized way to address this indica
 *************************
 Water conservation practices
 
+**Type**: *object*
+
 
 % of applicable water conservation practices used on the farm (of those listed)
 
@@ -891,6 +991,8 @@ See :ref:`definitions_yesno`
 3.4.3.2 waterContamination
 **************************
 Water contamination prevention practices
+
+**Type**: *object*
 
 
 % of water contamination prevention practices used on the farm (of those listed).
@@ -940,6 +1042,8 @@ See :ref:`definitions_yesno`
 -----------------
 Pest control/ hazards
 
+**Type**: *object*
+
 
 **Standard IPM techniques include**:
 
@@ -965,6 +1069,8 @@ Focusing on IPM techniques is a globally standardized way to understand pest man
 3.4.4.1 ipmPractices
 ********************
 % of IPM practices employed on the farm
+
+**Type**: *object*
 
 
 Focusing on IPM techniques is a globally standardized way to understand pest management best practices without the more costly and time-consuming process of detailing individual pesticides, active ingredients, amount used in local units, etc.
@@ -1034,6 +1140,8 @@ See :ref:`definitions_yesno`
 *****************************
 Use of banned or hazardous pesticides on the farm
 
+**Type**: *array*
+
 
 Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers. 
 Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.
@@ -1042,6 +1150,8 @@ Pesticides include insecticides, fungicides, rodenticides, nematicides, and herb
 3.4.5 soilConservation
 ----------------------
 Soil Conservation
+
+**Type**: *object*
 
 
 % of applicable soil conservation practices used on the farm (of those listed)
@@ -1117,12 +1227,16 @@ See :ref:`definitions_yesno`
 ******
 4 plot
 ******
+**Type**: *object*
+
 
 The plot characteristics
 
 
 4.1 general
 ^^^^^^^^^^^
+**Type**: *object*
+
 
 The general plot characteristics
 
@@ -1138,6 +1252,7 @@ Globally Unique ID of the recording of the plot at a specific time and by a spec
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
+   :caption: Object description
 
 4.1.2 farmId
 ------------
@@ -1150,6 +1265,7 @@ Globally Unique ID farmId
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
+   :caption: Object description
 
 4.1.3 boundary
 --------------
@@ -1160,10 +1276,14 @@ The boundary of the plot
 ----------
 Area of the plot
 
+**Type**: *number*
+
 
 4.1.5 thirdPartyIds
 -------------------
 Third-party identifier
+
+**Type**: *array*
 
 
 When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
@@ -1171,6 +1291,8 @@ When this dataset is reused by another organization who needs to use their own G
 
 4.2 economic
 ^^^^^^^^^^^^
+**Type**: *object*
+
 
 The economic plot characteristics
 
@@ -1178,6 +1300,8 @@ The economic plot characteristics
 4.2.1 yield
 -----------
 Yield
+
+**Type**: *number*
 
 
 kgs of GBE (harvested)
@@ -1203,6 +1327,8 @@ See :ref:`definitions_positivenumber`
 ^^^^^^^^^^^^^^
 The percentage, 0-100
 
+**Type**: *number*
+
 
 The percentage, from 0 to 100 with decimals allowed
 
@@ -1212,6 +1338,8 @@ The percentage, from 0 to 100 with decimals allowed
 5.2 positiveNumber
 ^^^^^^^^^^^^^^^^^^
 A positive number > 0
+
+**Type**: *number*
 
 
 A positive number starting at 0 with decimals allowed
@@ -1223,6 +1351,8 @@ A positive number starting at 0 with decimals allowed
 ^^^^^^^^^^^^^^^^^^^
 The positive number, greater than 0
 
+**Type**: *number*
+
 
 A positive number starting at greater than 0 with decimals allowed
 
@@ -1232,5 +1362,9 @@ A positive number starting at greater than 0 with decimals allowed
 5.4 yesNo
 ^^^^^^^^^
 Yes-No enumeration
+
+**Type**: *string*
+
+**Allowed values**: Yes, No
 
 

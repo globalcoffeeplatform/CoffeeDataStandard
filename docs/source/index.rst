@@ -35,6 +35,7 @@ Funders of this project
    :caption: Contents:
 
    about
+   executive-summary
    use-cases
    explanation
 

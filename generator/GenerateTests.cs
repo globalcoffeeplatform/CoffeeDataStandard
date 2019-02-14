@@ -179,6 +179,17 @@ namespace Json2Rst
             WriteHeading(propertyName, headingLevel);
 
             if (objectProperties.ContainsKey("title")) _sb.AppendLine(objectProperties.GetValue("title") + "\n");
+
+            if (objectProperties.ContainsKey("type"))
+                _sb.AppendLine(MakeBold("Type") + ": " + MakeItalic(objectProperties.GetValue("type").ToString()) + "\n");
+            if (objectProperties.ContainsKey("enum"))
+            {
+                if (objectProperties.GetValue("enum") is JArray enums) 
+                    _sb.AppendLine(MakeBold("Allowed values") + ": " + string.Join(", ", enums) + "\n");
+            }
+
+            // TODO: Write if property is optional or not
+
             if (objectProperties.ContainsKey("description")) AppendMultiLines(objectProperties.GetValue("description").ToString());
             if (objectProperties.ContainsKey("$extended-description")) AppendMultiLines(objectProperties.GetValue("$extended-description").ToString()); 
             
@@ -191,6 +202,7 @@ namespace Json2Rst
                     _sb.AppendLine($"\n.. literalinclude:: ../../schema{file}");
                     _sb.AppendLine("   :language: json");
                     _sb.AppendLine("   :linenos:");
+                    _sb.AppendLine("   :caption: Object description");
                 }
                 else if (reference.StartsWith("#/definitions/"))
                 {
@@ -201,12 +213,22 @@ namespace Json2Rst
 
             if (objectProperties.ContainsKey("$example-data"))
             {
-                _sb.AppendLine("\n.. code-block:: python");
-                _sb.AppendLine("   :linenos:");
-                _sb.AppendLine("   :caption: Sample data");
-                _sb.AppendLine("");
-
-                _sb.AppendLine($"    {objectProperties.GetValue("$example-data")}\n");
+                var exampleData = objectProperties.GetValue("$example-data").ToString();
+                if (exampleData.StartsWith("./"))
+                {
+                    var path = exampleData.Replace("./", "../../");
+                    _sb.AppendLine($"\n.. literalinclude:: {path}");
+                    _sb.AppendLine("   :linenos:");
+                    _sb.AppendLine("   :caption: Sample data");
+                }
+                else
+                {
+                    _sb.AppendLine("\n.. code-block:: python");
+                    _sb.AppendLine("   :linenos:");
+                    _sb.AppendLine("   :caption: Sample data");
+                    _sb.AppendLine("");
+                    _sb.AppendLine($"    {exampleData}\n");
+                }
             }
         }
 
@@ -264,14 +286,14 @@ namespace Json2Rst
             _sb.AppendLine(new string('*', text.Length));
         }
 
-        private void WriteBold(string text)
+        private string MakeBold(string text)
         {
-            _sb.AppendLine($"\n**{text}**");
+            return $"**{text}**";
         }
 
-        private void WriteItalic(string text)
+        private string MakeItalic(string text)
         {
-            _sb.AppendLine($"\n*{text}*");
+            return $"*{text}*";
         }
 
         private struct TitleNumber

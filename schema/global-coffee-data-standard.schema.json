@@ -19,7 +19,7 @@
     "globalCoffeeDatasetId": {
       "description": "The unique identifier for this dataset.",
       "$ref": "./global-unique-id.json",
-      "$example-data": "\"globalCoffeeDatasetId\": {\n      \"identifier\": \"634748-hfgf-ydhgd\",\n      \"organization\": \"COSA\",\n      \"timestamp\": \"2019-01-02\"\n    }"
+      "$example-data": "./example-data/globalCoffeeDatasetId.json"
     },
     "schemaVersion": {
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.",
@@ -42,6 +42,7 @@
           "description": "The general farmer characteristics",
           "type": "object",
           "additionalProperties": false,
+          "$example-data": "./example-data/farmer-general.json",
           "required": [
             "farmerId",
             "name",
@@ -55,8 +56,7 @@
               "title": "Globally Unique ID of the farmer",
               "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organization.",
               "$extended-description": "Each producer should have a unique ID. Optimally this can be a national ID, but in its absence a buyer ID, project ID or other unique number can serve. It is important to keep in mind that various entities may have access to reported data, so confidential information should not be included in the shared record (e.g. Social Security number).",
-              "$ref": "./global-unique-id.json",
-              "$example-data": "\"farmerId\": {\n      \"organization\": \"Chamber of Commerce, Burundi\",\n      \"identifier\": \"1035413151\",\n      \"timestamp\": \"2010-05-21\"\n    }\n"
+              "$ref": "./global-unique-id.json"
             },
             "name": {
               "title": "First and last name(s) of the farmer surveyed",
@@ -102,10 +102,10 @@
               "description": "Data point used to understand the relative presence of women and to calculate women's engagement and the outcomes they experience as diverse from men: % of women in the sustainability program or supply chain",
               "type": "string",
               "enum": [
-                "Female",
-                "Male",
-                "Other",
-                "Prefer not to say"
+                "M",
+                "F",
+                "O",
+                "NA"
               ]
             },
             "farmIds": {
@@ -190,8 +190,8 @@
             },
             "hunger": {
               "title": "Hunger days",
-              "description": "The number of days in the past year that any member of household cut food consumption due to lack of food.",
-              "$extended-description": "Number of days (during prior 12 months) without sufficient food within the household:\\n* 0 days\\n* 1-9 days\\n* 10-19 days\\n* 20-29 days\\n* 30 or more days in the past year\\n\\nMore comprehensive nutritional indicators can be expensive and require significant technical ability, time and resources to carry out effectively, so instead the focus is on days of food insecurity as a proxy. Note that while this survey question is often asked to the head of household, this indicator is best expressed when it includes multiple perspectives in the household. This indicator is an important human development issue and a core indicator for social justice.",
+              "description": "Whether the household was food secure during the last production year (report 0 days of food insecurity--i.e., not skipping meals or significantly reducing food intake because food was not available).",
+              "$extended-description": "The simple approach depends on asking the producer the number of days during the last production year that any member of household cut food consumption due to lack of food. It is good practice to ask this question in ranges of days to help with farmer recall: 0 days; 1-9 days, 10-19 days; 20-29 days; 30 or more days in the past year. Producers that answer '0 days' are considered to be food secure. Optimally, the approach would also include the months when food insecurity occurred in order to understand the times of year when producers experience more or less food security.\\nMore comprehensive nutritional indicators can be expensive and require significant technical ability, time and resources to carry out effectively, so instead the focus is on days of food insecurity as a proxy. Note that while this survey question is often asked to the head of household, this indicator is best expressed when it includes multiple perspectives in the household. This indicator is an important human development issue and a core indicator for social justice.",
               "type": "string",
               "enum": [
                 "0 days",
