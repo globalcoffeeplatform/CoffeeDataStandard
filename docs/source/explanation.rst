@@ -126,6 +126,7 @@ Date of birth.
 **Type**: *string*
 
 **Pattern**: *^[12][0-9]{3}-[01][0-9]-[0-3][0-9]$*
+
 .. raw:: html 
 
    <a href="https://regex101.com/r/SIq25G/1" target="_blank">Pattern validator</a>
