@@ -188,6 +188,11 @@ namespace Json2Rst
                     _sb.AppendLine(MakeBold("Allowed values") + ": " + string.Join(", ", enums) + "\n");
             }
 
+            if (objectProperties.ContainsKey("pattern"))
+                _sb.AppendLine(MakeBold("Pattern") + ": " + MakeItalic(objectProperties.GetValue("pattern").ToString()) + "\n");
+            if (objectProperties.ContainsKey("$pattern-validator"))
+                _sb.AppendLine(MakeLink("Pattern validator", objectProperties.GetValue("$pattern-validator").ToString()));
+
             // TODO: Write if property is optional or not
 
             if (objectProperties.ContainsKey("description")) AppendMultiLines(objectProperties.GetValue("description").ToString());
@@ -295,6 +300,12 @@ namespace Json2Rst
         {
             return $"*{text}*";
         }
+
+        private string MakeLink(string label, string url)
+        {
+            return $".. raw:: html \n\n   <a href=\"{url}\" target=\"_blank\">{label}</a>\n";
+        }
+
 
         private struct TitleNumber
         {

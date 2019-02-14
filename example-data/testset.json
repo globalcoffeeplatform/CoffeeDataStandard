@@ -20,8 +20,8 @@
         "streetAddress": "1600 Amphitheatre Pkwy",
         "countryName": "Mali"
       },
-      "dateOfBirth": "1974-12-10",
-      "gender": "Male",
+      "dateOfBirth": "1974-12-31",
+      "gender": "M",
       "thirdPartyIds": [
         {
           "identifier": "N2786-Q5572-H8123-S9007",

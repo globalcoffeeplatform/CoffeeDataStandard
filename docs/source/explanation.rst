@@ -125,6 +125,11 @@ Date of birth.
 
 **Type**: *string*
 
+**Pattern**: *^[12][0-9]{3}-[01][0-9]-[0-3][0-9]$*
+.. raw:: html 
+
+   <a href="https://regex101.com/r/SIq25G/1" target="_blank">Pattern validator</a>
+
 
 Best practice is to use 'Year of Birth' as opposed to age. Age has to be updated annually, but year of birth is the same indefinitely, and can be used to calculate age at any point.
 

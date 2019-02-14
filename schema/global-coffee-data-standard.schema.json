@@ -94,7 +94,8 @@
                 "1973-05-03"
               ],
               "type": "string",
-              "pattern": "^[12][0-9]{3}-[01][0-9]-[01][0-9]$",
+              "pattern": "^[12][0-9]{3}-[01][0-9]-[0-3][0-9]$",
+              "$pattern-validator": "https://regex101.com/r/SIq25G/1",
               "format": "full-date"
             },
             "gender": {
