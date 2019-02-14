@@ -30,7 +30,7 @@ The unique identifier for this dataset.
 ^^^^^^^^^^^^^^^^^
 **Type**: *string*
 
-**Allowed values**: 0.0.4
+**Allowed values**: '0.0.4'
 
 
 The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.
@@ -144,7 +144,7 @@ Gender
 
 **Type**: *string*
 
-**Allowed values**: M, F, O, NA
+**Allowed values**: 'M', 'F', 'O', 'NA'
 
 
 Data point used to understand the relative presence of women and to calculate women's engagement and the outcomes they experience as diverse from men: % of women in the sustainability program or supply chain
@@ -233,21 +233,19 @@ These concepts are common to many sustainability standards and the approach is b
 *********************************
 School-age household members
 
+**Type**: See :ref:`definitions_percentage`
 
 % of school-age household members, under age 18, who have completed appropriate grade level for their age
 
-
-See :ref:`definitions_percentage`
 
 2.2.2.2 hazardousProhibition
 ****************************
 Prohibition of children in hazardous working conditions
 
+**Type**: See :ref:`definitions_yesno`
 
 Are young workers (those under age 18) working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)
 
-
-See :ref:`definitions_yesno`
 
 2.2.3 hunger
 ------------
@@ -255,7 +253,7 @@ Hunger days
 
 **Type**: *string*
 
-**Allowed values**: 0 days, 1-9 days, 10-19 days, 20-29 days, 30 or more days
+**Allowed values**: '0 days', '1-9 days', '10-19 days', '20-29 days', '30 or more days'
 
 
 Whether the household was food secure during the last production year (report 0 days of food insecurity--i.e., not skipping meals or significantly reducing food intake because food was not available).
@@ -333,7 +331,7 @@ The position was taken at ..
 
 **Type**: *string*
 
-**Allowed values**: Location of the front door of the head office
+**Allowed values**: 'Location of the front door of the head office'
 
 
 3.1.4 address
@@ -353,6 +351,7 @@ This should be the location of the farm itself (main plot), not the home of the 
 -------------------
 Total farm size (ha)
 
+**Type**: See :ref:`definitions_greaterthanzero`
 
 Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property.
 
@@ -360,20 +359,17 @@ Total Farm size refers to total property size, including land used to grow crops
 Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha). Data validation should ensure that the total area planted in coffee should be less than the total farm size. It is ok to rely on farmer recall although more rigorous estimates will include GPS or polygonal mapping data. Consider that farms may contain multiple plots (plots are farm land areas that are not connected, or farm areas that are managed differently, or both). Make sure to add all relevant plots managed by members of a household together (that is, the farm area should coincide with the land used to account for the farm cost and revenue data being reported).
 
 
-See :ref:`definitions_greaterthanzero`
-
 3.1.6 totalAreaCoffee
 ---------------------
 Total Area planted in Coffee (ha)
 
+**Type**: See :ref:`definitions_greaterthanzero`
 
 Sum of coffee farm areas from producers in the sustainability program or supply chain (ha)
 
 
 Area under coffee production can also be triangulated with other pieces of data collected (e.g., trees planted per unit land (density rate) and/or total number of trees planted).
 
-
-See :ref:`definitions_greaterthanzero`
 
 3.1.7 thirdPartyIds
 -------------------
@@ -411,41 +407,37 @@ These concepts are common to many sustainability standards and the approach is b
 ************************
 Clear contracting
 
+**Type**: See :ref:`definitions_yesno`
 
-Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc.
+Clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc.
 
-
-See :ref:`definitions_percentage`
 
 3.2.1.2 rightToOrganize
 ***********************
 Right to organize
 
+**Type**: See :ref:`definitions_yesno`
 
-Percentage right to organize -- the ability for workers to join unions or committees and freely assemble
+Right to organize--the ability for workers to join unions or committees and freely assemble.
 
-
-See :ref:`definitions_percentage`
 
 3.2.1.3 prohibitingDiscrimination
 *********************************
 Prohibiting discrimination
 
+**Type**: See :ref:`definitions_yesno`
 
-Percentage prohibiting discrimination -- in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)
+Prohibiting discrimination--in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)
 
-
-See :ref:`definitions_percentage`
 
 3.2.1.4 hazardousWorkingCondition
 *********************************
 Hazardous working condition
 
+**Type**: See :ref:`definitions_yesno`
 
-Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc.
+Hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc. 
 
-
-See :ref:`definitions_percentage`
 
 3.2.2 wages
 -----------
@@ -513,6 +505,7 @@ The economic farm characteristics
 ------------------
 Coffee Profit
 
+**Type**: See :ref:`definitions_greaterthanzero`
 
 Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)
 
@@ -521,8 +514,6 @@ The simple approach (which avoids the additional time and resources necessary fo
 
 This simplified approach does not cover asking the producer about revenue and prices for each transaction or amount sold, nor any premiums or deductions. It also factors in only the main costs in the coffee production system (see Cost of Production indicator below).
 
-
-See :ref:`definitions_greaterthanzero`
 
 3.3.2 productivity
 ------------------
@@ -538,21 +529,19 @@ kgs of GBE (harvested)/ha of coffee productive area
 ****************************
 Coffee productive area
 
+**Type**: See :ref:`definitions_greaterthanzero`
 
 Coffee productive area (requires local land area unit conversion to hectares)
 
-
-See :ref:`definitions_greaterthanzero`
 
 3.3.2.2 amountHarvested
 ***********************
 Amount harvested
 
+**Type**: See :ref:`definitions_greaterthanzero`
 
 Amount harvested (requires local unit conversion to kgs)--Amount sold can be a suitable proxy where harvested amounts are unknown (i.e., many smallholders will only know production volumes when their product is weighed at the mill)
 
-
-See :ref:`definitions_greaterthanzero`
 
 3.3.2.3 formOfCoffee
 ********************
@@ -560,7 +549,7 @@ Form of coffee
 
 **Type**: *string*
 
-**Allowed values**: Fresh cherry, Dry cherry, Dry parchment, Wet parchment, Green, Other
+**Allowed values**: 'Fresh cherry', 'Dry cherry', 'Dry parchment', 'Wet parchment', 'Green', 'Other'
 
 
 The form of coffee (will require conversion to GBE, Green Bean Equivalent)
@@ -851,8 +840,7 @@ Volume of sustainable purchases
 *************************
 Proportion of total
 
-
-See :ref:`definitions_percentage`
+**Type**: See :ref:`definitions_percentage`
 
 3.4 environmental
 ^^^^^^^^^^^^^^^^^
@@ -901,23 +889,22 @@ Absolute area in ha
 ************************
 Proportion of the farm
 
-
-See :ref:`definitions_percentage`
+**Type**: See :ref:`definitions_percentage`
 
 3.4.1.2 ecosystemProtection
 ***************************
 Forest and ecosystem protection
 
+**Type**: See :ref:`definitions_percentage`
 
 % of forest and ecosystem protection practices used on the farm
 
-
-See :ref:`definitions_percentage`
 
 3.4.2 fertilizerUse
 -------------------
 Fertilizer use
 
+**Type**: See :ref:`definitions_yesno`
 
 Whether a professional assessment or advice was used to determine fertilizer needs on the farm. It does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc. 
 
@@ -928,8 +915,6 @@ Professional assessments include advice from an extension agent or other sustain
 
 This approach does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc.
 
-
-See :ref:`definitions_yesno`
 
 3.4.3 water
 -----------
@@ -977,22 +962,19 @@ Water conservation practices
 **********************
 Drip irrigation
 
-
-See :ref:`definitions_yesno`
+**Type**: See :ref:`definitions_yesno`
 
 3.4.3.1 waterCatchments
 ***********************
 Water catchments
 
-
-See :ref:`definitions_yesno`
+**Type**: See :ref:`definitions_yesno`
 
 3.4.3.1 waterEfficientProcessing
 ********************************
 Water-efficient processing
 
-
-See :ref:`definitions_yesno`
+**Type**: See :ref:`definitions_yesno`
 
 3.4.3.2 waterContamination
 **************************
@@ -1008,41 +990,37 @@ Water contamination prevention practices
 ************************************
 No pesticide cleaning near water
 
+**Type**: See :ref:`definitions_yesno`
 
 Pesticide equipment is cleaned away from natural water bodies
 
-
-See :ref:`definitions_yesno`
 
 3.4.3.2 preventUntreatedWater
 *****************************
 Prevent untreated water
 
+**Type**: See :ref:`definitions_yesno`
 
 Ensuring untreated water from processing does not enter natural water bodies
 
-
-See :ref:`definitions_yesno`
 
 3.4.3.2 noLivestockNearWater
 ****************************
 No livestock near water
 
+**Type**: See :ref:`definitions_yesno`
 
 Grazing livestock away from natural water bodies
 
-
-See :ref:`definitions_yesno`
 
 3.4.3.2 noDomesticDischarge
 ***************************
 No domestic discharge
 
+**Type**: See :ref:`definitions_yesno`
 
 Domestic discharge prevented from entering natural water bodies
 
-
-See :ref:`definitions_yesno`
 
 3.4.4 pestControl
 -----------------
@@ -1086,61 +1064,55 @@ Focusing on IPM techniques is a globally standardized way to understand pest man
 ****************************************
 Conduct regular visual examinations
 
+**Type**: See :ref:`definitions_yesno`
 
 Conduct regular visual examinations of the coffee to detect pests and/or diseases
 
-
-See :ref:`definitions_yesno`
 
 3.4.4.1 useNaturalPesticides
 ****************************
 Use natural pesticides
 
+**Type**: See :ref:`definitions_yesno`
 
 Use traps, repellants, and natural pesticides
 
-
-See :ref:`definitions_yesno`
 
 3.4.4.1 predatorPlaces
 **********************
 Predator places
 
+**Type**: See :ref:`definitions_yesno`
 
 Create or preserve places (including plant species) for beneficial predators of pests to live
 
-
-See :ref:`definitions_yesno`
 
 3.4.4.1 recordPestInfestation
 *****************************
 Record pest infestation
 
+**Type**: See :ref:`definitions_yesno`
 
 Maintain written record of pest infestation, treatments, and results
 
-
-See :ref:`definitions_yesno`
 
 3.4.4.1 pestRepelSpecies
 ************************
 Pest repel species
 
+**Type**: See :ref:`definitions_yesno`
 
 Plant or preserve species that repel pests of the coffee
 
-
-See :ref:`definitions_yesno`
 
 3.4.4.1 applyAfterIdentifying
 *****************************
 Apply after identifying
 
+**Type**: See :ref:`definitions_yesno`
 
 Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population 
 
-
-See :ref:`definitions_yesno`
 
 3.4.4.2 useOfBannedPesticides
 *****************************
@@ -1184,51 +1156,46 @@ Asking about best practice adoption is a standardized way to address this indica
 ***********************
 Contour planting
 
+**Type**: See :ref:`definitions_yesno`
 
 Contour planting, terracing, or soil ridges around trees
 
-
-See :ref:`definitions_yesno`
 
 3.4.5.2 liveFences
 ******************
 Live fences
 
+**Type**: See :ref:`definitions_yesno`
 
 Live fences, hedgerows or buffer zones
 
-
-See :ref:`definitions_yesno`
 
 3.4.5.3 recyclingOrganicMatter
 ******************************
 Recycling organic matter
 
+**Type**: See :ref:`definitions_yesno`
 
 Recycling organic matter and crop waste
 
-
-See :ref:`definitions_yesno`
 
 3.4.5.4 interplanting
 *********************
 Interplanting
 
+**Type**: See :ref:`definitions_yesno`
 
 Interplanting, nitrogen-fixing plants, cover crops, or mulching
 
-
-See :ref:`definitions_yesno`
 
 3.4.5.5 checkDams
 *****************
 Check dams
 
+**Type**: See :ref:`definitions_yesno`
 
 Check dams, drainage channels or diversion ditches
 
-
-See :ref:`definitions_yesno`
 
 ******
 4 plot
@@ -1317,11 +1284,10 @@ kgs of GBE (harvested)
 ------------------
 Productivity
 
+**Type**: See :ref:`definitions_positivenumber`
 
 Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)
 
-
-See :ref:`definitions_positivenumber`
 
 *************
 5 Definitions
@@ -1371,6 +1337,6 @@ Yes-No enumeration
 
 **Type**: *string*
 
-**Allowed values**: Yes, No
+**Allowed values**: 'Yes', 'No'
 
 

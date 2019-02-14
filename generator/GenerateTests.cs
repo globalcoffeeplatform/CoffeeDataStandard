@@ -18,6 +18,8 @@ namespace Json2Rst
         private TitleNumber _titleNumber;
         private readonly StringBuilder _sb = new StringBuilder();
 
+        private JArray _required = null;
+
         public GenerateTests()
         {
             _titleNumber = new TitleNumber();
@@ -54,7 +56,7 @@ namespace Json2Rst
             }
 
             // Now parse next level:
-            WriteNextLevel(propertyList, 2);
+            WriteNextLevel(propertyList, 2, _required);
 
             // Write definitions:
             SetTitleNumbers(2);
@@ -84,25 +86,28 @@ namespace Json2Rst
             var p = new Process();
             var psi = new ProcessStartInfo
             {
-                FileName = "CMD.EXE", Arguments = @"/K D:\dev\GlobalCoffeeDataStandard\git\docs\make.bat html"
+                FileName = "CMD.EXE",
+                Arguments = @"/K D:\dev\GlobalCoffeeDataStandard\git\docs\make.bat html"
             };
             p.StartInfo = psi;
             p.Start();
             p.WaitForExit();
         }
 
-        private void WriteNextLevel(IEnumerable<JProperty> propertyList, int headerLevel)
+        private void WriteNextLevel(IEnumerable<JProperty> propertyList, int headerLevel, JArray parentRequired)
         {
             foreach (var property in propertyList)
             {
                 SetTitleNumbers(headerLevel);
 
                 var objectProperties = JObject.Parse(property.Value.ToString());
+                _required = parentRequired;
                 WriteProperties(property.Name, objectProperties, headerLevel);
 
                 if (objectProperties.ContainsKey("type") &&
                     objectProperties.GetValue("type").ToString() == "object")
                 {
+                    _required = objectProperties.GetValue("required") as JArray;
                     var subProperties = JObject.Parse(objectProperties.GetValue("properties").ToString());
                     foreach (var subProperty in subProperties)
                     {
@@ -111,7 +116,7 @@ namespace Json2Rst
                         {
                             SetTitleNumbers(headerLevel + 1);
                             WriteProperties(subProperty.Key, subObjectProperties, headerLevel + 1);
-                            WriteNextLevel(JObject.Parse(subObjectProperties.Property("properties").Value.ToString()).Properties().ToList(), headerLevel + 2);
+                            WriteNextLevel(JObject.Parse(subObjectProperties.Property("properties").Value.ToString()).Properties().ToList(), headerLevel + 2, subObjectProperties.GetValue("required") as JArray);
                             SetTitleNumbers(headerLevel + 2);
                             continue;
                         }
@@ -119,8 +124,6 @@ namespace Json2Rst
                         WriteProperties(subProperty.Key, subObjectProperties, headerLevel + 1);
                     }
                 }
-
-                // WriteProperties(property.Name, objectProperties);
             }
         }
 
@@ -178,14 +181,28 @@ namespace Json2Rst
         {
             WriteHeading(propertyName, headingLevel);
 
+            // TODO: Is not yet working properly:
+            //var isMandatory = IsMandatory(propertyName);
+            //_sb.AppendLine("This field is " + MakeBold(isMandatory ? "Mandatory" : "Optional") + "\n");
+
             if (objectProperties.ContainsKey("title")) _sb.AppendLine(objectProperties.GetValue("title") + "\n");
 
             if (objectProperties.ContainsKey("type"))
                 _sb.AppendLine(MakeBold("Type") + ": " + MakeItalic(objectProperties.GetValue("type").ToString()) + "\n");
             if (objectProperties.ContainsKey("enum"))
             {
-                if (objectProperties.GetValue("enum") is JArray enums) 
-                    _sb.AppendLine(MakeBold("Allowed values") + ": " + string.Join(", ", enums) + "\n");
+                if (objectProperties.GetValue("enum") is JArray enums)
+                    _sb.AppendLine(MakeBold("Allowed values") + ": '" + string.Join("', '", enums) + "'\n");
+            }
+
+            if (objectProperties.ContainsKey("$ref"))
+            {
+                var reference = objectProperties.GetValue("$ref").ToString();
+                if (reference.StartsWith("#/definitions/"))
+                {
+                    var definition = reference.Replace("#/definitions/", "");
+                    _sb.AppendLine($"{MakeBold("Type")}: See :ref:`definitions_{definition.ToLower()}`");
+                }
             }
 
             if (objectProperties.ContainsKey("pattern"))
@@ -196,8 +213,8 @@ namespace Json2Rst
             // TODO: Write if property is optional or not
 
             if (objectProperties.ContainsKey("description")) AppendMultiLines(objectProperties.GetValue("description").ToString());
-            if (objectProperties.ContainsKey("$extended-description")) AppendMultiLines(objectProperties.GetValue("$extended-description").ToString()); 
-            
+            if (objectProperties.ContainsKey("$extended-description")) AppendMultiLines(objectProperties.GetValue("$extended-description").ToString());
+
             if (objectProperties.ContainsKey("$ref"))
             {
                 var reference = objectProperties.GetValue("$ref").ToString();
@@ -208,11 +225,6 @@ namespace Json2Rst
                     _sb.AppendLine("   :language: json");
                     _sb.AppendLine("   :linenos:");
                     _sb.AppendLine("   :caption: Object description");
-                }
-                else if (reference.StartsWith("#/definitions/"))
-                {
-                    var definition = reference.Replace("#/definitions/", "");
-                    _sb.AppendLine($"\nSee :ref:`definitions_{definition.ToLower()}`");
                 }
             }
 
@@ -237,9 +249,21 @@ namespace Json2Rst
             }
         }
 
+        private bool IsMandatory(string propertyName)
+        {
+            if (_required == null) return false;
+
+            foreach (var name in _required)
+            {
+                if (name.ToString() == propertyName) return true;
+            }
+
+            return false;
+        }
+
         private void AppendMultiLines(string text)
         {
-            var lines = text.Split(new[] {"\\n"}, StringSplitOptions.RemoveEmptyEntries);
+            var lines = text.Split(new[] { "\\n" }, StringSplitOptions.RemoveEmptyEntries);
             _sb.AppendLine();
             foreach (var line in lines)
             {
@@ -251,6 +275,7 @@ namespace Json2Rst
         {
             WriteHeading((string)jsonObject.title, 1);
             string description = jsonObject.description;
+            _required = jsonObject.required;
             _sb.AppendLine(description);
         }
 
@@ -318,18 +343,18 @@ namespace Json2Rst
             public override string ToString()
             {
                 var text = string.Empty;
-                
+
                 if (Level1 <= 0) return text;
-                
+
                 text = Level1.ToString();
                 if (Level2 <= 0) return text;
-                
+
                 text = $"{Level1}.{Level2}";
                 if (Level3 <= 0) return text;
-                
+
                 text = $"{Level1}.{Level2}.{Level3}";
                 if (Level4 <= 0) return text;
-                
+
                 text = $"{Level1}.{Level2}.{Level3}.{Level4}";
                 if (Level5 > 0) text = $"{Level1}.{Level2}.{Level3}.{Level4}.{Level5}";
                 return text;

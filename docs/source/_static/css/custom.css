@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 12px;
 }
 
-h2 {
+#global-coffee-data-standard h2 {
     /* Rainforest alliance green */
     border-top: 3px dashed #4e917a;
     padding-top: 0.5rem;

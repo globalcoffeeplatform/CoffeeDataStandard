@@ -318,23 +318,23 @@
               "properties": {
                 "clearContracting": {
                   "title": "Clear contracting",
-                  "description": "Percentage clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc.",
-                  "$ref": "#/definitions/percentage"
+                  "description": "Clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc.",
+                  "$ref": "#/definitions/yesNo"
                 },
                 "rightToOrganize": {
                   "title": "Right to organize",
-                  "description": "Percentage right to organize -- the ability for workers to join unions or committees and freely assemble",
-                  "$ref": "#/definitions/percentage"
+                  "description": "Right to organize--the ability for workers to join unions or committees and freely assemble.",
+                  "$ref": "#/definitions/yesNo"
                 },
                 "prohibitingDiscrimination": {
                   "title": "Prohibiting discrimination",
-                  "description": "Percentage prohibiting discrimination -- in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)",
-                  "$ref": "#/definitions/percentage"
+                  "description": "Prohibiting discrimination--in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)",
+                  "$ref": "#/definitions/yesNo"
                 },
                 "hazardousWorkingCondition": {
                   "title": "Hazardous working condition",
-                  "description": "Percentage hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc.",
-                  "$ref": "#/definitions/percentage"
+                  "description": "Hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc. ",
+                  "$ref": "#/definitions/yesNo"
                 }
               }
             },
