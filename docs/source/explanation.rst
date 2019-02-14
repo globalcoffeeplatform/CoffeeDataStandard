@@ -22,8 +22,9 @@ The unique identifier for this dataset.
    :linenos:
    :caption: Object description
 
-.. literalinclude:: ../../example-data/globalCoffeeDatasetId.json
+.. literalinclude:: ../../example-data/testset.json
    :linenos:
+   :lines: 2-6
    :caption: Sample data
 
 1.2 schemaVersion
@@ -53,8 +54,9 @@ The farmer characteristics
 The general farmer characteristics
 
 
-.. literalinclude:: ../../example-data/farmer-general.json
+.. literalinclude:: ../../example-data/testset.json
    :linenos:
+   :lines: 9-44
    :caption: Sample data
 
 2.1.1 farmerId
@@ -178,6 +180,11 @@ When this dataset is reused by another organization who needs to use their own G
 The social farmer characteristics
 
 
+.. literalinclude:: ../../example-data/testset.json
+   :linenos:
+   :lines: 45-55
+   :caption: Sample data
+
 2.2.1 povertyLevel
 ------------------
 Poverty level
@@ -227,6 +234,7 @@ Child labour
 
 
 The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, "children in school at the appropriate grade level" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organizations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.
+
 
 As an additional option, it may be desirable to ask whether young workers (those under age 18) are working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)
 
@@ -284,6 +292,11 @@ The farm characteristics
 
 The general farm characteristics
 
+
+.. literalinclude:: ../../example-data/testset.json
+   :linenos:
+   :lines: 58-82
+   :caption: Sample data
 
 3.1.1 farmId
 ------------
@@ -393,6 +406,11 @@ When this dataset is reused by another organization that needs to use their own 
 The social farm characteristics
 
 
+.. literalinclude:: ../../example-data/testset.json
+   :linenos:
+   :lines: 83-96
+   :caption: Sample data
+
 3.2.1 laborPractices
 --------------------
 Labor Practices
@@ -401,8 +419,9 @@ Labor Practices
 
 
 % of good labor practices adopted (of those listed). This indicator is applicable where farms rely on hired labor (not labor of household members).
-# of good labor practices adopted / total number of practices
 
+
+# of good labor practices adopted / total number of practices.
 
 These concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs. While there may be moral hazard in asking these questions outright, asking the questions themselves serves to educate the respondent about the norms and aspirations that are part of general good labor practices.
 
@@ -514,6 +533,11 @@ National minimum wage
 
 The economic farm characteristics
 
+
+.. literalinclude:: ../../example-data/testset.json
+   :linenos:
+   :lines: 97-138
+   :caption: Sample data
 
 3.3.1 coffeeProfit
 ------------------
@@ -870,6 +894,11 @@ Proportion of total
 The environmental farm characteristics
 
 
+.. literalinclude:: ../../example-data/testset.json
+   :linenos:
+   :lines: 139-182
+   :caption: Sample data
+
 3.4.1 forestEcosystemProtection
 -------------------------------
 Forest and Ecosystem Protection
@@ -878,6 +907,7 @@ Forest and Ecosystem Protection
 
 
 The approach involves asking producers if they converted any natural land (e.g., forest, savanna) to land used for coffee production and how much [both in absolute terms (ha) and relative terms (proportion of the farm)] during the last 5 years.
+
 
 In addition, overlaying gps coordinates of farms (See GPS Coordinate instructions above) with regional deforestation maps provides more interesting data at a landscape level to understand areas of risk. Note though that usually only a single gps point will exist for many smallholder farms, meaning that there often isn't sufficient information to track the contribution of individual farms to deforestation in most cases. However, even with single gps points, general farming areas prone to deforestation will still be visible.
 
@@ -946,6 +976,7 @@ Water Conservation & Contamination Prevention
 
 
 Water conservation practices include (relevance of individual practices will need to be determined by region):
+
 
 1. Drip irrigation
 
@@ -1143,7 +1174,9 @@ Use of banned or hazardous pesticides on the farm
 **Type**: *array*
 
 
-Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers. 
+Banned or hazardous pesticides will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers.
+
+
 Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.
 
 
@@ -1236,6 +1269,11 @@ The plot characteristics
 The general plot characteristics
 
 
+.. literalinclude:: ../../example-data/testset.json
+   :linenos:
+   :lines: 184-213
+   :caption: Sample data
+
 4.1.1 plotId
 ------------
 The unique ID of the plot
@@ -1294,6 +1332,11 @@ When this dataset is reused by another organization who needs to use their own G
 The economic plot characteristics
 
 
+.. literalinclude:: ../../example-data/testset.json
+   :linenos:
+   :lines: 214-217
+   :caption: Sample data
+
 4.2.1 yield
 -----------
 Yield
@@ -1329,6 +1372,8 @@ The percentage, 0-100
 
 **Minimum**: *0*
 
+**Maximum**: *100*
+
 
 The percentage, from 0 to 100 with decimals allowed
 
@@ -1354,6 +1399,8 @@ A positive number starting at 0 with decimals allowed
 The positive number, greater than 0
 
 **Type**: *number*
+
+**Exclusive minimum**: *0*
 
 
 A positive number starting at greater than 0 with decimals allowed

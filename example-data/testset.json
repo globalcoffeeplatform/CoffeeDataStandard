@@ -51,7 +51,7 @@
         "schoolAgeHouseholdMembers": 33.3,
         "hazardousProhibition": "No"
       },
-      "hunger": "20-29 days"
+      "hunger": 0
     }
   },
   "farm": {

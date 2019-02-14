@@ -19,7 +19,7 @@
     "globalCoffeeDatasetId": {
       "description": "The unique identifier for this dataset.",
       "$ref": "./global-unique-id.json",
-      "$example-data": "./example-data/globalCoffeeDatasetId.json"
+      "$example-data": "./example-data/testset.json|2-6"
     },
     "schemaVersion": {
       "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.",
@@ -42,7 +42,7 @@
           "description": "The general farmer characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/farmer-general.json",
+          "$example-data": "./example-data/testset.json|9-44",
           "required": [
             "farmerId",
             "name",
@@ -136,6 +136,7 @@
           "description": "The social farmer characteristics",
           "type": "object",
           "additionalProperties": false,
+          "$example-data": "./example-data/testset.json|45-55",
           "required": [
             "povertyLevel",
             "childLabour",
@@ -169,7 +170,8 @@
             },
             "childLabour": {
               "title": "Child labour",
-              "description": "The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, \"children in school at the appropriate grade level\" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organizations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.\\nAs an additional option, it may be desirable to ask whether young workers (those under age 18) are working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)\\nThese concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs.",
+              "description": "The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, \"children in school at the appropriate grade level\" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organizations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.",
+              "$extended-description": "As an additional option, it may be desirable to ask whether young workers (those under age 18) are working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)\\nThese concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -215,6 +217,7 @@
           "description": "The general farm characteristics",
           "type": "object",
           "additionalProperties": false,
+          "$example-data": "./example-data/testset.json|58-82",
           "required": [
             "farmId",
             "farmerId",
@@ -292,6 +295,7 @@
           "description": "The social farm characteristics",
           "type": "object",
           "additionalProperties": false,
+          "$example-data": "./example-data/testset.json|83-96",
           "required": [
             "laborPractices",
             "wages"
@@ -299,8 +303,8 @@
           "properties": {
             "laborPractices": {
               "title": "Labor Practices",
-              "description": "% of good labor practices adopted (of those listed). This indicator is applicable where farms rely on hired labor (not labor of household members).\n# of good labor practices adopted / total number of practices",
-              "$extended-description": "These concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs. While there may be moral hazard in asking these questions outright, asking the questions themselves serves to educate the respondent about the norms and aspirations that are part of general good labor practices.",
+              "description": "% of good labor practices adopted (of those listed). This indicator is applicable where farms rely on hired labor (not labor of household members).",
+              "$extended-description": "# of good labor practices adopted / total number of practices.\\nThese concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs. While there may be moral hazard in asking these questions outright, asking the questions themselves serves to educate the respondent about the norms and aspirations that are part of general good labor practices.",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -377,6 +381,7 @@
           "description": "The economic farm characteristics",
           "type": "object",
           "additionalProperties": false,
+          "$example-data": "./example-data/testset.json|97-138",
           "required": [
             "coffeeProfit",
             "productivity",
@@ -574,6 +579,7 @@
           "description": "The environmental farm characteristics",
           "type": "object",
           "additionalProperties": false,
+          "$example-data": "./example-data/testset.json|139-182",
           "required": [
             "forestEcosystemProtection",
             "fertilizerUse",
@@ -584,7 +590,8 @@
           "properties": {
             "forestEcosystemProtection": {
               "title": "Forest and Ecosystem Protection",
-              "description": "The approach involves asking producers if they converted any natural land (e.g., forest, savanna) to land used for coffee production and how much [both in absolute terms (ha) and relative terms (proportion of the farm)] during the last 5 years.\\nIn addition, overlaying gps coordinates of farms (See GPS Coordinate instructions above) with regional deforestation maps provides more interesting data at a landscape level to understand areas of risk. Note though that usually only a single gps point will exist for many smallholder farms, meaning that there often isn't sufficient information to track the contribution of individual farms to deforestation in most cases. However, even with single gps points, general farming areas prone to deforestation will still be visible.\\n**Forest and ecosystem protection practices** include: \\n1. Reforestation with non-productive trees (i.e., those trees that will not be regularly pruned or removed)\\n2. Laying land aside (fallow) and/or blocking active use (including hunting).",
+              "description": "The approach involves asking producers if they converted any natural land (e.g., forest, savanna) to land used for coffee production and how much [both in absolute terms (ha) and relative terms (proportion of the farm)] during the last 5 years.",
+              "$extended-description": "In addition, overlaying gps coordinates of farms (See GPS Coordinate instructions above) with regional deforestation maps provides more interesting data at a landscape level to understand areas of risk. Note though that usually only a single gps point will exist for many smallholder farms, meaning that there often isn't sufficient information to track the contribution of individual farms to deforestation in most cases. However, even with single gps points, general farming areas prone to deforestation will still be visible.\\n**Forest and ecosystem protection practices** include: \\n1. Reforestation with non-productive trees (i.e., those trees that will not be regularly pruned or removed)\\n2. Laying land aside (fallow) and/or blocking active use (including hunting).",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -628,7 +635,8 @@
             },
             "water": {
               "title": "Water Conservation & Contamination Prevention",
-              "description": "Water conservation practices include (relevance of individual practices will need to be determined by region):\\n1. Drip irrigation\\n2. Water catchments\\n3. Water-efficient processing\\nFor practices that conserve soil moisture balance and control runoff, please reference the \"Soil Conservation\" indicator below.\\nWater contamination prevention measures include the following:\\n1. Pesticide equipment is cleaned away from natural water bodies\\n2. Ensuring untreated water from processing does not enter natural water bodies\\n3. Grazing livestock away from natural water bodies\\n4. Domestic discharge prevented from entering natural water bodies\\nThese concepts are common to many sustainability standards and the approach is built on FAO Good Agricultural Practices.\\nAsking about best practice adoption is a standardized way to address this indicator globally without the expensive and technical expertise required to measure water use amounts (and evaluating that in the local context) or taking water samples to evaluate contamination levels and the required protocols for that (taking samples at the appropriate locations and time, factoring in elements that may be beyond an individual producers control, etc.).",
+              "description": "Water conservation practices include (relevance of individual practices will need to be determined by region):",
+              "$extended-description": "1. Drip irrigation\\n2. Water catchments\\n3. Water-efficient processing\\nFor practices that conserve soil moisture balance and control runoff, please reference the \"Soil Conservation\" indicator below.\\nWater contamination prevention measures include the following:\\n1. Pesticide equipment is cleaned away from natural water bodies\\n2. Ensuring untreated water from processing does not enter natural water bodies\\n3. Grazing livestock away from natural water bodies\\n4. Domestic discharge prevented from entering natural water bodies\\nThese concepts are common to many sustainability standards and the approach is built on FAO Good Agricultural Practices.\\nAsking about best practice adoption is a standardized way to address this indicator globally without the expensive and technical expertise required to measure water use amounts (and evaluating that in the local context) or taking water samples to evaluate contamination levels and the required protocols for that (taking samples at the appropriate locations and time, factoring in elements that may be beyond an individual producers control, etc.).",
               "type": "object",
               "additionalProperties": false,
               "required": [
@@ -755,7 +763,8 @@
                 },
                 "useOfBannedPesticides": {
                   "title": "Use of banned or hazardous pesticides on the farm",
-                  "description": "Banned or hazardous pesticides* will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers. \nPesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
+                  "description": "Banned or hazardous pesticides will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers.",
+                  "$extended-description" : "Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
                   "type": "array",
                   "uniqueItems": true,
                   "items": {
@@ -824,6 +833,7 @@
           "description": "The general plot characteristics",
           "type": "object",
           "additionalProperties": false,
+          "$example-data": "./example-data/testset.json|184-213",
           "required": [
             "plotId",
             "farmId",
@@ -874,6 +884,7 @@
           "description": "The economic plot characteristics",
           "type": "object",
           "additionalProperties": false,
+          "$example-data": "./example-data/testset.json|214-217",
           "required": [
             "yield",
             "productivity"

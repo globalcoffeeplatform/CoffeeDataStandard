@@ -104,25 +104,24 @@ namespace Json2Rst
                 _required = parentRequired;
                 WriteProperties(property.Name, objectProperties, headerLevel);
 
-                if (objectProperties.ContainsKey("type") &&
-                    objectProperties.GetValue("type").ToString() == "object")
+                if (!objectProperties.ContainsKey("type") ||
+                    objectProperties.GetValue("type").ToString() != "object") continue;
+
+                _required = objectProperties.GetValue("required") as JArray;
+                var subProperties = JObject.Parse(objectProperties.GetValue("properties").ToString());
+                foreach (var subProperty in subProperties)
                 {
-                    _required = objectProperties.GetValue("required") as JArray;
-                    var subProperties = JObject.Parse(objectProperties.GetValue("properties").ToString());
-                    foreach (var subProperty in subProperties)
+                    var subObjectProperties = JObject.Parse(subProperty.Value.ToString());
+                    if (subObjectProperties.ContainsKey("type") && subObjectProperties.GetValue("type").ToString() == "object")
                     {
-                        var subObjectProperties = JObject.Parse(subProperty.Value.ToString());
-                        if (subObjectProperties.ContainsKey("type") && subObjectProperties.GetValue("type").ToString() == "object")
-                        {
-                            SetTitleNumbers(headerLevel + 1);
-                            WriteProperties(subProperty.Key, subObjectProperties, headerLevel + 1);
-                            WriteNextLevel(JObject.Parse(subObjectProperties.Property("properties").Value.ToString()).Properties().ToList(), headerLevel + 2, subObjectProperties.GetValue("required") as JArray);
-                            SetTitleNumbers(headerLevel + 2);
-                            continue;
-                        }
                         SetTitleNumbers(headerLevel + 1);
                         WriteProperties(subProperty.Key, subObjectProperties, headerLevel + 1);
+                        WriteNextLevel(JObject.Parse(subObjectProperties.Property("properties").Value.ToString()).Properties().ToList(), headerLevel + 2, subObjectProperties.GetValue("required") as JArray);
+                        SetTitleNumbers(headerLevel + 2);
+                        continue;
                     }
+                    SetTitleNumbers(headerLevel + 1);
+                    WriteProperties(subProperty.Key, subObjectProperties, headerLevel + 1);
                 }
             }
         }
@@ -187,6 +186,84 @@ namespace Json2Rst
 
             if (objectProperties.ContainsKey("title")) _sb.AppendLine(objectProperties.GetValue("title") + "\n");
 
+            WriteType(objectProperties);
+
+            WriteDefinition(objectProperties);
+
+            WritePattern(objectProperties);
+
+            WriteDescription(objectProperties);
+
+            WriteReference(objectProperties);
+
+            WriteExampleData(objectProperties);
+        }
+
+        private void WriteDefinition(JObject objectProperties)
+        {
+            if (!objectProperties.ContainsKey("$ref")) return;
+
+            var reference = objectProperties.GetValue("$ref").ToString();
+            if (!reference.StartsWith("#/definitions/")) return;
+
+            var definition = reference.Replace("#/definitions/", "");
+            _sb.AppendLine($"{MakeBold("Type")}: See :ref:`definitions_{definition.ToLower()}`");
+        }
+
+        private void WritePattern(JObject objectProperties)
+        {
+            if (objectProperties.ContainsKey("pattern"))
+                _sb.AppendLine(MakeBold("Pattern") + ": " + MakeItalic(objectProperties.GetValue("pattern").ToString()) + "\n");
+            if (objectProperties.ContainsKey("$pattern-validator"))
+                _sb.AppendLine(MakeLink("Pattern validator", objectProperties.GetValue("$pattern-validator").ToString()));
+        }
+
+        private void WriteDescription(JObject objectProperties)
+        {
+            if (objectProperties.ContainsKey("description")) AppendMultiLines(objectProperties.GetValue("description").ToString());
+            if (objectProperties.ContainsKey("$extended-description")) AppendMultiLines(objectProperties.GetValue("$extended-description").ToString());
+        }
+
+        private void WriteReference(JObject objectProperties)
+        {
+            if (!objectProperties.ContainsKey("$ref")) return;
+
+            var reference = objectProperties.GetValue("$ref").ToString();
+            if (!reference.StartsWith("./")) return;
+
+            var file = reference.Replace("./", "/");
+            _sb.AppendLine($"\n.. literalinclude:: ../../schema{file}");
+            _sb.AppendLine("   :language: json");
+            _sb.AppendLine("   :linenos:");
+            _sb.AppendLine("   :caption: Object description");
+        }
+
+        private void WriteExampleData(JObject objectProperties)
+        {
+            if (!objectProperties.ContainsKey("$example-data")) return;
+
+            var exampleData = objectProperties.GetValue("$example-data").ToString();
+            if (exampleData.StartsWith("./"))
+            {
+                var tmp = exampleData.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries);
+                var path = tmp[0].Replace("./", "../../");
+                _sb.AppendLine($"\n.. literalinclude:: {path}");
+                _sb.AppendLine("   :linenos:");
+                if (tmp.Length == 2) _sb.AppendLine($"   :lines: {tmp[1]}");
+                _sb.AppendLine("   :caption: Sample data");
+            }
+            else
+            {
+                _sb.AppendLine("\n.. code-block:: python");
+                _sb.AppendLine("   :linenos:");
+                _sb.AppendLine("   :caption: Sample data");
+                _sb.AppendLine("");
+                _sb.AppendLine($"    {exampleData}\n");
+            }
+        }
+
+        private void WriteType(JObject objectProperties)
+        {
             if (objectProperties.ContainsKey("type"))
                 _sb.AppendLine(MakeBold("Type") + ": " + MakeItalic(objectProperties.GetValue("type").ToString()) + "\n");
             if (objectProperties.ContainsKey("enum"))
@@ -194,58 +271,19 @@ namespace Json2Rst
                 if (objectProperties.GetValue("enum") is JArray enums)
                     _sb.AppendLine(MakeBold("Allowed values") + ": '" + string.Join("', '", enums) + "'\n");
             }
-            if (objectProperties.ContainsKey("minimum"))_sb.AppendLine(MakeBold("Minimum") + ": " + MakeItalic(objectProperties.GetValue("minimum").ToString()) + "\n");
 
-            if (objectProperties.ContainsKey("$ref"))
-            {
-                var reference = objectProperties.GetValue("$ref").ToString();
-                if (reference.StartsWith("#/definitions/"))
-                {
-                    var definition = reference.Replace("#/definitions/", "");
-                    _sb.AppendLine($"{MakeBold("Type")}: See :ref:`definitions_{definition.ToLower()}`");
-                }
-            }
-
-            if (objectProperties.ContainsKey("pattern"))
-                _sb.AppendLine(MakeBold("Pattern") + ": " + MakeItalic(objectProperties.GetValue("pattern").ToString()) + "\n");
-            if (objectProperties.ContainsKey("$pattern-validator"))
-                _sb.AppendLine(MakeLink("Pattern validator", objectProperties.GetValue("$pattern-validator").ToString()));
-
-            if (objectProperties.ContainsKey("description")) AppendMultiLines(objectProperties.GetValue("description").ToString());
-            if (objectProperties.ContainsKey("$extended-description")) AppendMultiLines(objectProperties.GetValue("$extended-description").ToString());
-
-            if (objectProperties.ContainsKey("$ref"))
-            {
-                var reference = objectProperties.GetValue("$ref").ToString();
-                if (reference.StartsWith("./"))
-                {
-                    var file = reference.Replace("./", "/");
-                    _sb.AppendLine($"\n.. literalinclude:: ../../schema{file}");
-                    _sb.AppendLine("   :language: json");
-                    _sb.AppendLine("   :linenos:");
-                    _sb.AppendLine("   :caption: Object description");
-                }
-            }
-
-            if (objectProperties.ContainsKey("$example-data"))
-            {
-                var exampleData = objectProperties.GetValue("$example-data").ToString();
-                if (exampleData.StartsWith("./"))
-                {
-                    var path = exampleData.Replace("./", "../../");
-                    _sb.AppendLine($"\n.. literalinclude:: {path}");
-                    _sb.AppendLine("   :linenos:");
-                    _sb.AppendLine("   :caption: Sample data");
-                }
-                else
-                {
-                    _sb.AppendLine("\n.. code-block:: python");
-                    _sb.AppendLine("   :linenos:");
-                    _sb.AppendLine("   :caption: Sample data");
-                    _sb.AppendLine("");
-                    _sb.AppendLine($"    {exampleData}\n");
-                }
-            }
+            if (objectProperties.ContainsKey("minimum"))
+                _sb.AppendLine(MakeBold("Minimum") + ": " +
+                               MakeItalic(objectProperties.GetValue("minimum").ToString()) + "\n");
+            if (objectProperties.ContainsKey("exclusiveMinimum"))
+                _sb.AppendLine(MakeBold("Exclusive minimum") + ": " +
+                               MakeItalic(objectProperties.GetValue("exclusiveMinimum").ToString()) + "\n");
+            if (objectProperties.ContainsKey("maximum"))
+                _sb.AppendLine(MakeBold("Maximum") + ": " +
+                               MakeItalic(objectProperties.GetValue("maximum").ToString()) + "\n");
+            if (objectProperties.ContainsKey("exclusiveMaximum"))
+                _sb.AppendLine(MakeBold("Exclusive maximum") + ": " +
+                               MakeItalic(objectProperties.GetValue("exclusiveMaximum").ToString()) + "\n");
         }
 
         private bool IsMandatory(string propertyName)
