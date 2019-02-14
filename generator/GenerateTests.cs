@@ -248,13 +248,14 @@ namespace Json2Rst
                 var tmp = exampleData.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries);
                 var path = tmp[0].Replace("./", "../../");
                 _sb.AppendLine($"\n.. literalinclude:: {path}");
+                //_sb.AppendLine("   :language: json-object");
                 _sb.AppendLine("   :linenos:");
                 if (tmp.Length == 2) _sb.AppendLine($"   :lines: {tmp[1]}");
                 _sb.AppendLine("   :caption: Sample data");
             }
             else
             {
-                _sb.AppendLine("\n.. code-block:: python");
+                _sb.AppendLine("\n.. code-block:: json-object");
                 _sb.AppendLine("   :linenos:");
                 _sb.AppendLine("   :caption: Sample data");
                 _sb.AppendLine("");
