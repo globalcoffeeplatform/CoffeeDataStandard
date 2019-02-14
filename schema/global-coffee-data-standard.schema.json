@@ -193,14 +193,8 @@
               "title": "Hunger days",
               "description": "Whether the household was food secure during the last production year (report 0 days of food insecurity--i.e., not skipping meals or significantly reducing food intake because food was not available).",
               "$extended-description": "The simple approach depends on asking the producer the number of days during the last production year that any member of household cut food consumption due to lack of food. It is good practice to ask this question in ranges of days to help with farmer recall: 0 days; 1-9 days, 10-19 days; 20-29 days; 30 or more days in the past year. Producers that answer '0 days' are considered to be food secure. Optimally, the approach would also include the months when food insecurity occurred in order to understand the times of year when producers experience more or less food security.\\nMore comprehensive nutritional indicators can be expensive and require significant technical ability, time and resources to carry out effectively, so instead the focus is on days of food insecurity as a proxy. Note that while this survey question is often asked to the head of household, this indicator is best expressed when it includes multiple perspectives in the household. This indicator is an important human development issue and a core indicator for social justice.",
-              "type": "string",
-              "enum": [
-                "0 days",
-                "1-9 days",
-                "10-19 days",
-                "20-29 days",
-                "30 or more days"
-              ]
+              "type": "integer",
+              "minimum": 0
             }
           }
         }

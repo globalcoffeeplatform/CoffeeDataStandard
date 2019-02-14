@@ -201,6 +201,8 @@ Total household income
 
 **Type**: *number*
 
+**Minimum**: *0*
+
 
 Total household income in USD
 
@@ -210,6 +212,8 @@ Total household income in USD
 Household members
 
 **Type**: *integer*
+
+**Minimum**: *1*
 
 
 Number of adults in the household
@@ -251,9 +255,9 @@ Are young workers (those under age 18) working in hazardous conditions (applying
 ------------
 Hunger days
 
-**Type**: *string*
+**Type**: *integer*
 
-**Allowed values**: '0 days', '1-9 days', '10-19 days', '20-29 days', '30 or more days'
+**Minimum**: *0*
 
 
 Whether the household was food secure during the last production year (report 0 days of food insecurity--i.e., not skipping meals or significantly reducing food intake because food was not available).
@@ -464,12 +468,16 @@ The average daily wage rate paid for coffee production
 
 **Type**: *number*
 
+**Minimum**: *0*
+
 
 3.2.2.2 wagesHarvesting
 ***********************
 The average daily wage rate paid for harvesting
 
 **Type**: *number*
+
+**Minimum**: *0*
 
 
 3.2.2.3 wagesProcessing
@@ -478,6 +486,8 @@ The average daily wage rate paid for processing
 
 **Type**: *number*
 
+**Minimum**: *0*
+
 
 3.2.2.4 ruralMinimumWage
 ************************
@@ -485,12 +495,16 @@ Rural minimum wage
 
 **Type**: *number*
 
+**Minimum**: *0*
+
 
 3.2.2.5 nationalMinimumWage
 ***************************
 National minimum wage
 
 **Type**: *number*
+
+**Minimum**: *0*
 
 
 3.3 economic
@@ -808,12 +822,16 @@ Total coffee revenue
 
 **Type**: *number*
 
+**Minimum**: *0*
+
 
 3.3.4.2 kgSold
 **************
 kg of GBE sold
 
 **Type**: *number*
+
+**Minimum**: *0*
 
 
 3.3.5 sustainablePurchases
@@ -834,6 +852,8 @@ Detailed methodology developed by the SPF Working Group (not a farmer level metr
 Volume of sustainable purchases
 
 **Type**: *number*
+
+**Minimum**: *0*
 
 
 3.3.5.2 proportionOfTotal
@@ -883,6 +903,8 @@ Land area (in ha) and proportion of the farm that was converted from natural lan
 Absolute area in ha
 
 **Type**: *number*
+
+**Minimum**: *0*
 
 
 3.4.1.1 proportiesOfFarm
@@ -1251,6 +1273,8 @@ Area of the plot
 
 **Type**: *number*
 
+**Minimum**: *0*
+
 
 4.1.5 thirdPartyIds
 -------------------
@@ -1275,6 +1299,8 @@ The economic plot characteristics
 Yield
 
 **Type**: *number*
+
+**Minimum**: *0*
 
 
 kgs of GBE (harvested)
@@ -1301,6 +1327,8 @@ The percentage, 0-100
 
 **Type**: *number*
 
+**Minimum**: *0*
+
 
 The percentage, from 0 to 100 with decimals allowed
 
@@ -1312,6 +1340,8 @@ The percentage, from 0 to 100 with decimals allowed
 A positive number > 0
 
 **Type**: *number*
+
+**Minimum**: *0*
 
 
 A positive number starting at 0 with decimals allowed

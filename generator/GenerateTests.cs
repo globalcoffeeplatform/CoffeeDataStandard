@@ -194,6 +194,7 @@ namespace Json2Rst
                 if (objectProperties.GetValue("enum") is JArray enums)
                     _sb.AppendLine(MakeBold("Allowed values") + ": '" + string.Join("', '", enums) + "'\n");
             }
+            if (objectProperties.ContainsKey("minimum"))_sb.AppendLine(MakeBold("Minimum") + ": " + MakeItalic(objectProperties.GetValue("minimum").ToString()) + "\n");
 
             if (objectProperties.ContainsKey("$ref"))
             {
@@ -209,8 +210,6 @@ namespace Json2Rst
                 _sb.AppendLine(MakeBold("Pattern") + ": " + MakeItalic(objectProperties.GetValue("pattern").ToString()) + "\n");
             if (objectProperties.ContainsKey("$pattern-validator"))
                 _sb.AppendLine(MakeLink("Pattern validator", objectProperties.GetValue("$pattern-validator").ToString()));
-
-            // TODO: Write if property is optional or not
 
             if (objectProperties.ContainsKey("description")) AppendMultiLines(objectProperties.GetValue("description").ToString());
             if (objectProperties.ContainsKey("$extended-description")) AppendMultiLines(objectProperties.GetValue("$extended-description").ToString());
