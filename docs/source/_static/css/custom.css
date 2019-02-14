@@ -37,3 +37,14 @@ h1, h2, h3, h4, h5 {
 .caption-text {
     font-weight: bold;
 }
+
+
+div.wy-table-responsive > table.docutils td {
+    word-wrap: break-word;
+    white-space: inherit;
+    max-width: 20%;
+}
+
+div.wy-table-responsive > table.docutils td:nth-child(3){
+    max-width: 40%;
+}

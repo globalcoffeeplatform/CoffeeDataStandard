@@ -1,3 +1,2 @@
 Executive summary
 =================
-

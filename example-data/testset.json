@@ -74,7 +74,10 @@
       "totalAreaCoffee": 160.48,
       "location": {
         "geoLocation": {
-          "coordinates": [125.25, 135.255],
+          "coordinates": [
+            125.25,
+            135.255
+          ],
           "type": "Point"
         },
         "positionTakenAt": "Location of the front door of the head office"
@@ -82,10 +85,10 @@
     },
     "social": {
       "laborPractices": {
-        "prohibitingDiscrimination": 90,
-        "clearContracting": 0,
-        "hazardousWorkingCondition": 74,
-        "rightToOrganize": 100
+        "prohibitingDiscrimination": "No",
+        "clearContracting": "No",
+        "hazardousWorkingCondition": "Yes",
+        "rightToOrganize": "Yes"
       },
       "wages": {
         "wagesProcessing": 4,
@@ -158,7 +161,7 @@
           "noDomesticDischarge": "Yes"
         }
       },
-"pestControl": {
+      "pestControl": {
         "ipmPractices": {
           "conductRegularVisualExaminations": "Yes",
           "pestRepelSpecies": "No",
@@ -192,13 +195,30 @@
         "organization": "Land register of Burundi",
         "timestamp": "1998-12-28"
       },
-      "boundary":
-      {
+      "boundary": {
         "type": "Polygon",
         "coordinates": [
           [
-            [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0],
-            [100.0, 0.0]
+            [
+              100.0,
+              0.0
+            ],
+            [
+              101.0,
+              0.0
+            ],
+            [
+              101.0,
+              1.0
+            ],
+            [
+              100.0,
+              1.0
+            ],
+            [
+              100.0,
+              0.0
+            ]
           ]
         ]
       },
@@ -212,7 +232,7 @@
       ]
     },
     "economic": {
-      "productivity": 7 ,
+      "productivity": 7,
       "yield": 20
     }
   }
