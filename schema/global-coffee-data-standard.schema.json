@@ -304,37 +304,8 @@
             "laborPractices": {
               "title": "Labor Practices",
               "description": "% of good labor practices adopted (of those listed). This indicator is applicable where farms rely on hired labor (not labor of household members).",
-              "$extended-description": "# of good labor practices adopted / total number of practices.\\nThese concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs. While there may be moral hazard in asking these questions outright, asking the questions themselves serves to educate the respondent about the norms and aspirations that are part of general good labor practices.",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "clearContracting",
-                "rightToOrganize",
-                "prohibitingDiscrimination",
-                "hazardousWorkingCondition"
-              ],
-              "properties": {
-                "clearContracting": {
-                  "title": "Clear contracting",
-                  "description": "Clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc.",
-                  "$ref": "#/definitions/yesNo"
-                },
-                "rightToOrganize": {
-                  "title": "Right to organize",
-                  "description": "Right to organize--the ability for workers to join unions or committees and freely assemble.",
-                  "$ref": "#/definitions/yesNo"
-                },
-                "prohibitingDiscrimination": {
-                  "title": "Prohibiting discrimination",
-                  "description": "Prohibiting discrimination--in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)",
-                  "$ref": "#/definitions/yesNo"
-                },
-                "hazardousWorkingCondition": {
-                  "title": "Hazardous working condition",
-                  "description": "Hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc. ",
-                  "$ref": "#/definitions/yesNo"
-                }
-              }
+              "$extended-description": "The percent refers to the number of good labor practices from the list that are adopted (meaning that each practice should have a binary response) and change over time is noted by the type and number of practices.\\nThese concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs. While there may be moral hazard in asking these questions outright, asking the questions themselves serves to educate the respondent about the norms and aspirations that are part of general good labor practices.",
+              "$ref": "./labor-practices.json"
             },
             "wages": {
               "title": "Wages",
@@ -674,7 +645,7 @@
                 "useOfBannedPesticides": {
                   "title": "Use of banned or hazardous pesticides on the farm",
                   "description": "Banned or hazardous pesticides will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers.",
-                  "$extended-description" : "Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
+                  "$extended-description": "Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
                   "type": "array",
                   "uniqueItems": true,
                   "items": {

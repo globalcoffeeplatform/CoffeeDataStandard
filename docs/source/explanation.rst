@@ -415,52 +415,19 @@ The social farm characteristics
 --------------------
 Labor Practices
 
-**Type**: *object*
-
 
 % of good labor practices adopted (of those listed). This indicator is applicable where farms rely on hired labor (not labor of household members).
 
 
-# of good labor practices adopted / total number of practices.
+The percent refers to the number of good labor practices from the list that are adopted (meaning that each practice should have a binary response) and change over time is noted by the type and number of practices.
 
 These concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs. While there may be moral hazard in asking these questions outright, asking the questions themselves serves to educate the respondent about the norms and aspirations that are part of general good labor practices.
 
 
-3.2.1.1 clearContracting
-************************
-Clear contracting
-
-**Type**: See :ref:`definitions_yesno`
-
-Clear contracting with workers to avoid any form of forced labor (including slave labor or child labor), which includes: the terms of the work, hours, duration, wages, payment details, deductions or fees, etc.
-
-
-3.2.1.2 rightToOrganize
-***********************
-Right to organize
-
-**Type**: See :ref:`definitions_yesno`
-
-Right to organize--the ability for workers to join unions or committees and freely assemble.
-
-
-3.2.1.3 prohibitingDiscrimination
-*********************************
-Prohibiting discrimination
-
-**Type**: See :ref:`definitions_yesno`
-
-Prohibiting discrimination--in terms of pay rates, hiring practices, housing for any group of workers (i.e., on the basis of immigration status, gender, ethnic or religious background, sexual orientation)
-
-
-3.2.1.4 hazardousWorkingCondition
-*********************************
-Hazardous working condition
-
-**Type**: See :ref:`definitions_yesno`
-
-Hazardous working condition management--agrochemical protective gear; training on proper chemical handling, storage, and disposal; proper training and safeguarding for hazardous machinery, workplace sanitation, emergency preparedness, etc. 
-
+.. literalinclude:: ../../schema/labor-practices.json
+   :language: json
+   :linenos:
+   :caption: Object description
 
 3.2.2 wages
 -----------
