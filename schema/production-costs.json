@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/production-costs.json",
+  "title": "Cost of Production",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "fertilizers",
+    "pesticides",
+    "hiredLabor",
+    "plantingMaterial",
+    "renovation"
+  ],
+  "properties": {
+    "fertilizers": {
+      "title": "Fertilizers costs",
+      "$ref": "#/definitions/costs"
+    },
+    "pesticides": {
+      "title": "Pesticides costs",
+      "$ref": "#/definitions/costs"
+    },
+    "hiredLabor": {
+      "title": "Costs of hired labor",
+      "$ref": "#/definitions/costs"
+    },
+    "plantingMaterial": {
+      "title": "Costs of planting material",
+      "$ref": "#/definitions/costs"
+    },
+    "renovation": {
+      "title": "Costs of renovation",
+      "$ref": "#/definitions/costs"
+    },
+    "deductionsByBuyers": {
+      "title": "Deductions by buyers",
+      "$ref": "#/definitions/costs"
+    },
+    "rentOfLand": {
+      "title": "Rent of land",
+      "$ref": "#/definitions/costs"
+    },
+    "energy": {
+      "title": "Energy costs",
+      "$ref": "#/definitions/costs"
+    },
+    "irrigation": {
+      "title": "Irrigation costs",
+      "$ref": "#/definitions/costs"
+    },
+    "capitalAssets": {
+      "title": "Capital assets",
+      "$ref": "#/definitions/costs"
+    },
+    "cultivationPractices": {
+      "title": "Cultivation practices",
+      "$ref": "#/definitions/costs"
+    },
+    "traceabilityAndRecordKeeping": {
+      "title": "Traceability and record keeping",
+      "$ref": "#/definitions/costs"
+    },
+    "standardsCertification": {
+      "title": "Costs of standards or certifications",
+      "$ref": "#/definitions/costs"
+    },
+    "plantingReforestation": {
+      "title": "Planting and reforestation costs",
+      "$ref": "#/definitions/costs"
+    },
+    "training": {
+      "title": "Training costs",
+      "$ref": "#/definitions/costs"
+    },
+    "interest": {
+      "title": "Interest on credit",
+      "$ref": "#/definitions/costs"
+    },
+    "cropInsurance": {
+      "title": "Crop insurance",
+      "$ref": "#/definitions/costs"
+    },
+    "cooperativeFees": {
+      "title": "Cooperative fees",
+      "$ref": "#/definitions/costs"
+    },
+    "unpaidFamilyLabor": {
+      "title": "Unpaid family labor",
+      "$ref": "#/definitions/costs"
+    },
+    "other": {
+      "title": "Other costs",
+      "$ref": "#/definitions/costs"
+    }
+  },
+  "definitions": {
+    "costs": {
+      "title": "The production costs",
+      "description": "The simple approach asks only about the main costs in the production system that typically account for the vast majority of total costs (and the total amount spent on each during the last production year).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "amount",
+        "percentage"
+      ],
+      "properties": {
+        "amount": {
+          "title": "The amount of the cost",
+          "type": "number",
+          "minimum": 0
+        },
+        "percentage": {
+          "title": "The portion used for coffee production",
+          "description": "Costs should be associated with the coffee production only (i.e., if labor is hired for multiple crops, only the portion used for coffee production should be included). One way to make sure that costs are correctly associated with the production of the coffee is to ask for the percent of inputs that were used for the coffee.",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    }
+  }
+}

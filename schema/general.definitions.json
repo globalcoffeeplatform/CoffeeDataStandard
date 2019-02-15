@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/general.definitions.json",
+  "title": "General definitions",
+  "definitions": {
+    "percentage": {
+      "title": "The percentage, 0-100",
+      "description": "The percentage, from 0 to 100 with decimals allowed",
+      "$comment": "Duplicate in /productionCosts.json",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "positiveNumber": {
+      "title": "A positive number > 0",
+      "description": "A positive number starting at 0 with decimals allowed",
+      "type": "number",
+      "minimum": 0
+    },
+    "greaterThanZero": {
+      "title": "The positive number, greater than 0",
+      "description": "A positive number starting at greater than 0 with decimals allowed",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "yesNo": {
+      "title": "Yes-No enumeration",
+      "type": "string",
+      "enum": [
+        "Yes",
+        "No"
+      ]
+    }
+  }
+}

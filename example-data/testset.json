@@ -106,7 +106,7 @@
       },
       "productionCosts": {
         "fertilizers": {
-          "amount": 25800,
+          "amount": 2500,
           "percentage": 100
         },
         "pesticides": {

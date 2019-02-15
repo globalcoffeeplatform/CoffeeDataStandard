@@ -23,8 +23,12 @@
       "type": "string"
     },
     "timestamp": {
-      "title": "The creation timestamp.",
+      "title": "The creation timestamp. [YYYY-MM-DD]",
       "description": "The timestamp when this identifier was created.",
+      "examples": [
+        "2016-06-31",
+        "2019-01-03"
+      ],
       "type": "string",
       "pattern": "^[12][0-9]{3}-[01][0-9]-[0-3][0-9]$",
       "format": "full-date"

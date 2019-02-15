@@ -86,7 +86,7 @@
               "$ref": "./address.json"
             },
             "dateOfBirth": {
-              "title": "Date of birth.",
+              "title": "Date of birth. [YYYY-MM-DD]",
               "description": "Best practice is to use 'Year of Birth' as opposed to age. Age has to be updated annually, but year of birth is the same indefinitely, and can be used to calculate age at any point.",
               "$extended-description": "Data point used to understand the relative presence of youth and calculate youth engagement: % of producers in the sustainability program or supply chain 35 years old and under.",
               "examples": [
@@ -436,97 +436,7 @@
               "title": "Cost of Production",
               "description": "Costs incurred to produce the coffee during the last production year (calculated per kg of GBE)",
               "$extended-description": "The simple approach asks only about the main costs in the production system that typically account for the vast majority of total costs (and the total amount spent on each during the last production year). By focusing on the main costs in a system, this provides a good sense of the economic picture on the farm without adding substantial detail to the approach.\\nMain costs typically include (at a minimum):\\n* Fertilizers\\n* Pesticides\\n* Hired Labor\\n* Planting material/ Renovation costs\\nFor those using the Full cost accounting approach the categories are comparable though fewer. The full approach would include: deductions by buyers, rent of land, energy, irrigation, capital assets, cultivation practices, traceability and record keeping, costs of standards or certifications, planting and reforestation costs, training costs, interest on credit, crop insurance, cooperative fees, or the value of unpaid family labor (although any important costs in a system should be captured).\\nCosts should be associated with the coffee production only (i.e., if labor is hired for multiple crops, only the portion used for coffee production should be included). One way to make sure that costs are correctly associated with the production of the coffee is to ask for the percent of inputs that were used for the coffee.\\nWhen calculating costs, include only expenditures coming from the household’s own revenue. If inputs are provided as technical assistance for free or at a subsidized cost on a **persistent**, **substantial**, and **systemic** basis it is recommended to account for the value of the input as a cost in the calculation (at an appropriately determined rate).\\n\\n\nThis indicator is a Sub-metric for Net Income (or Profit).",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "fertilizers",
-                "pesticides",
-                "hiredLabor",
-                "plantingMaterial",
-                "renovation"
-              ],
-              "properties": {
-                "fertilizers": {
-                  "title": "Fertilizers costs",
-                  "$ref": "./productionCosts.json"
-                },
-                "pesticides": {
-                  "title": "Pesticides costs",
-                  "$ref": "./productionCosts.json"
-                },
-                "hiredLabor": {
-                  "title": "Costs of hired labor",
-                  "$ref": "./productionCosts.json"
-                },
-                "plantingMaterial": {
-                  "title": "Costs of planting material",
-                  "$ref": "./productionCosts.json"
-                },
-                "renovation": {
-                  "title": "Costs of renovation",
-                  "$ref": "./productionCosts.json"
-                },
-                "deductionsByBuyers": {
-                  "title": "Deductions by buyers",
-                  "$ref": "./productionCosts.json"
-                },
-                "rentOfLand": {
-                  "title": "Rent of land",
-                  "$ref": "./productionCosts.json"
-                },
-                "energy": {
-                  "title": "Energy costs",
-                  "$ref": "./productionCosts.json"
-                },
-                "irrigation": {
-                  "title": "Irrigation costs",
-                  "$ref": "./productionCosts.json"
-                },
-                "capitalAssets": {
-                  "title": "Capital assets",
-                  "$ref": "./productionCosts.json"
-                },
-                "cultivationPractices": {
-                  "title": "Cultivation practices",
-                  "$ref": "./productionCosts.json"
-                },
-                "traceabilityAndRecordKeeping": {
-                  "title": "Traceability and record keeping",
-                  "$ref": "./productionCosts.json"
-                },
-                "standardsCertification": {
-                  "title": "Costs of standards or certifications",
-                  "$ref": "./productionCosts.json"
-                },
-                "plantingReforestation": {
-                  "title": "Planting and reforestation costs",
-                  "$ref": "./productionCosts.json"
-                },
-                "training": {
-                  "title": "Training costs",
-                  "$ref": "./productionCosts.json"
-                },
-                "interest": {
-                  "title": "Interest on credit",
-                  "$ref": "./productionCosts.json"
-                },
-                "cropInsurance": {
-                  "title": "Crop insurance",
-                  "$ref": "./productionCosts.json"
-                },
-                "cooperativeFees": {
-                  "title": "Cooperative fees",
-                  "$ref": "./productionCosts.json"
-                },
-                "unpaidFamilyLabor": {
-                  "title": "Unpaid family labor",
-                  "$ref": "./productionCosts.json"
-                },
-                "other": {
-                  "title": "Other costs",
-                  "$ref": "./productionCosts.json"
-                }
-              }
+              "$ref": "./production-costs.json"
             },
             "price": {
               "title": "Average Price received per kg of coffee (GBE)",
