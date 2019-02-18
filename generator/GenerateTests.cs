@@ -309,11 +309,6 @@ namespace Json2Rst
             if (objectProperties.ContainsKey("minItems"))
                 _sb.AppendLine("   " + MakeBold("Minimum items") + ": " +
                                MakeItalic(objectProperties.GetValue("minItems").ToString()) + "\n");
-            if (objectProperties.ContainsKey("examples"))
-            {
-                if (objectProperties.GetValue("examples") is JArray examples)
-                    _sb.AppendLine("   " + MakeBold("Examples") + ": '" + string.Join("', '", examples) + "'\n");
-            }
             if (objectProperties.ContainsKey("items"))
             {
                 foreach (var jToken in objectProperties.GetValue("items"))

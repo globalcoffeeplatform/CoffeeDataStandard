@@ -143,8 +143,6 @@ Generally, data should include Country and then State/Department and Municipalit
 
    **Examples**: '2000-08-17', '1973-05-30'
 
-   **Examples**: '2000-08-17', '1973-05-30'
-
    **Pattern**: *^[12][0-9]{3}-[01][0-9]-[0-3][0-9]$*
 
 .. raw:: html 
