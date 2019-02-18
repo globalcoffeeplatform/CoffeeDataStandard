@@ -737,8 +737,8 @@ Asking about best practice adoption is a standardized way to address this indica
    :linenos:
    :caption: water.json
 
-3.4.4 Pest control/ hazards
----------------------------
+3.4.4 Pest control - hazards
+----------------------------
 .. topic:: Details:
 
    **Property name**: pestControl
