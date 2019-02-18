@@ -25,7 +25,7 @@ The unique identifier for this dataset.
 
 .. raw:: html
 
-   <script src="https://github.com/andrejellema/GlobalCoffeeDataStandard/tree/master/docs/source/_static/docson/js/widget.js" data-schema="https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/global-unique-id.json"></script>
+   <script src="_static/docson/js/widget.js" data-schema="../../schema/global-unique-id.json"></script>
 
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
@@ -117,7 +117,6 @@ Each producer should have a unique ID. Optimally this can be a national ID, but 
 
 
 First and last name(s) of the farmer surveyed should be collected in separate fields/columns to ensure consistency (avoiding confusion between Carlos de la Huerta and De la Huerta, Carlos). Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or "Farmer" could be entered as the First Name.
-
 
 .. literalinclude:: ../../schema/name.json
    :language: json
