@@ -478,3 +478,8 @@
     font-style: italic;
 }
 
+/* Overrides */
+
+.docson .box {
+    width: 96% !important;
+}
