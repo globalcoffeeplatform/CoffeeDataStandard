@@ -25,7 +25,7 @@ The unique identifier for this dataset.
 
 .. raw:: html
 
-   <script src="_static/docson/js/widget.js" data-schema="../../schema/global-unique-id.json"></script>
+   <script src="_static/docson/js/widget.js" data-schema="https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/global-unique-id.json"></script>
 
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
@@ -96,11 +96,6 @@ Globally Unique ID of the recording of the farmer at a specific time and by a sp
 
 
 Each producer should have a unique ID. Optimally this can be a national ID, but in its absence a buyer ID, project ID or other unique number can serve. It is important to keep in mind that various entities may have access to reported data, so confidential information should not be included in the shared record (e.g. Social Security number).
-
-.. raw:: html
-
-   <script src="_static/docson/js/widget.js" data-schema="https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/global-unique-id.json"></script>
-
 
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
