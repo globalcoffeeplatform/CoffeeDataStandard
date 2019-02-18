@@ -337,7 +337,7 @@
               "$ref": "./water.json"
             },
             "pestControl": {
-              "title": "Pest control/ hazards",
+              "title": "Pest control - hazards",
               "description": "**Standard IPM techniques include**:\\n* Conduct regular visual examinations of the coffee to detect pests and/or diseases\\n* Use traps, repellants, and natural pesticides\\n* Create or preserve places (including plant species) for beneficial predators of pests to live\\n* Maintain written record of pest infestation, treatments, and results\\n* Plant or preserve species that repel pests of the coffee\\n* Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population\\nBanned or hazardous pesticides will be based of the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address proper disposal of pesticide containers.\\nPesticides include insecticides, fungicides, rodenticides, nematicides and herbicides.\\nFocusing on IPM techniques is a globally standardized way to understand pest management best practices without the more costly and time-consuming process of detailing individual pesticides, active ingredients, amount used in local units, etc.",
               "$ref": "./pest-control.json"
             },

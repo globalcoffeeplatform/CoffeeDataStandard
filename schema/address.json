@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/address.json",
-  "title": "The definition of the address object",
-  "description": "An address. This is the legally registered address of the farm.",
+  "title": "The address",
+  "description": "An address. This is the legally registered address.",
   "type": "object",
   "additionalProperties": false,
   "required": [

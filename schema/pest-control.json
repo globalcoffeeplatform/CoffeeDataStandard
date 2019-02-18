@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/pest-control.json",
-  "title": "Pest control/ hazards",
+  "title": "Pest control - hazards",
   "type": "object",
   "additionalProperties": false,
   "required": [
