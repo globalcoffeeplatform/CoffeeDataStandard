@@ -25,7 +25,7 @@ The unique identifier for this dataset.
 
 .. raw:: html
 
-   <script src="../html/_static/docson/js/widget.js" data-schema="../../schema/global-unique-id.json"></script>
+   <script src="https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/docs/source/_static/docson/js/widget.js" data-schema="https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/global-unique-id.json"></script>
 
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
