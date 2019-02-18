@@ -37,6 +37,7 @@ Funders of this project
    about
    executive-summary
    use-cases
+   governance
    explanation
 
 

@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/pest-control.json",
+  "title": "Pest control/ hazards",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ipmPractices",
+    "useOfBannedPesticides"
+  ],
+  "properties": {
+    "ipmPractices": {
+      "title": "% of IPM practices employed on the farm",
+      "description": "Focusing on IPM techniques is a globally standardized way to understand pest management best practices without the more costly and time-consuming process of detailing individual pesticides, active ingredients, amount used in local units, etc.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "conductRegularVisualExaminations",
+        "useNaturalPesticides",
+        "predatorPlaces",
+        "recordPestInfestation",
+        "pestRepelSpecies",
+        "applyAfterIdentifying"
+      ],
+      "properties": {
+        "conductRegularVisualExaminations": {
+          "title": "Conduct regular visual examinations",
+          "description": "Conduct regular visual examinations of the coffee to detect pests and/or diseases",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "useNaturalPesticides": {
+          "title": "Use natural pesticides",
+          "description": "Use traps, repellants, and natural pesticides",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "predatorPlaces": {
+          "title": "Predator places",
+          "description": "Create or preserve places (including plant species) for beneficial predators of pests to live",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "recordPestInfestation": {
+          "title": "Record pest infestation",
+          "description": "Maintain written record of pest infestation, treatments, and results",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "pestRepelSpecies": {
+          "title": "Pest repel species",
+          "description": "Plant or preserve species that repel pests of the coffee",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "applyAfterIdentifying": {
+          "title": "Apply after identifying",
+          "description": "Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population ",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        }
+      }
+    },
+    "useOfBannedPesticides": {
+      "title": "Use of banned or hazardous pesticides on the farm",
+      "description": "Banned or hazardous pesticides will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers.",
+      "$extended-description": "Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      },
+      "additionalItems": false,
+      "additionalProperties": false
+    }
+  }
+}

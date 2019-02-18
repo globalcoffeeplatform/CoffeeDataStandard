@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/forest-ecosystem-protection.json",
+  "title": "Forest and Ecosystem Protection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "areaConvertedLand",
+    "ecosystemProtection"
+  ],
+  "properties": {
+    "areaConvertedLand": {
+      "title": "Area converted land",
+      "description": "Land area (in ha) and proportion of the farm that was converted from natural land (e.g.,, forest, savanna) to land used for coffee production in the last 5 years.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "absoluteArea",
+        "proportiesOfFarm"
+      ],
+      "properties": {
+        "absoluteArea": {
+          "title": "Absolute area in ha",
+          "type": "number",
+          "minimum": 0
+        },
+        "proportiesOfFarm": {
+          "title": "Proportion of the farm",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "ecosystemProtection": {
+      "title": "Forest and ecosystem protection",
+      "description": "% of forest and ecosystem protection practices used on the farm",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    }
+  }
+}
+

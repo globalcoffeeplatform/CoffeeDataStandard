@@ -48,3 +48,20 @@ div.wy-table-responsive > table.docutils td {
 div.wy-table-responsive > table.docutils td:nth-child(3){
     max-width: 40%;
 }
+
+div:not(#contents).topic {
+    /* Rainforest alliance green */
+    border: 1px solid #4e917a;
+    padding: 3px;
+    width: 100%;
+    border-radius: 3px;
+}
+
+div.topic p,
+div.topic p.topic-title{
+    margin-bottom: 0;
+}
+
+div:not(#contents).topic p.topic-title {
+    display: none;
+}

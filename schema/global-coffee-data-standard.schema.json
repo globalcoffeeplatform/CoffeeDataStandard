@@ -17,12 +17,14 @@
   ],
   "properties": {
     "globalCoffeeDatasetId": {
+      "title": "Coffee Dataset Id",
       "description": "The unique identifier for this dataset.",
       "$ref": "./global-unique-id.json",
       "$example-data": "./example-data/testset.json|2-6"
     },
     "schemaVersion": {
-      "description": "The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.",
+      "title": "Schema version",
+      "description": "**Optional**\\nThe version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.",
       "type": "string",
       "$comment": "Add new version number to enum when released.",
       "enum": [
@@ -30,6 +32,7 @@
       ]
     },
     "farmer": {
+      "title": "Farmer",
       "description": "The farmer characteristics",
       "type": "object",
       "additionalProperties": false,
@@ -39,6 +42,7 @@
       ],
       "properties": {
         "general": {
+          "title": "General farmer characteristics",
           "description": "The general farmer characteristics",
           "type": "object",
           "additionalProperties": false,
@@ -53,45 +57,28 @@
           ],
           "properties": {
             "farmerId": {
-              "title": "Globally Unique ID of the farmer",
+              "title": "Unique ID of the farmer",
               "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organization.",
               "$extended-description": "Each producer should have a unique ID. Optimally this can be a national ID, but in its absence a buyer ID, project ID or other unique number can serve. It is important to keep in mind that various entities may have access to reported data, so confidential information should not be included in the shared record (e.g. Social Security number).",
               "$ref": "./global-unique-id.json"
             },
             "name": {
-              "title": "First and last name(s) of the farmer surveyed",
-              "description": "First and last name(s) of the farmer surveyed. Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
-              "$extended-description": "First and last name(s) of the farmer surveyed should be collected in separate fields/columns to ensure consistency (avoiding confusion between Carlos de la Huerta and De la Huerta, Carlos). Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or \"Farmer\" could be entered as the First Name.",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "lastName"
-              ],
-              "properties": {
-                "firstName": {
-                  "title": "First name(s) of the farmer surveyed",
-                  "description": "First name(s) of the farmer surveyed. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
-                  "type": "string"
-                },
-                "lastName": {
-                  "title": "Last name of the farmer surveyed",
-                  "description": "Last name of the farmer surveyed. Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or 'Farmer' could be entered as the First Name.",
-                  "type": "string"
-                }
-              }
+              "title": "Name of the farmer",
+              "description": "First and last name(s) of the farmer surveyed should be collected in separate fields/columns to ensure consistency (avoiding confusion between Carlos de la Huerta and De la Huerta, Carlos). Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or \"Farmer\" could be entered as the First Name.",
+              "$ref": "./name.json"
             },
             "address": {
-              "title": "The location of the farm",
+              "title": "The address of the farm",
               "description": "Generally, data should include Country and then State/Department and Municipality/District, unless the address is collected for the sake of auditing. This should be the location of the farm itself (main plot), not the home of the farmer, if different.",
               "$ref": "./address.json"
             },
             "dateOfBirth": {
-              "title": "Date of birth. [YYYY-MM-DD]",
+              "title": "Date of birth",
               "description": "Best practice is to use 'Year of Birth' as opposed to age. Age has to be updated annually, but year of birth is the same indefinitely, and can be used to calculate age at any point.",
               "$extended-description": "Data point used to understand the relative presence of youth and calculate youth engagement: % of producers in the sustainability program or supply chain 35 years old and under.",
               "examples": [
-                "2016-08-17",
-                "1973-05-03"
+                "2000-08-17",
+                "1973-05-30"
               ],
               "type": "string",
               "pattern": "^[12][0-9]{3}-[01][0-9]-[0-3][0-9]$",
@@ -100,7 +87,7 @@
             },
             "gender": {
               "title": "Gender",
-              "description": "Data point used to understand the relative presence of women and to calculate women's engagement and the outcomes they experience as diverse from men: % of women in the sustainability program or supply chain",
+              "description": "Data point used to understand the relative presence of women and to calculate women's engagement and the outcomes they experience as diverse from men: % of women in the sustainability program or supply chain.",
               "type": "string",
               "enum": [
                 "M",
@@ -133,6 +120,7 @@
           }
         },
         "social": {
+          "title": "Social farmer characteristics",
           "description": "The social farmer characteristics",
           "type": "object",
           "additionalProperties": false,
@@ -147,49 +135,13 @@
               "title": "Poverty level",
               "description": "Comparison of total household revenue to International (World Bank) Poverty Line (total divided by # adult individuals in household).",
               "$extended-description": "The Monitoring approach is to ask producers the proportion of total household income coming from the sale of coffee (since the coffee revenue amount from the Net Income indicator (Profit) is already known, an estimate of the full household income amount can be derived with that proportion). This allows a good sense of the economic picture on the farm without adding substantial detail to the approach in terms of all household income streams (e.g., sales of other crops or services, income from other businesses, gifts and remittances, etc.) and any associated costs.\\nThe World Bank International Poverty Line is $1.90 USD per day as of 2015. Comparison to national poverty lines may be useful for discussion related to one country or domestic policy but that can be calculated separately as needed.\\nAn organization may choose to use the PPI score evaluation of the propensity of a farmer or community to be poor as another option that can be more relevant in some rural areas and can be calculated separately as needed. Organizations may also choose to participate on this topic in the Living Income Community of Practice.",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "totalHouseholdIncome",
-                "householdMembers"
-              ],
-              "properties": {
-                "totalHouseholdIncome": {
-                  "title": "Total household income",
-                  "description": "Total household income in USD",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "householdMembers": {
-                  "title": "Household members",
-                  "description": "Number of adults in the household",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              }
+              "$ref": "./poverty-level.json"
             },
             "childLabour": {
               "title": "Child labour",
               "description": "The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, \"children in school at the appropriate grade level\" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organizations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.",
               "$extended-description": "As an additional option, it may be desirable to ask whether young workers (those under age 18) are working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)\\nThese concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs.",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "schoolAgeHouseholdMembers",
-                "hazardousProhibition"
-              ],
-              "properties": {
-                "schoolAgeHouseholdMembers": {
-                  "title": "School-age household members",
-                  "description": "% of school-age household members, under age 18, who have completed appropriate grade level for their age",
-                  "$ref": "#/definitions/percentage"
-                },
-                "hazardousProhibition": {
-                  "title": "Prohibition of children in hazardous working conditions",
-                  "description": "Are young workers (those under age 18) working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)",
-                  "$ref": "#/definitions/yesNo"
-                }
-              }
+              "$ref": "./child-labor.json"
             },
             "hunger": {
               "title": "Hunger days",
@@ -203,6 +155,7 @@
       }
     },
     "farm": {
+      "title": "Farm",
       "description": "The farm characteristics",
       "type": "object",
       "additionalProperties": false,
@@ -214,6 +167,7 @@
       ],
       "properties": {
         "general": {
+          "title": "General farm characteristics",
           "description": "The general farm characteristics",
           "type": "object",
           "additionalProperties": false,
@@ -238,27 +192,9 @@
               "$ref": "./global-unique-id.json"
             },
             "location": {
+              "title": "Location of the farm",
               "description": "GPS should be captured for each farm plot if possible. GPS readings should be taken outside of buildings and away from significant tree coverage to avoid interference in the signal. GPS should be captured in the middle of the plot, and/or near the entrance to any main building (if there is one). Where the main residence or other buildings are not located on the farm plot, GPS should be taken in the middle of the plot.",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "geoLocation",
-                "positionTakenAt"
-              ],
-              "properties": {
-                "geoLocation": {
-                  "title": "Front door geolocation",
-                  "$ref": "./Point.json",
-                  "additionalProperties": false
-                },
-                "positionTakenAt": {
-                  "title": "The position was taken at ..",
-                  "type": "string",
-                  "enum": [
-                    "Location of the front door of the head office"
-                  ]
-                }
-              }
+              "$ref": "./farm-location.json"
             },
             "address": {
               "title": "Farm address",
@@ -270,13 +206,15 @@
               "title": "Total farm size (ha)",
               "description": "Total Farm size refers to total property size, including land used to grow crops, pasture, wooded areas, land covered by buildings, and any other area included in the property.",
               "$extended-description": "Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha). Data validation should ensure that the total area planted in coffee should be less than the total farm size. It is ok to rely on farmer recall although more rigorous estimates will include GPS or polygonal mapping data. Consider that farms may contain multiple plots (plots are farm land areas that are not connected, or farm areas that are managed differently, or both). Make sure to add all relevant plots managed by members of a household together (that is, the farm area should coincide with the land used to account for the farm cost and revenue data being reported).",
-              "$ref": "#/definitions/greaterThanZero"
+              "type": "number",
+              "exclusiveMinimum": 0
             },
             "totalAreaCoffee": {
               "title": "Total Area planted in Coffee (ha)",
               "description": "Sum of coffee farm areas from producers in the sustainability program or supply chain (ha)",
               "$extended-description": "Area under coffee production can also be triangulated with other pieces of data collected (e.g., trees planted per unit land (density rate) and/or total number of trees planted).",
-              "$ref": "#/definitions/greaterThanZero"
+              "type": "number",
+              "exclusiveMinimum": 0
             },
             "thirdPartyIds": {
               "title": "Third-party identifier",
@@ -292,6 +230,7 @@
           }
         },
         "social": {
+          "title": "Social farm characteristics",
           "description": "The social farm characteristics",
           "type": "object",
           "additionalProperties": false,
@@ -311,48 +250,16 @@
               "title": "Wages",
               "description": "Daily average earnings for farm labor compared to (rural) minimum wage. Wage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.",
               "$extended-description": "The approach involves asking for the average daily wage rate paid. If applicable, include wages for coffee production, harvesting, and processing and take an average across all three categories.\\nWage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.\\nThis approach gives a good sense of worker earnings coming from the most prominent types of labor without needing to detail individual jobs, rates, benefits, etc.\\nOrganizations may wish to participate in working groups to define and measure living wage. There is still no widely used methodology, but the ability to understand whether a worker could survive on the wage earned would be useful for any industry. ",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "wagesCoffee",
-                "wagesHarvesting",
-                "wagesProcessing"
-              ],
-              "properties": {
-                "wagesCoffee": {
-                  "title": "The average daily wage rate paid for coffee production",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "wagesHarvesting": {
-                  "title": "The average daily wage rate paid for harvesting",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "wagesProcessing": {
-                  "title": "The average daily wage rate paid for processing",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "ruralMinimumWage": {
-                  "title": "Rural minimum wage",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "nationalMinimumWage": {
-                  "title": "National minimum wage",
-                  "type": "number",
-                  "minimum": 0
-                }
-              }
+              "$ref": "./wages.json"
             }
           }
         },
         "economic": {
+          "title": "Economic farm characteristics",
           "description": "The economic farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|97-138",
+          "$example-data": "./example-data/testset.json|100-141",
           "required": [
             "coffeeProfit",
             "productivity",
@@ -365,43 +272,13 @@
               "title": "Coffee Profit",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
               "$extended-description": "The simple approach (which avoids the additional time and resources necessary for detailed accounting while still providing good results) is to ask for the **total** revenue from sales of coffee as a whole, and subtract main costs. This indicator is reported on a per hectare basis to allow comparability across projects and regions.\\nThis simplified approach does not cover asking the producer about revenue and prices for each transaction or amount sold, nor any premiums or deductions. It also factors in only the main costs in the coffee production system (see Cost of Production indicator below).",
-              "$ref": "#/definitions/greaterThanZero"
+              "type": "number",
+              "exclusiveMinimum": 0
             },
             "productivity": {
               "title": "Yield / Productivity",
               "description": "kgs of GBE (harvested)/ha of coffee productive area",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "coffeeProductiveArea",
-                "amountHarvested",
-                "formOfCoffee"
-              ],
-              "properties": {
-                "coffeeProductiveArea": {
-                  "title": "Coffee productive area",
-                  "description": "Coffee productive area (requires local land area unit conversion to hectares)",
-                  "$ref": "#/definitions/greaterThanZero"
-                },
-                "amountHarvested": {
-                  "title": "Amount harvested",
-                  "description": "Amount harvested (requires local unit conversion to kgs)--Amount sold can be a suitable proxy where harvested amounts are unknown (i.e., many smallholders will only know production volumes when their product is weighed at the mill)",
-                  "$ref": "#/definitions/greaterThanZero"
-                },
-                "formOfCoffee": {
-                  "title": "Form of coffee",
-                  "description": "The form of coffee (will require conversion to GBE, Green Bean Equivalent)",
-                  "type": "string",
-                  "enum": [
-                    "Fresh cherry",
-                    "Dry cherry",
-                    "Dry parchment",
-                    "Wet parchment",
-                    "Green",
-                    "Other"
-                  ]
-                }
-              }
+              "$ref": "./productivity.json"
             },
             "productionCosts": {
               "title": "Cost of Production",
@@ -410,57 +287,25 @@
               "$ref": "./production-costs.json"
             },
             "price": {
-              "title": "Average Price received per kg of coffee (GBE)",
-              "description": "The simple approach involves asking for the total revenue received from coffee during the last production year as well as the amount sold (and the form). The average price per unit can then be calculated. For multiple sales, calculate the price average of sales",
+              "title": "Average Price",
+              "description": "Average Price received per kg of coffee (GBE). The simple approach involves asking for the total revenue received from coffee during the last production year as well as the amount sold (and the form). The average price per unit can then be calculated. For multiple sales, calculate the price average of sales",
               "$extended-description": "The average price can then be compared to the global reference price (e.g., ICO).\\nThis approach avoids the additional time and resources necessary for detailed accounting and asking about each sale (and the associated premiums, deductions or bonuses) while still providing good results.",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "totalCoffeeRevenue",
-                "kgSold"
-              ],
-              "properties": {
-                "totalCoffeeRevenue": {
-                  "title": "Total coffee revenue",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "kgSold": {
-                  "title": "kg of GBE sold",
-                  "type": "number",
-                  "minimum": 0
-                }
-              }
+              "$ref": "./average-price.json"
             },
             "sustainablePurchases": {
               "title": "Sustainable purchases",
               "description": "The volume of sustainable purchases by the buyer and as a proportion of the total, and change year to year.",
               "$extended-description": "Detailed methodology developed by the SPF Working Group (not a farmer level metric).",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "volumeOfSustainablePurchases",
-                "proportionOfTotal"
-              ],
-              "properties": {
-                "volumeOfSustainablePurchases": {
-                  "title": "Volume of sustainable purchases",
-                  "type": "number",
-                  "minimum": 0
-                },
-                "proportionOfTotal": {
-                  "title": "Proportion of total",
-                  "$ref": "#/definitions/percentage"
-                }
-              }
+              "$ref": "./sustainable-purchases.json"
             }
           }
         },
         "environmental": {
+          "title": "Environmental farm characteristics",
           "description": "The environmental farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|139-182",
+          "$example-data": "./example-data/testset.json|142-185",
           "required": [
             "forestEcosystemProtection",
             "fertilizerUse",
@@ -473,236 +318,42 @@
               "title": "Forest and Ecosystem Protection",
               "description": "The approach involves asking producers if they converted any natural land (e.g., forest, savanna) to land used for coffee production and how much [both in absolute terms (ha) and relative terms (proportion of the farm)] during the last 5 years.",
               "$extended-description": "In addition, overlaying gps coordinates of farms (See GPS Coordinate instructions above) with regional deforestation maps provides more interesting data at a landscape level to understand areas of risk. Note though that usually only a single gps point will exist for many smallholder farms, meaning that there often isn't sufficient information to track the contribution of individual farms to deforestation in most cases. However, even with single gps points, general farming areas prone to deforestation will still be visible.\\n**Forest and ecosystem protection practices** include: \\n1. Reforestation with non-productive trees (i.e., those trees that will not be regularly pruned or removed)\\n2. Laying land aside (fallow) and/or blocking active use (including hunting).",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "areaConvertedLand",
-                "ecosystemProtection"
-              ],
-              "properties": {
-                "areaConvertedLand": {
-                  "title": "Area converted land",
-                  "description": "Land area (in ha) and proportion of the farm that was converted from natural land (e.g.,, forest, savanna) to land used for coffee production in the last 5 years.",
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "absoluteArea",
-                    "proportiesOfFarm"
-                  ],
-                  "properties": {
-                    "absoluteArea": {
-                      "title": "Absolute area in ha",
-                      "type": "number",
-                      "minimum": 0
-                    },
-                    "proportiesOfFarm": {
-                      "title": "Proportion of the farm",
-                      "$ref": "#/definitions/percentage"
-                    }
-                  }
-                },
-                "ecosystemProtection": {
-                  "title": "Forest and ecosystem protection",
-                  "description": "% of forest and ecosystem protection practices used on the farm",
-                  "$ref": "#/definitions/percentage"
-                }
-              }
+              "$ref": "./forest-ecosystem-protection.json"
             },
             "fertilizerUse": {
               "title": "Fertilizer use",
               "description": "Whether a professional assessment or advice was used to determine fertilizer needs on the farm. It does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc. ",
               "$extended-description": "The simple approach depends on asking the producer about fertilizer use best practices instead of all the individual fertilizer types and amounts they use. Asking if the producer based their fertilizer use on professional advice or assessments is easy to ask in a standardized way globally and can be a proxy for proper fertilization on the farm (there is ample evidence that the correlation between fertilizer use and yields is not as good as prescribed fertilization and yields).\\nProfessional assessments include advice from an extension agent or other sustainability program implementer and NOT input sellers.\\nThis approach does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc.",
-              "$ref": "#/definitions/yesNo"
+              "type": "string",
+              "enum": [
+                "Yes",
+                "No"
+              ]
             },
             "water": {
               "title": "Water Conservation & Contamination Prevention",
               "description": "Water conservation practices include (relevance of individual practices will need to be determined by region):",
               "$extended-description": "1. Drip irrigation\\n2. Water catchments\\n3. Water-efficient processing\\nFor practices that conserve soil moisture balance and control runoff, please reference the \"Soil Conservation\" indicator below.\\nWater contamination prevention measures include the following:\\n1. Pesticide equipment is cleaned away from natural water bodies\\n2. Ensuring untreated water from processing does not enter natural water bodies\\n3. Grazing livestock away from natural water bodies\\n4. Domestic discharge prevented from entering natural water bodies\\nThese concepts are common to many sustainability standards and the approach is built on FAO Good Agricultural Practices.\\nAsking about best practice adoption is a standardized way to address this indicator globally without the expensive and technical expertise required to measure water use amounts (and evaluating that in the local context) or taking water samples to evaluate contamination levels and the required protocols for that (taking samples at the appropriate locations and time, factoring in elements that may be beyond an individual producers control, etc.).",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "waterConservation",
-                "waterContamination"
-              ],
-              "properties": {
-                "waterConservation": {
-                  "title": "Water conservation practices",
-                  "description": "% of applicable water conservation practices used on the farm (of those listed)",
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "dripIrrigation",
-                    "waterCatchments",
-                    "waterEfficientProcessing"
-                  ],
-                  "properties": {
-                    "dripIrrigation": {
-                      "title": "Drip irrigation",
-                      "$ref": "#/definitions/yesNo"
-                    },
-                    "waterCatchments": {
-                      "title": "Water catchments",
-                      "$ref": "#/definitions/yesNo"
-                    },
-                    "waterEfficientProcessing": {
-                      "title": "Water-efficient processing",
-                      "$ref": "#/definitions/yesNo"
-                    }
-                  }
-                },
-                "waterContamination": {
-                  "title": "Water contamination prevention practices",
-                  "description": "% of water contamination prevention practices used on the farm (of those listed).",
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "noPesticideCleaningNearWater",
-                    "preventUntreatedWater",
-                    "noLivestockNearWater",
-                    "noDomesticDischarge"
-                  ],
-                  "properties": {
-                    "noPesticideCleaningNearWater": {
-                      "title": "No pesticide cleaning near water",
-                      "description": "Pesticide equipment is cleaned away from natural water bodies",
-                      "$ref": "#/definitions/yesNo"
-                    },
-                    "preventUntreatedWater": {
-                      "title": "Prevent untreated water",
-                      "description": "Ensuring untreated water from processing does not enter natural water bodies",
-                      "$ref": "#/definitions/yesNo"
-                    },
-                    "noLivestockNearWater": {
-                      "title": "No livestock near water",
-                      "description": "Grazing livestock away from natural water bodies",
-                      "$ref": "#/definitions/yesNo"
-                    },
-                    "noDomesticDischarge": {
-                      "title": "No domestic discharge",
-                      "description": "Domestic discharge prevented from entering natural water bodies",
-                      "$ref": "#/definitions/yesNo"
-                    }
-                  }
-                }
-              }
+              "$ref": "./water.json"
             },
             "pestControl": {
               "title": "Pest control/ hazards",
               "description": "**Standard IPM techniques include**:\\n* Conduct regular visual examinations of the coffee to detect pests and/or diseases\\n* Use traps, repellants, and natural pesticides\\n* Create or preserve places (including plant species) for beneficial predators of pests to live\\n* Maintain written record of pest infestation, treatments, and results\\n* Plant or preserve species that repel pests of the coffee\\n* Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population\\nBanned or hazardous pesticides will be based of the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address proper disposal of pesticide containers.\\nPesticides include insecticides, fungicides, rodenticides, nematicides and herbicides.\\nFocusing on IPM techniques is a globally standardized way to understand pest management best practices without the more costly and time-consuming process of detailing individual pesticides, active ingredients, amount used in local units, etc.",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "ipmPractices",
-                "useOfBannedPesticides"
-              ],
-              "properties": {
-                "ipmPractices": {
-                  "title": "% of IPM practices employed on the farm",
-                  "description": "Focusing on IPM techniques is a globally standardized way to understand pest management best practices without the more costly and time-consuming process of detailing individual pesticides, active ingredients, amount used in local units, etc.",
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "conductRegularVisualExaminations",
-                    "useNaturalPesticides",
-                    "predatorPlaces",
-                    "recordPestInfestation",
-                    "pestRepelSpecies",
-                    "applyAfterIdentifying"
-                  ],
-                  "properties": {
-                    "conductRegularVisualExaminations": {
-                      "title": "Conduct regular visual examinations",
-                      "description": "Conduct regular visual examinations of the coffee to detect pests and/or diseases",
-                      "$ref": "#/definitions/yesNo"
-                    },
-                    "useNaturalPesticides": {
-                      "title": "Use natural pesticides",
-                      "description": "Use traps, repellants, and natural pesticides",
-                      "$ref": "#/definitions/yesNo"
-                    },
-                    "predatorPlaces": {
-                      "title": "Predator places",
-                      "description": "Create or preserve places (including plant species) for beneficial predators of pests to live",
-                      "$ref": "#/definitions/yesNo"
-                    },
-                    "recordPestInfestation": {
-                      "title": "Record pest infestation",
-                      "description": "Maintain written record of pest infestation, treatments, and results",
-                      "$ref": "#/definitions/yesNo"
-                    },
-                    "pestRepelSpecies": {
-                      "title": "Pest repel species",
-                      "description": "Plant or preserve species that repel pests of the coffee",
-                      "$ref": "#/definitions/yesNo"
-                    },
-                    "applyAfterIdentifying": {
-                      "title": "Apply after identifying",
-                      "description": "Apply pesticide or kill pests only after identifying the pest and only at the best time in the pest’s life cycle to permanently reduce its population ",
-                      "$ref": "#/definitions/yesNo"
-                    }
-                  }
-                },
-                "useOfBannedPesticides": {
-                  "title": "Use of banned or hazardous pesticides on the farm",
-                  "description": "Banned or hazardous pesticides will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers.",
-                  "$extended-description": "Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
-                  "type": "array",
-                  "uniqueItems": true,
-                  "items": {
-                    "type": "string"
-                  },
-                  "additionalItems": false,
-                  "additionalProperties": false
-                }
-              }
+              "$ref": "./pest-control.json"
             },
             "soilConservation": {
               "title": "Soil Conservation",
               "description": "% of applicable soil conservation practices used on the farm (of those listed)",
               "$extended-description": "**Soil conservation measures include**:\\n1. contour planting, terracing, or soil ridges around trees\\n2. live fences, hedgerows or buffer zones\\n3. recycling organic matter and crop waste\\n4. interplanting, nitrogen fixing plants, cover crops, or mulching\\n5. check dams, drainage channels or diversion ditches\\nThese concepts are common to many sustainability standards and the approach is built on FAO Good Agricultural Practices.\\nAsking about best practice adoption is a standardized way to address this indicator globally without the expensive and technical expertise required to measure the actual amount of soil conserved or to do individual soil testing on farms.",
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "contourPlanting",
-                "liveFences",
-                "recyclingOrganicMatter",
-                "interplanting",
-                "checkDams"
-              ],
-              "properties": {
-                "contourPlanting": {
-                  "title": "Contour planting",
-                  "description": "Contour planting, terracing, or soil ridges around trees",
-                  "$ref": "#/definitions/yesNo"
-                },
-                "liveFences": {
-                  "title": "Live fences",
-                  "description": "Live fences, hedgerows or buffer zones",
-                  "$ref": "#/definitions/yesNo"
-                },
-                "recyclingOrganicMatter": {
-                  "title": "Recycling organic matter",
-                  "description": "Recycling organic matter and crop waste",
-                  "$ref": "#/definitions/yesNo"
-                },
-                "interplanting": {
-                  "title": "Interplanting",
-                  "description": "Interplanting, nitrogen-fixing plants, cover crops, or mulching",
-                  "$ref": "#/definitions/yesNo"
-                },
-                "checkDams": {
-                  "title": "Check dams",
-                  "description": "Check dams, drainage channels or diversion ditches",
-                  "$ref": "#/definitions/yesNo"
-                }
-              }
+              "$ref": "./soil-conservation.json"
             }
           }
         }
       }
     },
     "plot": {
-      "description": "The plot characteristics",
+      "title": "Plot",
+      "description": "The plot characteristics. This is an example of what is possible. The plot property is optional.",
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -711,10 +362,11 @@
       ],
       "properties": {
         "general": {
+          "title": "General plot characteristics",
           "description": "The general plot characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|184-213",
+          "$example-data": "./example-data/testset.json|187-233",
           "required": [
             "plotId",
             "farmId",
@@ -723,28 +375,30 @@
           ],
           "properties": {
             "plotId": {
-              "title": "The unique ID of the plot",
+              "title": "Unique ID of the plot",
               "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organization.",
               "$ref": "./global-unique-id.json"
             },
             "farmId": {
-              "title": "To which farm belongs this plot",
-              "description": "Globally Unique ID farmId",
+              "title": "Farm ID",
+              "description": "To which farm belongs this plot",
               "$ref": "./global-unique-id.json"
             },
             "boundary": {
-              "title": "The boundary of the plot",
+              "title": "Plot boundary",
+              "description": "The boundary of the plot",
               "anyOf": [
                 {
-                  "$ref": "./MultiPolygon.json"
+                  "$ref": "./multi-polygon.json"
                 },
                 {
-                  "$ref": "./Polygon.json"
+                  "$ref": "./polygon.json"
                 }
               ]
             },
             "area": {
-              "title": "Area of the plot",
+              "title": "Plot area",
+              "description": "Area of the plot",
               "type": "number",
               "minimum": 0
             },
@@ -762,10 +416,11 @@
           }
         },
         "economic": {
+          "title": "Economic plot characteristics",
           "description": "The economic plot characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|214-217",
+          "$example-data": "./example-data/testset.json|234-237",
           "required": [
             "yield",
             "productivity"
@@ -780,41 +435,12 @@
             "productivity": {
               "title": "Productivity",
               "description": "Total revenue from coffee sales minus total costs for coffee production (Reported in USD/ha of coffee productive area.)",
-              "$ref": "#/definitions/positiveNumber"
+              "type": "number",
+              "minimum": 0
             }
           }
         }
       }
-    }
-  },
-  "definitions": {
-    "percentage": {
-      "title": "The percentage, 0-100",
-      "description": "The percentage, from 0 to 100 with decimals allowed",
-      "$comment": "Duplicate in /productionCosts.json",
-      "type": "number",
-      "minimum": 0,
-      "maximum": 100
-    },
-    "positiveNumber": {
-      "title": "A positive number > 0",
-      "description": "A positive number starting at 0 with decimals allowed",
-      "type": "number",
-      "minimum": 0
-    },
-    "greaterThanZero": {
-      "title": "The positive number, greater than 0",
-      "description": "A positive number starting at greater than 0 with decimals allowed",
-      "type": "number",
-      "exclusiveMinimum": 0
-    },
-    "yesNo": {
-      "title": "Yes-No enumeration",
-      "type": "string",
-      "enum": [
-        "Yes",
-        "No"
-      ]
     }
   }
 }
