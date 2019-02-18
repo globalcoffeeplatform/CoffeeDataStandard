@@ -23,6 +23,10 @@ This schema displays the initial basic Indicators for farm-level coffee sustaina
 The unique identifier for this dataset.
 
 
+.. raw:: html
+
+   <script src="../html/_static/docson/js/widget.js" data-schema="../../schema/global-unique-id.json"></script>
+
 .. literalinclude:: ../../schema/global-unique-id.json
    :language: json
    :linenos:
