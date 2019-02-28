@@ -50,7 +50,7 @@ div.wy-table-responsive > table.docutils td {
     max-width: 20%;
 }
 
-div.wy-table-responsive > table.docutils td:nth-child(3){
+div.wy-table-responsive > table.docutils td:nth-child(3) {
     max-width: 40%;
 }
 
@@ -63,7 +63,7 @@ div:not(#contents).topic {
 }
 
 div.topic p,
-div.topic p.topic-title{
+div.topic p.topic-title {
     margin-bottom: 0;
 }
 
