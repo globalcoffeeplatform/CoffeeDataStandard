@@ -303,6 +303,7 @@
             "productivity": {
               "title": "Yield / Productivity",
               "description": "kgs of GBE (harvested)/ha of coffee productive area",
+              "$extended-description": "For general GBE conversion guidance, please see: http://www.thecoffeeguide.org/coffee-guide/world-coffee-trade/conversions-and-statistics/",
               "$ref": "./productivity.json"
             },
             "productionCosts": {

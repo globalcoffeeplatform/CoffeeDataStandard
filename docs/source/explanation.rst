@@ -588,6 +588,9 @@ This simplified approach does not cover asking the producer about revenue and pr
 kgs of GBE (harvested)/ha of coffee productive area
 
 
+For general GBE conversion guidance, please see: http://www.thecoffeeguide.org/coffee-guide/world-coffee-trade/conversions-and-statistics/
+
+
 .. literalinclude:: ../../schema/productivity.json
    :language: json
    :linenos:
