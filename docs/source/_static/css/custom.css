@@ -19,6 +19,11 @@
     max-width: inherit;
 }
 
+.wy-side-scroll {
+    width: 300px;
+    overflow-y: auto;
+}
+
 p {
     margin-bottom: 0.5rem;
 }
