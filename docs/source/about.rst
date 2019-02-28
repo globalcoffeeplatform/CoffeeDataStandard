@@ -31,3 +31,8 @@ Some of the indicator data below may be covered in Audits or through other Compl
 1. Compliance and audit data is usually collected on a much smaller sample of farmers than typical Monitoring approaches (audit sampling typically relies on square root sampling instead of a large enough population to ensure statistically sound results). This means that audit data may not be representative of the whole population.
 
 2. Compliance data typically gives the user a binary result on a single topic, i.e., whether a certain condition was met or not. It does not usually convey the degree to which a certain condition was met, nor can it be used to see incremental change over time. Therefore, to achieve more control over the supply chain and improve the ability to remedy significant issues, it is strongly recommended to use the SMART indicator approaches detailed below (in fact, the approaches below could be built into an organization's Compliance assessment tools).
+
+==========================================
+Some guidance on the Green Bean Equivalent
+==========================================
+For Green Bean Equivalent (GBE) calculations, one may follow the conversion rates as recommended by the International Coffee Organisation (ICO) and quoted in the Coffee Exporters Guide (http://www.thecoffeeguide.org/coffee-guide/world-coffee-trade/conversions-and-statistics/). However, for some locations, other conversion rates might be recommended. Please make sure these local differences are taken into account in the relevant cases.

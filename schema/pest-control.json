@@ -81,15 +81,13 @@
     },
     "useOfBannedPesticides": {
       "title": "Use of banned or hazardous pesticides on the farm",
-      "description": "Banned or hazardous pesticides will be based on the WHO Ia and Ib lists. COSA suggests that over time it will be useful to understand the types and/ or individual banned pesticides being used so that research bodies can develop varietals or take other actions that help prevent the need for their use in the field. This approach does not address the proper disposal of pesticide containers.",
+      "description": "Are activate ingredients used that are listed under the GCP baseline common code list as unacceptable pesticides or on the red. The list can be referenced as: https://www.globalcoffeeplatform.org/assets/files/GCP_Doc_01_Baseline-Common-Code_v2.1_en.pdf",
       "$extended-description": "Pesticides include insecticides, fungicides, rodenticides, nematicides, and herbicides.",
-      "type": "array",
-      "uniqueItems": true,
-      "items": {
-        "type": "string"
-      },
-      "additionalItems": false,
-      "additionalProperties": false
+      "type": "string",
+      "enum": [
+        "Yes",
+        "No"
+      ]
     }
   }
 }

@@ -4,7 +4,11 @@
     "organization": "COSA",
     "timestamp": "2019-01-02"
   },
-  "schemaVersion": "0.0.4",
+  "schemaVersion": "0.0.5",
+  "productionYear": {
+    "start": 201802,
+    "end": 201811
+  },
   "farmer": {
     "general": {
       "farmerId": {
@@ -47,7 +51,7 @@
         "householdMembers": 3,
         "totalHouseholdIncome": 20.58
       },
-      "childLabour": {
+      "childLabor": {
         "schoolAgeHouseholdMembers": 33.3,
         "hazardousProhibition": "No"
       },
@@ -170,9 +174,7 @@
           "predatorPlaces": "Yes",
           "recordPestInfestation": "No"
         },
-        "useOfBannedPesticides": [
-          "Glyfosate"
-        ]
+        "useOfBannedPesticides": "No"
       },
       "soilConservation": {
         "checkDams": "Yes",

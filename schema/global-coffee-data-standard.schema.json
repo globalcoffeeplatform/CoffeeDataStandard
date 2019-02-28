@@ -3,7 +3,7 @@
   "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/global-coffee-data-standard.schema.json",
   "title": "Global Coffee Data Standard",
   "description": "This schema displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "object",
   "propertyNames": {
     "description": "Property names must be in lower CamelCase",
@@ -12,13 +12,14 @@
   "additionalProperties": false,
   "required": [
     "globalCoffeeDatasetId",
+    "productionYear",
     "farmer",
     "farm"
   ],
   "properties": {
     "globalCoffeeDatasetId": {
       "title": "Coffee Dataset Id",
-      "description": "The unique identifier for this dataset.",
+      "description": "The unique identifier for this dataset. The organization is responsible for the best-practice values.",
       "$ref": "./global-unique-id.json",
       "$example-data": "./example-data/testset.json|2-6"
     },
@@ -28,8 +29,32 @@
       "type": "string",
       "$comment": "Add new version number to enum when released.",
       "enum": [
-        "0.0.4"
+        "0.0.5"
       ]
+    },
+    "productionYear": {
+      "title": "Production year",
+      "description": "The production year is defined as the end of the last harvest to the end of the corresponding harvest before that (12 month period).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "title": "The start of the projection year in YYYYMM",
+          "type": "integer",
+          "minimum": 199000,
+          "maximum": 210000
+        },
+        "end": {
+          "title": "The end of the projection year in YYYYMM",
+          "type": "integer",
+          "minimum": 199000,
+          "maximum": 210000
+        }
+      }
     },
     "farmer": {
       "title": "Farmer",
@@ -46,7 +71,7 @@
           "description": "The general farmer characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|9-44",
+          "$example-data": "./example-data/testset.json|13-48",
           "required": [
             "farmerId",
             "name",
@@ -124,23 +149,23 @@
           "description": "The social farmer characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|45-55",
+          "$example-data": "./example-data/testset.json|49-59",
           "required": [
             "povertyLevel",
-            "childLabour",
+            "childLabor",
             "hunger"
           ],
           "properties": {
             "povertyLevel": {
               "title": "Poverty level",
-              "description": "Comparison of total household revenue to International (World Bank) Poverty Line (total divided by # adult individuals in household).",
-              "$extended-description": "The Monitoring approach is to ask producers the proportion of total household income coming from the sale of coffee (since the coffee revenue amount from the Net Income indicator (Profit) is already known, an estimate of the full household income amount can be derived with that proportion). This allows a good sense of the economic picture on the farm without adding substantial detail to the approach in terms of all household income streams (e.g., sales of other crops or services, income from other businesses, gifts and remittances, etc.) and any associated costs.\\nThe World Bank International Poverty Line is $1.90 USD per day as of 2015. Comparison to national poverty lines may be useful for discussion related to one country or domestic policy but that can be calculated separately as needed.\\nAn organization may choose to use the PPI score evaluation of the propensity of a farmer or community to be poor as another option that can be more relevant in some rural areas and can be calculated separately as needed. Organizations may also choose to participate on this topic in the Living Income Community of Practice.",
+              "description": "Comparison of total household revenue to World Bank International Extreme Poverty Line (total divided by # adult individuals in household).",
+              "$extended-description": "The Monitoring approach is to ask producers the proportion of total household income coming from the sale of coffee (since the coffee revenue amount from the Net Income indicator (Profit) is already known, an estimate of the full household income amount can be derived with that proportion). This allows a good sense of the economic picture on the farm without adding substantial detail to the approach in terms of all household income streams (e.g., sales of other crops or services, income from other businesses, gifts and remittances, etc.) and any associated costs.\\nThe World Bank International Extreme Poverty Line is $1.90 USD per day as of 2015 (https://datahelpdesk.worldbank.org/knowledgebase/articles/906519). Comparison to national poverty lines may be useful for discussion related to one country or domestic policy but that can be calculated separately as needed.\\nAn organization may choose to use the PPI score evaluation of the propensity of a farmer or community to be poor as another option that can be more relevant in some rural areas and can be calculated separately as needed. Organizations may also choose to participate on this topic in the Living Income Community of Practice.",
               "$ref": "./poverty-level.json"
             },
-            "childLabour": {
-              "title": "Child labour",
+            "childLabor": {
+              "title": "Child labor",
               "description": "The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, \"children in school at the appropriate grade level\" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organizations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.",
-              "$extended-description": "As an additional option, it may be desirable to ask whether young workers (those under age 18) are working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)\\nThese concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs.",
+              "$extended-description": "As an additional option, it may be desirable to ask whether young workers (those under age 18) are working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)\\nThese concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs.\\nWe recognize that child labor can also occur outside the family setting. At this initial stage of common metrics, it is necessary to note that capturing that requires either a labor assessment targeting workers (risky for them, often requires an independent surveyor, and timing is critical) or a risk assessment or data from the wider community (consider costs and comparability). This is an important topic and it is necessary to adequately understand which communities are more prone to this situation, therefore, we propose that it be addressed with different tools than these basic performance indicators developed with the GCP.",
               "$ref": "./child-labor.json"
             },
             "hunger": {
@@ -171,7 +196,7 @@
           "description": "The general farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|58-82",
+          "$example-data": "./example-data/testset.json|62-89",
           "required": [
             "farmId",
             "farmerId",
@@ -234,7 +259,7 @@
           "description": "The social farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|83-96",
+          "$example-data": "./example-data/testset.json|90-103",
           "required": [
             "laborPractices",
             "wages"
@@ -259,7 +284,7 @@
           "description": "The economic farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|100-141",
+          "$example-data": "./example-data/testset.json|104-145",
           "required": [
             "coffeeProfit",
             "productivity",
@@ -305,7 +330,7 @@
           "description": "The environmental farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|142-185",
+          "$example-data": "./example-data/testset.json|146-186",
           "required": [
             "forestEcosystemProtection",
             "fertilizerUse",
@@ -366,7 +391,7 @@
           "description": "The general plot characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|187-233",
+          "$example-data": "./example-data/testset.json|189-235",
           "required": [
             "plotId",
             "farmId",
@@ -420,7 +445,7 @@
           "description": "The economic plot characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|234-237",
+          "$example-data": "./example-data/testset.json|236-239",
           "required": [
             "yield",
             "productivity"
