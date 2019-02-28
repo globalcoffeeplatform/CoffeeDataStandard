@@ -11,48 +11,58 @@
   },
   "additionalProperties": false,
   "required": [
-    "globalCoffeeDatasetId",
-    "productionYear",
+    "metadata",
     "farmer",
     "farm"
   ],
   "properties": {
-    "globalCoffeeDatasetId": {
-      "title": "Coffee Dataset Id",
-      "description": "The unique identifier for this dataset. The organization is responsible for the best-practice values.",
-      "$ref": "./global-unique-id.json",
-      "$example-data": "./example-data/testset.json|2-6"
-    },
-    "schemaVersion": {
-      "title": "Schema version",
-      "description": "**Optional**\\nThe version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.",
-      "type": "string",
-      "$comment": "Add new version number to enum when released.",
-      "enum": [
-        "0.0.5"
-      ]
-    },
-    "productionYear": {
-      "title": "Production year",
-      "description": "The production year is defined as the end of the last harvest to the end of the corresponding harvest before that (12 month period).",
+    "metadata": {
+      "title": "Metadata",
+      "$example-data": "./example-data/testset.json|2-13",
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "start",
-        "end"
+        "globalCoffeeDatasetId",
+        "productionYear"
       ],
       "properties": {
-        "start": {
-          "title": "The start of the projection year in YYYYMM",
-          "type": "integer",
-          "minimum": 199000,
-          "maximum": 210000
+        "globalCoffeeDatasetId": {
+          "title": "Coffee Dataset Id",
+          "description": "The unique identifier for this dataset. The organization is responsible for the best-practice values.",
+          "$ref": "./global-unique-id.json"
         },
-        "end": {
-          "title": "The end of the projection year in YYYYMM",
-          "type": "integer",
-          "minimum": 199000,
-          "maximum": 210000
+        "schemaVersion": {
+          "title": "Schema version",
+          "description": "**Optional**\\nThe version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.",
+          "type": "string",
+          "$comment": "Add new version number to enum when released.",
+          "enum": [
+            "0.0.5"
+          ]
+        },
+        "productionYear": {
+          "title": "Production year",
+          "description": "The production year is defined as the end of the last harvest to the end of the corresponding harvest before that (12 month period).",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "start",
+            "end"
+          ],
+          "properties": {
+            "start": {
+              "title": "The start of the projection year in YYYYMM",
+              "type": "integer",
+              "minimum": 199000,
+              "maximum": 210000
+            },
+            "end": {
+              "title": "The end of the projection year in YYYYMM",
+              "type": "integer",
+              "minimum": 199000,
+              "maximum": 210000
+            }
+          }
         }
       }
     },
@@ -71,7 +81,7 @@
           "description": "The general farmer characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|13-48",
+          "$example-data": "./example-data/testset.json|15-50",
           "required": [
             "farmerId",
             "name",
@@ -149,7 +159,7 @@
           "description": "The social farmer characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|49-59",
+          "$example-data": "./example-data/testset.json|51-61",
           "required": [
             "povertyLevel",
             "childLabor",
@@ -196,7 +206,7 @@
           "description": "The general farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|62-89",
+          "$example-data": "./example-data/testset.json|64-91",
           "required": [
             "farmId",
             "farmerId",
@@ -259,7 +269,7 @@
           "description": "The social farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|90-103",
+          "$example-data": "./example-data/testset.json|92-105",
           "required": [
             "laborPractices",
             "wages"
@@ -284,7 +294,7 @@
           "description": "The economic farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|104-145",
+          "$example-data": "./example-data/testset.json|106-147",
           "required": [
             "coffeeProfit",
             "productivity",
@@ -331,7 +341,7 @@
           "description": "The environmental farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|146-186",
+          "$example-data": "./example-data/testset.json|148-188",
           "required": [
             "forestEcosystemProtection",
             "fertilizerUse",
@@ -392,7 +402,7 @@
           "description": "The general plot characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|189-235",
+          "$example-data": "./example-data/testset.json|191-237",
           "required": [
             "plotId",
             "farmId",
@@ -446,7 +456,7 @@
           "description": "The economic plot characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|236-239",
+          "$example-data": "./example-data/testset.json|238-241",
           "required": [
             "yield",
             "productivity"

@@ -1,13 +1,15 @@
 {
-  "globalCoffeeDatasetId": {
-    "identifier": "634748-hfgf-ydhgd",
-    "organization": "COSA",
-    "timestamp": "2019-01-02"
-  },
-  "schemaVersion": "0.0.5",
-  "productionYear": {
-    "start": 201802,
-    "end": 201811
+  "metadata": {
+    "globalCoffeeDatasetId": {
+      "identifier": "634748-hfgf-ydhgd",
+      "organization": "COSA",
+      "timestamp": "2019-01-02"
+    },
+    "schemaVersion": "0.0.5",
+    "productionYear": {
+      "start": 201802,
+      "end": 201811
+    }
   },
   "farmer": {
     "general": {

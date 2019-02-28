@@ -10,6 +10,17 @@ This schema displays the initial basic Indicators for farm-level coffee sustaina
 **********
 1 Metadata
 **********
+.. topic:: Details:
+
+   **Property name**: metadata
+
+   **Type**: *object*
+
+
+.. literalinclude:: ../../example-data/testset.json
+   :linenos:
+   :lines: 2-13
+   :caption: Sample data
 
 1.1 Coffee Dataset Id
 ^^^^^^^^^^^^^^^^^^^^^
@@ -28,11 +39,6 @@ The unique identifier for this dataset. The organization is responsible for the 
    :linenos:
    :caption: global-unique-id.json
 
-.. literalinclude:: ../../example-data/testset.json
-   :linenos:
-   :lines: 2-6
-   :caption: Sample data
-
 1.2 Schema version
 ^^^^^^^^^^^^^^^^^^
 .. topic:: Details:
@@ -49,9 +55,8 @@ The unique identifier for this dataset. The organization is responsible for the 
 The version number of the schema. When not provided the latest version of the schema will be used to validate the dataset.
 
 
-*****************
-2 Production year
-*****************
+1.3 Production year
+^^^^^^^^^^^^^^^^^^^
 .. topic:: Details:
 
    **Property name**: productionYear
@@ -62,8 +67,8 @@ The version number of the schema. When not provided the latest version of the sc
 The production year is defined as the end of the last harvest to the end of the corresponding harvest before that (12 month period).
 
 
-2.1 The start of the projection year in YYYYMM
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1.3.1 The start of the projection year in YYYYMM
+------------------------------------------------
 .. topic:: Details:
 
    **Property name**: start
@@ -75,8 +80,8 @@ The production year is defined as the end of the last harvest to the end of the 
    **Maximum**: *210000*
 
 
-2.2 The end of the projection year in YYYYMM
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1.3.2 The end of the projection year in YYYYMM
+----------------------------------------------
 .. topic:: Details:
 
    **Property name**: end
@@ -89,7 +94,7 @@ The production year is defined as the end of the last harvest to the end of the 
 
 
 ********
-3 Farmer
+2 Farmer
 ********
 .. topic:: Details:
 
@@ -101,7 +106,7 @@ The production year is defined as the end of the last harvest to the end of the 
 The farmer characteristics
 
 
-3.1 General farmer characteristics
+2.1 General farmer characteristics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. topic:: Details:
 
@@ -115,10 +120,10 @@ The general farmer characteristics
 
 .. literalinclude:: ../../example-data/testset.json
    :linenos:
-   :lines: 13-48
+   :lines: 15-50
    :caption: Sample data
 
-3.1.1 Unique ID of the farmer
+2.1.1 Unique ID of the farmer
 -----------------------------
 .. topic:: Details:
 
@@ -138,7 +143,7 @@ Each producer should have a unique ID. Optimally this can be a national ID, but 
    :linenos:
    :caption: global-unique-id.json
 
-3.1.2 Name of the farmer
+2.1.2 Name of the farmer
 ------------------------
 .. topic:: Details:
 
@@ -155,7 +160,7 @@ First and last name(s) of the farmer surveyed should be collected in separate fi
    :linenos:
    :caption: name.json
 
-3.1.3 The address of the farm
+2.1.3 The address of the farm
 -----------------------------
 .. topic:: Details:
 
@@ -172,7 +177,7 @@ Generally, data should include Country and then State/Department and Municipalit
    :linenos:
    :caption: address.json
 
-3.1.4 Date of birth
+2.1.4 Date of birth
 -------------------
 .. topic:: Details:
 
@@ -195,7 +200,7 @@ Best practice is to use 'Year of Birth' as opposed to age. Age has to be updated
 Data point used to understand the relative presence of youth and calculate youth engagement: % of producers in the sustainability program or supply chain 35 years old and under.
 
 
-3.1.5 Gender
+2.1.5 Gender
 ------------
 .. topic:: Details:
 
@@ -209,7 +214,7 @@ Data point used to understand the relative presence of youth and calculate youth
 Data point used to understand the relative presence of women and to calculate women's engagement and the outcomes they experience as diverse from men: % of women in the sustainability program or supply chain.
 
 
-3.1.6 Farm Ids
+2.1.6 Farm Ids
 --------------
 .. topic:: Details:
 
@@ -227,7 +232,7 @@ Data point used to understand the relative presence of women and to calculate wo
 Which farms belong to this farmer. At least one is required.
 
 
-3.1.7 Third-party identifier
+2.1.7 Third-party identifier
 ----------------------------
 .. topic:: Details:
 
@@ -243,7 +248,7 @@ Which farms belong to this farmer. At least one is required.
 When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
 
 
-3.2 Social farmer characteristics
+2.2 Social farmer characteristics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. topic:: Details:
 
@@ -257,10 +262,10 @@ The social farmer characteristics
 
 .. literalinclude:: ../../example-data/testset.json
    :linenos:
-   :lines: 49-59
+   :lines: 51-61
    :caption: Sample data
 
-3.2.1 Poverty level
+2.2.1 Poverty level
 -------------------
 .. topic:: Details:
 
@@ -284,7 +289,7 @@ An organization may choose to use the PPI score evaluation of the propensity of 
    :linenos:
    :caption: poverty-level.json
 
-3.2.2 Child labor
+2.2.2 Child labor
 -----------------
 .. topic:: Details:
 
@@ -308,7 +313,7 @@ We recognize that child labor can also occur outside the family setting. At this
    :linenos:
    :caption: child-labor.json
 
-3.2.3 Hunger days
+2.2.3 Hunger days
 -----------------
 .. topic:: Details:
 
@@ -328,7 +333,7 @@ More comprehensive nutritional indicators can be expensive and require significa
 
 
 ******
-4 Farm
+3 Farm
 ******
 .. topic:: Details:
 
@@ -340,7 +345,7 @@ More comprehensive nutritional indicators can be expensive and require significa
 The farm characteristics
 
 
-4.1 General farm characteristics
+3.1 General farm characteristics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. topic:: Details:
 
@@ -354,10 +359,10 @@ The general farm characteristics
 
 .. literalinclude:: ../../example-data/testset.json
    :linenos:
-   :lines: 62-89
+   :lines: 64-91
    :caption: Sample data
 
-4.1.1 Farm Id
+3.1.1 Farm Id
 -------------
 .. topic:: Details:
 
@@ -374,7 +379,7 @@ Globally Unique ID of the recording of the farm at a specific time and by a spec
    :linenos:
    :caption: global-unique-id.json
 
-4.1.2 Farmer Id
+3.1.2 Farmer Id
 ---------------
 .. topic:: Details:
 
@@ -391,7 +396,7 @@ Globally Unique ID of the farmer of this farm
    :linenos:
    :caption: global-unique-id.json
 
-4.1.3 Location of the farm
+3.1.3 Location of the farm
 --------------------------
 .. topic:: Details:
 
@@ -408,7 +413,7 @@ GPS should be captured for each farm plot if possible. GPS readings should be ta
    :linenos:
    :caption: farm-location.json
 
-4.1.4 Farm address
+3.1.4 Farm address
 ------------------
 .. topic:: Details:
 
@@ -425,7 +430,7 @@ This should be the location of the farm itself (main plot), not the home of the 
    :linenos:
    :caption: address.json
 
-4.1.5 Total farm size (ha)
+3.1.5 Total farm size (ha)
 --------------------------
 .. topic:: Details:
 
@@ -442,7 +447,7 @@ Total Farm size refers to total property size, including land used to grow crops
 Best practice is to collect response in any given unit, and then perform conversion to a standard international unit (ha). Data validation should ensure that the total area planted in coffee should be less than the total farm size. It is ok to rely on farmer recall although more rigorous estimates will include GPS or polygonal mapping data. Consider that farms may contain multiple plots (plots are farm land areas that are not connected, or farm areas that are managed differently, or both). Make sure to add all relevant plots managed by members of a household together (that is, the farm area should coincide with the land used to account for the farm cost and revenue data being reported).
 
 
-4.1.6 Total Area planted in Coffee (ha)
+3.1.6 Total Area planted in Coffee (ha)
 ---------------------------------------
 .. topic:: Details:
 
@@ -459,7 +464,7 @@ Sum of coffee farm areas from producers in the sustainability program or supply 
 Area under coffee production can also be triangulated with other pieces of data collected (e.g., trees planted per unit land (density rate) and/or total number of trees planted).
 
 
-4.1.7 Third-party identifier
+3.1.7 Third-party identifier
 ----------------------------
 .. topic:: Details:
 
@@ -475,7 +480,7 @@ Area under coffee production can also be triangulated with other pieces of data 
 When this dataset is reused by another organization that needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
 
 
-4.2 Social farm characteristics
+3.2 Social farm characteristics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. topic:: Details:
 
@@ -489,10 +494,10 @@ The social farm characteristics
 
 .. literalinclude:: ../../example-data/testset.json
    :linenos:
-   :lines: 90-103
+   :lines: 92-105
    :caption: Sample data
 
-4.2.1 Labor Practices
+3.2.1 Labor Practices
 ---------------------
 .. topic:: Details:
 
@@ -514,7 +519,7 @@ These concepts are common to many sustainability standards and the approach is b
    :linenos:
    :caption: labor-practices.json
 
-4.2.2 Wages
+3.2.2 Wages
 -----------
 .. topic:: Details:
 
@@ -540,7 +545,7 @@ Organizations may wish to participate in working groups to define and measure li
    :linenos:
    :caption: wages.json
 
-4.3 Economic farm characteristics
+3.3 Economic farm characteristics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. topic:: Details:
 
@@ -554,10 +559,10 @@ The economic farm characteristics
 
 .. literalinclude:: ../../example-data/testset.json
    :linenos:
-   :lines: 104-145
+   :lines: 106-147
    :caption: Sample data
 
-4.3.1 Coffee Profit
+3.3.1 Coffee Profit
 -------------------
 .. topic:: Details:
 
@@ -576,7 +581,7 @@ The simple approach (which avoids the additional time and resources necessary fo
 This simplified approach does not cover asking the producer about revenue and prices for each transaction or amount sold, nor any premiums or deductions. It also factors in only the main costs in the coffee production system (see Cost of Production indicator below).
 
 
-4.3.2 Yield / Productivity
+3.3.2 Yield / Productivity
 --------------------------
 .. topic:: Details:
 
@@ -596,7 +601,7 @@ For general GBE conversion guidance, please see: http://www.thecoffeeguide.org/c
    :linenos:
    :caption: productivity.json
 
-4.3.3 Cost of Production
+3.3.3 Cost of Production
 ------------------------
 .. topic:: Details:
 
@@ -635,7 +640,7 @@ This indicator is a Sub-metric for Net Income (or Profit).
    :linenos:
    :caption: production-costs.json
 
-4.3.4 Average Price
+3.3.4 Average Price
 -------------------
 .. topic:: Details:
 
@@ -657,7 +662,7 @@ This approach avoids the additional time and resources necessary for detailed ac
    :linenos:
    :caption: average-price.json
 
-4.3.5 Sustainable purchases
+3.3.5 Sustainable purchases
 ---------------------------
 .. topic:: Details:
 
@@ -677,7 +682,7 @@ Detailed methodology developed by the SPF Working Group (not a farmer level metr
    :linenos:
    :caption: sustainable-purchases.json
 
-4.4 Environmental farm characteristics
+3.4 Environmental farm characteristics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. topic:: Details:
 
@@ -691,10 +696,10 @@ The environmental farm characteristics
 
 .. literalinclude:: ../../example-data/testset.json
    :linenos:
-   :lines: 146-186
+   :lines: 148-188
    :caption: Sample data
 
-4.4.1 Forest and Ecosystem Protection
+3.4.1 Forest and Ecosystem Protection
 -------------------------------------
 .. topic:: Details:
 
@@ -720,7 +725,7 @@ In addition, overlaying gps coordinates of farms (See GPS Coordinate instruction
    :linenos:
    :caption: forest-ecosystem-protection.json
 
-4.4.2 Fertilizer use
+3.4.2 Fertilizer use
 --------------------
 .. topic:: Details:
 
@@ -741,7 +746,7 @@ Professional assessments include advice from an extension agent or other sustain
 This approach does not require in-depth fertilizer information: nutrient amounts, local commercial names, dosage amounts, application rates, etc.
 
 
-4.4.3 Water Conservation & Contamination Prevention
+3.4.3 Water Conservation & Contamination Prevention
 ---------------------------------------------------
 .. topic:: Details:
 
@@ -781,7 +786,7 @@ Asking about best practice adoption is a standardized way to address this indica
    :linenos:
    :caption: water.json
 
-4.4.4 Pest control - hazards
+3.4.4 Pest control - hazards
 ----------------------------
 .. topic:: Details:
 
@@ -816,7 +821,7 @@ Focusing on IPM techniques is a globally standardized way to understand pest man
    :linenos:
    :caption: pest-control.json
 
-4.4.5 Soil Conservation
+3.4.5 Soil Conservation
 -----------------------
 .. topic:: Details:
 
@@ -851,7 +856,7 @@ Asking about best practice adoption is a standardized way to address this indica
    :caption: soil-conservation.json
 
 ******
-5 Plot
+4 Plot
 ******
 .. topic:: Details:
 
@@ -863,7 +868,7 @@ Asking about best practice adoption is a standardized way to address this indica
 The plot characteristics. This is an example of what is possible. The plot property is optional.
 
 
-5.1 General plot characteristics
+4.1 General plot characteristics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. topic:: Details:
 
@@ -877,10 +882,10 @@ The general plot characteristics
 
 .. literalinclude:: ../../example-data/testset.json
    :linenos:
-   :lines: 189-235
+   :lines: 191-237
    :caption: Sample data
 
-5.1.1 Unique ID of the plot
+4.1.1 Unique ID of the plot
 ---------------------------
 .. topic:: Details:
 
@@ -897,7 +902,7 @@ Globally Unique ID of the recording of the plot at a specific time and by a spec
    :linenos:
    :caption: global-unique-id.json
 
-5.1.2 Farm ID
+4.1.2 Farm ID
 -------------
 .. topic:: Details:
 
@@ -914,7 +919,7 @@ To which farm belongs this plot
    :linenos:
    :caption: global-unique-id.json
 
-5.1.3 Plot boundary
+4.1.3 Plot boundary
 -------------------
 .. topic:: Details:
 
@@ -924,7 +929,7 @@ To which farm belongs this plot
 The boundary of the plot
 
 
-5.1.4 Plot area
+4.1.4 Plot area
 ---------------
 .. topic:: Details:
 
@@ -938,7 +943,7 @@ The boundary of the plot
 Area of the plot
 
 
-5.1.5 Third-party identifier
+4.1.5 Third-party identifier
 ----------------------------
 .. topic:: Details:
 
@@ -954,7 +959,7 @@ Area of the plot
 When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
 
 
-5.2 Economic plot characteristics
+4.2 Economic plot characteristics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. topic:: Details:
 
@@ -968,10 +973,10 @@ The economic plot characteristics
 
 .. literalinclude:: ../../example-data/testset.json
    :linenos:
-   :lines: 236-239
+   :lines: 238-241
    :caption: Sample data
 
-5.2.1 Yield
+4.2.1 Yield
 -----------
 .. topic:: Details:
 
@@ -985,7 +990,7 @@ The economic plot characteristics
 kgs of GBE (harvested)
 
 
-5.2.2 Productivity
+4.2.2 Productivity
 ------------------
 .. topic:: Details:
 

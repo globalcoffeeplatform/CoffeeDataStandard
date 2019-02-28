@@ -36,10 +36,10 @@ namespace Json2Rst
             // Write content:
             _sb.AppendLine("\n.. contents::\n    :depth: 4");
 
-            _titleNumber.Level1 = 1;
-            WriteHeading("Metadata", 2);
+            // _titleNumber.Level1 = 1;
+            //WriteHeading("Metadata", 2);
 
-            _titleNumber.Level2 = 1;
+            //_titleNumber.Level2 = 1;
             var rootProperties = JObject.Parse(jsonObject.Property("properties").Value.ToString());
             var propertyList = new List<JProperty>();
             foreach (var property in rootProperties.Properties())
