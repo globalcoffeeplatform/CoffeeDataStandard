@@ -20,7 +20,7 @@
 }
 
 .wy-side-scroll {
-    width: 300px;
+    width: auto;
     overflow-y: auto;
 }
 
