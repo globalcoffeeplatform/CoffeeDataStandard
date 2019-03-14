@@ -1,8 +1,11 @@
-Technical details
-=================
+Overview of JSON schema
+=======================
 
-Below is the full schema in DOCSON format.
-
+| The complete data structure is visualized in the table below:
+| All required data attributes are indicated in bold,
+| By clicking on the blue table title -> all data attributes become visible,
+| By clicking on the data entity buttons -> all data attributes become visible of that data entity and,
+| By clicking on the {} symbols -> the JSON becomes visible
 
 .. raw:: html
 
