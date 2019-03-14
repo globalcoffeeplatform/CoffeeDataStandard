@@ -29,16 +29,23 @@ Funders of this project
 .. image:: _static/images/iseal.png
    :alt: ISEAL is the global membership association for credible sustainability standards.
 
+The project is supported by the ISEAL Innovations Fund.
+The ISEAL Innovations Fund is supported by the following partners:
+
+.. image:: _static/images/ISEAL-Innovations-Fund.png
+   :alt: ISEAL Innovations Fund.
+
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contents
 
    about
    executive-summary
    use-cases
    governance
    explanation
+   technical-details
 
 
 
