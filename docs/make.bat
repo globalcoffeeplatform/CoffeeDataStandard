@@ -2,6 +2,9 @@
 
 pushd %~dp0
 
+REM Paul Meems: Copy schema files to schema folder in documentation:
+xcopy /D /Y ..\schema\*.json  source\_static\schema\
+
 REM Command file for Sphinx documentation
 
 if "%SPHINXBUILD%" == "" (

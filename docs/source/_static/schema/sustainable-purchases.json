@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/andrejellema/GlobalCoffeeDataStandard/master/schema/sustainable-purchases.json",
+  "title": "Sustainable purchases",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "volumeOfSustainablePurchases",
+    "proportionOfTotal"
+  ],
+  "properties": {
+    "volumeOfSustainablePurchases": {
+      "title": "Volume of sustainable purchases",
+      "type": "number",
+      "minimum": 0
+    },
+    "proportionOfTotal": {
+      "title": "Proportion of total",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    }
+  }
+}
