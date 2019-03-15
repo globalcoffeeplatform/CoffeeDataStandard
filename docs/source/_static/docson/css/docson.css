@@ -15,7 +15,7 @@
  */
 
 .docson {
-    font-family: 'Droid Sans', verdana, helvetica, serif;
+    font-family: 'Droid Sans',verdana,helvetica;
     font-size: 13px;
     padding: 6px 6px 6px 6px;
 }
@@ -437,11 +437,6 @@
 
 .docson .json, .json-schema {
     font-family: "Lucida Console", Monaco, monospace;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
 }
 
 .docson .json-punctuation {
@@ -483,8 +478,3 @@
     font-style: italic;
 }
 
-/* Overrides */
-
-.docson .box {
-    width: 96% !important;
-}
