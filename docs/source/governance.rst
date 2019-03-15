@@ -4,65 +4,55 @@ Governance
 
 .. Based on https://github.com/ThreeSixtyGiving/standard/blob/master/documentation/governance.md for an example.
 
-============
-Introduction
-============
-For the majority of coffee farmers, growing coffee is not a viable business. The coffee world is also a very fragmented one.
-There are 20 to 25 million producers scattered throughout 50 to 60 different countries. There are also hundreds of traders, roasters, retailers,
-NGOs, governments, donors, and sustainability initiatives all trying to pursue their own sustainability agendas and activities regardless of duplication, short-term focused or fragmentation.
-
-Which is why over 150 leading coffee companies and organisations from every corner of the coffee world came together to establish a
-central platform which can more effectively coordinate the $350 Million spent annually on sustainability and, through collective action,
-achieve far greater impact on the livelihoods of coffee farming families and their communities than by doing it alone.
-
-The Global Coffee Data Standard displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group.
-COSA–with feedback from the members of the Global Expert Committee–developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time.
-The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.
-
 As the Global Coffee Data Standard develops over time, with updated versions and new publishers, it is important that a diverse group of stakeholders are engaged in the process.
-
-This document outlines the governance and revision processes for the Global Coffee Data Standard. It was agreed at a Standard Stewardship Committee meeting on 12th February 2019.
-The Stewardship Committee must be consulted before any changes are made either to this document or to the governance and revision processes for the Global Coffee Data Standard.
+This document outlines the governance and revision processes for the Global Coffee Data Standard.
 
 ======================
 Version 1.0 and Beyond
 ======================
 The Global Coffee Data Standard was initially developed through an iterative process in 2017 & 2018, resulting in an initial draft version in November 2018.
 
-During 2019, we have been working towards a first version of the Standard, version 1.0. Our work has focused on addressing some issues identified through wider adoption of the Standard during 2019 and 2020.
+During 2019, we have been working towards a first version of the standard, version 1.0.
+Our work has focused on addressing some issues identified through wider adoption of the Standard during 2019 and 2020.
 
 This document outlines a process for managing changes to the Global Coffee Data Standard during the move from a draft version to an officially agreed version, which will be numbered 1.0.
+
+Currently two new projects from the ISEAL Innovation Fund are upcoming:
+
+#. The Information and Data Standard for Sustainability project (IDSS), led by FSC and partners are RA, Fairtrade, ISEAL, GCP, ASI and
+#. The Delta Project with BCI, GCP, partnering with the International Coffee Organisation (ICO) and the International Cotton Advisory Committee (ICAC) to develop common cross-commodity sustainability indicators.
+
+It is expected that the further development, adoption and elaboration of the data standard becomes an integral part of these projects.
 
 ==========================
 Stewardship and Governance
 ==========================
-On May 1st 2016 the Global Coffee Platform (GCP) launched, and acts as the lead steward of the Global Coffee Data Standard.
+Global Coffee Platform (GCP) acts as the lead steward of the Global Coffee Data Standard.
+The organisation is led by an Executive Director. The organisation’s activities are overseen by a Board of Directors.
 
-The organisation is led by a Chief Executive Officer (CEO) who is supported by a staff team as well as a technical team.
-The organisation’s activities and governance is overseen by a Board of Directors that includes representatives from across the charitable giving sector.
-
-In the pursuit of openness and community-driven process, subscribers to the Global Coffee Data Standard Forum and
-those engaging with the `Global Coffee Data Standard GitHub repository <https://github.com/andrejellema/GlobalCoffeeDataStandard>`_ will be kept informed at all stages about
-planned revisions to the 360 Standard, and will be offered clear and timely opportunities to input and comment.
-
-.. TODO :: Will a forum be available?
+In the pursuit of openness and community-driven process, subscribers to the Global Coffee Data Standard and those engaging with the Global Coffee Data Standard GitHub repository will be kept informed at all stages about planned revisions to the Global Coffee Data Standard, and will be offered clear and timely opportunities to input and comment.
 
 To ensure the relevance, quality and effective implementation of proposed updates to the Standard, new version releases will be subjected to a process of peer review with
 invited reviewers from publisher and user communities, and an open review process.
 
-A Standard Stewardship Committee, made up of representatives from GCP staff and Board members, current and potential publishers, end users and the technical team,
-is responsible for giving final approval to formal upgrades of the Standard and ensuring the processes in this document have been properly carried out.
+A Standard Stewardship Committee, responsible for giving final approval to formal upgrades of the Standard and ensuring the processes in this document have been properly carried out will be set up in due course.
 
 Intellectual property
 ---------------------
-The Global Coffee Data Standard is the intellectual property of GCP. The schema is provided under a `Creative Commons Attribution 4.0 International License <https://creativecommons.org/licenses/by/4.0/>`_.
+The Global Coffee Data Standard is the joint intellectual property of GCP and COSA.
 
-Contributors to the Standard agree to transfer any copyright in their contributions to GCP, in order that it is held in trust as part of the Standard.
+.. raw:: html
+
+   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a> The Global Coffee Data Standard is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+
+
+Contributors to the Global Coffee Data Standard agree to transfer any copyright in their contributions to GCP and COSA, in order that it is held in trust as part of the Standard.
 No content infringing upon third-party Intellectual Property Rights will be included in the Standard.
 
 Governance principles
 ---------------------
-We are committed to the `Open Stand principles <https://open-stand.org/about-us/principles/>`_ for standards development. The Global Coffee Data Standard has been developed with:
+We are committed to the `Open Standard principles <https://open-stand.org/about-us/principles/>`_ for standards development. The Global Coffee Data Standard has been developed with:
 
 * **Due process**: Decisions will be made with equity and fairness among participants. Through an open process for submitting issues, extensions and requests for updates, no one party will dominate or guide standard development. All processes will be transparent and opportunities will exist to appeal decisions. Processes for periodic standards review and updating are well defined in this document.
 
@@ -112,20 +102,21 @@ To release a new minor or major version upgrade will involve a number of stages 
 .. image:: _static/images/upgrade_process_march_2019.png
    :alt: Revision process
 
-.. todo :: Can/will we adopt the above revision process?
+.. Can/will we adopt the above revision process?
 
 The revision process will follow these general principles:
 
-* **Publicity**: All stages of the revision process will be announced via the GCP online forum. This is the formal channel for notification during the process.
+* **Publicity**: All stages of the revision process will be announced via the GCP website. This is the formal channel for notification during the process.
 
-* **Consensus**: The process should act in the interest of the data standard, with particular consideration given to what the changes will mean for current publishers. All processes should aim towards gaining community consensus for changes. In cases where consensus cannot be reached, the process will be escalated to the CEO of GCP and put to a final majority vote by the Stewardship Committee. The GCP technical team are responsible for generating key documentation during the process, but should always be guided by community consensus, submitting all decisions for public discussion.
+* **Consensus**: The process should act in the interest of the data standard, with particular consideration given to what the changes will mean for current publishers. All processes should aim towards gaining community consensus for changes. In cases where consensus cannot be reached, the process will be put to a final majority vote by the Stewardship Committee. The GCP technical team are responsible for generating key documentation during the process, but should always be guided by community consensus, submitting all decisions for public discussion.
 
 * **Appeal**: Any party may appeal against decisions made during the process by writing to the Standard Stewardship Committee via the GCP discussion forum. The Stewardship Committee has the authority to reject proposed revisions on the Standard in response to appeals
 
 Proposals
 ---------
 Changes to the Standard can be proposed by anyone at any point via the GCP discussion forum either as issues for discussion, or `pull requests <https://help.github.com/articles/about-pull-requests/>`_ with a clear description of the proposed change.
-Contributors are encouraged to raise discussions in order to seek consensus on proposed changes. Changes may be proposed as updated field definitions or codelist entries, or as new features to the Standard.
+Contributors are encouraged to raise discussions in order to seek consensus on proposed changes.
+Changes may be proposed as updated field definitions or code list entries, or as new features to the Standard.
 
 ==============
 Prioritisation
@@ -136,7 +127,7 @@ Periodically, at the start of a revision process a cut-off date for proposals wi
 
 Prioritisation review
 ---------------------
-The list is shared on the GCP online forum, with at least a two-week window for discussion.
+The list is shared on the GCP website, with at least a two-week window for discussion.
 
 Based on discussions, a final list is then proposed by the technical team with all the issues that will be taken forward into the rest of the process. A proposal that has made it this far may or may not make it into the final upgrade. As the proposal is worked into final concrete examples and schema changes, further issues may arise that mean the original proposal cannot be implemented.
 
@@ -167,4 +158,4 @@ Support will be offered for one prior version of the Standard. Support for any e
 
 Publishers are encouraged to review each new version when released, and to consider how they might adopt new features. Publishers should aim to move to a new major version within 18 months of its release.
 
-.. todo :: Should we add a privacy page like http://standard.threesixtygiving.org/en/latest/privacy-notice/
+.. Should we add a privacy page like http://standard.threesixtygiving.org/en/latest/privacy-notice/
