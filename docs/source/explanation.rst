@@ -33,11 +33,10 @@ This schema displays the initial basic Indicators for farm-level coffee sustaina
 
 The unique identifier for this dataset. The organization is responsible for the best-practice values.
 
+.. raw:: html
 
-.. literalinclude:: ../../schema/global-unique-id.json
-   :language: json
-   :linenos:
-   :caption: global-unique-id.json
+   <script src="_static/docson/widget.js" data-schema="../schema/global-unique-id.json"></script>
+
 
 1.2 Schema version
 ^^^^^^^^^^^^^^^^^^
@@ -138,10 +137,10 @@ Globally Unique ID of the recording of the farmer at a specific time and by a sp
 Each producer should have a unique ID. Optimally this can be a national ID, but in its absence a buyer ID, project ID or other unique number can serve. It is important to keep in mind that various entities may have access to reported data, so confidential information should not be included in the shared record (e.g. Social Security number).
 
 
-.. literalinclude:: ../../schema/global-unique-id.json
-   :language: json
-   :linenos:
-   :caption: global-unique-id.json
+.. raw:: html
+
+   <script src="_static/docson/widget.js" data-schema="../schema/global-unique-id.json"></script>
+
 
 2.1.2 Name of the farmer
 ------------------------
