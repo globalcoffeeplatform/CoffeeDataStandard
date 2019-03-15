@@ -11,7 +11,7 @@ For the majority of coffee farmers, growing coffee is not a viable business. The
 There are 20 to 25 million producers scattered throughout 50 to 60 different countries. There are also hundreds of traders, roasters, retailers,
 NGOs, governments, donors, and sustainability initiatives all trying to pursue their own sustainability agendas and activities regardless of duplication, short-term focused or fragmentation.
 
-Which is why over 150 leading coffee companies and organizations from every corner of the coffee world came together to establish a
+Which is why over 150 leading coffee companies and organisations from every corner of the coffee world came together to establish a
 central platform which can more effectively coordinate the $350 Million spent annually on sustainability and, through collective action,
 achieve far greater impact on the livelihoods of coffee farming families and their communities than by doing it alone.
 

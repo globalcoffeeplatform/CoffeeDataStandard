@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "required": [
     "clearContracting",
-    "rightToOrganize",
+    "rightToOrganise",
     "prohibitingDiscrimination",
     "hazardousWorkingCondition"
   ],
@@ -20,9 +20,9 @@
         "No"
       ]
     },
-    "rightToOrganize": {
-      "title": "Right to organize",
-      "description": "Right to organize--the ability for workers to join unions or committees and freely assemble.",
+    "rightToOrganise": {
+      "title": "Right to organise",
+      "description": "Right to organise--the ability for workers to join unions or committees and freely assemble.",
       "type": "string",
       "enum": [
         "Yes",

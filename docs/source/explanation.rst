@@ -31,12 +31,12 @@ This schema displays the initial basic Indicators for farm-level coffee sustaina
    **Reference**: *global-unique-id.json*
 
 
-The unique identifier for this dataset. The organization is responsible for the best-practice values.
+The unique identifier for this dataset. The organisation is responsible for the best-practice values.
 
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/global-unique-id.json"></script>
 
 
 1.2 Schema version
@@ -132,7 +132,7 @@ The general farmer characteristics
    **Reference**: *global-unique-id.json*
 
 
-Globally Unique ID of the recording of the farmer at a specific time and by a specific organization.
+Globally Unique ID of the recording of the farmer at a specific time and by a specific organisation.
 
 
 Each producer should have a unique ID. Optimally this can be a national ID, but in its absence a buyer ID, project ID or other unique number can serve. It is important to keep in mind that various entities may have access to reported data, so confidential information should not be included in the shared record (e.g. Social Security number).
@@ -140,7 +140,7 @@ Each producer should have a unique ID. Optimally this can be a national ID, but 
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/global-unique-id.json"></script>
 
 
 2.1.2 Name of the farmer
@@ -157,7 +157,7 @@ First and last name(s) of the farmer surveyed should be collected in separate fi
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//name.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/name.json"></script>
 
 
 2.1.3 The address of the farm
@@ -174,7 +174,7 @@ Generally, data should include Country and then State/Department and Municipalit
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//address.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/address.json"></script>
 
 
 2.1.4 Date of birth
@@ -245,7 +245,7 @@ Which farms belong to this farmer. At least one is required.
    **Array items**: *global-unique-id.json*
 
 
-When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
+When this dataset is reused by another organisation who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
 
 
 2.2 Social farmer characteristics
@@ -281,12 +281,12 @@ The Monitoring approach is to ask producers the proportion of total household in
 
 The World Bank International Extreme Poverty Line is $1.90 USD per day as of 2015 (https://datahelpdesk.worldbank.org/knowledgebase/articles/906519). Comparison to national poverty lines may be useful for discussion related to one country or domestic policy but that can be calculated separately as needed.
 
-An organization may choose to use the PPI score evaluation of the propensity of a farmer or community to be poor as another option that can be more relevant in some rural areas and can be calculated separately as needed. Organizations may also choose to participate on this topic in the Living Income Community of Practice.
+An organisation may choose to use the PPI score evaluation of the propensity of a farmer or community to be poor as another option that can be more relevant in some rural areas and can be calculated separately as needed. Organisations may also choose to participate on this topic in the Living Income Community of Practice.
 
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//poverty-level.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/poverty-level.json"></script>
 
 
 2.2.2 Child labor
@@ -298,7 +298,7 @@ An organization may choose to use the PPI score evaluation of the propensity of 
    **Reference**: *child-labor.json*
 
 
-The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, "children in school at the appropriate grade level" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organizations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.
+The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, "children in school at the appropriate grade level" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organisations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.
 
 
 As an additional option, it may be desirable to ask whether young workers (those under age 18) are working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)
@@ -310,7 +310,7 @@ We recognize that child labor can also occur outside the family setting. At this
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//child-labor.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/child-labor.json"></script>
 
 
 2.2.3 Hunger days
@@ -371,12 +371,12 @@ The general farm characteristics
    **Reference**: *global-unique-id.json*
 
 
-Globally Unique ID of the recording of the farm at a specific time and by a specific organization.
+Globally Unique ID of the recording of the farm at a specific time and by a specific organisation.
 
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/global-unique-id.json"></script>
 
 
 3.1.2 Farmer Id
@@ -393,7 +393,7 @@ Globally Unique ID of the farmer of this farm
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/global-unique-id.json"></script>
 
 
 3.1.3 Location of the farm
@@ -410,7 +410,7 @@ GPS should be captured for each farm plot if possible. GPS readings should be ta
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//farm-location.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/farm-location.json"></script>
 
 
 3.1.4 Farm address
@@ -427,7 +427,7 @@ This should be the location of the farm itself (main plot), not the home of the 
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//address.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/address.json"></script>
 
 
 3.1.5 Total farm size (ha)
@@ -477,7 +477,7 @@ Area under coffee production can also be triangulated with other pieces of data 
    **Array items**: *global-unique-id.json*
 
 
-When this dataset is reused by another organization that needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
+When this dataset is reused by another organisation that needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
 
 
 3.2 Social farm characteristics
@@ -516,7 +516,7 @@ These concepts are common to many sustainability standards and the approach is b
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//labor-practices.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/labor-practices.json"></script>
 
 
 3.2.2 Wages
@@ -537,12 +537,12 @@ Wage is listed and also expressed as a percentage of the rural minimum wage (whe
 
 This approach gives a good sense of worker earnings coming from the most prominent types of labor without needing to detail individual jobs, rates, benefits, etc.
 
-Organizations may wish to participate in working groups to define and measure living wage. There is still no widely used methodology, but the ability to understand whether a worker could survive on the wage earned would be useful for any industry. 
+Organisations may wish to participate in working groups to define and measure living wage. There is still no widely used methodology, but the ability to understand whether a worker could survive on the wage earned would be useful for any industry. 
 
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//wages.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/wages.json"></script>
 
 
 3.3 Economic farm characteristics
@@ -598,7 +598,7 @@ For general GBE conversion guidance, please see: http://www.thecoffeeguide.org/c
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//productivity.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/productivity.json"></script>
 
 
 3.3.3 Cost of Production
@@ -637,7 +637,7 @@ This indicator is a Sub-metric for Net Income (or Profit).
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//production-costs.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/production-costs.json"></script>
 
 
 3.3.4 Average Price
@@ -659,7 +659,7 @@ This approach avoids the additional time and resources necessary for detailed ac
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//average-price.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/average-price.json"></script>
 
 
 3.3.5 Sustainable purchases
@@ -679,7 +679,7 @@ Detailed methodology developed by the SPF Working Group (not a farmer level metr
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//sustainable-purchases.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/sustainable-purchases.json"></script>
 
 
 3.4 Environmental farm characteristics
@@ -722,7 +722,7 @@ In addition, overlaying gps coordinates of farms (See GPS Coordinate instruction
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//forest-ecosystem-protection.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/forest-ecosystem-protection.json"></script>
 
 
 3.4.2 Fertilizer use
@@ -783,7 +783,7 @@ Asking about best practice adoption is a standardized way to address this indica
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//water.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/water.json"></script>
 
 
 3.4.4 Pest control - hazards
@@ -818,7 +818,7 @@ Focusing on IPM techniques is a globally standardized way to understand pest man
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//pest-control.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/pest-control.json"></script>
 
 
 3.4.5 Soil Conservation
@@ -852,7 +852,7 @@ Asking about best practice adoption is a standardized way to address this indica
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//soil-conservation.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/soil-conservation.json"></script>
 
 
 ******
@@ -894,12 +894,12 @@ The general plot characteristics
    **Reference**: *global-unique-id.json*
 
 
-Globally Unique ID of the recording of the plot at a specific time and by a specific organization.
+Globally Unique ID of the recording of the plot at a specific time and by a specific organisation.
 
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/global-unique-id.json"></script>
 
 
 4.1.2 Farm ID
@@ -916,7 +916,7 @@ To which farm belongs this plot
 
 .. raw:: html
 
-    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema/global-unique-id.json"></script>
 
 
 4.1.3 Plot boundary
@@ -956,7 +956,7 @@ Area of the plot
    **Array items**: *global-unique-id.json*
 
 
-When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
+When this dataset is reused by another organisation who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.
 
 
 4.2 Economic plot characteristics

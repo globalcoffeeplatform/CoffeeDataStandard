@@ -28,7 +28,7 @@
       "properties": {
         "globalCoffeeDatasetId": {
           "title": "Coffee Dataset Id",
-          "description": "The unique identifier for this dataset. The organization is responsible for the best-practice values.",
+          "description": "The unique identifier for this dataset. The organisation is responsible for the best-practice values.",
           "$ref": "./global-unique-id.json"
         },
         "schemaVersion": {
@@ -93,7 +93,7 @@
           "properties": {
             "farmerId": {
               "title": "Unique ID of the farmer",
-              "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organization.",
+              "description": "Globally Unique ID of the recording of the farmer at a specific time and by a specific organisation.",
               "$extended-description": "Each producer should have a unique ID. Optimally this can be a national ID, but in its absence a buyer ID, project ID or other unique number can serve. It is important to keep in mind that various entities may have access to reported data, so confidential information should not be included in the shared record (e.g. Social Security number).",
               "$ref": "./global-unique-id.json"
             },
@@ -143,7 +143,7 @@
             },
             "thirdPartyIds": {
               "title": "Third-party identifier",
-              "description": "When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
+              "description": "When this dataset is reused by another organisation who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
               "type": "array",
               "uniqueItems": true,
               "items": {
@@ -169,12 +169,12 @@
             "povertyLevel": {
               "title": "Poverty level",
               "description": "Comparison of total household revenue to World Bank International Extreme Poverty Line (total divided by # adult individuals in household).",
-              "$extended-description": "The Monitoring approach is to ask producers the proportion of total household income coming from the sale of coffee (since the coffee revenue amount from the Net Income indicator (Profit) is already known, an estimate of the full household income amount can be derived with that proportion). This allows a good sense of the economic picture on the farm without adding substantial detail to the approach in terms of all household income streams (e.g., sales of other crops or services, income from other businesses, gifts and remittances, etc.) and any associated costs.\\nThe World Bank International Extreme Poverty Line is $1.90 USD per day as of 2015 (https://datahelpdesk.worldbank.org/knowledgebase/articles/906519). Comparison to national poverty lines may be useful for discussion related to one country or domestic policy but that can be calculated separately as needed.\\nAn organization may choose to use the PPI score evaluation of the propensity of a farmer or community to be poor as another option that can be more relevant in some rural areas and can be calculated separately as needed. Organizations may also choose to participate on this topic in the Living Income Community of Practice.",
+              "$extended-description": "The Monitoring approach is to ask producers the proportion of total household income coming from the sale of coffee (since the coffee revenue amount from the Net Income indicator (Profit) is already known, an estimate of the full household income amount can be derived with that proportion). This allows a good sense of the economic picture on the farm without adding substantial detail to the approach in terms of all household income streams (e.g., sales of other crops or services, income from other businesses, gifts and remittances, etc.) and any associated costs.\\nThe World Bank International Extreme Poverty Line is $1.90 USD per day as of 2015 (https://datahelpdesk.worldbank.org/knowledgebase/articles/906519). Comparison to national poverty lines may be useful for discussion related to one country or domestic policy but that can be calculated separately as needed.\\nAn organisation may choose to use the PPI score evaluation of the propensity of a farmer or community to be poor as another option that can be more relevant in some rural areas and can be calculated separately as needed. Organisations may also choose to participate on this topic in the Living Income Community of Practice.",
               "$ref": "./poverty-level.json"
             },
             "childLabor": {
               "title": "Child labor",
-              "description": "The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, \"children in school at the appropriate grade level\" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organizations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.",
+              "description": "The issue of Child Labor is often addressed as a compliance audit question, but it is rarely answered because of the moral hazard (nobody wants to answer that they have child labor). Instead, \"children in school at the appropriate grade level\" serves to provide a valuable proxy that directly reflects an outcome of child labor and results in a better understanding of the plight of children in a community. Note that in many countries the compulsory school age may be lower than 18, and organisations are welcome to include other age limits in their own analysis of the data, but children in the appropriate grade for their age through 18 serves as an aspirational target. This data can be segmented by gender to get additional insights into the differences in education levels for both boys and girls in a community.",
               "$extended-description": "As an additional option, it may be desirable to ask whether young workers (those under age 18) are working in hazardous conditions (applying chemical pesticides, using hazardous machinery, moving excessive weights/loads, etc.)\\nThese concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs.\\nWe recognize that child labor can also occur outside the family setting. At this initial stage of common metrics, it is necessary to note that capturing that requires either a labor assessment targeting workers (risky for them, often requires an independent surveyor, and timing is critical) or a risk assessment or data from the wider community (consider costs and comparability). This is an important topic and it is necessary to adequately understand which communities are more prone to this situation, therefore, we propose that it be addressed with different tools than these basic performance indicators developed with the GCP.",
               "$ref": "./child-labor.json"
             },
@@ -218,7 +218,7 @@
           "properties": {
             "farmId": {
               "title": "Farm Id",
-              "description": "Globally Unique ID of the recording of the farm at a specific time and by a specific organization.",
+              "description": "Globally Unique ID of the recording of the farm at a specific time and by a specific organisation.",
               "$ref": "./global-unique-id.json"
             },
             "farmerId": {
@@ -253,7 +253,7 @@
             },
             "thirdPartyIds": {
               "title": "Third-party identifier",
-              "description": "When this dataset is reused by another organization that needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
+              "description": "When this dataset is reused by another organisation that needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
               "type": "array",
               "uniqueItems": true,
               "items": {
@@ -284,7 +284,7 @@
             "wages": {
               "title": "Wages",
               "description": "Daily average earnings for farm labor compared to (rural) minimum wage. Wage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.",
-              "$extended-description": "The approach involves asking for the average daily wage rate paid. If applicable, include wages for coffee production, harvesting, and processing and take an average across all three categories.\\nWage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.\\nThis approach gives a good sense of worker earnings coming from the most prominent types of labor without needing to detail individual jobs, rates, benefits, etc.\\nOrganizations may wish to participate in working groups to define and measure living wage. There is still no widely used methodology, but the ability to understand whether a worker could survive on the wage earned would be useful for any industry. ",
+              "$extended-description": "The approach involves asking for the average daily wage rate paid. If applicable, include wages for coffee production, harvesting, and processing and take an average across all three categories.\\nWage is listed and also expressed as a percentage of the rural minimum wage (where that exists), alternately to the national minimum wage.\\nThis approach gives a good sense of worker earnings coming from the most prominent types of labor without needing to detail individual jobs, rates, benefits, etc.\\nOrganisations may wish to participate in working groups to define and measure living wage. There is still no widely used methodology, but the ability to understand whether a worker could survive on the wage earned would be useful for any industry. ",
               "$ref": "./wages.json"
             }
           }
@@ -412,7 +412,7 @@
           "properties": {
             "plotId": {
               "title": "Unique ID of the plot",
-              "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organization.",
+              "description": "Globally Unique ID of the recording of the plot at a specific time and by a specific organisation.",
               "$ref": "./global-unique-id.json"
             },
             "farmId": {
@@ -440,7 +440,7 @@
             },
             "thirdPartyIds": {
               "title": "Third-party identifier",
-              "description": "When this dataset is reused by another organization who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
+              "description": "When this dataset is reused by another organisation who needs to use their own Global Unique Identifier, the original identifier can be saved here, to track history and origin.",
               "type": "array",
               "uniqueItems": true,
               "items": {

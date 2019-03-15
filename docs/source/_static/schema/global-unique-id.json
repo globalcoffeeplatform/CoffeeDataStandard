@@ -11,15 +11,15 @@
     "timestamp"
   ],
   "properties": {
-    "organization": {
-      "title": "The name of the organization",
-      "description": "This can be a name or number uniquely identifying the organization that issues this number. For example 'RAINFOREST-ALLIANCE' when they issued the identifier or 'BURUNDI' when it is a national ID.",
+    "organisation": {
+      "title": "The name of the organisation",
+      "description": "This can be a name or number uniquely identifying the organisation that issues this number. For example 'RAINFOREST-ALLIANCE' when they issued the identifier or 'BURUNDI' when it is a national ID.",
       "type": "string",
       "examples": ["RAINFOREST-ALLIANCE", "BURUNDI"]
     },
     "identifier": {
-      "title": "The identifier issued by the organization.",
-      "description": "The identifier issued by the organization. Can be the Chamber of Commerce number or other number or string known by the organization.",
+      "title": "The identifier issued by the organisation.",
+      "description": "The identifier issued by the organisation. Can be the Chamber of Commerce number or other number or string known by the organisation.",
       "type": "string"
     },
     "timestamp": {

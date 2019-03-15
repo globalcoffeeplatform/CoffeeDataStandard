@@ -2,7 +2,7 @@
   "metadata": {
     "globalCoffeeDatasetId": {
       "identifier": "634748-hfgf-ydhgd",
-      "organization": "COSA",
+      "organisation": "COSA",
       "timestamp": "2019-01-02"
     },
     "schemaVersion": "0.0.5",
@@ -14,7 +14,7 @@
   "farmer": {
     "general": {
       "farmerId": {
-        "organization": "Chamber of Commerce, Burundi",
+        "organisation": "Chamber of Commerce, Burundi",
         "identifier": "1035413151",
         "timestamp": "2010-05-21"
       },
@@ -31,19 +31,19 @@
       "thirdPartyIds": [
         {
           "identifier": "N2786-Q5572-H8123-S9007",
-          "organization": "UN Blue number",
+          "organisation": "UN Blue number",
           "timestamp": "2018-12-08"
         },
         {
           "identifier": "514356411",
-          "organization": "COSA",
+          "organisation": "COSA",
           "timestamp": "2017-12-30"
         }
       ],
       "farmIds": [
         {
           "identifier": "2345",
-          "organization": "Land register of Burundi",
+          "organisation": "Land register of Burundi",
           "timestamp": "1998-12-28"
         }
       ]
@@ -64,11 +64,11 @@
     "general": {
       "farmId": {
         "identifier": "2345",
-        "organization": "Land register of Burundi",
+        "organisation": "Land register of Burundi",
         "timestamp": "1998-12-28"
       },
       "farmerId": {
-        "organization": "Chamber of Commerce, Burundi",
+        "organisation": "Chamber of Commerce, Burundi",
         "identifier": "1035413151",
         "timestamp": "2010-05-21"
       },
@@ -94,7 +94,7 @@
         "prohibitingDiscrimination": "Yes",
         "clearContracting": "No",
         "hazardousWorkingCondition": "Yes",
-        "rightToOrganize": "Yes"
+        "rightToOrganise": "Yes"
       },
       "wages": {
         "wagesProcessing": 4,
@@ -191,12 +191,12 @@
     "general": {
       "plotId": {
         "identifier": "pl956304",
-        "organization": "Land registry Burundi",
+        "organisation": "Land registry Burundi",
         "timestamp": "1999-02-28"
       },
       "farmId": {
         "identifier": "2345",
-        "organization": "Land register of Burundi",
+        "organisation": "Land register of Burundi",
         "timestamp": "1998-12-28"
       },
       "boundary": {
@@ -230,7 +230,7 @@
       "thirdPartyIds": [
         {
           "identifier": "pl956306",
-          "organization": "Land registry Burundi",
+          "organisation": "Land registry Burundi",
           "timestamp": "2005-01-12"
         }
       ]
