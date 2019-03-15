@@ -5,9 +5,14 @@ Common Indicators for Coffee Sustainability
 ============================
 Guidelines & Key Information
 ============================
-This project displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA--with feedback from the members of the Global Expert Committee--developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on global experience refined with tens of thousands of surveys and the expertise of the Committee members.
+This project displays the initial basic common indicators for farm-level coffee sustainability.
+The common indicators are a result of a collective multi-stakeholder approach on defining key metrics for sustainability performance, based on the Sustainability Progress Framework elaborated under the joint facilitation of the Sustainable Coffee Challenge (SCC) and the Global Coffee Platform (GCP).
+The objective of this project was to define common denominators of indicators that are considered most important by a range of experts and practitioners. An additional criterion was the feasibility and complexity of the indicators.
+COSA--with feedback from the members of a carefully selected global expert committee -- have developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time.
+The approach builds on extensive global experience with sustainability metrics and the expertise of the committee members.
 
-**Data Privacy**: In the framework for this project, no data will be shared. However, it lays the ground for the potential to exchange data and making it easier to do so if needed, be it between business partners, or for sending information to a sustainability standard, etc. The project’s underlying philosophy is that every party has sovereignty over their own data, and is not obligated to share it.
+**Data Privacy**: In the framework for this project, no data will be shared. However, it lays the ground for the potential to exchange data and making it easier to do so if needed, be it between business partners, or for sending information to a sustainability standard, etc.
+The project’s underlying philosophy is that every party has sovereignty over their own data and is not obligated to share it.
 
 **Impact vs. Monitoring Data**: The following indicator approaches are built on a Monitoring methodology and not a Full Impact approach. The Monitoring approach generally relies on farmer recall of the most recent production year and reasonable local estimates that can provide good enough information in a simple way. This can facilitate wide adoption and use without the burden of full accounting which can be onerous for some organizations and farmers. Full Impact approaches can be used where desired and are in many cases compatible as it provides more accurate information but requires more investment and time in detailed record keeping, accounting, and data gathering skills.
 
@@ -22,17 +27,18 @@ Producer Sampling Guidelines
 
 3. Try to talk to the head of the household for each farm (different people may give you different perspectives but typically the decision-makers will yield the most accurate results).
 
-4. Quality checks in the first week of a surveyor’s work can also make a big difference; make sure surveyors stick to the spe**cific questions as written.
+4. Quality checks in the first week of a surveyor’s work can also make a big difference; make sure surveyors stick to the specific questions as written.
 
 Certification & Audit Data
 ==========================
-Some of the indicator data below may be covered in Audits or through other Compliance inquiries. If an entity wishes to use that data to report on the indicator framework, please be aware of the following:
+Some of the indicator data below may be covered in audits or through other compliance inquiries. If an entity wishes to use that data to report on the indicator framework, please be aware of the following:
 
-1. Compliance and audit data is usually collected on a much smaller sample of farmers than typical Monitoring approaches (audit sampling typically relies on square root sampling instead of a large enough population to ensure statistically sound results). This means that audit data may not be representative of the whole population.
+1. Compliance and audit data are usually collected on a much smaller sample of farmers than typical monitoring approaches (audit sampling typically relies on square root sampling instead of a large enough population to ensure statistically sound results). This means that audit data may not be representative of the whole population.
 
-2. Compliance data typically gives the user a binary result on a single topic, i.e., whether a certain condition was met or not. It does not usually convey the degree to which a certain condition was met, nor can it be used to see incremental change over time. Therefore, to achieve more control over the supply chain and improve the ability to remedy significant issues, it is strongly recommended to use the SMART indicator approaches detailed below (in fact, the approaches below could be built into an organization's Compliance assessment tools).
+2. Compliance data typically gives the user a binary result on a single topic, i.e., whether a certain condition was met or not. It does not usually convey the degree to which a certain condition was met, nor can it be used to see incremental change over time. Therefore, to achieve more control over the supply chain and improve the ability to remedy significant issues, it is strongly recommended to use the SMART indicator approaches detailed below (in fact, the approaches below could be built into an organization's compliance assessment tools).
 
 ==========================================
 Some guidance on the Green Bean Equivalent
 ==========================================
-For Green Bean Equivalent (GBE) calculations, one may follow the conversion rates as recommended by the International Coffee Organisation (ICO) and quoted in the Coffee Exporters Guide (http://www.thecoffeeguide.org/coffee-guide/world-coffee-trade/conversions-and-statistics/). However, for some locations, other conversion rates might be recommended. Please make sure these local differences are taken into account in the relevant cases.
+For Green Bean Equivalent (GBE) calculations, one may follow the conversion rates as recommended by the International Coffee Organisation (ICO) and quoted in the Coffee Exporters Guide (http://www.thecoffeeguide.org/coffee-guide/world-coffee-trade/conversions-and-statistics/).
+However, for some locations, other conversion rates might be recommended. Please make sure these local differences are taken into account in the relevant cases.
