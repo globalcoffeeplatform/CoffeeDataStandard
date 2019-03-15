@@ -6,7 +6,7 @@
 Welcome to Global Coffee Data Standard's documentation!
 =======================================================
 
-This project displays the initial basic Indicators for farm-level coffee sustainability, as originally determined by the GCP and the SPF Indicator Working Group. COSA–with feedback from the members of the Global Expert Committee–developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time.
+This project displays the initial basic common indicators for farm-level coffee sustainability. The common indicators are a result of a collective multi-stakeholder approach on defining key metrics for sustainability performance, based on the Sustainability Progress Framework elaborated under the joint facilitation of the Sustainable Coffee Challenge (SCC) and the Global Coffee Platform (GCP).  COSA – with feedback from the members of a carefully selected global expert committee – have developed and synthesized practical metrics to operationalize the indicators so they can be functional across origins and comparable over time. The approach builds on extensive global experience with sustainability metrics and the expertise of the committee members.
 
 Partners of this project
 ########################
@@ -23,18 +23,17 @@ Partners of this project
 .. image:: _static/images/waterwatch-cooperative.png
    :alt: The mission of Waterwatch Cooperative is to make essential information services for AgriFood accessible and affordable to all actors in the value chain: farmers, producer cooperatives, processors, traders, financial institutions and insurance companies.
 
-Funders of this project
-########################
+The project has been supported by the ISEAL Innovations Fund, administered by the ISEAL Alliance
 
 .. image:: _static/images/iseal.png
    :alt: ISEAL is the global membership association for credible sustainability standards.
 
-The project is supported by the ISEAL Innovations Fund.
 The ISEAL Innovations Fund is supported by the following partners:
 
 .. image:: _static/images/ISEAL-Innovations-Fund.png
    :alt: ISEAL Innovations Fund.
 
+-----------------
 
 .. toctree::
    :maxdepth: 2
