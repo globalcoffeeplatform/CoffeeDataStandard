@@ -242,10 +242,12 @@ namespace Json2Rst
             if (!reference.StartsWith("./")) return;
 
             var file = reference.Replace("./", "/");
-            _sb.AppendLine($"\n.. literalinclude:: ../../schema{file}");
-            _sb.AppendLine("   :language: json");
-            _sb.AppendLine("   :linenos:");
-            _sb.AppendLine($"   :caption: {reference.Replace("./", "")}");
+            //_sb.AppendLine($"\n.. literalinclude:: ../../schema{file}");
+            //_sb.AppendLine("   :language: json");
+            //_sb.AppendLine("   :linenos:");
+            //_sb.AppendLine($"   :caption: {reference.Replace("./", "")}");
+            _sb.AppendLine($"\n.. raw:: html\n");
+            _sb.AppendLine($"    <script src=\"_static/docson/widget.js\" data-schema=\"../schema{file}\"></script>\n");
         }
 
         private void WriteExampleData(JObject objectProperties)

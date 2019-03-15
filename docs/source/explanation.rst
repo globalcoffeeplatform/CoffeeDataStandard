@@ -33,9 +33,10 @@ This schema displays the initial basic Indicators for farm-level coffee sustaina
 
 The unique identifier for this dataset. The organization is responsible for the best-practice values.
 
+
 .. raw:: html
 
-   <script src="_static/docson/widget.js" data-schema="../schema/global-unique-id.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
 
 
 1.2 Schema version
@@ -139,7 +140,7 @@ Each producer should have a unique ID. Optimally this can be a national ID, but 
 
 .. raw:: html
 
-   <script src="_static/docson/widget.js" data-schema="../schema/global-unique-id.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
 
 
 2.1.2 Name of the farmer
@@ -154,10 +155,10 @@ Each producer should have a unique ID. Optimally this can be a national ID, but 
 First and last name(s) of the farmer surveyed should be collected in separate fields/columns to ensure consistency (avoiding confusion between Carlos de la Huerta and De la Huerta, Carlos). Initials should be avoided when possible. In places where farmers use only one name (a family name), that name should be entered as the Last Name and an appropriate prefix or "Farmer" could be entered as the First Name.
 
 
-.. literalinclude:: ../../schema/name.json
-   :language: json
-   :linenos:
-   :caption: name.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//name.json"></script>
+
 
 2.1.3 The address of the farm
 -----------------------------
@@ -171,10 +172,10 @@ First and last name(s) of the farmer surveyed should be collected in separate fi
 Generally, data should include Country and then State/Department and Municipality/District, unless the address is collected for the sake of auditing. This should be the location of the farm itself (main plot), not the home of the farmer, if different.
 
 
-.. literalinclude:: ../../schema/address.json
-   :language: json
-   :linenos:
-   :caption: address.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//address.json"></script>
+
 
 2.1.4 Date of birth
 -------------------
@@ -283,10 +284,10 @@ The World Bank International Extreme Poverty Line is $1.90 USD per day as of 201
 An organization may choose to use the PPI score evaluation of the propensity of a farmer or community to be poor as another option that can be more relevant in some rural areas and can be calculated separately as needed. Organizations may also choose to participate on this topic in the Living Income Community of Practice.
 
 
-.. literalinclude:: ../../schema/poverty-level.json
-   :language: json
-   :linenos:
-   :caption: poverty-level.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//poverty-level.json"></script>
+
 
 2.2.2 Child labor
 -----------------
@@ -307,10 +308,10 @@ These concepts are common to many sustainability standards and the approach is b
 We recognize that child labor can also occur outside the family setting. At this initial stage of common metrics, it is necessary to note that capturing that requires either a labor assessment targeting workers (risky for them, often requires an independent surveyor, and timing is critical) or a risk assessment or data from the wider community (consider costs and comparability). This is an important topic and it is necessary to adequately understand which communities are more prone to this situation, therefore, we propose that it be addressed with different tools than these basic performance indicators developed with the GCP.
 
 
-.. literalinclude:: ../../schema/child-labor.json
-   :language: json
-   :linenos:
-   :caption: child-labor.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//child-labor.json"></script>
+
 
 2.2.3 Hunger days
 -----------------
@@ -373,10 +374,10 @@ The general farm characteristics
 Globally Unique ID of the recording of the farm at a specific time and by a specific organization.
 
 
-.. literalinclude:: ../../schema/global-unique-id.json
-   :language: json
-   :linenos:
-   :caption: global-unique-id.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
+
 
 3.1.2 Farmer Id
 ---------------
@@ -390,10 +391,10 @@ Globally Unique ID of the recording of the farm at a specific time and by a spec
 Globally Unique ID of the farmer of this farm
 
 
-.. literalinclude:: ../../schema/global-unique-id.json
-   :language: json
-   :linenos:
-   :caption: global-unique-id.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
+
 
 3.1.3 Location of the farm
 --------------------------
@@ -407,10 +408,10 @@ Globally Unique ID of the farmer of this farm
 GPS should be captured for each farm plot if possible. GPS readings should be taken outside of buildings and away from significant tree coverage to avoid interference in the signal. GPS should be captured in the middle of the plot, and/or near the entrance to any main building (if there is one). Where the main residence or other buildings are not located on the farm plot, GPS should be taken in the middle of the plot.
 
 
-.. literalinclude:: ../../schema/farm-location.json
-   :language: json
-   :linenos:
-   :caption: farm-location.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//farm-location.json"></script>
+
 
 3.1.4 Farm address
 ------------------
@@ -424,10 +425,10 @@ GPS should be captured for each farm plot if possible. GPS readings should be ta
 This should be the location of the farm itself (main plot), not the home of the farmer, if different.
 
 
-.. literalinclude:: ../../schema/address.json
-   :language: json
-   :linenos:
-   :caption: address.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//address.json"></script>
+
 
 3.1.5 Total farm size (ha)
 --------------------------
@@ -513,10 +514,10 @@ The percent refers to the number of good labor practices from the list that are 
 These concepts are common to many sustainability standards and the approach is built on the ILO standards and the SDGs. While there may be moral hazard in asking these questions outright, asking the questions themselves serves to educate the respondent about the norms and aspirations that are part of general good labor practices.
 
 
-.. literalinclude:: ../../schema/labor-practices.json
-   :language: json
-   :linenos:
-   :caption: labor-practices.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//labor-practices.json"></script>
+
 
 3.2.2 Wages
 -----------
@@ -539,10 +540,10 @@ This approach gives a good sense of worker earnings coming from the most promine
 Organizations may wish to participate in working groups to define and measure living wage. There is still no widely used methodology, but the ability to understand whether a worker could survive on the wage earned would be useful for any industry. 
 
 
-.. literalinclude:: ../../schema/wages.json
-   :language: json
-   :linenos:
-   :caption: wages.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//wages.json"></script>
+
 
 3.3 Economic farm characteristics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -595,10 +596,10 @@ kgs of GBE (harvested)/ha of coffee productive area
 For general GBE conversion guidance, please see: http://www.thecoffeeguide.org/coffee-guide/world-coffee-trade/conversions-and-statistics/
 
 
-.. literalinclude:: ../../schema/productivity.json
-   :language: json
-   :linenos:
-   :caption: productivity.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//productivity.json"></script>
+
 
 3.3.3 Cost of Production
 ------------------------
@@ -634,10 +635,10 @@ When calculating costs, include only expenditures coming from the household’s 
 This indicator is a Sub-metric for Net Income (or Profit).
 
 
-.. literalinclude:: ../../schema/production-costs.json
-   :language: json
-   :linenos:
-   :caption: production-costs.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//production-costs.json"></script>
+
 
 3.3.4 Average Price
 -------------------
@@ -656,10 +657,10 @@ The average price can then be compared to the global reference price (e.g., ICO)
 This approach avoids the additional time and resources necessary for detailed accounting and asking about each sale (and the associated premiums, deductions or bonuses) while still providing good results.
 
 
-.. literalinclude:: ../../schema/average-price.json
-   :language: json
-   :linenos:
-   :caption: average-price.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//average-price.json"></script>
+
 
 3.3.5 Sustainable purchases
 ---------------------------
@@ -676,10 +677,10 @@ The volume of sustainable purchases by the buyer and as a proportion of the tota
 Detailed methodology developed by the SPF Working Group (not a farmer level metric).
 
 
-.. literalinclude:: ../../schema/sustainable-purchases.json
-   :language: json
-   :linenos:
-   :caption: sustainable-purchases.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//sustainable-purchases.json"></script>
+
 
 3.4 Environmental farm characteristics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -719,10 +720,10 @@ In addition, overlaying gps coordinates of farms (See GPS Coordinate instruction
 2. Laying land aside (fallow) and/or blocking active use (including hunting).
 
 
-.. literalinclude:: ../../schema/forest-ecosystem-protection.json
-   :language: json
-   :linenos:
-   :caption: forest-ecosystem-protection.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//forest-ecosystem-protection.json"></script>
+
 
 3.4.2 Fertilizer use
 --------------------
@@ -780,10 +781,10 @@ These concepts are common to many sustainability standards and the approach is b
 Asking about best practice adoption is a standardized way to address this indicator globally without the expensive and technical expertise required to measure water use amounts (and evaluating that in the local context) or taking water samples to evaluate contamination levels and the required protocols for that (taking samples at the appropriate locations and time, factoring in elements that may be beyond an individual producers control, etc.).
 
 
-.. literalinclude:: ../../schema/water.json
-   :language: json
-   :linenos:
-   :caption: water.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//water.json"></script>
+
 
 3.4.4 Pest control - hazards
 ----------------------------
@@ -815,10 +816,10 @@ Pesticides include insecticides, fungicides, rodenticides, nematicides and herbi
 Focusing on IPM techniques is a globally standardized way to understand pest management best practices without the more costly and time-consuming process of detailing individual pesticides, active ingredients, amount used in local units, etc.
 
 
-.. literalinclude:: ../../schema/pest-control.json
-   :language: json
-   :linenos:
-   :caption: pest-control.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//pest-control.json"></script>
+
 
 3.4.5 Soil Conservation
 -----------------------
@@ -849,10 +850,10 @@ These concepts are common to many sustainability standards and the approach is b
 Asking about best practice adoption is a standardized way to address this indicator globally without the expensive and technical expertise required to measure the actual amount of soil conserved or to do individual soil testing on farms.
 
 
-.. literalinclude:: ../../schema/soil-conservation.json
-   :language: json
-   :linenos:
-   :caption: soil-conservation.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//soil-conservation.json"></script>
+
 
 ******
 4 Plot
@@ -896,10 +897,10 @@ The general plot characteristics
 Globally Unique ID of the recording of the plot at a specific time and by a specific organization.
 
 
-.. literalinclude:: ../../schema/global-unique-id.json
-   :language: json
-   :linenos:
-   :caption: global-unique-id.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
+
 
 4.1.2 Farm ID
 -------------
@@ -913,10 +914,10 @@ Globally Unique ID of the recording of the plot at a specific time and by a spec
 To which farm belongs this plot
 
 
-.. literalinclude:: ../../schema/global-unique-id.json
-   :language: json
-   :linenos:
-   :caption: global-unique-id.json
+.. raw:: html
+
+    <script src="_static/docson/widget.js" data-schema="../schema//global-unique-id.json"></script>
+
 
 4.1.3 Plot boundary
 -------------------
