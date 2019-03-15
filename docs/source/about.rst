@@ -14,9 +14,9 @@ The approach builds on extensive global experience with sustainability metrics a
 **Data Privacy**: In the framework for this project, no data will be shared. However, it lays the ground for the potential to exchange data and making it easier to do so if needed, be it between business partners, or for sending information to a sustainability standard, etc.
 The project’s underlying philosophy is that every party has sovereignty over their own data and is not obligated to share it.
 
-**Impact vs. Monitoring Data**: The following indicator approaches are built on a Monitoring methodology and not a Full Impact approach. The Monitoring approach generally relies on farmer recall of the most recent production year and reasonable local estimates that can provide good enough information in a simple way. This can facilitate wide adoption and use without the burden of full accounting which can be onerous for some organizations and farmers. Full Impact approaches can be used where desired and are in many cases compatible as it provides more accurate information but requires more investment and time in detailed record keeping, accounting, and data gathering skills.
+**Impact vs. Monitoring Data**: The following indicator approaches are built on a Monitoring methodology and not a Full Impact approach. The Monitoring approach generally relies on farmer recall of the most recent production year and reasonable local estimates that can provide good enough information in a simple way. This can facilitate wide adoption and use without the burden of full accounting which can be onerous for some organisations and farmers. Full Impact approaches can be used where desired and are in many cases compatible as it provides more accurate information but requires more investment and time in detailed record keeping, accounting, and data gathering skills.
 
-Sustainability Monitoring (through farmer surveys) usually relies on a single farmer's response per household--usually the head of household. The head of the household can be any one person in the household but is generally the farm owner or main decision maker. To track activities or other engagements provided to farmers through programs or initiatives, an organization may wish to capture additional information on multiple individuals in a household where relevant (e.g., all training or service recipients). COSA has a separate protocol for this type of producer and household identification and tracking and can provide that to interested organizations.
+Sustainability Monitoring (through farmer surveys) usually relies on a single farmer's response per household--usually the head of household. The head of the household can be any one person in the household but is generally the farm owner or main decision maker. To track activities or other engagements provided to farmers through programs or initiatives, an organisation may wish to capture additional information on multiple individuals in a household where relevant (e.g., all training or service recipients). COSA has a separate protocol for this type of producer and household identification and tracking and can provide that to interested organisations.
 
 ============================
 Producer Sampling Guidelines
@@ -35,10 +35,25 @@ Some of the indicator data below may be covered in audits or through other compl
 
 1. Compliance and audit data are usually collected on a much smaller sample of farmers than typical monitoring approaches (audit sampling typically relies on square root sampling instead of a large enough population to ensure statistically sound results). This means that audit data may not be representative of the whole population.
 
-2. Compliance data typically gives the user a binary result on a single topic, i.e., whether a certain condition was met or not. It does not usually convey the degree to which a certain condition was met, nor can it be used to see incremental change over time. Therefore, to achieve more control over the supply chain and improve the ability to remedy significant issues, it is strongly recommended to use the SMART indicator approaches detailed below (in fact, the approaches below could be built into an organization's compliance assessment tools).
+2. Compliance data typically gives the user a binary result on a single topic, i.e., whether a certain condition was met or not. It does not usually convey the degree to which a certain condition was met, nor can it be used to see incremental change over time. Therefore, to achieve more control over the supply chain and improve the ability to remedy significant issues, it is strongly recommended to use the SMART indicator approaches detailed below (in fact, the approaches below could be built into an organisation's compliance assessment tools).
 
 ==========================================
 Some guidance on the Green Bean Equivalent
 ==========================================
 For Green Bean Equivalent (GBE) calculations, one may follow the conversion rates as recommended by the International Coffee Organisation (ICO) and quoted in the Coffee Exporters Guide (http://www.thecoffeeguide.org/coffee-guide/world-coffee-trade/conversions-and-statistics/).
 However, for some locations, other conversion rates might be recommended. Please make sure these local differences are taken into account in the relevant cases.
+
+================================================
+The reference framework for first mile farm data
+================================================
+For its development, the Global Coffee Data Standard has taken the reference framework for first-mile-farm data as a starting point (https://farm-level-data-standard.readthedocs.io/en/latest/).
+In particular, the conceptual model has been embraced.
+
+The first-mile reference framework has organised key data entities in the data structure, such as farmer groups, farmers, farms and plots in such a way that, many different concepts of agriculture can be incorporated, including family farms, sharecroppers, communal farms, industrial farms.
+In addition, the data structure is designed in such a way that it closely matches the way end-users think and talk about concepts in the real world.
+
+It is therefore assumed that multiple organisations can easily develop a mapping from their own internal data structures onto such conceptual model because of the internal logic of the end-user community.
+The data model can therefore function as a neutral and organisation independent interface for the data from one database to another database.
+In analogy of the first-mile reference framework, each data element in the Global Coffee Data Standard is linked to the appropriate farmer, farm, plot level.
+
+**Also, the concept of a Global ID has been incorporated, allowing to trace each dataset back to its organisation of origin.**
