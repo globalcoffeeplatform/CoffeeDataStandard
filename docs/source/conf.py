@@ -21,13 +21,13 @@ from recommonmark.parser import CommonMarkParser
 # -- Project information -----------------------------------------------------
 
 project = 'Global Coffee Data Standard'
-copyright = 'GNU General Public License'
+copyright = 'Creative Commons Attribution 4.0 International License'
 author = 'Waterwatch Foundation (https://waterwatchcooperative.com/foundation/)'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '1.0.0'
 
 
 # -- General configuration ---------------------------------------------------
