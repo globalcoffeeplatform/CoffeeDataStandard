@@ -14,7 +14,11 @@ The data standard for coffee sustainability indicators allows all actors along t
 
 
 The data standard can be applied independent of any specific technology solution or reporting engine. Anyone working with data and sustainability measurement will be able to implement the results into any technology solution.
-In terms of data exchange between commercial supply chain actors (farmers, cooperatives, traders, agents, roasters, retailers), there are two major use cases, vertical and horizontal exchange. On the one hand, the standard might be used to facilitate data flow within one vertical and private supply chain between two or more actors, e.g. from the cooperative to a trader or from the trader to a roaster. I.e. a cooperative might pass on sustainability information attributed to the produce to a trader, who in turn might pass it on to its customer.
+
+In terms of data exchange between commercial supply chain actors (farmers, cooperatives, traders, agents, roasters, retailers), there are two major use cases, vertical and horizontal exchange. 
+
+On the one hand, the standard might be used to facilitate data flow within one vertical and private supply chain between two or more actors, e.g. from the cooperative to a trader or from the trader to a roaster. I.e. a cooperative might pass on sustainability information attributed to the produce to a trader, who in turn might pass it on to its customer.
+
 On the other hand, the standard might be used to facilitate horizontal exchange and aggregation between peers, e.g. to support joint sustainability reporting for a specific region or country. This might be especially relevant for the implementation of a sustainable region or a jurisdictional approach to sustainability, also known as verified sourcing area.
 
 More specific use cases of the data standard include:
