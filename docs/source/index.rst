@@ -40,7 +40,6 @@ The ISEAL Innovations Fund is supported by the following partners:
    :caption: Contents
 
    about
-   executive-summary
    use-cases
    governance
    explanation
