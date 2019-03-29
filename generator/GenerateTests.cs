@@ -294,7 +294,7 @@ namespace Json2Rst
             if (exampleData.StartsWith("./"))
             {
                 var tmp = exampleData.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries);
-                var path = tmp[0].Replace("./", "../../");
+                var path = tmp[0].Replace("./", "../../../");
                 // Use Docson for example data as well:
                 //_sb.AppendLine($"\n.. literalinclude:: {path}");
                 ////_sb.AppendLine("   :language: json-object");
@@ -304,7 +304,7 @@ namespace Json2Rst
 
                 _sb.AppendLine($"\n.. raw:: html\n");
                 _sb.AppendLine("    <div class=\"caption-text\">Sample data</div>");
-                _sb.AppendLine($"    <script src=\"_static/docson/widget.js\" data-schema=\"../schema{path}\"></script>\n");
+                _sb.AppendLine($"    <script src=\"_static/docson/widget.js\" data-schema=\"{path}\"></script>\n");
             }
             else
             {
