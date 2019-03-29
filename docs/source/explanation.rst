@@ -20,7 +20,7 @@ This project displays the initial basic common indicators for farm-level coffee 
 .. raw:: html
 
     <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../../../example-data/metadata.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../example-data/metadata.json"></script>
 
 
 1.1 Coffee Dataset Id
@@ -122,7 +122,7 @@ The general farmer characteristics
 .. raw:: html
 
     <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../../../example-data/farmer-general.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../example-data/farmer-general.json"></script>
 
 
 2.1.1 Unique ID of the farmer
@@ -265,7 +265,7 @@ The social farmer characteristics
 .. raw:: html
 
     <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../../../example-data/farmer-social.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../example-data/farmer-social.json"></script>
 
 
 2.2.1 Poverty level
@@ -363,7 +363,7 @@ The general farm characteristics
 .. raw:: html
 
     <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../../../example-data/farm-general.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../example-data/farm-general.json"></script>
 
 
 3.1.1 Farm Id
@@ -499,7 +499,7 @@ The social farm characteristics
 .. raw:: html
 
     <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../../../example-data/farm-social.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../example-data/farm-social.json"></script>
 
 
 3.2.1 Labor Practices
@@ -565,7 +565,7 @@ The economic farm characteristics
 .. raw:: html
 
     <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../../../example-data/farm-economic.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../example-data/farm-economic.json"></script>
 
 
 3.3.1 Coffee Profit
@@ -703,7 +703,7 @@ The environmental farm characteristics
 .. raw:: html
 
     <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../../../example-data/farm-environmental.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../example-data/farm-environmental.json"></script>
 
 
 3.4.1 Forest and Ecosystem Protection
@@ -890,7 +890,7 @@ The general plot characteristics
 .. raw:: html
 
     <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../../../example-data/plot-general.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../example-data/plot-general.json"></script>
 
 
 4.1.1 Unique ID of the plot
@@ -982,7 +982,7 @@ The economic plot characteristics
 .. raw:: html
 
     <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../../../example-data/plot-economic.json"></script>
+    <script src="_static/docson/widget.js" data-schema="../example-data/plot-economic.json"></script>
 
 
 4.2.1 Yield
