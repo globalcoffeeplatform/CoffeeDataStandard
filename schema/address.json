@@ -32,8 +32,12 @@
     "countryName": {
       "title": "Country name",
       "description": "The country name. For example, United States.",
-      "type": "string",
       "$comment": "List of countries from http://country.io/names.json",
+      "$ref": "#/definitions/country-names"
+    }
+  },
+  "definitions": {
+    "country-names": {
       "enum": [
         "Afghanistan",
         "Aland Islands",
