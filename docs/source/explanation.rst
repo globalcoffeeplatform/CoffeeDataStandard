@@ -19,9 +19,15 @@ This project displays the initial basic common indicators for farm-level coffee 
 
 .. raw:: html
 
-    <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../example-data/metadata.json"></script>
+    <button class="btn btn-example-data" onclick="$('#example-data-metadata').toggle(300)">Metadata Example Data</button>
+    <div id="example-data-metadata" style="display: none;">
 
+.. literalinclude:: _static/example-data/metadata.json
+   :linenos:
+
+.. raw:: html
+
+    </div>
 
 1.1 Coffee Dataset Id
 ^^^^^^^^^^^^^^^^^^^^^
@@ -121,9 +127,15 @@ The general farmer characteristics
 
 .. raw:: html
 
-    <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../example-data/farmer-general.json"></script>
+    <button class="btn btn-example-data" onclick="$('#example-data-farmer-general').toggle(300)">Farmer General Example Data</button>
+    <div id="example-data-farmer-general" style="display: none;">
 
+.. literalinclude:: _static/example-data/farmer-general.json
+   :linenos:
+
+.. raw:: html
+
+    </div>
 
 2.1.1 Unique ID of the farmer
 -----------------------------
@@ -264,9 +276,15 @@ The social farmer characteristics
 
 .. raw:: html
 
-    <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../example-data/farmer-social.json"></script>
+    <button class="btn btn-example-data" onclick="$('#example-data-farmer-social').toggle(300)">Farmer Social Example Data</button>
+    <div id="example-data-farmer-social" style="display: none;">
 
+.. literalinclude:: _static/example-data/farmer-social.json
+   :linenos:
+
+.. raw:: html
+
+    </div>
 
 2.2.1 Poverty level
 -------------------
@@ -362,9 +380,15 @@ The general farm characteristics
 
 .. raw:: html
 
-    <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../example-data/farm-general.json"></script>
+    <button class="btn btn-example-data" onclick="$('#example-data-farm-general').toggle(300)">Farm General Example Data</button>
+    <div id="example-data-farm-general" style="display: none;">
 
+.. literalinclude:: _static/example-data/farm-general.json
+   :linenos:
+
+.. raw:: html
+
+    </div>
 
 3.1.1 Farm Id
 -------------
@@ -498,9 +522,15 @@ The social farm characteristics
 
 .. raw:: html
 
-    <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../example-data/farm-social.json"></script>
+    <button class="btn btn-example-data" onclick="$('#example-data-farm-social').toggle(300)">Farm Social Example Data</button>
+    <div id="example-data-farm-social" style="display: none;">
 
+.. literalinclude:: _static/example-data/farm-social.json
+   :linenos:
+
+.. raw:: html
+
+    </div>
 
 3.2.1 Labor Practices
 ---------------------
@@ -564,9 +594,15 @@ The economic farm characteristics
 
 .. raw:: html
 
-    <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../example-data/farm-economic.json"></script>
+    <button class="btn btn-example-data" onclick="$('#example-data-farm-economic').toggle(300)">Farm Economic Example Data</button>
+    <div id="example-data-farm-economic" style="display: none;">
 
+.. literalinclude:: _static/example-data/farm-economic.json
+   :linenos:
+
+.. raw:: html
+
+    </div>
 
 3.3.1 Coffee Profit
 -------------------
@@ -702,9 +738,15 @@ The environmental farm characteristics
 
 .. raw:: html
 
-    <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../example-data/farm-environmental.json"></script>
+    <button class="btn btn-example-data" onclick="$('#example-data-farm-environmental').toggle(300)">Farm Environmental Example Data</button>
+    <div id="example-data-farm-environmental" style="display: none;">
 
+.. literalinclude:: _static/example-data/farm-environmental.json
+   :linenos:
+
+.. raw:: html
+
+    </div>
 
 3.4.1 Forest and Ecosystem Protection
 -------------------------------------
@@ -889,9 +931,15 @@ The general plot characteristics
 
 .. raw:: html
 
-    <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../example-data/plot-general.json"></script>
+    <button class="btn btn-example-data" onclick="$('#example-data-plot-general').toggle(300)">Plot General Example Data</button>
+    <div id="example-data-plot-general" style="display: none;">
 
+.. literalinclude:: _static/example-data/plot-general.json
+   :linenos:
+
+.. raw:: html
+
+    </div>
 
 4.1.1 Unique ID of the plot
 ---------------------------
@@ -981,9 +1029,15 @@ The economic plot characteristics
 
 .. raw:: html
 
-    <div class="caption-text">Sample data</div>
-    <script src="_static/docson/widget.js" data-schema="../example-data/plot-economic.json"></script>
+    <button class="btn btn-example-data" onclick="$('#example-data-plot-economic').toggle(300)">Plot Economic Example Data</button>
+    <div id="example-data-plot-economic" style="display: none;">
 
+.. literalinclude:: _static/example-data/plot-economic.json
+   :linenos:
+
+.. raw:: html
+
+    </div>
 
 4.2.1 Yield
 -----------

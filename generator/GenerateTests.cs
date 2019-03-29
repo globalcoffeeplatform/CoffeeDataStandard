@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -293,20 +294,21 @@ namespace Json2Rst
             var exampleData = objectProperties.GetValue("$example-data").ToString();
             if (exampleData.StartsWith("./"))
             {
-                var path = exampleData.Replace("./", "../");
+                var path = exampleData.Replace("./", "_static/");
+                var pos = path.LastIndexOf("/", StringComparison.Ordinal) + 1;
+                var title = path.Substring(pos, path.Length - pos).Replace(".json", ""); 
+                var id = $"example-data-{title}"; 
+                title = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(title.ToLower().Replace("-", " ")) + " Example Data";
 
-                //var tmp = exampleData.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries);
-                //var path = tmp[0].Replace("./", "../");
-                // Use Docson for example data as well:
-                //_sb.AppendLine($"\n.. literalinclude:: {path}");
-                ////_sb.AppendLine("   :language: json-object");
-                //_sb.AppendLine("   :linenos:");
-                //if (tmp.Length == 2) _sb.AppendLine($"   :lines: {tmp[1]}");
-                //_sb.AppendLine("   :caption: Sample data");
+                _sb.AppendLine("\n.. raw:: html\n");
+                _sb.AppendLine($"    <button class=\"btn btn-example-data\" onclick=\"$('#{id}').toggle(300)\">{title}</button>");
+                _sb.AppendLine($"    <div id=\"{id}\" style=\"display: none;\">");
 
-                _sb.AppendLine($"\n.. raw:: html\n");
-                _sb.AppendLine("    <div class=\"caption-text\">Sample data</div>");
-                _sb.AppendLine($"    <script src=\"_static/docson/widget.js\" data-schema=\"{path}\"></script>\n");
+                _sb.AppendLine($"\n.. literalinclude:: {path}");
+                _sb.AppendLine("   :linenos:");
+
+                _sb.AppendLine("\n.. raw:: html\n");
+                _sb.AppendLine($"    </div>");
             }
             else
             {

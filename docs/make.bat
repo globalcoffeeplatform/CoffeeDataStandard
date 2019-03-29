@@ -5,6 +5,10 @@ pushd %~dp0
 REM Paul Meems: Copy schema files to schema folder in documentation:
 xcopy /D /Y ..\schema\*.json  source\_static\schema\
 
+REM Paul Meems: Copy example data files to example data folder in documentation:
+xcopy /D /Y ..\example-data\*.json  source\_static\example-data\
+
+
 REM Command file for Sphinx documentation
 
 if "%SPHINXBUILD%" == "" (

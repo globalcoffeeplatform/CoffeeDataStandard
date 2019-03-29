@@ -1,0 +1,41 @@
+"environmental": {
+  "forestEcosystemProtection": {
+    "areaConvertedLand": {
+      "absoluteArea": 15,
+      "proportiesOfFarm": 100
+    },
+    "ecosystemProtection": 18.58
+  },
+  "fertilizerUse": "Yes",
+  "water": {
+    "waterConservation": {
+      "dripIrrigation": "No",
+      "waterCatchments": "Yes",
+      "waterEfficientProcessing": "No"
+    },
+    "waterContamination": {
+      "preventUntreatedWater": "Yes",
+      "noPesticideCleaningNearWater": "No",
+      "noLivestockNearWater": "Yes",
+      "noDomesticDischarge": "Yes"
+    }
+  },
+  "pestControl": {
+    "ipmPractices": {
+      "conductRegularVisualExaminations": "Yes",
+      "pestRepelSpecies": "No",
+      "useNaturalPesticides": "Yes",
+      "applyAfterIdentifying": "No",
+      "predatorPlaces": "Yes",
+      "recordPestInfestation": "No"
+    },
+    "useOfBannedPesticides": "No"
+  },
+  "soilConservation": {
+    "checkDams": "Yes",
+    "interplanting": "No",
+    "contourPlanting": "No",
+    "recyclingOrganicMatter": "Yes",
+    "liveFences": "Yes"
+  }
+}

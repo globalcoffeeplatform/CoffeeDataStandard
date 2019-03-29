@@ -1,0 +1,47 @@
+"general": {
+  "plotId": {
+    "identifier": "pl956304",
+    "organisation": "Land registry Burundi",
+    "timestamp": "1999-02-28"
+  },
+  "farmId": {
+    "identifier": "2345",
+    "organisation": "Land register of Burundi",
+    "timestamp": "1998-12-28"
+  },
+  "boundary": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          100.0,
+          0.0
+        ],
+        [
+          101.0,
+          0.0
+        ],
+        [
+          101.0,
+          1.0
+        ],
+        [
+          100.0,
+          1.0
+        ],
+        [
+          100.0,
+          0.0
+        ]
+      ]
+    ]
+  },
+  "area": 145.57,
+  "thirdPartyIds": [
+    {
+      "identifier": "pl956306",
+      "organisation": "Land registry Burundi",
+      "timestamp": "2005-01-12"
+    }
+  ]
+}

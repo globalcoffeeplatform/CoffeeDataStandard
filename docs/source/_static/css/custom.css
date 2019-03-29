@@ -70,3 +70,9 @@ div.topic p.topic-title {
 div:not(#contents).topic p.topic-title {
     display: none;
 }
+
+button.btn-example-data {
+    background-color: #4e917a !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

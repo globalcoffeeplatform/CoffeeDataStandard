@@ -1,0 +1,14 @@
+"social": {
+  "laborPractices": {
+    "prohibitingDiscrimination": "Yes",
+    "clearContracting": "No",
+    "hazardousWorkingCondition": "Yes",
+    "rightToOrganise": "Yes"
+  },
+  "wages": {
+    "wagesProcessing": 4,
+    "wagesHarvesting": 14,
+    "wagesCoffee": 16,
+    "nationalMinimumWage": 12.5
+  }
+}

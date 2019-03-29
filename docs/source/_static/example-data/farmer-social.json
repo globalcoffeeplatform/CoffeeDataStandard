@@ -1,0 +1,11 @@
+"social": {
+  "povertyLevel": {
+    "householdMembers": 3,
+    "totalHouseholdIncome": 20.58
+  },
+  "childLabor": {
+    "schoolAgeHouseholdMembers": 33.3,
+    "hazardousProhibition": "No"
+  },
+  "hunger": 0
+}
