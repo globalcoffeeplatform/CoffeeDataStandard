@@ -12,8 +12,10 @@ namespace Json2Rst
     [TestClass]
     public class GenerateTests
     {
-        private const string JsonInputFile = @"D:\dev\GlobalCoffeeDataStandard\git\schema\global-coffee-data-standard.schema.json";
-        private const string OutputFile = @"D:\dev\GlobalCoffeeDataStandard\git\docs\source\explanation.rst";
+        private const string WorkingPath = @"D:\dev\GlobalCoffeeDataStandard\git\";
+        private readonly string _jsonInputFile = Path.Combine(WorkingPath, @"schema\global-coffee-data-standard.schema.json");
+        private readonly string _outputFile = Path.Combine(WorkingPath, @"docs\source\explanation.rst");
+        private readonly string _testdataFile = Path.Combine(WorkingPath, @"example-data\testset.json");
 
         private TitleNumber _titleNumber;
         private readonly StringBuilder _sb = new StringBuilder();
@@ -28,7 +30,7 @@ namespace Json2Rst
         [TestMethod]
         public void ParseGlobalCoffeeDataStandardSchema()
         {
-            var jsonObject = JObject.Parse(File.ReadAllText(JsonInputFile));
+            var jsonObject = JObject.Parse(File.ReadAllText(_jsonInputFile));
             Assert.IsNotNull(jsonObject, "No JSON parsed");
 
             WriteDynamicProperties(jsonObject);
@@ -72,11 +74,45 @@ namespace Json2Rst
             //}
             
             SaveFile();
+
+            SplitJsonTestdata();
+        }
+
+        //[TestMethod]
+        //public void SplitJsonTest()
+        //{
+        //    SplitJsonTestdata();
+        //}
+
+        private void SplitJsonTestdata()
+        {
+            if (!File.Exists(_testdataFile)) throw new FileNotFoundException(_testdataFile);
+
+            var basePath = Path.GetDirectoryName(_testdataFile);
+            if (basePath == null) throw new ArgumentNullException($"Can't get base path from {_testdataFile}");
+
+            Debug.WriteLine(basePath);
+            dynamic jsonObject = JObject.Parse(File.ReadAllText(_testdataFile));
+            Assert.IsNotNull(jsonObject, "No JSON parsed");
+
+            File.WriteAllText(Path.Combine(basePath, "metadata.json"),  "\"metadata\": " + jsonObject.metadata.ToString());
+
+            File.WriteAllText(Path.Combine(basePath, "farmer-general.json"), "\"general\": " + jsonObject.farmer.general.ToString());
+            File.WriteAllText(Path.Combine(basePath, "farmer-social.json"), "\"social\": " + jsonObject.farmer.social.ToString());
+
+            File.WriteAllText(Path.Combine(basePath, "farm-general.json"), "\"general\": " + jsonObject.farm.general.ToString());
+            File.WriteAllText(Path.Combine(basePath, "farm-social.json"), "\"social\": " + jsonObject.farm.social.ToString());
+            File.WriteAllText(Path.Combine(basePath, "farm-economic.json"), "\"economic\": " + jsonObject.farm.economic.ToString());
+            File.WriteAllText(Path.Combine(basePath, "farm-environmental.json"), "\"environmental\": " + jsonObject.farm.environmental.ToString());
+
+            File.WriteAllText(Path.Combine(basePath, "plot-general.json"), "\"general\": " + jsonObject.plot.general.ToString());
+            File.WriteAllText(Path.Combine(basePath, "plot-economic.json"), "\"economic\": " + jsonObject.plot.economic.ToString());
+
         }
 
         private void SaveFile()
         {
-            using (var file = new StreamWriter(OutputFile, false))
+            using (var file = new StreamWriter(_outputFile, false))
             {
                 file.WriteLine(_sb.ToString());
                 Debug.WriteLine("File saved");
@@ -259,11 +295,16 @@ namespace Json2Rst
             {
                 var tmp = exampleData.Split(new[] {'|'}, StringSplitOptions.RemoveEmptyEntries);
                 var path = tmp[0].Replace("./", "../../");
-                _sb.AppendLine($"\n.. literalinclude:: {path}");
-                //_sb.AppendLine("   :language: json-object");
-                _sb.AppendLine("   :linenos:");
-                if (tmp.Length == 2) _sb.AppendLine($"   :lines: {tmp[1]}");
-                _sb.AppendLine("   :caption: Sample data");
+                // Use Docson for example data as well:
+                //_sb.AppendLine($"\n.. literalinclude:: {path}");
+                ////_sb.AppendLine("   :language: json-object");
+                //_sb.AppendLine("   :linenos:");
+                //if (tmp.Length == 2) _sb.AppendLine($"   :lines: {tmp[1]}");
+                //_sb.AppendLine("   :caption: Sample data");
+
+                _sb.AppendLine($"\n.. raw:: html\n");
+                _sb.AppendLine("    <div class=\"caption-text\">Sample data</div>");
+                _sb.AppendLine($"    <script src=\"_static/docson/widget.js\" data-schema=\"../schema{path}\"></script>\n");
             }
             else
             {

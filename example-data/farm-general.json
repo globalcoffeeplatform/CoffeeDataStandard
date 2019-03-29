@@ -1,0 +1,28 @@
+"general": {
+  "farmId": {
+    "identifier": "2345",
+    "organisation": "Land register of Burundi",
+    "timestamp": "1998-12-28"
+  },
+  "farmerId": {
+    "organisation": "Chamber of Commerce, Burundi",
+    "identifier": "1035413151",
+    "timestamp": "2010-05-21"
+  },
+  "address": {
+    "countryName": "Mali",
+    "postalCode": "5987 BL"
+  },
+  "totalFarmSize": 150.25,
+  "totalAreaCoffee": 160.48,
+  "location": {
+    "geoLocation": {
+      "coordinates": [
+        125.25,
+        135.255
+      ],
+      "type": "Point"
+    },
+    "positionTakenAt": "Location of the front door of the head office"
+  }
+}

@@ -18,7 +18,7 @@
   "properties": {
     "metadata": {
       "title": "Metadata",
-      "$example-data": "./example-data/testset.json|2-13",
+      "$example-data": "./example-data/metadata.json",
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -81,7 +81,7 @@
           "description": "The general farmer characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|15-50",
+          "$example-data": "./example-data/farmer-general.json",
           "required": [
             "farmerId",
             "name",
@@ -159,7 +159,7 @@
           "description": "The social farmer characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|51-61",
+          "$example-data": "./example-data/farmer-social.json",
           "required": [
             "povertyLevel",
             "childLabor",
@@ -206,7 +206,7 @@
           "description": "The general farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|64-91",
+          "$example-data": "./example-data/farm-general.json",
           "required": [
             "farmId",
             "farmerId",
@@ -269,7 +269,7 @@
           "description": "The social farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|92-105",
+          "$example-data": "./example-data/farm-social.json",
           "required": [
             "laborPractices",
             "wages"
@@ -294,7 +294,7 @@
           "description": "The economic farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|106-147",
+          "$example-data": "./example-data/farm-economic.json",
           "required": [
             "coffeeProfit",
             "productivity",
@@ -341,7 +341,7 @@
           "description": "The environmental farm characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|148-188",
+          "$example-data": "./example-data/farm-environmental.json",
           "required": [
             "forestEcosystemProtection",
             "fertilizerUse",
@@ -402,7 +402,7 @@
           "description": "The general plot characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|191-237",
+          "$example-data": "./example-data/plot-general.json",
           "required": [
             "plotId",
             "farmId",
@@ -456,7 +456,7 @@
           "description": "The economic plot characteristics",
           "type": "object",
           "additionalProperties": false,
-          "$example-data": "./example-data/testset.json|238-241",
+          "$example-data": "./example-data/plot-economic.json",
           "required": [
             "yield",
             "productivity"

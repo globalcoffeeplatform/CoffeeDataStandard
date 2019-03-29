@@ -17,10 +17,11 @@ This project displays the initial basic common indicators for farm-level coffee 
    **Type**: *object*
 
 
-.. literalinclude:: ../../example-data/testset.json
-   :linenos:
-   :lines: 2-13
-   :caption: Sample data
+.. raw:: html
+
+    <div class="caption-text">Sample data</div>
+    <script src="_static/docson/widget.js" data-schema="../schema../../example-data/metadata.json"></script>
+
 
 1.1 Coffee Dataset Id
 ^^^^^^^^^^^^^^^^^^^^^
@@ -118,10 +119,11 @@ The farmer characteristics
 The general farmer characteristics
 
 
-.. literalinclude:: ../../example-data/testset.json
-   :linenos:
-   :lines: 15-50
-   :caption: Sample data
+.. raw:: html
+
+    <div class="caption-text">Sample data</div>
+    <script src="_static/docson/widget.js" data-schema="../schema../../example-data/farmer-general.json"></script>
+
 
 2.1.1 Unique ID of the farmer
 -----------------------------
@@ -260,10 +262,11 @@ When this dataset is reused by another organisation who needs to use their own G
 The social farmer characteristics
 
 
-.. literalinclude:: ../../example-data/testset.json
-   :linenos:
-   :lines: 51-61
-   :caption: Sample data
+.. raw:: html
+
+    <div class="caption-text">Sample data</div>
+    <script src="_static/docson/widget.js" data-schema="../schema../../example-data/farmer-social.json"></script>
+
 
 2.2.1 Poverty level
 -------------------
@@ -357,10 +360,11 @@ The farm characteristics
 The general farm characteristics
 
 
-.. literalinclude:: ../../example-data/testset.json
-   :linenos:
-   :lines: 64-91
-   :caption: Sample data
+.. raw:: html
+
+    <div class="caption-text">Sample data</div>
+    <script src="_static/docson/widget.js" data-schema="../schema../../example-data/farm-general.json"></script>
+
 
 3.1.1 Farm Id
 -------------
@@ -492,10 +496,11 @@ When this dataset is reused by another organisation that needs to use their own 
 The social farm characteristics
 
 
-.. literalinclude:: ../../example-data/testset.json
-   :linenos:
-   :lines: 92-105
-   :caption: Sample data
+.. raw:: html
+
+    <div class="caption-text">Sample data</div>
+    <script src="_static/docson/widget.js" data-schema="../schema../../example-data/farm-social.json"></script>
+
 
 3.2.1 Labor Practices
 ---------------------
@@ -557,10 +562,11 @@ Organisations may wish to participate in working groups to define and measure li
 The economic farm characteristics
 
 
-.. literalinclude:: ../../example-data/testset.json
-   :linenos:
-   :lines: 106-147
-   :caption: Sample data
+.. raw:: html
+
+    <div class="caption-text">Sample data</div>
+    <script src="_static/docson/widget.js" data-schema="../schema../../example-data/farm-economic.json"></script>
+
 
 3.3.1 Coffee Profit
 -------------------
@@ -694,10 +700,11 @@ Detailed methodology developed by the SPF Working Group (not a farmer level metr
 The environmental farm characteristics
 
 
-.. literalinclude:: ../../example-data/testset.json
-   :linenos:
-   :lines: 148-188
-   :caption: Sample data
+.. raw:: html
+
+    <div class="caption-text">Sample data</div>
+    <script src="_static/docson/widget.js" data-schema="../schema../../example-data/farm-environmental.json"></script>
+
 
 3.4.1 Forest and Ecosystem Protection
 -------------------------------------
@@ -880,10 +887,11 @@ The plot characteristics. This is an example of what is possible. The plot prope
 The general plot characteristics
 
 
-.. literalinclude:: ../../example-data/testset.json
-   :linenos:
-   :lines: 191-237
-   :caption: Sample data
+.. raw:: html
+
+    <div class="caption-text">Sample data</div>
+    <script src="_static/docson/widget.js" data-schema="../schema../../example-data/plot-general.json"></script>
+
 
 4.1.1 Unique ID of the plot
 ---------------------------
@@ -971,10 +979,11 @@ When this dataset is reused by another organisation who needs to use their own G
 The economic plot characteristics
 
 
-.. literalinclude:: ../../example-data/testset.json
-   :linenos:
-   :lines: 238-241
-   :caption: Sample data
+.. raw:: html
+
+    <div class="caption-text">Sample data</div>
+    <script src="_static/docson/widget.js" data-schema="../schema../../example-data/plot-economic.json"></script>
+
 
 4.2.1 Yield
 -----------
